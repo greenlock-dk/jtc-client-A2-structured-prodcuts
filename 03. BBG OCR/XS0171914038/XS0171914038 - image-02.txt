@@ -1,0 +1,58 @@
+LL0YDS Float 07/14/18 $ Matured
+LL0YDS Float 07/14/18 (
+Actions -
+Settings
+CALLED
+94  Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Additional Information
+10 Bond Info
+51) Details
+53) Cpn
+56) Struct
+57) ECB/EU
+58) Wgts
+12 Addtl Info
+Issuer
+13 Reg/Tax
+14 Covenants
+Obligor
+Lloyds Bank PLC
+15 Guarantors
+Sector
+Financials
+10 Bond Ratings
+Other
+1) Identifiers
+Country/Region of Risk
+GB
+18 Exchanges
+1st Settle Date
+07/14/2003
+19) Inv Parties
+20 Fees, Restrict
+Interest Accrual Date
+07/14/2003
+21) Schedules
+22 Coupons
+23) Sustainability
+Quick Links
+32 ALLQ
+Pricing
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+35 CACS
+Corp Action
+Filings
+37 CN
+Sec News
+30 HDS
+Holders
+66 Send Bond

@@ -1,0 +1,92 @@
+Data not provided by Bloomberg
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+20 Issuer Description
+27) BI Credit Research ↓ BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+MORGAN STANLEY BV
+FIGI
+BBG005ZQ5RW2
+12 Addtl Info
+Industry
+Brokerage Assetmanagers Exchanges...
+ISIN
+XS1028242706
+13) Reg/Tax
+Security Information
+ID Number
+14 Covenants
+RE3600005
+15) Guarantors
+Mkt Iss
+EURO MTN
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg NL
+Currency
+USD
+17) Identifiers
+Rank
+Sr Unsecured
+Series
+0001
+18 Exchanges
+Coupon
+0
+Type
+Zero
+19) Inv Parties
+20 Fees, Restrict
+Cpn Freq
+21) Schedules
+Day Cnt ACT/ACT
+Iss Price
+Issuance & Trading
+22 Coupons
+Maturity 02/14/2020
+AmtIssued/outstanding
+23) Sustainability
+BULLET
+USD
+850.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+32 ALLQ
+Pricing
+Calc Type (99)*NO CALCULATIONS*
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Pricing Date
+01/31/2014
+Trade Hist
+1,000.00/ 1,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+Par Amount
+1,000.00
+36 CF
+Filings
+1st Settle Date
+02/14/2014
+Book Runner
+MS-sole
+37 CN
+Sec News
+1st Coupon Date
+Exchange
+NOT LISTED
+38 HDS
+Holders
+60 Send Bond
+instfeed@ms.c0m (212) 761-4000

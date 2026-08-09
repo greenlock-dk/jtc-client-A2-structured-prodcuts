@@ -1,0 +1,98 @@
+UBS 0 05/28/20 $ Matured
+UBS 0 05/28/20 Corp
+Actions
+Settings
+Data not provided by Bloomberg
+94 Notes
+95 Buy
+96) Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+CREDIT SUISSE NASSAU
+FIGI
+BBG0092FS9R5
+12 Addtl Info
+13 Reg/Tax
+Industry
+Banking (BCLASS)
+ISIN
+CH0252328973
+14 Covenants
+Security
+y Information
+ID Number
+RF8536292
+15 Guarantors
+Mkt Iss
+EURO MTN
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg
+CH
+Currency
+USD
+1) Identifiers
+Rank
+Sr Unsecured
+Series
+0003
+18 Exchanges
+Coupon
+0
+Type
+Zero
+19 Inv Parties
+Cpn Freq
+20 Fees, Restrict
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+Issuance & Trading
+22 Coupons
+Maturity 05/28/2020
+Amt Issued/outstanding
+23) Sustainability
+BULLET
+USD
+(M)
+Quick Links
+Iss Sprd
+USD
+(M)
+30 ALLQ
+Pricing
+Calc Type (99)*NO CALCULATIONS*
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+05/28/2015
+1,000.00/ 1,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+Par Amount
+1,000.00
+Filings
+1st Settle Date
+05/28/2015
+Book Runner
+CS-sole
+37 CN
+Sec News
+1st Coupon Date
+Exchange
+SIX Swiss (SP)
+38 HDS
+Holders
+SECURITY NOT CREATED BY BLOOMBERG For questionS, contact: Market Data Trade
+66 Send Bond
+2ls.marketdata@credit-suisse.com 41443344800

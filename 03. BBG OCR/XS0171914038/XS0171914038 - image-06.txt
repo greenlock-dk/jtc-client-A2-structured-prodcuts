@@ -1,0 +1,62 @@
+LL0YDS Float 07/14/18 $ Matured
+LLOYDS Float 07/14/18 (
+Actions -
+Settings
+Page
+CALLED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Coupons
+11) Bond Info
+51) Coupons
+55) Coupon Formula
+12 Addtl Info
+Paying Index
+N/A
+13 Reg/Tax
+14 Covenants
+Observation Index
+Interbank Rate
+15) Guarantors
+Convention
+Unknown
+10 Bond Ratings
+Cap
+1) Identifiers
+Floor
+18 Exchanges
+Structure Type
+Range Accrual
+19) Inv Parties
+20 Fees, Restrict
+Range Coupon Formula
+21) Schedules
+Date Coupon Formula
+Range
+22 Coupons
+07/14/2003 (6.750000% Fixed)*n/N
+0.0000< US0006M Index< 7.2500
+23) Sustainability
+Quick Links
+30 ALLQ
+Pricing
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+35) CACS
+Corp Action
+4 98
+Filings
+37 CN
+Sec News
+38 HDS
+Holders
+n = # Of Business Days in the Period That Satisfy the Indexing Formula
+60 Send Bond
+N = Total # of Business Days in the Accrual Period

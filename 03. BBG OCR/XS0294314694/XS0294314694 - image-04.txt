@@ -1,0 +1,67 @@
+LOYDS F1oat 04/02/22 $ Matured
+LLOYDS Float 04/02/22 (
+Actions
+Settings
+MATURED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC ≥
+Pages
+Coupons
+10 Bond Info
+51) Coupons
+55) Coupon Formula
+12 Addtl Info
+Paying Index
+N/A
+13 Reg/Tax
+14 Covenants
+Observation Index
+Interbank Rate
+15 Guarantors
+Convention
+Unknown
+10 Bond Ratings
+Cap
+17) Identifiers
+Floor
+18 Exchanges
+Structure Type
+Range Accrual
+19) Inv Parties
+20 Fees, Restrict
+Range Coupon Formula
+21) Schedules
+Date Coupon Formula
+Range
+22 Coupons
+04/02/2007 7.250000% Fixed
+NONE
+23) Sustainability
+04/02/2009 (7.250000% Fixed)*n/N
+0.0000< US0003MIndex< 7.0000
+Quick Links
+04/02/2012 (7.500000% Fixed)*n/N
+0.0000< US0003M Index< 7.5000
+30 ALLQ
+Pricing
+04/02/2017 (8.000000% Fixed)*n/N
+Qt Recap
+0.0000<US0003MIndex<8.0000
+33 QRD
+34 TDH
+Trade Hist
+35) CACS
+Corp Action
+30 CF
+Filings
+3) CN
+Sec News
+30 HDS
+Holders
+n = # Of Business Days in the Period That Satisfy the Indexing Formula
+66 Send Bond
+N = Total # of Business Days in the Accrual Period

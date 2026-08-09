@@ -1,0 +1,100 @@
+CALLED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+LLOYDS TSB BANK PLC
+FIGI
+BBG00080KST5
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0172077769
+13) Reg/Tax
+14 Covenants
+Security Information
+ID Number
+ED0554300
+15) Guarantors
+Mkt Iss
+EURO MTN
+Rnge Acc-Step Up Rn....
+Bond Ratings
+10 Bond Ratings
+Ctry/Reg
+GB
+Currency
+USD
+DBRS
+AAL
+17) Identifiers
+Rank
+Unsecured
+Series
+MTN2
+18 Exchanges
+Est Cpn
+Type
+Variable
+19) Inv Parties
+20) Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ACT/ACT
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 07/16/2018
+Amt Issued/Outstanding
+23) Sustainability
+CALLED 0N 04/14/08@100.00
+USD
+6,200.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+06/27/2003
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+1st Coupon Date
+10/14/2003
+Par Amount
+10,000.00
+36 CF
+Filings
+Call Announcement Date
+04/07/2008
+Book Runner
+GSI
+37 CN
+Sec News
+Call Effective Date
+04/14/2008
+Exchange
+NOT LISTED
+38 HDS
+Holders
+CPN=7.25% *(#DAYS 6MO US$LIBOR IS WITHIN RANGE/ #DAYS WITHIN EA ACCRL
+660 Send Bond
+PRD).
+LONG LAST CPN.

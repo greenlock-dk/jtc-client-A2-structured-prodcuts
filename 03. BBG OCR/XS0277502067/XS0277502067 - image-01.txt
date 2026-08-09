@@ -1,0 +1,95 @@
+MATURED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research  BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+COMMONWEALTH BANK AUST
+FIGI
+BBG0008GQRD3
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0277502067
+13) Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EF9253305
+15) Guarantors
+Mkt Iss
+EURO MTN
+Range Accrual
+Bond Ratings
+10 Bond Ratings
+Ctry/Reg AU
+Currency
+USD
+17) Identifiers
+Rank
+Unsecured
+Series
+EMTN
+18 Exchanges
+Est Cpn
+Type
+Variable
+19) Inv Parties
+20 Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 12/14/2021
+Amt Issued/Outstanding
+23) Sustainability
+USD
+5,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+11/24/2006
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+12/14/2006
+Par Amount
+10,000.00
+36 CF
+Filings
+1st Settle Date
+12/14/2006
+Book Runner
+NOMURA
+37 CN
+Sec News
+1st Coupon Date
+03/14/2007
+Exchange
+NOT LISTED
+38 HDS
+Holders
+CPN=X TO 12/7; PREV CPN T0 12/9;THEN X. X=Y*(#DAYS 3M0 US$LIB0R IS WITHIN
+66 Send Bond
+RANGE//#DAYS WITHIN EA ACCRL PRD). ENTIRE ISSUE REDEEMED

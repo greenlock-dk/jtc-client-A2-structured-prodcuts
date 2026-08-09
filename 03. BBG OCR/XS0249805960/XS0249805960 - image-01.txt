@@ -1,0 +1,96 @@
+MATURED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+BANQUE INTERNATIONAL LUX
+FIGI
+BBG00005NC69
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0249805960
+13) Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EF3448257
+15) Guarantors
+Mkt Iss
+EURO MTN
+Ratchet
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg LU
+Currency
+USD
+17) Identifiers
+Rank
+Sr Unsecured
+Series
+EMTN
+18 Exchanges
+Est Cpn
+0.000000
+Type
+Variable
+19) Inv Parties
+20 Fees, Restrict
+Formula
+21) Schedules
+Day Cnt
+ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 05/11/2021
+AmtIssued/outstanding
+23) Sustainability
+USD
+17,200.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+03/28/2006
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+05/11/2006
+Par Amount
+10,000.00
+36 CF
+Filings
+1st Settle Date
+05/11/2006
+Book Runner
+NOMURA
+37 CN
+Sec News
+1st Coupon Date
+08/11/2006
+Exchange
+NOT LISTED
+38 HDS
+Holders
+CPN=X*(#DAYS 6MO US$LIBOR W/IN RNGE /#DAYS W/IN ACCRL PD).X=7.5% TO
+60 Send Bond
+5/7;THEN PRVCPN.RNGE=4.25%-INFINITY TO 4/7;4%-INFIN TO 5/8;0%-6.25% T0 -

@@ -1,0 +1,63 @@
+CALLED
+94 Notes
+95 Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Coupons
+11) Bond Info
+51) Coupons
+55 Coupon Formula
+12 Addtl Info
+Paying Index
+Interbank Rate
+13 Reg/Tax
+14 Covenants
+Observation Index
+Interbank Rate
+15) Guarantors
+Convention
+Mod-Unadj eff 07/14/2003
+16 Bond Ratings
+Cap
+1) Identifiers
+Floor
+18 Exchanges
+Structure Type
+Rnge Acc-Step Up Rnge
+19) Inv Parties
+20) Fees, Restrict
+Range Coupon Formula
+21) Schedules
+Date Coupon Formula
+Range
+22 Coupons
+07/14/2003 (7.250000% Fixed)*n/N
+0.0000<US0006MIndex<3.0000
+23) Sustainability
+07/14/2004 (7.250000% Fixed)*n/N
+0.0000< US0006M Index< 4.0000
+Quick Links
+07/14/2005 (7.250000% Fixed)*n/N
+0.0000< US0006M Index< 5.0000
+32 ALLQ
+Pricing
+07/14/2006 (7.250000% Fixed)*n/N
+Qt Recap
+0.0000<US0006MIndex<7.0000
+33 QRD
+34 TDH
+Trade Hist
+35 CACS
+Corp Action
+36 CF
+Filings
+37 CN
+Sec News
+38 HDS
+Holders
+n = # Of Business Days in the Period That Satisfy the Indexing Formula
+60 Send Bond
+N = Total # of Business Days in the Accrual Period

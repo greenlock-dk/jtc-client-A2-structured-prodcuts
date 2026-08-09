@@ -1,0 +1,97 @@
+CALLED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+COMMONWEALTH BANK AUST
+FIGI
+BBG00099TDR1
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0293931688
+13) Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EG3042587
+15) Guarantors
+Mkt Iss
+EURO MTN
+Range Accrual
+Bond Ratings
+10 Bond Ratings
+Ctry/Reg AU
+Currency
+USD
+Fitch
+AA
+17) Identifiers
+Rank
+Unsecured
+Series
+EMtN
+18 Exchanges
+Est Cpn
+Type
+Variable
+19) Inv Parties
+20 Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 04/10/2022
+AmtIssued/outstanding
+23) Sustainability
+CALLED 0N 04/14/09@100.00
+USD
+3,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+32 ALLQ
+Pricing
+Calc Type (198)NO CALC-FL0ATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+03/22/2007
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+1st Coupon Date
+07/10/2007
+Par Amount
+10,000.00
+36 CF
+Filings
+Call Announcement Date
+04/14/2009
+Book Runner
+NOMURA
+37 CN
+Sec News
+Call Effective Date
+04/14/2009
+Exchange
+NOT LISTED
+38 HDS
+Holders
+PRVT PLCMT.
+60 Send Bond

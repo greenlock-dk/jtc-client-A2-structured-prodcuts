@@ -1,0 +1,64 @@
+CALLED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+Pages
+Coupons
+11) Bond Info
+51) Coupons
+55) Coupon Formula
+12 Addtl Info
+Paying Index
+N/A
+13) Reg/Tax
+14 Covenants
+Observation Index
+Interbank Rate
+15) Guarantors
+Convention
+Mod-Unadj eff
+16 Bond Ratings
+Cap
+1) Identifiers
+Floor
+18 Exchanges
+Structure Type
+Ratchet,Ratchet Range,Snowbear
+19) Inv Parties
+20 Fees, Restrict
+Range Coupon Formula
+21) Schedules
+Date Coupon Formula
+Range
+22 Coupons
+02/10/20067.250000%Fixed
+NONE
+23) Sustainability
+02/10/2007
+(PREV CPN+0.050000%)*n/N
+0.0000<US0003MIndex<7.2500
+Quick Links
+02/10/2011(
+(PREV CPN+0.150000%)*n/N
+0.0000< US0003MIndex< 8.0000
+32 ALLQ
+Pricing
+02/10/2016(PREVCPN+0.250000%)*n/N
+0.0000<US0003MIndex<9.0000
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+35 CACS
+Corp Action
+36 CF
+Filings
+37 CN
+Sec News
+38 HDS
+Holders
+n = # Of Business Days in the Period That Satisfy the Indexing Formula
+60 Send Bond
+N = Total # of Business Days in the Accrual Period

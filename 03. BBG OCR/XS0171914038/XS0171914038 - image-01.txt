@@ -1,0 +1,102 @@
+LL0YDS F1oat 07/14/18 $ Matured
+LLOYDS Float 07/14/18 (
+Actions -
+Settings
+CALLED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+LLOYDS TSB BANK PLC
+FIGI
+BBG00080KSS6
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0171914038
+13 Reg/Tax
+14 Covenants
+Security Information
+ID Number
+ED0423944
+15) Guarantors
+Mkt Iss
+EURO MTN
+Range Accrual
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg
+1GB
+Currency
+USD
+DBRS
+AAL
+1) Identifiers
+Rank
+Unsecured
+Series
+MTN1
+18 Exchanges
+Est Cpn
+Type
+Variable
+19) Inv Parties
+20 Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 07/14/2018
+Amt Issued/Outstanding
+23) Sustainability
+CALLED 0N 04/14/08@100.00
+USD
+30,850.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+06/26/2003
+50,000.00/ 50,000.00
+35 CACS
+Corp Action
+1st Coupon Date
+10/14/2003
+Par Amount
+50,000.00
+36 CF
+Filings
+Call Announcement Date
+04/07/2008
+Book Runner
+NOMURA
+37 CN
+Sec News
+Call Effective Date
+04/14/2008
+Exchange
+NOT LISTED
+38 HDS
+Holders
+660 Send Bond
+PRD).

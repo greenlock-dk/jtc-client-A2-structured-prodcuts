@@ -1,0 +1,92 @@
+MATURED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research ↓ BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+COMMONWEALTH BANK AUST
+FIGI
+BBG00081GLF8
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+13 Reg/Tax
+XS0297467705
+14 Covenants
+Security Information
+ID Number
+EG3798311
+15) Guarantors
+Mkt Iss
+EURO MTN
+Rnge Acc-Step Up Rn... Bond Ratings
+10 Bond Ratings
+Ctry/Reg AU
+Currency
+USD
+17) Identifiers
+Rank
+Unsecured
+Series
+EMTN
+18 Exchanges
+Coupon
+0.000000
+Type
+Fixed to V...
+19) Inv Parties
+20 Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ISMA-30/360 N.. Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 04/30/2022
+AmtIssued/Outstanding
+23) Sustainability
+USD
+5,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (521)ACCRUED ONLY FLOAT
+Qt Recap
+Min Piece/Increment
+33 QRD
+34 TDH
+Trade Hist
+Pricing Date
+04/17/2007
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+04/30/2007
+Par Amount
+10,000.00
+36 CF
+Filings
+1st Settle Date
+04/30/2007
+Book Runner
+NOMURA
+3) CN
+Sec News
+1st Coupon Date
+07/30/2007
+Exchange
+NOT LISTED
+38 HDS
+Holders
+60 Send Bond

@@ -1,0 +1,76 @@
+UBS 0 05/28/20 $ Matured
+JBS005/28/20Corp
+Actions
+Settings
+Data not provided by Bloomberg
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Additional Information
+11 Bond Info
+51) Details
+53) Cpn
+56) Struct
+57) ECB/EU
+58) Wgts
+59) Var Red
+12 Addtl Info
+Redemption Information
+13) Reg/Tax
+14 Covenants
+Formula
+15) Guarantors
+Initial Valuation Date05/20/15
+Final Valuation Date 05/20/20
+16 Bond Ratings
+Observation Dates
+05/20/20
+1) Identifiers
+Observation Method
+18 Exchanges
+Conditions
+Maximum Redemption = 100.00. Minimum Redemption = N.A.
+19) Inv Parties
+20 Fees, Restrict
+21) Schedules
+Underlying for Variable Principal / Interest Redemption
+22 Coupons
+Underlying
+Weight Init Value
+Strike
+Up Barr Low Barr# Shares
+23) Sustainability
+71) SPX Index
+10000.00(2125.8500(
+0.00000
+0.00000 1169.22001
+0.00000
+Quick Links
+72) SMI Index
+10000.00(9319.9000(
+0.00000
+0.00000 5125.9500
+0.00000
+30 ALLQ
+Pricing
+33 QRD
+Qt Recap
+Credit Linked Underlying
+34 TDH
+Trade Hist
+35 CACS
+Corp Action
+Underlying
+Weight
+Initial Value
+36 CF
+Filings
+37 CN
+Sec News
+30 HDS
+Holders
+Bond

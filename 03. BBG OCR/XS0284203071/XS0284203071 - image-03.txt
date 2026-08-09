@@ -1,0 +1,57 @@
+MATURED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research ↓ BICC >
+Pages
+Coupons
+11) Bond Info
+51) Coupons
+55) Coupon Formula
+12 Addtl Info
+Paying Index
+N/A
+13 Reg/Tax
+14 Covenants
+Observation Index
+CMS Spread
+15) Guarantors
+Convention
+Unknown
+16 Bond Ratings
+Cap
+1) Identifiers
+Floor
+18 Exchanges
+Structure Type
+Range Accrual
+19) Inv Parties
+20 Fees, Restrict
+Range Coupon Formula
+21) Schedules
+Date Coupon Formula
+Range
+22 Coupons
+02/14/2007 (9.500000% Fixed)*n/N
+0.000<USSw20Index-USSw2In..
+23) Sustainability
+Quick Links
+32 ALLQ
+Pricing
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+35 CACS
+Corp Action
+36 CF
+Filings
+37 CN
+Sec News
+38 HDS
+Holders
+n = # Of Business Days in the Period That Satisfy the Indexing Formula
+60 Send Bond
+N = Total # of Business Days in the Accrual Period

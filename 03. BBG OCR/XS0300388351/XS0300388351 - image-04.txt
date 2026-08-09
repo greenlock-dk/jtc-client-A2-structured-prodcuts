@@ -1,0 +1,101 @@
+CBAAU F1oat 05/30/17 $ Matured
+CBAAU Float 05/30/17 C
+Actions -
+Settings
+MATURED
+94 Notes
+95 Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research  BICC >
+Pages
+Coupons
+11 Bond Info
+51) Coupons
+54 FRN Formula
+12 Addtl Info
+Index 1
+USSW30
+Pay Frequency
+Quarterly
+13 Reg/Tax
+14 Covenants
+Index 2
+USSW10
+Refix Frequency
+15) Guarantors
+Spread 1
+0.00000%
+Pay Calendar(s)
+16 Bond Ratings
+Spread 2
+Refix Calendar(s) US
+17) Identifiers
+Multiplier 1
+1.000
+Lookback Day(s)
+18 Exchanges
+Multiplier 2
+-1.000
+Lockout Day(s)
+19) Inv Parties
+Multiplier 3
+100.000
+Obs Shifted Days
+20 Fees, Restrict
+21) Schedules
+Formula Des
+Levered Dual Idx leveraged
+Pay Delay Days
+22 Coupons
+Formula
+100.000*(USSW30-USSW10)+0..
+In Arrears
+N
+23) Sustainability
+Pay Day
+Day 30
+First Irreg Cpn
+Normal
+Quick Links
+Cpn Conv
+Last Irreg Cpn
+Normal
+3D ALLQ
+Pricing
+Day Cnt Conv ISMA-30/360
+Paying Index
+CMS Spread
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Structure Type Dual Index,Leveraged
+35 CACS
+Corp Action
+Coupon Formula Schedule
+36 CF
+Filings
+Effective Dt Reset Idx
+Spread 1
+Spread 2 Day Cnt
+Pay Freq
+Fix Freq
+37 CN
+Sec News
+05/30/07
+10.0000..
+ISMA-3...
+Quarterly
+380 HDS
+Holders
+05/30/08 USSW30
+0.00000%
+ISMA-3...
+Quarterly
+60 Send Bond
+05/30/12USSW30
+0.00000%
+ISMA-3...
+Quarterly

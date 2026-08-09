@@ -1,0 +1,93 @@
+MATURED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+DEXIA BANQUE INTL LUX SA
+FIGI
+BBG0008F1G00
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0304286924
+13) Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EG5173513
+15) Guarantors
+Mkt Iss
+EURO MTN
+Range Accrual
+Bond Ratings
+10 Bond Ratings
+Ctry/Reg LU
+Currency
+USD
+1) Identifiers
+Rank
+Sr Unsecured
+Series
+emtn
+18 Exchanges
+Est Cpn
+Type
+Variable
+19 Inv Parties
+20) Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 06/27/2022
+Amt Issued/Outstanding
+23) Sustainability
+USD
+10,520.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+MinPiece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+05/30/2007
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+06/27/2007
+Par Amount
+10,000.00
+36 CF
+Filings
+1st Settle Date
+06/27/2007
+Book Runner
+NOMURA
+37 CN
+Sec News
+1st Coupon Date
+09/27/2007
+Exchange
+NOT LISTED
+30 HDS
+Holders
+ENTIRE ISSUE REDEEMED.
+60 Send Bond

@@ -1,0 +1,95 @@
+CALLED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+Pages
+Issuer Information
+Identifiers
+11 Bond Info
+Issuer
+BANQUE INTERNATIONAL LUX
+FIGI
+BBG00008TRT9
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0241444883
+13 Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EF2440263
+15) Guarantors
+Mkt Iss
+EURO MTN
+Ratchet
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg LU
+Currency
+USD
+17) Identifiers
+Rank
+Sr Unsecured
+Series
+EMtN
+18 Exchanges
+Est Cpn
+Type
+Fixed to V..
+19 Inv Parties
+Formula
+20 Fees, Restrict
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 02/10/2021
+Amt Issued/Outstanding
+23) Sustainability
+CALLED 0N 02/10/09@100.00
+USD
+5,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+3D ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+01/10/2006
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+1st Coupon Date
+05/10/2006
+Par Amount
+10,000.00
+36 CF
+Filings
+Call Announcement Date
+02/10/2009
+Book Runner
+NOMURA
+37 CN
+Sec News
+Call Effective Date
+02/10/2009
+Exchange
+NOT LISTED
+38 HDS
+Holders
+CPN=7.25% TO 2/07;THEN (PREV CPN +X)*(#DAYS 3MO US$LIBOR IS BTW 0-Y/
+60 Send Bond
+#DAYS W/ EAACC PRD).X=.05% T0 2/11;.15% T0 2/16;THEN .25%.Y=714 % T0 2/11;8..

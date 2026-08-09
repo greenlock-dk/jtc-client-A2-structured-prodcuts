@@ -1,0 +1,88 @@
+CALLED
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Coupons
+11) Bond Info
+Coupon Information
+12 Addtl Info
+Index 1
+USSW6
+Pay Frequency
+Annually
+13 Reg/Tax
+14 Covenants
+Index 2
+Refix Frequency
+15) Guarantors
+Spread 1
+6.38400%
+Pay Calendar(s)
+10 Bond Ratings
+Spread 2
+Refix Calendar(s)
+17) Identifiers
+Multiplier 1
+Lookback Day(s)
+18 Exchanges
+Multiplier 2
+Lockout Day(s)
+19) Inv Parties
+Multiplier 3
+Obs Shifted Days
+20 Fees, Restrict
+21) Schedules
+Formula Des
+s Standard Flt
+Pay Delay Days
+22 Coupons
+Formula
+USSW6+6.38400%
+In Arrears
+N
+23) Sustainability
+Pay Day
+Day 1
+First Irreg Cpn
+Normal
+Quick Links
+Cpn Conv
+Last Irreg Cpn
+Normal
+3D ALLQ
+Pricing
+Day Cnt Conv ISMA-30/360
+Paying Index
+CMS
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Structure Type
+35 CACS
+Corp Action
+Coupon Formula Schedule
+36 CF
+Filings
+Effective Dt Reset Idx
+Spread 1
+Spread 2 Day Cnt
+Pay Freq
+Fix Freq
+37 CN
+Sec News
+03/29/12
+8.25000%
+ISMA-3...
+Annually
+38 HDS
+Holders
+09/01/18USSW6
+6.38400%
+ISMA-3...
+Annually
+60 Send Bond

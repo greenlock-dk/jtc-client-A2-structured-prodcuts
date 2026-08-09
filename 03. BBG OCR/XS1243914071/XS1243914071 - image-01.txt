@@ -1,0 +1,94 @@
+Data not provided by Bloomberg
+94 Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+NOMURA BANK INTL PLC
+FIGI
+BBG009DWKQ69
+12 Addtl Info
+Industry
+Brokerage Assetmanagers Exchanges..
+ISIN
+XS1243914071
+13) Reg/Tax
+14 Covenants
+Security Information
+ID Number
+RF9433085
+15) Guarantors
+Mkt Iss
+EURO-DOLLAR
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg
+GB
+Currency
+USD
+17) Identifiers
+Rank
+Sr Unsecured
+Series
+0000
+18 Exchanges
+Coupon
+0
+Type
+Zero
+19) Inv Parties
+Cpn Freq
+20 Fees, Restrict
+21) Schedules
+Day Cnt ACT/ACT
+Iss Price
+Issuance & Trading
+22 Coupons
+Maturity 06/09/2020
+Amt Issued/Outstanding
+23) Sustainability
+BULLET
+USD
+1,525.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+32 ALLQ
+Pricing
+Calc Type (99)*N0 CALCULATI0NS*
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+06/01/2015
+1,000.00/ 1,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+Par Amount
+1,000.00
+36 CF
+Filings
+1st Settle Date
+06/15/2015
+Book Runner
+NOMURA-Sole
+37 CN
+Sec News
+1st Coupon Date
+Exchange
+NOT LISTED
+38 HDS
+Holders
+SECURITY NOT CREATED BY BLOOMBERG For questionS, Contact: SSGSwitzerland
+60 Send Bond
+SSGSwitzerland@nomura.com +442071033888

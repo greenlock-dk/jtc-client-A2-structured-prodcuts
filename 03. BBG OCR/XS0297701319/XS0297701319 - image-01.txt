@@ -1,0 +1,101 @@
+CBAAU Float 04/30/10 $ Matured
+CBAAU Float 04/30/10 C
+Actions -
+Settings
+MATURED
+94Notes
+95)Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+COMMONWEALTH BANK AUST
+FIGI
+BBG000955J56
+12 Addtl Info
+Industry
+Banking (BCLASS)
+ISIN
+XS0297701319
+13) Reg/Tax
+Security Information
+ID Number
+14 Covenants
+EG3846136
+15) Guarantors
+Mkt Iss
+EURO MTN
+Dual Range Accrual
+Bond Ratings
+10 Bond Ratings
+Ctry/Reg AU
+Currency
+USD
+Fitch
+AA
+17) Identifiers
+Rank
+Unsecured
+Series
+EMTN
+18 Exchanges
+Est Cpn
+Type
+Variable
+19) Inv Parties
+20 Fees, Restrict
+Formula
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity 04/30/2010
+Amt Issued/Outstanding
+23) Sustainability
+USD
+3,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+30 ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+04/17/2007
+10,000.00/ 10,000.00
+35 CACS
+Corp Action
+Interest Accrual Date
+04/30/2007
+Par Amount
+10,000.00
+30 CF
+Filings
+1st Settle Date
+04/30/2007
+Book Runner
+NOMURA
+37 CN
+Sec News
+1st Coupon Date
+07/30/2007
+Exchange
+NOT LISTED
+30 HDS
+Holders
+CPN=7.5%*(#DAYS IF USD/GOLD SPOT RT IS AT/WITHIN 540-840 & NIKKEI 225 IS
+66 Send Bond
+AT/WITHIN 13,900-21,000/# DAYS WITHIN EA ACCRL PRD). PRVT PLCMT.

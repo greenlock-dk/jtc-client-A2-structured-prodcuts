@@ -1,0 +1,96 @@
+CALLED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Issuer
+BANQ CAISSE EPARGNE ETAT
+FIGI
+BBG000859ZD8
+12 Addtl Info
+Industry
+Government Owned, No Guarantee (B.
+ISIN
+XS0165220400
+13 Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EC8987272
+15) Guarantors
+Mkt Iss
+EURO MTN
+Range Accrual
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg
+LU
+Currency
+USD
+1) Identifiers
+Rank
+Sr Unsecured
+Series
+EMTN
+18 Exchanges
+Est Cpn
+Type
+Fixed to F...
+19) Inv Parties
+Formula
+20 Fees, Restrict
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity03/24/2018
+Amt Issued/Outstanding
+23) Sustainability
+CALLED 0N 09/24/08@100.00
+USD
+5,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+32 ALLQ
+Pricing
+Calc Type (198)NO CALC-FLOATERS
+Min Piece/Increment
+33 QRD
+Qt Recap
+340 TDH
+Trade Hist
+Pricing Date
+03/11/2003
+100,000.00/ 100,000.00
+35 CACS
+Corp Action
+1st Coupon Date
+09/24/2003
+Par Amount
+100,000.00
+36 CF
+Filings
+Call Announcement Date
+09/11/2008
+Book Runner
+JPM
+37 CN
+Sec News
+Call Effective Date
+09/24/2008
+Exchange
+NOT LISTED
+38 HDS
+Holders
+CPN=7.25% *(#DAYS 6MO US$LIBOR IS WITHIN RANGE /#DAYS WITHIN EA ACCRL
+60 Send Bond
+PRD). MIN CPN=O%. UN' SCD. ENTIRE ISSUE REDEEMED.

@@ -1,0 +1,97 @@
+CALLED
+94Notes
+95) Buy
+96 Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research | BICC >
+Pages
+Issuer Information
+Identifiers
+11) Bond Info
+Name
+AQUA + INV(SWISS RE)
+FIGI
+BBG002QZN762
+12 Addtl Info
+Industry
+P&C (BCLASS)
+ISIN
+XS0765564827
+13 Reg/Tax
+14 Covenants
+Security Information
+ID Number
+EJ0967970
+15) Guarantors
+Mkt Iss
+EURO MTN
+Hybrid
+Bond Ratings
+16 Bond Ratings
+Ctry/Reg
+1IE
+Currency
+USD
+1) Identifiers
+Rank
+Jr Subordinated Series
+EMTN
+18 Exchanges
+Coupon
+8.250000
+Type
+Variable
+19) Inv Parties
+20) Fees, Restrict
+Cpn Freq Annual
+21) Schedules
+Day Cnt ISMA-30/360
+Iss Price
+100.0000
+Issuance & Trading
+22 Coupons
+Maturity PERPETUAL
+Amt Issued/Outstanding
+23) Sustainability
+PERPETUAL CALLED 0N 09/11/18@100.00
+USD
+750,000.00 (M)
+Quick Links
+Iss Sprd
+USD
+(M)
+32 ALLQ
+Pricing
+Calc Type (1469)FIX-T0-VARIABLE BD
+Min Piece/Increment
+33 QRD
+Qt Recap
+34 TDH
+Trade Hist
+Pricing Date
+03/22/2012
+200,000.00/ 5,000.00
+35 CACS
+Corp Action
+1st Coupon Date
+09/01/2012
+Par Amount
+5,000.00
+30 CF
+Filings
+Call AnnouncementDate
+07/03/2018
+Book Runner
+JOINT LEADS
+37 CN
+Sec News
+Call Effective Date
+09/11/2018
+Reporting
+TRACE
+38 HDS
+Holders
+CPN RATE = 8.25% T0 09/18; THEREAFTER 6YR MID-SWAP RATE + 638.4BP.
+60 Send Bond
+NON-CUMULATIVE

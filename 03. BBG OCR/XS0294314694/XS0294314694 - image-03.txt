@@ -1,0 +1,96 @@
+DYDS Float 04/02/22 $ Matured
+LLOYDS Float 04/02/22 (
+Actions
+Settings -
+Page 12
+MATURED
+94Notes
+95) Buy
+96) Sell
+25) Bond Description
+26 Issuer Description
+27) BI Credit Research ↓ BICC >
+Pages
+Coupons
+10 Bond Info
+51) Coupons
+55) Coupon Formula
+12 Addtl Info
+Benchmark
+N/A
+Benchmark Freq
+13 Reg/Tax
+Fix Frequency
+14 Covenants
+Quarterly
+Next Coupon Date
+15) Guarantors
+Paying Agent
+Prev Coupon Date
+10 Bond Ratings
+Pay Calendars
+EN US
+Cap
+Floor
+1) Identifiers
+Refix Calendars
+EN
+Margin
+FLAT
+Reset Days Prior
+0
+18 Exchanges
+First Irreg Cpn
+Normal
+Current Coupon
+5.668
+Lockout 5
+19) Inv Parties
+20 Fees, Restrict
+Last Irreg Cpn
+Normal
+Cpn Conv
+Unknown
+Cpn Freq Quarterly
+2) Schedules
+Coupon refixes at the end of the period
+22 Coupons
+o Table View
+● Chart View
+23) Sustainability
+Past Coupon Resets
+Margin History
+Quick Links
+Accrual Start
+Rate
+Date
+Margin
+3D ALLQ
+Pricing
+10/02/2008
+Qt Recap
+7.250000
+33 QRD
+34 TDH
+Trade Hist
+07/02/2008
+7.250000
+35 CACS
+Corp Action
+04/02/2008
+7.250000
+30 CF
+Filings
+01/02/2008
+7.250000
+3) CN
+Sec News
+10/02/2007
+7.250000
+30 HDS
+Holders
+07/02/2007
+7.250000
+60 Send Bond
+04/02/2007
+7.250000
