@@ -16,8 +16,10 @@ structure: Perpetual limited rescourse secured notes backed by Swiss Reinsurance
   Ltd.
 currency: USD
 issue_date: 29-Mar-2012
+purchase_date: 29-Mar-2012
 maturity: 'Call effective: 09/11/2018'
 tenor_years: Perpetual
+holding_period_years: 6.6
 underlying: Swiss Re Subordinated Capital instruments
 coupon: 8.25%
 barrier: ''

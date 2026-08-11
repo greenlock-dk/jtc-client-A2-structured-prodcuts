@@ -14,8 +14,10 @@ product_name: Leonteq Express Certificate on S&P 500, Swiss Market Index
 structure: Autocallable Express Certificate (Index Linked)
 currency: CHF
 issue_date: 03-Mar-2026
+purchase_date: 03-Mar-2026
 maturity: 03-Mar-2028
 tenor_years: '2'
+holding_period_years: 2.0
 underlying: S&P 500<br>SMI
 coupon: 1.625%
 barrier: 60%

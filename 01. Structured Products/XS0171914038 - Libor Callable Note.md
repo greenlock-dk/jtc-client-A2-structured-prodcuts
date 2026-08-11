@@ -13,8 +13,10 @@ product_name: Callable - Actioned
 structure: Callable - Actioned
 currency: USD
 issue_date: 26-Jun-2003
+purchase_date: 26-Jun-2003
 maturity: 14-Apr-2008
 tenor_years: '4.8'
+holding_period_years: 4.8
 underlying: Business days the USD 6 month Libor falling within range of 0 - 7.25
 coupon: 6.75%
 barrier: ''

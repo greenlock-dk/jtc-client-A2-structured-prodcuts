@@ -14,8 +14,10 @@ structure: Structured equity-linked note. This is a zero coupon bond with a sing
   repayment (Bullet) however it is has barriers of 55% for two linked indices.
 currency: USD
 issue_date: 28-May-2015
+purchase_date: 28-May-2015
 maturity: 28-May-2020
 tenor_years: '5'
+holding_period_years: 5.0
 underlying: SPX,<br>SMI
 coupon: 0%
 barrier: 55%

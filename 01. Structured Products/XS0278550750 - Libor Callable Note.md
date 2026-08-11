@@ -13,8 +13,10 @@ product_name: Callable - Actioned
 structure: Callable - Actioned
 currency: USD
 issue_date: 05-Dec-2006
+purchase_date: 05-Dec-2006
 maturity: 03-Jan-2009
 tenor_years: '2.07778'
+holding_period_years: 2.1
 underlying: number of days USD 3 month Libor in a range initially when the libor rate
   is greater than 4.25/4 then between 0 - up to 9.0
 coupon: 8.50%

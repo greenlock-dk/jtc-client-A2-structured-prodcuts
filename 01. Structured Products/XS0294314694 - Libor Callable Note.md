@@ -13,8 +13,10 @@ product_name: Callable
 structure: Callable
 currency: USD
 issue_date: 26-Mar-2007
+purchase_date: 26-Mar-2007
 maturity: 02-Apr-2022
 tenor_years: '15.0167'
+holding_period_years: 15.0
 underlying: number of days USD 3 month Libor in a range initially when the libor rate
   is greater than 4.25/4 then between 0 - up to 8.0
 coupon: 7.25 - 8.0%

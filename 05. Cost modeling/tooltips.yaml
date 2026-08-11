@@ -1,0 +1,49 @@
+# Human-editable hover descriptions for the cost-modelling dashboard.
+# Keys under curated match the dashboard's presentation columns.
+# Keys under canonical match fields in the canonical product YAML records.
+curated:
+  ISIN: Immutable security identifier.
+  Security: Product name and structure.
+  Cohort: Product family used for cost comparison.
+  Issue date: Reported issuance date.
+  Lifecycle end: Maturity or documented call date.
+  End basis: Evidence basis for lifecycle end.
+  Position basis: Classification of the reported position.
+  Reported position (USD): Trust-reported position amount.
+  Evidence-only min (USD): Minimum cost supported by adoptable evidence.
+  Evidence-only max (USD): Maximum cost supported by adoptable evidence.
+  Proxy-base min (USD): Minimum cost using the proxy benchmark base.
+  Proxy-base max (USD): Maximum cost using the proxy benchmark base.
+
+canonical:
+  annualised_rate: Annualised rate recorded for the product.
+  bank_held: Bank or intermediary reported as holding the position.
+  barrier: Barrier or threshold that controls a product feature or payment.
+  country: Country associated with the product or issuer evidence.
+  coupon: Coupon rate, schedule, or formula.
+  currency: Currency of denomination or payment.
+  denomination_usd: Minimum denomination or unit size, expressed in USD where available.
+  display_order: Workbook or presentation order for the product.
+  downside: Documented downside exposure or loss scenario.
+  field_statuses: Per-field evidence and provenance statuses.
+  frequency: Coupon or payment frequency.
+  guarantor: Guarantor identified in the product evidence.
+  isin: International Securities Identification Number.
+  issue_date: Date on which the product was issued.
+  issue_size: Issuer-reported total issuance or outstanding size.
+  issuer: Issuer named in the product evidence.
+  maturity: Documented maturity, call, or lifecycle end terms.
+  other_comments: Other source comments or product notes.
+  position_size_evidence: Evidence supporting the reported Trust position classification.
+  position_size_source: Source used for the reported Trust position classification.
+  position_size_status: Classification status for the reported Trust position.
+  redemption_terms: Terms describing repayment, redemption, or physical delivery.
+  risk: Documented product risks and risk classification.
+  schema_version: Version of the canonical data schema.
+  source_exhibit: Source exhibit supporting the canonical field or record.
+  source_section: Source workbook or document section supporting the record.
+  structure: Product structure or instrument type.
+  tenor_years: Product tenor in years.
+  term_sheet_available: Whether a source term sheet is available.
+  trust: Trust, account, or portfolio context associated with the record.
+  underlying: Underlying asset, index, rate, or reference variable.

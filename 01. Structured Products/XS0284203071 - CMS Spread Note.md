@@ -13,8 +13,10 @@ product_name: Callable
 structure: Callable
 currency: USD
 issue_date: 18-Jan-2007
+purchase_date: 18-Jan-2007
 maturity: 14-Feb-2022
 tenor_years: '15.0722'
+holding_period_years: 15.1
 underlying: CMS spread range
 coupon: 9.50%
 barrier: ''

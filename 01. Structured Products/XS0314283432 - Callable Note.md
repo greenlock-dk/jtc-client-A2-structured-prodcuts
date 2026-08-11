@@ -13,8 +13,10 @@ product_name: Callable - Actioned
 structure: Callable - Actioned
 currency: USD
 issue_date: 26-Jul-2007
+purchase_date: 26-Jul-2007
 maturity: 02-Feb-2009
 tenor_years: '1.51667'
+holding_period_years: 1.5
 underlying: ''
 coupon: 6.25-8.00%
 barrier: ''

@@ -13,8 +13,10 @@ product_name: ''
 structure: ''
 currency: ''
 issue_date: ''
+purchase_date: null
 maturity: ''
 tenor_years: '0'
+holding_period_years: null
 underlying: ''
 coupon: ''
 barrier: ''

@@ -13,8 +13,10 @@ product_name: Callable
 structure: Callable
 currency: USD
 issue_date: 28-Mar-2006
+purchase_date: 28-Mar-2006
 maturity: 'Maturity: 11-May-2021'
 tenor_years: '14.9528'
+holding_period_years: 15.1
 underlying: number of days USD 6 month Libor in a range initially when the libor rate
   is greater than 4.25/4 then between 0 - up to 7.0
 coupon: 7.5% to 7 May thereafter a range between 7.5% - 6.25%

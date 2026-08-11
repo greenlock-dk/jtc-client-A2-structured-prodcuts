@@ -15,8 +15,10 @@ structure: Callable unsecured fixed to variable type note - actioned<br><br>Dual
   and leveraged
 currency: USD
 issue_date: 30-May-2007
+purchase_date: 30-May-2007
 maturity: 30-May-2017
 tenor_years: '10'
+holding_period_years: 10.0
 underlying: USD Swap Semi-Annual 30-Year rate
 coupon: 0%
 barrier: ''

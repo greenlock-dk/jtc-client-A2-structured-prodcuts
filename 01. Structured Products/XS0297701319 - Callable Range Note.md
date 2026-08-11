@@ -13,8 +13,10 @@ product_name: Callable - matured
 structure: Callable - matured
 currency: USD
 issue_date: 30-Apr-2007
+purchase_date: 30-Apr-2007
 maturity: 30-Apr-2010
 tenor_years: '3'
+holding_period_years: 3.0
 underlying: USD/Gold spot<br>Nikkei 225
 coupon: 7.50%
 barrier: coupon rate is paid with barriers:<br>if USD/Gold Spot RT is at within 540-840;

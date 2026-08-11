@@ -13,8 +13,10 @@ product_name: Nomura Bank International Plc - Euro Dollar (senior unsecured)
 structure: It appears to be a zero coupon bond, that has a single repayment (bullet)
 currency: USD
 issue_date: 15-Jun-2015
+purchase_date: 15-Jun-2015
 maturity: 09-Jun-2020
 tenor_years: '4.98333'
+holding_period_years: 5.0
 underlying: ''
 coupon: 0%
 barrier: ''

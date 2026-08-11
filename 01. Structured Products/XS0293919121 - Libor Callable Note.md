@@ -13,8 +13,10 @@ product_name: Callable
 structure: Callable
 currency: USD
 issue_date: 22-Mar-2007
+purchase_date: 22-Mar-2007
 maturity: 10-Apr-2022
 tenor_years: '15.05'
+holding_period_years: 15.1
 underlying: Business days the USD 6 month Libor falling within range of 0 - 6/6.25/6.5/6.75/7/9
 coupon: 7.5- 15.0% (increasing to every 2 years)
 barrier: ''

@@ -13,8 +13,10 @@ product_name: Callable - Actioned
 structure: Callable - Actioned
 currency: USD
 issue_date: 22-Mar-2007
+purchase_date: 22-Mar-2007
 maturity: 14-Apr-2009
 tenor_years: '2.06111'
+holding_period_years: 2.1
 underlying: CMS spread range
 coupon: 9.25%
 barrier: ''

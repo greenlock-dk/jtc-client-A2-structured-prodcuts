@@ -13,8 +13,10 @@ product_name: Morgan Stanley  Euro Medium Term Note ("EMTN")
 structure: It appears to be a zero coupon bond, that has a single repayment (bullet)
 currency: USD
 issue_date: 14-Feb-2014
+purchase_date: 14-Feb-2014
 maturity: 14-Feb-2020
 tenor_years: '6'
+holding_period_years: 6.0
 underlying: ''
 coupon: 0%
 barrier: ''

@@ -13,8 +13,10 @@ product_name: Callable
 structure: Callable
 currency: ''
 issue_date: ''
+purchase_date: null
 maturity: 24-Apr-2018
 tenor_years: '118.317'
+holding_period_years: null
 underlying: Libor
 coupon: ''
 barrier: ''

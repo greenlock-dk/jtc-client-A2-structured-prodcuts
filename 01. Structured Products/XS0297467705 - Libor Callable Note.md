@@ -13,8 +13,10 @@ product_name: Matured
 structure: Matured
 currency: USD
 issue_date: 17-Apr-2007
+purchase_date: 17-Apr-2007
 maturity: 30-Apr-2022
 tenor_years: '15.0361'
+holding_period_years: 15.0
 underlying: Business days the USD 6 month Libor falling within range of 0 - 7.25/7.5/8
 coupon: 7.25 - 9.0% (ramping up after 2/3/4 years)
 barrier: ''

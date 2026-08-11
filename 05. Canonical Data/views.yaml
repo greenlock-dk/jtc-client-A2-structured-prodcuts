@@ -26,8 +26,10 @@ views:
       - bank_held
       - issuer
       - issue_date
+      - purchase_date
       - maturity
       - tenor_years
+      - holding_period_years
       - structure
       - coupon
       - frequency

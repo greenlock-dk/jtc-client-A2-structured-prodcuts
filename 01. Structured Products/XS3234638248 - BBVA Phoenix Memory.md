@@ -15,8 +15,10 @@ product_name: Series 40076 USD 2,400,000 Equity Linked Notes due 2027
 structure: Phoenix Memory Note (equity-linked, worst-of basket)
 currency: USD
 issue_date: 27-Jan-2026
+purchase_date: 27-Jan-2026
 maturity: 22-Jul-2027
 tenor_years: '1.48611'
+holding_period_years: 1.5
 underlying: Amazon.com Inc.; Microsoft Corp; NVIDIA Corp
 coupon: 2.75% memory coupon subject to 68% worst-value coupon barrier
 barrier: 68% coupon and redemption barrier

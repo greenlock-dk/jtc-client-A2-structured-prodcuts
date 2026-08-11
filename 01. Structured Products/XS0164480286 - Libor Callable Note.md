@@ -13,8 +13,10 @@ product_name: Callable - actioned Euro MTN
 structure: Callable - actioned Euro MTN
 currency: USD
 issue_date: 28-Feb-2003
+purchase_date: 28-Feb-2003
 maturity: 'Maturity: 21-Mar-2018; Call effective: 25-Mar-2008'
 tenor_years: '15.0694'
+holding_period_years: 5.1
 underlying: USD 6 month Libor rate falling in a range
 coupon: 7.50%
 barrier: ''

@@ -13,8 +13,10 @@ product_name: ''
 structure: Reverse Convertible, Convertible Bond, EURO MTN, EMTN
 currency: EUR
 issue_date: 03-Aug-2007
+purchase_date: 03-Aug-2007
 maturity: 20-Aug-2012
 tenor_years: '5.04722'
+holding_period_years: 5.0
 underlying: ''
 coupon: 10.50%
 barrier: ''

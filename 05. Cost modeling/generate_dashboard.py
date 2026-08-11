@@ -2,17 +2,19 @@ from __future__ import annotations
 
 import html
 import json
-import math
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 PRODUCT_DIR = ROOT / "01. Structured Products"
 POSITION_CONTROL = ROOT / "04. Product Review" / "POSITION SIZE CONTROL.md"
 OUTPUT_PATH = ROOT / "07. Visutals" / "index.html"
+TOOLTIP_PATH = ROOT / "05. Cost modeling" / "tooltips.yaml"
 
 sys.path.insert(0, str(ROOT / "90. Scripts"))
 from product_frontmatter import read_product  # noqa: E402
@@ -23,6 +25,18 @@ ESMA_ISSUANCE_LOW = 0.046
 ESMA_ISSUANCE_HIGH = 0.055
 ESMA_MODERN_ANNUAL = 0.0103
 SWISS_EQUITY_LINKED_ANNUAL = 0.017
+
+
+def read_tooltips() -> dict[str, dict[str, str]]:
+    data = yaml.safe_load(TOOLTIP_PATH.read_text(encoding="utf-8")) or {}
+    return {
+        section: {
+            str(key): str(value)
+            for key, value in (data.get(section) or {}).items()
+            if value is not None
+        }
+        for section in ("curated", "canonical")
+    }
 
 
 def format_date(value: str) -> str:
@@ -92,8 +106,7 @@ def parse_usd_amount(value: str) -> float | None:
 
 
 def format_calculated_money(value: float) -> str:
-    rounded_value = math.floor(value / 100_000 + 0.5) * 100_000
-    return f"{rounded_value:,.0f}"
+    return f"{value:,.0f}"
 
 
 def is_numeric_display(value: str) -> bool:
@@ -238,6 +251,7 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
 
 
 def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> str:
+    tooltips = read_tooltips()
     curated_headers = (
         "ISIN",
         "Security",
@@ -252,24 +266,17 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         "Proxy-base min (USD)",
         "Proxy-base max (USD)",
     )
-    yaml_fields = sorted({key for record in records for key in record})
+    yaml_fields = sorted({key for record in records for key in record if key not in {"position_size", "product_name"}})
     headers = curated_headers + tuple(field.replace("_", " ").title() for field in yaml_fields)
-    header_tooltips = (
-        "Immutable security identifier",
-        "Product name and structure",
-        "Product family used for cost comparison",
-        "Reported issuance date",
-        "Maturity or documented call date",
-        "Evidence basis for lifecycle end",
-        "Classification of the reported position",
-        "Trust-reported position amount",
-        "Minimum cost supported by adoptable evidence",
-        "Maximum cost supported by adoptable evidence",
-        "Minimum cost using the proxy benchmark base",
-        "Maximum cost using the proxy benchmark base",
-    ) + tuple(f"Canonical YAML field: {field}" for field in yaml_fields)
+    header_tooltips = tuple(
+        tooltips["curated"].get(header, f"Dashboard column: {header}.")
+        for header in curated_headers
+    ) + tuple(
+        tooltips["canonical"].get(field, f"Canonical YAML field: {field}.")
+        for field in yaml_fields
+    )
     header_html = "".join(
-        f'<th scope="col" data-column-index="{index}" data-tooltip="{html.escape(tooltip)}" title="{html.escape(tooltip)}"><button type="button" aria-label="{html.escape(header)}. {html.escape(tooltip)}">{html.escape(header)}</button><span class="column-resizer" data-resize-column="{index}" role="separator" aria-label="Resize {html.escape(header)} column"></span></th>'
+        f'<th scope="col" data-column-index="{index}" data-tooltip="{html.escape(tooltip)}" title="{html.escape(tooltip)}"><button type="button" aria-label="{html.escape(header)}. {html.escape(tooltip)}"><span class="header-label">{html.escape(header)}</span><span class="sort-icon" aria-hidden="true"></span></button><span class="column-resizer" data-resize-column="{index}" role="separator" aria-label="Resize {html.escape(header)} column"></span></th>'
         for index, (header, tooltip) in enumerate(zip(headers, header_tooltips))
     )
     rows = "\n".join(table_row(record, statuses, yaml_fields) for record in records)
@@ -365,8 +372,15 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         .table-scroll {{ width: 100%; max-width: 100%; overflow-x: auto; overflow-y: visible; overscroll-behavior-x: contain; }}
         table {{ width: max-content; min-width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; font-size: 13px; line-height: 1.45; }}
         thead {{ background: #edf4ef; }}
-        th {{ position: relative; position: sticky; top: 0; z-index: 1; overflow: hidden; text-align: left; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }}
-        th button {{ width: 100%; min-width: 0; padding: 13px 20px 13px 16px; border: 0; border-radius: 0; background: transparent; color: #315044; font-size: 11px; font-weight: 850; letter-spacing: 0.06em; text-align: left; text-transform: uppercase; cursor: grab; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+        th {{ position: relative; position: sticky; top: 0; z-index: 1; overflow: hidden; text-align: left; border-bottom: 1px solid var(--line-strong); white-space: normal; }}
+        th button {{ display: flex; width: 100%; min-width: 0; min-height: 52px; gap: 7px; align-items: center; justify-content: space-between; padding: 13px 20px 13px 16px; border: 0; border-radius: 0; background: transparent; color: #315044; font-size: 11px; font-weight: 850; letter-spacing: 0.06em; line-height: 1.25; text-align: left; text-transform: uppercase; cursor: pointer; white-space: normal; overflow: visible; overflow-wrap: break-word; text-overflow: clip; }}
+        .header-label {{ min-width: 0; }}
+        .sort-icon {{ position: relative; flex: 0 0 9px; width: 9px; height: 14px; opacity: 0.5; }}
+        .sort-icon::before, .sort-icon::after {{ position: absolute; left: 0; width: 0; height: 0; content: ""; border-right: 4.5px solid transparent; border-left: 4.5px solid transparent; }}
+        .sort-icon::before {{ top: 1px; border-bottom: 5px solid currentColor; }}
+        .sort-icon::after {{ bottom: 1px; border-top: 5px solid currentColor; }}
+        th[aria-sort="ascending"] .sort-icon, th[aria-sort="descending"] .sort-icon {{ opacity: 1; }}
+        th[aria-sort="ascending"] .sort-icon::after, th[aria-sort="descending"] .sort-icon::before {{ opacity: 0.2; }}
         body.is-column-dragging th button {{ cursor: grabbing; }}
         th button:hover {{ background: #dcebe1; color: var(--accent-dark); }}
         th[data-tooltip]::after {{ position: absolute; top: calc(100% + 8px); left: 12px; z-index: 20; width: max-content; max-width: 230px; padding: 8px 10px; border: 1px solid #b9d2c3; border-radius: 8px; background: #173d31; color: #f4fbf7; content: attr(data-tooltip); font-size: 12px; font-weight: 550; letter-spacing: 0; line-height: 1.35; opacity: 0; pointer-events: none; text-transform: none; transform: translateY(-3px); transition: opacity 140ms ease, transform 140ms ease; white-space: normal; box-shadow: 0 8px 18px rgba(15, 77, 59, 0.18); }}
@@ -404,7 +418,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         <nav class="views" id="views-nav" aria-label="Views">
             <h2>Views</h2>
             <ul class="view-list">
-                <li><button class="view-button" type="button" data-view="current" aria-current="page">Current</button></li>
+                <li><button class="view-button" type="button" data-view="current">Current</button></li>
                 <li><button class="view-button" type="button" data-view="position-size">by Position Size</button></li>
                 <li><button class="view-button" type="button" data-view="full dataset">full dataset</button></li>
             </ul>
@@ -490,9 +504,10 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const visible = allColumns ? headerNames.map((_, index) => index) : headerNames.map((_, index) => index).filter((index) => index < curatedColumnCount);
             return {{ visible, filters: [], groups: [], sorts: [], widths: [...defaultColumnWidths], order: headerNames.map((_, index) => index) }};
         }}
+        const positionSizeVisible = headerNames.map((name, index) => /position basis|reported position|position-size/i.test(name) ? index : -1).filter((index) => index >= 0);
         const defaultViewState = {{
             current: createViewState(),
-            'position-size': createViewState(),
+            'position-size': {{ ...createViewState(), visible: [...new Set([...createViewState().visible, ...positionSizeVisible])] }},
             'cost audit': createViewState(),
             'full dataset': createViewState(true),
         }};
@@ -501,7 +516,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         if (!viewState['cost audit']) viewState['cost audit'] = createViewState();
         let viewOrder = JSON.parse(localStorage.getItem('jtc-cost-model-view-order') || 'null');
         let viewsLoaded = false;
-        let activeView = 'current';
+        let activeView = null;
         const tableBody = table.tBodies[0];
         const tableScroll = document.querySelector('.table-scroll');
         const widthColumns = document.querySelector('#column-widths');
@@ -513,7 +528,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         const columnLists = [document.querySelector('#filter-column'), document.querySelector('#group-column'), document.querySelector('#sort-column')];
         columnLists.forEach((select) => headerNames.forEach((name, index) => select.add(new Option(name, index))));
         const columnList = document.querySelector('#column-list');
-        headerNames.forEach((name, index) => {{
+        headerNames.map((name, index) => ({{ name, index }})).sort((left, right) => left.name.localeCompare(right.name, undefined, {{ sensitivity: 'base' }})).forEach(({{ name, index }}) => {{
             const item = document.createElement('li');
             item.innerHTML = `<label class="column-choice" data-tooltip="${{columnTooltips[index]}}" title="${{columnTooltips[index]}}"><input type="checkbox" data-column="${{index}}" checked> ${{name}}</label>`;
             columnList.append(item);
@@ -536,6 +551,10 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             localStorage.setItem('jtc-cost-model-view-order', JSON.stringify(viewOrder));
         }}
         function valueFor(row, index) {{ return row.querySelector(`[data-column-index="${{index}}"]`).textContent.trim(); }}
+        function numericValue(value) {{
+            if (!/^-?[\\d,]+(?:\\.\\d+)?%?$/.test(value)) return null;
+            return Number(value.replace(/[,%]/g, ""));
+        }}
         function matchesFilter(row, filter) {{
             const value = valueFor(row, filter.column).toLowerCase();
             const target = filter.value.toLowerCase();
@@ -545,7 +564,15 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         }}
         function compareRows(left, right, sorts) {{
             for (const sort of sorts) {{
-                const result = valueFor(left, sort.column).localeCompare(valueFor(right, sort.column), undefined, {{ numeric: true, sensitivity: 'base' }});
+                const leftValue = valueFor(left, sort.column);
+                const rightValue = valueFor(right, sort.column);
+                const leftNumber = numericColumns[sort.column] ? numericValue(leftValue) : null;
+                const rightNumber = numericColumns[sort.column] ? numericValue(rightValue) : null;
+                let result;
+                if (leftNumber !== null && rightNumber !== null) result = leftNumber - rightNumber;
+                else if (leftNumber !== null) return -1;
+                else if (rightNumber !== null) return 1;
+                else result = leftValue.localeCompare(rightValue, undefined, {{ numeric: true, sensitivity: 'base' }});
                 if (result !== 0) return sort.direction === 'desc' ? -result : result;
             }}
             return 0;
@@ -633,6 +660,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         document.addEventListener('pointerup', finishColumnResize);
         document.addEventListener('pointercancel', finishColumnResize);
         let dragSession = null;
+        let suppressHeaderSort = false;
         table.tHead.addEventListener('pointerdown', (event) => {{
             if (event.target.closest('.column-resizer')) return;
             const header = event.target.closest('[data-column-index]');
@@ -649,13 +677,25 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         }});
         document.addEventListener('pointerup', () => {{
             if (!dragSession) return;
+            suppressHeaderSort = dragSession.moved;
             dragSession = null;
             document.body.classList.remove('is-column-dragging');
+            if (suppressHeaderSort) setTimeout(() => {{ suppressHeaderSort = false; }}, 0);
             saveViews();
         }});
         document.addEventListener('pointercancel', () => {{
             dragSession = null;
             document.body.classList.remove('is-column-dragging');
+        }});
+        table.tHead.addEventListener('click', (event) => {{
+            const button = event.target.closest('th button');
+            if (!button || suppressHeaderSort) return;
+            const column = Number(button.closest('[data-column-index]').dataset.columnIndex);
+            const state = activeState();
+            const currentSort = state.sorts[0];
+            const direction = currentSort?.column === column && currentSort.direction === 'asc' ? 'desc' : 'asc';
+            state.sorts = [{{ column, direction }}];
+            renderTable();
         }});
         function renderTable() {{
             const state = activeState();
@@ -665,7 +705,12 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             [...columnList.querySelectorAll('[data-column]')].forEach((checkbox) => {{
                 checkbox.checked = visible.has(Number(checkbox.dataset.column));
             }});
-            [...table.tHead.rows[0].cells].forEach((cell) => cell.hidden = !visible.has(Number(cell.dataset.columnIndex)));
+            [...table.tHead.rows[0].cells].forEach((cell) => {{
+                const column = Number(cell.dataset.columnIndex);
+                cell.hidden = !visible.has(column);
+                const sort = state.sorts[0];
+                cell.setAttribute('aria-sort', sort?.column === column ? (sort.direction === 'asc' ? 'ascending' : 'descending') : 'none');
+            }});
             let rows = originalRows.filter((row) => state.filters.every((filter) => matchesFilter(row, filter)));
             rows.sort((left, right) => compareRows(left, right, state.sorts));
             tableBody.replaceChildren(...groupedRows(rows, state.groups));

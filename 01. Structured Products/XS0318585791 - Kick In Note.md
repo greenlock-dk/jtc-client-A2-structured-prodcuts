@@ -13,8 +13,10 @@ product_name: Kick in
 structure: Kick in
 currency: ''
 issue_date: ''
+purchase_date: null
 maturity: 21-Sep-2011
 tenor_years: ''
+holding_period_years: null
 underlying: ''
 coupon: ''
 barrier: ''

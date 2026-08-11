@@ -13,8 +13,10 @@ product_name: Callable - Actioned
 structure: Callable - Actioned
 currency: USD
 issue_date: 10-Jan-2006
+purchase_date: 10-Jan-2006
 maturity: 10-Feb-2009
 tenor_years: '3.08333'
+holding_period_years: 3.1
 underlying: Business days the USD 6 month Libor falling within range of 0 - 7.25/8/9
 coupon: Initial 7.25%; ratchet increments of 0.05%, 0.15%, and 0.25% per the dated
   coupon schedule
