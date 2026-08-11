@@ -24,57 +24,58 @@ Four source passes recorded in the [Tier 1 Cost-Benchmark Research](cost-benchma
 
 No observation yet identifies a distributor-compensation range or retrocession share for the dominant 2003-2007 rate-linked cohort, and the fourth pass closed the historical rate-linked workstream under the stop rule with an `unbenchmarked` result. The evidence therefore supports model architecture, modern secondary comparators, and sensitivity bands, but not vintage-matched low/base/high assumptions or an estimated retrocession pool.
 
-The next research phase must address five specific weaknesses:
+The next research phase must address six specific weaknesses:
 
 1. **Portfolio mismatch:** no quantitative observation is yet matched to the portfolio's dominant 2003-2007 rate-linked and callable-note population; the closed `unbenchmarked` result may be reopened only against the new vintage-matched source families defined below.
 2. **Fee-definition mismatch:** issue-price premia, reduction in yield, issuer margin, distribution compensation, and retrocession are different measures and cannot be substituted for one another.
 3. **Missing distribution evidence:** the two disclosed modern placement fees (EU-06, CH-05) are single-product secondary comparators; no market-wide or vintage-matched distributor-compensation range or retrocession share has been adopted.
 4. **Missing exit and service-cost evidence:** the AC-04 spread observation is context-only for equity certificates; no suitable rate-linked bid/ask, unwind, advisory, custody, or brokerage benchmarks have been adopted.
 5. **Investment-basis uncertainty:** many reported position sizes are described as covering multiple line items, are blank, or appear to be minimum denominations or issue sizes. Research can proceed, but portfolio dollar aggregation must wait for a controlled usability classification.
+6. **Proxy-decomposition uncertainty:** the available proxy observations support selected all-in totals and isolated components, but not a reconciled allocation of a proxy total among manufacturing, distribution, service, exit, and potential retrocession buckets. Increasing confidence requires component-level evidence with compatible product, vintage, jurisdiction, channel, timing, and cost definitions, plus an explicit reconciliation to the applicable all-in proxy.
 
 This plan treats the `1-5% of notional` statement in the executive memo as a hypothesis to test, not a target range to validate.
 
 ## Scope Boundary
 
 ### Included
-
-- External market and regulatory research for Swiss and EU/EEA structured-product markets.
-- Product segmentation and benchmark selection for all 29 ISINs.
-- Low, base, and high scenarios for relevant cost components.
-- ISIN-level and portfolio-level calculations based on usable reported position sizes.
-- Sensitivity analysis, coverage reporting, source register, assumptions, and exception tracking.
-- An Excel model with an ISIN-level summary tab and supporting methodology note.
-
-### Excluded: Tier 2 Work
-
-- Recovery of final terms, KIDs, client agreements, or other documents.
-- Extraction or confirmation of contractual fee terms.
-- Requests to issuers, distributors, banks, advisers, or custodians.
-- Reconciliation to bank statements or payment records.
-- Identification of fee recipients or proof that a retrocession was paid.
-- Analysis of disclosure, consent, waiver, legal entitlement, limitation periods, damages, or recoverability.
-- An audit report, legal opinion, or evidential conclusion.
-
 ## Cost Taxonomy
 
-The model will use mutually exclusive cost buckets. Each input must state whether it is a one-off rate, an annual rate, or a contingent exit cost.
+The model will report three non-overlapping cost groups. Each input must state whether it is a one-off rate, an annual rate, or a contingent exit cost. Detailed source categories remain available for research and reconciliation, but they roll up only to the three groups below.
 
-| Bucket | Description | Tier 1 treatment |
-| --- | --- | --- |
-| Product manufacturing / structuring margin | Issuer economics embedded between issue price and estimated fair value. | Use only where comparable empirical evidence or transparent product disclosures support the measure. |
-| Distribution compensation | Placement commission, selling concession, or distributor margin. | Model separately from structuring margin unless a source demonstrably decomposes an all-in issue-price gap. |
-| Potential retrocession | Potential portion of distribution compensation passed to an adviser, wealth manager, or other intermediary. | Show only as a sourced sub-allocation or scenario within distribution compensation; never add it to that total. |
-| Advisory / management fee | Client-level recurring charge for advice, discretionary management, or a mandate. | Separately switchable scenario; do not assume it is embedded in the note. |
-| Custody / brokerage / transaction charge | External account-level custody or execution charge. | Separately switchable scenario where a comparable source supports it. |
-| Bid/ask spread or unwind cost | Cost of selling before maturity in the secondary market. | Contingent exit scenario only; exclude from hold-to-maturity issuance totals. |
-| Other explicit product charge | A disclosed cost that is neither included above nor double counted. | Include only where a suitable benchmark exists. |
+| Cost group | Detailed source categories | Timing | Tier 1 treatment |
+| --- | --- | --- | --- |
+| Embedded product cost | Product manufacturing / structuring margin, distribution compensation, other explicit product charges, and unexplained embedded residual | One-off | Apply at issuance or acquisition. Reconcile directly evidenced components and any residual to an applicable all-in product-cost proxy; do not allocate a residual without source support. |
+| Recurring investment-service cost | Advisory / management fee, custody, recurring account charges, and any directly evidenced recurring distribution payment | Annual / recurring | Report as an annual run-rate. Convert to a holding-period amount only when the invested balance and holding period are valid. Keep outside embedded product cost unless the source expressly includes it. |
+| Exit and transaction cost | Brokerage, bid/ask spread, unwind, early-sale charges, and transactional custody or execution charges | Transactional / contingent | Apply only to an actual or stated assumed exit. Exclude from hold-to-maturity and issuance totals. |
 
-`Swing pricing` is not part of the direct-note model. It is generally a collective-investment-scheme pricing mechanism and will be considered only if a holding is shown to have been acquired through such a vehicle.
+Potential retrocession is a memorandum sub-allocation of distribution or service compensation, not a fourth cost group and not an additional investor cost.
+- Recovery of final terms, KIDs, client agreements, or other documents.
+Run a dedicated workstream to determine whether proxy estimates can be presented confidently across the three cost groups without creating false precision. The objective is not to force every total into a detailed allocation; it is to increase confidence in each group only where compatible evidence and a defensible reconciliation exist.
+| Priority | Cost group and research focus | Target evidence | Confidence objective |
+- Reconciliation to bank statements or payment records.
+| 1 | Embedded product cost: obtain product-level issue price, issuer estimated value, and explicit selling-concession or placement-fee disclosures | Final terms, pricing supplements, KIDs, issuer estimated-value disclosures, and valuation studies with explicit treatment of hedging, credit, production, and distribution costs | Increase confidence in the all-in one-off proxy and, where possible, reconcile directly evidenced embedded items to it while retaining any unexplained residual |
+| 2 | Recurring investment-service cost: identify comparable advice, management, custody, and recurring-distribution schedules | Trust-specific agreements and statements where available in Tier 2; otherwise public private-bank mandate tariffs with client segment, asset band, included services, and period | Build separately switchable annual run-rate proxies without importing them into embedded product cost |
+| 3 | Exit and transaction cost: identify product- and venue-matched realised execution costs | Transaction datasets, contemporaneous dealer quotes, trade confirmations, exchange studies, and empirical spread studies distinguishing quoted spread from realised one-way execution cost | Build a contingent exit proxy by liquidity, product age, and market condition |
+| 4 | Potential retrocession: identify an onward allocation within an evidenced parent payment | Primary intermediary disclosures, distribution agreements, court findings of fact, or regulator datasets identifying the allocation basis and whether it is included within distribution or service compensation | Report only as a nested memorandum allocation; never infer it from a group total or residual |
+For each proposed group estimate, create a reconciliation record containing the all-in proxy source where applicable, detailed source categories, cohort, low/base/high values, units, timing, comparability scores, overlap analysis, and residual. Reconcile embedded product cost using:
+Recurring investment-service and exit/transaction costs sit outside this embedded-product reconciliation unless the all-in source expressly includes them. Potential retrocession is a memorandum sub-allocation within distribution or service compensation and is never added to the equation.
+Do not describe an embedded-product reconciliation as complete when the unexplained residual is material. Do not set manufacturing, distribution, retrocession, or service costs equal to the arithmetic residual merely to make components sum to the all-in proxy. Report group-level confidence and, where shown, detailed-source confidence; group confidence is capped by the weakest material source, unresolved overlap, or residual.
+For the embedded product-cost group, adopt detailed-source amounts only when the evidence measures them directly and they can be reconciled to the all-in proxy without concealed overlap. Show any unexplained residual explicitly and retain the undecomposed all-in proxy as the controlling total. Detailed sources do not supersede the all-in proxy unless the group reconciliation reaches at least `Medium` confidence under section 3b. For recurring investment-service and exit/transaction groups, adopt a proxy only when its evidence measures the relevant annual or contingent cost directly.
+Calculate and present three non-overlapping cost groups:
 
-## Research Protocol
-
-### 1. Build the Portfolio Research Matrix
-
+1. **Embedded product cost**: one-off issuance or acquisition cost, including any unexplained embedded residual.
+2. **Recurring investment-service cost**: advisory, management, custody, and other annual account-level costs, shown as an annual run-rate unless a valid holding period and balance basis support a lifetime amount.
+3. **Exit and transaction cost**: bid/ask, brokerage, unwind, and other transaction costs under an actual or stated assumed secondary-market exit.
+Where an embedded product-cost reconciliation is presented, show the controlling all-in proxy, detailed-source amounts, unexplained residual, and group-confidence level together. Detailed sources marked `Low` or `None` must not be silently included in a reconciled group total.
+- Sum only compatible embedded-product estimates across ISINs with usable investment bases.
+- Report recurring investment-service amounts as an annual run-rate.
+- Report exit and transaction costs as a separate contingent scenario.
+- Test benchmark low/base/high cases, inclusion or exclusion of recurring investment-service costs, hold-to-maturity versus exit, and source-supported retrocession allocations.
+The portfolio summary will separately show embedded product cost, recurring investment-service annual run-rate, exit and transaction cost, potential retrocession memorandum range where estimable, coverage percentages, group confidence, and sensitivity drivers.
+4. **Double-count audit:** Confirm retrocession is nested within distribution or service compensation, all-in fair-value gaps are not stacked with their detailed sources, recurring investment-service charges are not included in embedded product cost, and exit and transaction costs occur only in exit scenarios.
+11. **Three-group audit:** Confirm every group input is directly evidenced or explicitly assumed, timing and definitions are compatible, the embedded-product residual is visible, nested retrocession is not added twice, and displayed group confidence follows section 3b.
+| Three-group proxy model | Embedded product cost reconciles to the all-in proxy where applicable, recurring and exit costs remain outside it, overlap is controlled, residual is explicit, and group confidence is stated | Retain the undecomposed embedded-product proxy and show detailed-source observations only as separate sensitivities |
+6. Run the three-group proxy-confidence workstream, reconcile embedded product cost to each applicable all-in proxy, and record confidence for each group and any detailed-source support.
 Group the 29 ISINs by economically comparable payoff and distribution characteristics, using existing canonical product dossiers as the input source:
 
 - Callable, range-accrual, CMS, and other rate-linked notes.
@@ -147,6 +148,38 @@ Apply these retrieval tactics across all families:
 - US observations are channel and regime mismatched for Swiss private-bank distribution: cap their comparability score on the jurisdiction/channel dimension at `1` and use them to bound, not set, the vintage distribution band.
 - Continue to record a null result per family; reopening the closed rate-linked workstream requires at least one Priority A/B observation from these families, not a repeat of exhausted open-search queries.
 
+### 3b. Proxy-Decomposition Confidence Workstream
+
+Run a dedicated workstream to determine whether an all-in proxy total can be split into mutually exclusive sub-components without creating false precision. The objective is not to force every total into a complete allocation; it is to increase confidence only where compatible component evidence and a defensible reconciliation exist.
+
+Prioritise the following research directions:
+
+| Priority | Component | Target evidence | Confidence objective |
+| --- | --- | --- | --- |
+| 1 | Manufacturing / structuring margin | Product-level issue price and independently estimated fair value, or issuer-disclosed estimated value, with explicit treatment of hedging, credit, production, and distribution costs | Isolate issuer economics from the all-in issue-price gap for a matched payoff and vintage |
+| 2 | Distribution compensation | Final terms, pricing supplements, KIDs, or placement agreements stating selling concession, agent commission, placement fee, issue-price discount, recipient class, and payment timing | Establish a cohort-specific one-off or recurring distribution band rather than extrapolating from a single product |
+| 3 | Potential retrocession | Primary intermediary disclosures, distribution agreements, court findings of fact, or regulator datasets identifying the allocation basis and whether it is included within distribution or service compensation | Estimate only a nested share of an evidenced parent component; never infer it as the residual of an all-in cost |
+| 4 | Advisory / management and custody | Trust-specific agreements and statements where available in Tier 2; otherwise public private-bank mandate tariffs with client segment, asset band, included services, and period | Build separately switchable recurring proxy bands and keep them outside embedded product cost |
+| 5 | Brokerage, bid/ask, and unwind | Product- and venue-matched transaction datasets, contemporaneous dealer quotes, trade confirmations, or empirical spread studies distinguishing quoted spread from realised one-way execution cost | Build a contingent exit scenario by liquidity, product age, and market condition |
+| 6 | Other explicit product charges | Product documents identifying a charge, basis, timing, and overlap with disclosed total costs | Include only document-defined residual buckets that do not duplicate another component |
+
+For each proposed split, create a decomposition record containing the all-in proxy source, component sources, cohort, low/base/high values, units, timing, comparability scores, overlap analysis, and residual. Reconcile components using:
+
+`all-in proxy = manufacturing + distribution + other embedded product costs + unexplained residual`
+
+Advisory, custody, brokerage, and contingent exit costs sit outside this embedded-product reconciliation unless the all-in source expressly includes them. Potential retrocession is a memorandum sub-allocation within distribution or service compensation and is never added to the equation.
+
+Assign a confidence level to each split:
+
+| Confidence | Minimum evidence standard | Permitted presentation |
+| --- | --- | --- |
+| High | Direct product or tightly matched cohort decomposition; compatible definitions and timing; independent corroboration; all material components and residual reconcile to the all-in total | Component low/base/high amounts and reconciled total |
+| Medium | At least one high-quality component observation plus independent support, with documented but bounded cohort mismatch and a transparent residual | Labelled proxy component ranges and residual; no claim of actual allocation |
+| Low | Single-product, mismatched, or context-only component observations; incomplete reconciliation or material unexplained residual | Sensitivity only, shown separately from the proxy total |
+| None | No quantitative component evidence, incompatible definitions, or double-counting cannot be ruled out | `Unbenchmarked` or `not separately estimable` |
+
+Do not describe a proxy split as complete when the unexplained residual is material. Do not set manufacturing, distribution, retrocession, or service costs equal to the arithmetic residual merely to make components sum to the all-in proxy. Report both component-level confidence and overall split confidence, with overall confidence capped by the weakest material component or unresolved overlap.
+
 ### 4. Capture a Benchmark Evidence Register
 
 Record each external observation before using it in the model. The register will contain:
@@ -183,6 +216,8 @@ Create low, base, and high assumptions for each applicable portfolio segment usi
 
 For every adopted band, write a short decision record containing the cohort, cost bucket, low/base/high values, unit and timing, source IDs, comparability scores, conversion formula if any, overlap treatment, and reason for adoption. Where only an all-in issuance comparator exists, model it as a separate all-in scenario and do not decompose it into manufacturing, distribution, or retrocession components.
 
+For proxy decompositions, adopt a component band only when its evidence measures that component directly and the combined component ranges can be reconciled to the all-in proxy without concealed overlap. Show any unexplained residual explicitly and retain the undecomposed all-in proxy as the controlling total. A more detailed split does not supersede the all-in proxy unless the decomposition reaches at least `Medium` confidence under section 3b.
+
 The executive memo's current 1-5% range is an unverified working hypothesis. Retain it only as a sensitivity comparator until external research either supports, narrows, or replaces it. Where the evidence is insufficient, report `unbenchmarked` rather than imposing a portfolio-wide percentage.
 
 ### 7. Apply Research Stop Rules
@@ -210,6 +245,8 @@ Calculate and present three non-overlapping views:
 3. **Exit view**: bid/ask, brokerage, and unwind ranges under an assumed secondary-market sale.
 
 Potential retrocession is a possible sub-allocation of distribution compensation. If no source supports the allocation, mark it `not separately estimable` rather than asserting a percentage or recipient.
+
+Where a proxy decomposition is presented, show the controlling all-in proxy, component estimates, unexplained residual, and split-confidence level together. Components marked `Low` or `None` must not be silently included in a reconciled component total.
 
 ### Aggregation and Sensitivities
 
@@ -257,6 +294,7 @@ Only after model validation, update the [Executive memo: Structured Products](ex
 8. **Comparability audit:** Reperform every adopted source score and confirm that observations below the adoption threshold remain comparators or sensitivities only.
 9. **Negative-evidence audit:** Confirm every `unbenchmarked` bucket has a reproducible search record and is not silently represented as zero.
 10. **Basis audit:** Confirm each dollar calculation uses only `usable invested notional`; shared line-item amounts, minimum denominations, and issue/outstanding sizes remain excluded.
+11. **Proxy-decomposition audit:** Confirm every component is directly evidenced or explicitly assumed, component timing and definitions are compatible, the residual is visible, nested retrocession is not added twice, and the displayed split confidence follows section 3b.
 
 ## Decision Gates
 
@@ -266,6 +304,7 @@ Only after model validation, update the [Executive memo: Structured Products](ex
 | Investment basis | Each position-size value classified and usable bases reconciled | Publish rates and coverage without an unsupported portfolio dollar total |
 | Benchmark adoption | Every input meets source, locator, definition, and comparability rules | Retain as comparator/sensitivity or mark `unbenchmarked` |
 | Distribution/retrocession | Component-level evidence identifies the payment definition and basis | Report `not separately estimable`; do not infer a share from all-in costs |
+| Proxy decomposition | Components reconcile to the all-in proxy, overlap is controlled, the residual is explicit, and the split reaches at least `Medium` confidence | Retain the undecomposed proxy total and show component observations only as separate sensitivities |
 | Double counting | All-in and component scenarios are mutually exclusive | Block workbook sign-off until corrected |
 | Board output | Headline values state timing, coverage, confidence, and evidence limitation | Do not update the executive memo |
 
@@ -276,11 +315,12 @@ Only after model validation, update the [Executive memo: Structured Products](ex
 3. Extract AC-01, AC-02, the ESMA 2023 annexes, and the ESMA historical study into the evidence register with exact locators and comparability scores.
 4. Run the historical rate-linked and distribution-compensation workstreams first because they control the largest stated vintage cohort and the memo's central hypothesis, using the trusted-source expansion in section 3a (EDGAR vintage pricing supplements, LuxSE/Euronext Dublin archives, and the named academic and court sources) before declaring any renewed stop-rule result.
 5. Run modern equity-linked, exit-cost, and account-service workstreams; record negative results under the stop rules.
-6. Hold a benchmark adoption review and create decision records for each segment and cost bucket.
-7. Build the workbook first with rates, evidence status, and coverage; enable dollar aggregation only for usable invested-notional rows.
-8. Reperform one historical rate-linked and one modern equity-linked calculation and complete all quality-control gates.
-9. Produce the methodology note and prioritisation list, distinguishing research gaps addressable in Tier 1 from documents requiring Tier 2 recovery.
-10. Update the executive memo only if validated headline ranges reconcile to the workbook; otherwise replace unsupported claims with the evidenced comparator and limitation language.
+6. Run the proxy-decomposition confidence workstream, reconcile candidate components to each applicable all-in proxy, and record component and overall split confidence.
+7. Hold a benchmark adoption review and create decision records for each segment and cost bucket.
+8. Build the workbook first with rates, evidence status, coverage, residuals, and split-confidence fields; enable dollar aggregation only for usable invested-notional rows.
+9. Reperform one historical rate-linked and one modern equity-linked calculation and complete all quality-control gates.
+10. Produce the methodology note and prioritisation list, distinguishing research gaps addressable in Tier 1 from documents requiring Tier 2 recovery.
+11. Update the executive memo only if validated headline ranges reconcile to the workbook; otherwise replace unsupported claims with the evidenced comparator and limitation language.
 
 ## Repository Inputs and Outputs
 

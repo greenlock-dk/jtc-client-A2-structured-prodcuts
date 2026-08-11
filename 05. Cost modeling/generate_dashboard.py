@@ -25,6 +25,9 @@ ESMA_ISSUANCE_LOW = 0.046
 ESMA_ISSUANCE_HIGH = 0.055
 ESMA_MODERN_ANNUAL = 0.0103
 SWISS_EQUITY_LINKED_ANNUAL = 0.017
+EMBEDDED_HISTORICAL_BASE = (ESMA_ISSUANCE_LOW + ESMA_ISSUANCE_HIGH) / 2
+SWISS_SERVICE_BASE_ANNUAL = 0.0056
+EXIT_TRANSACTION_BASE = 0.0096
 
 
 def read_tooltips() -> dict[str, dict[str, str]]:
@@ -113,12 +116,12 @@ def is_numeric_display(value: str) -> bool:
     return bool(re.fullmatch(r"-?[\d,]+(?:\.\d+)?%?", value.strip()))
 
 
-def tenor_years(record: dict[str, Any]) -> float | None:
+def holding_period_years(record: dict[str, Any]) -> float | None:
     try:
-        tenor = float(str(record.get("tenor_years", "")))
+        holding_period = float(str(record.get("holding_period_years", "")))
     except ValueError:
         return None
-    return tenor if tenor > 0 else None
+    return holding_period if holding_period > 0 else None
 
 
 def usable_position_amount(record: dict[str, Any], status: str) -> float | None:
@@ -136,10 +139,10 @@ def evidence_only_cost(record: dict[str, Any], status: str, cohort: str) -> str:
     if cohort == "Historical rate-linked":
         return f"{format_calculated_money(amount * ESMA_ISSUANCE_LOW)} - {format_calculated_money(amount * ESMA_ISSUANCE_HIGH)}"
     if cohort == "Equity-linked":
-        tenor = tenor_years(record)
-        if tenor is None:
+        holding_period = holding_period_years(record)
+        if holding_period is None:
             return "Unbenchmarked"
-        return format_calculated_money(amount * ESMA_MODERN_ANNUAL * tenor)
+        return format_calculated_money(amount * ESMA_MODERN_ANNUAL * holding_period)
     return "Unbenchmarked"
 
 
@@ -150,11 +153,38 @@ def proxy_base_cost(record: dict[str, Any], status: str, cohort: str) -> str:
     if cohort == "Historical rate-linked":
         return f"{format_calculated_money(amount * ESMA_ISSUANCE_LOW)} - {format_calculated_money(amount * ESMA_ISSUANCE_HIGH)}"
     if cohort == "Equity-linked":
-        tenor = tenor_years(record)
-        if tenor is None:
+        holding_period = holding_period_years(record)
+        if holding_period is None:
             return "Unbenchmarked"
-        return format_calculated_money(amount * SWISS_EQUITY_LINKED_ANNUAL * tenor)
+        return format_calculated_money(amount * SWISS_EQUITY_LINKED_ANNUAL * holding_period)
     return "Unbenchmarked"
+
+
+def proxy_component_costs(record: dict[str, Any], status: str, cohort: str) -> tuple[str, str, str, str, str]:
+    amount = usable_position_amount(record, status)
+    if amount is None:
+        return "Not calculated", "Not calculated", "Not calculated", "Not calculated", "Not calculated"
+    if cohort == "Historical rate-linked":
+        embedded_amount = amount * EMBEDDED_HISTORICAL_BASE
+    elif cohort == "Equity-linked":
+        embedded_amount = amount * SWISS_EQUITY_LINKED_ANNUAL * (holding_period_years(record) or 0)
+        if holding_period_years(record) is None:
+            return "Unbenchmarked", "Unbenchmarked", "Unbenchmarked", "Unbenchmarked", "Unbenchmarked"
+    else:
+        return "Unbenchmarked", "Unbenchmarked", "Unbenchmarked", "Unbenchmarked", "Unbenchmarked"
+    holding_period = holding_period_years(record)
+    if holding_period is None:
+        return "Unbenchmarked", "Unbenchmarked", "Unbenchmarked", "Unbenchmarked", "Unbenchmarked"
+    recurring_amount = amount * SWISS_SERVICE_BASE_ANNUAL * holding_period
+    exit_amount = amount * EXIT_TRANSACTION_BASE
+    total = embedded_amount + recurring_amount + exit_amount
+    return (
+        format_calculated_money(embedded_amount),
+        format_calculated_money(recurring_amount),
+        format_calculated_money(exit_amount),
+        format_calculated_money(total),
+        "Calculated: assumed exit; low-confidence service and exit proxies",
+    )
 
 
 def scenario_cost_range(record: dict[str, Any], status: str, cohort: str, scenario: str) -> tuple[str, str]:
@@ -167,11 +197,11 @@ def scenario_cost_range(record: dict[str, Any], status: str, cohort: str, scenar
             format_calculated_money(amount * ESMA_ISSUANCE_HIGH),
         )
     if cohort == "Equity-linked":
-        tenor = tenor_years(record)
-        if tenor is None:
+        holding_period = holding_period_years(record)
+        if holding_period is None:
             return "Unbenchmarked", "Unbenchmarked"
         annual_rate = ESMA_MODERN_ANNUAL if scenario == "evidence" else SWISS_EQUITY_LINKED_ANNUAL
-        cost = format_calculated_money(amount * annual_rate * tenor)
+        cost = format_calculated_money(amount * annual_rate * holding_period)
         return cost, cost
     return "Unbenchmarked", "Unbenchmarked"
 
@@ -199,13 +229,13 @@ def scenario_totals(records: list[dict[str, Any]], statuses: dict[str, str]) -> 
             totals["evidence_high"] += amount * ESMA_ISSUANCE_HIGH
             totals["proxy_low"] += amount * ESMA_ISSUANCE_LOW
             totals["proxy_high"] += amount * ESMA_ISSUANCE_HIGH
-        elif cohort == "Equity-linked" and (tenor := tenor_years(record)) is not None:
+        elif cohort == "Equity-linked" and (holding_period := holding_period_years(record)) is not None:
             totals["covered_positions"] += 1
             totals["covered_notional"] += amount
-            totals["evidence_low"] += amount * ESMA_MODERN_ANNUAL * tenor
-            totals["evidence_high"] += amount * ESMA_MODERN_ANNUAL * tenor
-            totals["proxy_low"] += amount * SWISS_EQUITY_LINKED_ANNUAL * tenor
-            totals["proxy_high"] += amount * SWISS_EQUITY_LINKED_ANNUAL * tenor
+            totals["evidence_low"] += amount * ESMA_MODERN_ANNUAL * holding_period
+            totals["evidence_high"] += amount * ESMA_MODERN_ANNUAL * holding_period
+            totals["proxy_low"] += amount * SWISS_EQUITY_LINKED_ANNUAL * holding_period
+            totals["proxy_high"] += amount * SWISS_EQUITY_LINKED_ANNUAL * holding_period
     return totals
 
 
@@ -227,7 +257,9 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
     position = str(record.get("position_size", "Missing"))
     cohort = product_cohort(record)
     evidence_min, evidence_max = scenario_cost_range(record, status, cohort, "evidence")
-    proxy_min, proxy_max = scenario_cost_range(record, status, cohort, "proxy")
+    embedded_proxy, recurring_proxy, exit_proxy, proxy_total, proxy_status = proxy_component_costs(
+        record, status, cohort
+    )
     cells = (
         isin,
         str(record.get("product_name") or record.get("structure") or "Not reported"),
@@ -239,8 +271,11 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
         position,
         evidence_min,
         evidence_max,
-        proxy_min,
-        proxy_max,
+        embedded_proxy,
+        recurring_proxy,
+        exit_proxy,
+        proxy_total,
+        proxy_status,
     ) + tuple(format_yaml_value(record.get(field)) for field in yaml_fields)
     return "<tr>" + "".join(
         f'<td class="numeric-cell" data-column-index="{index}">{html.escape(cell)}</td>'
@@ -252,6 +287,18 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
 
 def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> str:
     tooltips = read_tooltips()
+    html_excluded_yaml_fields = {
+        "annualised_rate",
+        "barrier",
+        "coupon",
+        "denomination_usd",
+        "downside",
+        "frequency",
+        "other_comments",
+        "redemption_terms",
+        "risk",
+        "schema_version",
+    }
     curated_headers = (
         "ISIN",
         "Security",
@@ -263,10 +310,26 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         "Reported position (USD)",
         "Evidence-only min (USD)",
         "Evidence-only max (USD)",
-        "Proxy-base min (USD)",
-        "Proxy-base max (USD)",
+        "Proxy Cost_ Embedded product proxy (USD)",
+        "Proxy Cost_ Recurring service proxy (USD, holding period)",
+        "Proxy Cost_ Exit / transaction proxy (USD)",
+        "Proxy total (USD)",
+        "Proxy calculation status",
     )
-    yaml_fields = sorted({key for record in records for key in record if key not in {"position_size", "product_name"}})
+    yaml_fields = sorted(
+        {
+            key
+            for record in records
+            for key in record
+            if key not in {
+                "position_size",
+                "product_name",
+                "isin",
+                "issue_date",
+                *html_excluded_yaml_fields,
+            }
+        }
+    )
     headers = curated_headers + tuple(field.replace("_", " ").title() for field in yaml_fields)
     header_tooltips = tuple(
         tooltips["curated"].get(header, f"Dashboard column: {header}.")
@@ -274,6 +337,10 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
     ) + tuple(
         tooltips["canonical"].get(field, f"Canonical YAML field: {field}.")
         for field in yaml_fields
+    )
+    definition_rows = "".join(
+        f'<tr title="{html.escape(tooltip)}" data-tooltip="{html.escape(tooltip)}"><td class="definition-name">{html.escape(header)}</td><td>{html.escape(tooltip)}</td></tr>'
+        for header, tooltip in zip(headers, header_tooltips)
     )
     header_html = "".join(
         f'<th scope="col" data-column-index="{index}" data-tooltip="{html.escape(tooltip)}" title="{html.escape(tooltip)}"><button type="button" aria-label="{html.escape(header)}. {html.escape(tooltip)}"><span class="header-label">{html.escape(header)}</span><span class="sort-icon" aria-hidden="true"></span></button><span class="column-resizer" data-resize-column="{index}" role="separator" aria-label="Resize {html.escape(header)} column"></span></th>'
@@ -363,6 +430,15 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         .rule button {{ padding: 4px 8px; border: 1px solid var(--line-strong); background: transparent; color: var(--accent-dark); font-size: 12px; cursor: pointer; }}
         .rule button:hover {{ background: var(--accent-soft); }}
         .empty-state {{ color: var(--muted); font-size: 13px; }}
+        .definitions-view {{ padding: 20px; }}
+        .definitions-view[hidden] {{ display: none; }}
+        .definitions-view h2 {{ margin: 0 0 6px; color: var(--accent-dark); font-size: 18px; letter-spacing: -0.01em; }}
+        .definitions-intro {{ max-width: 72ch; margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.5; }}
+        .definitions-table {{ width: 100%; min-width: 0; table-layout: fixed; }}
+        .definitions-table th {{ position: static; padding: 12px 16px; background: #edf4ef; color: #315044; font-size: 11px; font-weight: 850; letter-spacing: 0.06em; text-transform: uppercase; }}
+        .definitions-table td {{ white-space: normal; overflow-wrap: anywhere; }}
+        .definitions-table .definition-name {{ width: 30%; color: var(--accent-dark); font-weight: 800; }}
+        .definitions-table tbody tr:hover {{ background: #f0f8f3; }}
         .group-row td {{ padding: 10px 16px; border-top: 1px solid var(--line-strong); background: var(--accent-soft); color: var(--accent-dark); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }}
         .group-row .group-indent {{ display: inline-block; width: var(--group-indent); }}
         .filters {{ display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: end; padding: 17px 20px; border-bottom: 1px solid var(--line); background: var(--wash); }}
@@ -407,6 +483,8 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             .filters {{ align-items: stretch; }}
             .filters label, .filters select {{ width: 100%; }}
             .toolbar, .builder-panel, .filters {{ padding-left: 14px; padding-right: 14px; }}
+            .definitions-view {{ padding: 14px; }}
+            .definitions-table .definition-name {{ width: 40%; }}
         }}
         @media (prefers-reduced-motion: reduce) {{
             *, *::before, *::after {{ scroll-behavior: auto !important; transition-duration: 0.01ms !important; }}
@@ -421,6 +499,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 <li><button class="view-button" type="button" data-view="current">Current</button></li>
                 <li><button class="view-button" type="button" data-view="position-size">by Position Size</button></li>
                 <li><button class="view-button" type="button" data-view="full dataset">full dataset</button></li>
+                <li><button class="view-button" type="button" data-view="Definitions">Definitions</button></li>
             </ul>
             <div class="view-actions">
                 <button class="view-action-toggle" id="view-actions-toggle" type="button" aria-expanded="false" aria-haspopup="menu">View actions</button>
@@ -472,7 +551,17 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 </div>
                 <ul class="rule-list" id="sort-list"></ul>
             </section>
-        <div class="table-scroll">
+            <section class="definitions-view" id="definitions-view" aria-labelledby="definitions-heading" hidden>
+                <h2 id="definitions-heading">Definitions</h2>
+                <p class="definitions-intro">One definition for every column and canonical field shown in the dashboard. Hover a row to see its definition as a tooltip.</p>
+                <div class="table-scroll">
+                    <table class="definitions-table">
+                        <thead><tr><th scope="col">Column / field</th><th scope="col">Definition</th></tr></thead>
+                        <tbody>{definition_rows}</tbody>
+                    </table>
+                </div>
+            </section>
+        <div class="table-scroll" id="main-table-scroll">
         <table id="cost-model">
             <colgroup id="column-widths"></colgroup>
       <thead><tr>{header_html}</tr></thead>
@@ -508,17 +597,15 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         const defaultViewState = {{
             current: createViewState(),
             'position-size': {{ ...createViewState(), visible: [...new Set([...createViewState().visible, ...positionSizeVisible])] }},
-            'cost audit': createViewState(),
             'full dataset': createViewState(true),
         }};
         let viewState = JSON.parse(localStorage.getItem('jtc-cost-model-views') || 'null') || defaultViewState;
         if (!viewState['full dataset']) viewState['full dataset'] = createViewState(true);
-        if (!viewState['cost audit']) viewState['cost audit'] = createViewState();
         let viewOrder = JSON.parse(localStorage.getItem('jtc-cost-model-view-order') || 'null');
         let viewsLoaded = false;
         let activeView = null;
         const tableBody = table.tBodies[0];
-        const tableScroll = document.querySelector('.table-scroll');
+        const tableScroll = document.querySelector('#main-table-scroll');
         const widthColumns = document.querySelector('#column-widths');
         headerNames.forEach((_, index) => {{
             const column = document.createElement('col');
@@ -545,7 +632,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const names = Object.keys(viewState);
             const saved = Array.isArray(viewOrder) ? viewOrder.filter((name) => typeof name === 'string' && names.includes(name)) : [];
             viewOrder = [...new Set(saved)].concat(names.filter((name) => !saved.includes(name)));
-            if (!viewOrder.includes(activeView)) activeView = viewOrder[0] || names[0];
+            if (activeView !== 'Definitions' && !viewOrder.includes(activeView)) activeView = viewOrder[0] || names[0];
         }}
         function saveViewOrder() {{
             localStorage.setItem('jtc-cost-model-view-order', JSON.stringify(viewOrder));
@@ -698,6 +785,11 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             renderTable();
         }});
         function renderTable() {{
+            const definitionsView = activeView === 'Definitions';
+            document.querySelector('#definitions-view').hidden = !definitionsView;
+            document.querySelectorAll('.toolbar, .builder-panel').forEach((panel) => panel.hidden = definitionsView);
+            document.querySelector('#main-table-scroll').hidden = definitionsView;
+            if (definitionsView) return;
             const state = activeState();
             const visible = new Set(state.visible);
             applyColumnOrder();
@@ -765,7 +857,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         function renderViewList() {{
             const list = viewsNav.querySelector('.view-list');
             normalizeViewOrder();
-            list.replaceChildren(...viewOrder.map((viewName) => {{
+            const viewItems = viewOrder.map((viewName) => {{
                 const item = document.createElement('li');
                 const button = document.createElement('button');
                 button.className = 'view-button';
@@ -776,7 +868,16 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 item.append(button);
                 item.draggable = false;
                 return item;
-            }}));
+            }});
+            const definitionsItem = document.createElement('li');
+            const definitionsButton = document.createElement('button');
+            definitionsButton.className = 'view-button';
+            definitionsButton.type = 'button';
+            definitionsButton.dataset.view = 'Definitions';
+            definitionsButton.textContent = 'Definitions';
+            if (activeView === 'Definitions') definitionsButton.setAttribute('aria-current', 'page');
+            definitionsItem.append(definitionsButton);
+            list.replaceChildren(...viewItems, definitionsItem);
         }}
         function moveView(viewName, targetName) {{
             normalizeViewOrder();
@@ -845,6 +946,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const action = event.target.closest('[data-view-action]')?.dataset.viewAction;
             if (!action) return;
             closeViewActionMenu();
+            if (activeView === 'Definitions' && action !== 'new') return;
             if (action === 'new') {{
                 const name = prompt('Name this view');
                 if (!name || viewState[name.trim()]) return;

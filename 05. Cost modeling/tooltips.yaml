@@ -2,48 +2,53 @@
 # Keys under curated match the dashboard's presentation columns.
 # Keys under canonical match fields in the canonical product YAML records.
 curated:
-  ISIN: Immutable security identifier.
-  Security: Product name and structure.
-  Cohort: Product family used for cost comparison.
-  Issue date: Reported issuance date.
-  Lifecycle end: Maturity or documented call date.
-  End basis: Evidence basis for lifecycle end.
-  Position basis: Classification of the reported position.
-  Reported position (USD): Trust-reported position amount.
-  Evidence-only min (USD): Minimum cost supported by adoptable evidence.
-  Evidence-only max (USD): Maximum cost supported by adoptable evidence.
-  Proxy-base min (USD): Minimum cost using the proxy benchmark base.
-  Proxy-base max (USD): Maximum cost using the proxy benchmark base.
+  ISIN: The unique identifier used to join the product across dossiers, evidence, and generated views. It is the most reliable way to trace a row back to its source record.
+  Security: The displayed product name, supplemented by its structure where a name is unavailable. It is a navigation label, not a complete description of the payoff or risk.
+  Cohort: The product grouping used to select a comparable cost observation. Cohort membership is an analytical classification and does not establish that the products have identical terms or economics.
+  Issue date: The reported date on which the security was issued. It anchors vintage and regulatory-regime comparisons, but does not establish the Trust acquisition date.
+  Lifecycle end: The earliest documented end event used by the model, normally a contractual call or scheduled maturity. It should not be read as proof that the security was actually held until that date.
+  End basis: The source interpretation used for lifecycle end, such as documented call date or scheduled maturity. This makes clear whether the displayed date is contractual, observed, or only the reported maturity field.
+  Holding period years: The elapsed period used to accumulate annualised cost comparators. It applies to equity-linked calculations as position x annual rate x years, while the historical rate-linked 4.6%-5.5% comparator remains a one-off issuance cost; a missing period leaves the annualised result unbenchmarked.
+  Position basis: The control classification explaining whether the reported amount is a usable Trust invested notional. It prevents issuer issue size, minimum denomination, shared line-item amounts, and missing values from being mistaken for Trust exposure.
+  Reported position (USD): The usable Trust-reported amount converted or recorded in US dollars for scenario calculations. It is an exposure basis, not evidence of purchase price, current balance, fee payment, or lifetime holding.
+  Evidence-only min (USD): The lower end of the cost range produced only from comparators that meet the adoption rules for the relevant cohort. It excludes unsupported components and must not be interpreted as proof that the amount was charged or paid.
+  Evidence-only max (USD): The upper end of the cost range produced only from comparators that meet the adoption rules for the relevant cohort. It is a bounded evidence scenario, not a complete lifetime-cost estimate where transaction, service, or exit evidence is missing.
+  Proxy Cost_ Embedded product proxy (USD): The one-off or product-cost proxy used as the controlling embedded component. A displayed range preserves the source-supported range rather than inventing a midpoint.
+  Proxy Cost_ Recurring service proxy (USD, holding period): The annual investment-service proxy accumulated over the valid holding period so that it can be added to the one-off embedded and assumed-exit components in the displayed total.
+  Proxy Cost_ Exit / transaction proxy (USD): The contingent exit and transaction component. Zero means no exit scenario is currently modelled.
+  Proxy total (USD): The reconciled lifetime proxy total calculated as embedded product proxy plus recurring service proxy over the holding period plus the assumed exit and transaction proxy. Its displayed components must sum to this amount.
+  Proxy calculation status: States whether the proxy is embedded-only, includes other modelled groups, unbenchmarked, or not calculated. It prevents an unmodelled group from being read as evidence of zero cost.
 
 canonical:
-  annualised_rate: Annualised rate recorded for the product.
-  bank_held: Bank or intermediary reported as holding the position.
-  barrier: Barrier or threshold that controls a product feature or payment.
-  country: Country associated with the product or issuer evidence.
-  coupon: Coupon rate, schedule, or formula.
-  currency: Currency of denomination or payment.
-  denomination_usd: Minimum denomination or unit size, expressed in USD where available.
-  display_order: Workbook or presentation order for the product.
-  downside: Documented downside exposure or loss scenario.
-  field_statuses: Per-field evidence and provenance statuses.
-  frequency: Coupon or payment frequency.
-  guarantor: Guarantor identified in the product evidence.
-  isin: International Securities Identification Number.
-  issue_date: Date on which the product was issued.
-  issue_size: Issuer-reported total issuance or outstanding size.
-  issuer: Issuer named in the product evidence.
-  maturity: Documented maturity, call, or lifecycle end terms.
-  other_comments: Other source comments or product notes.
-  position_size_evidence: Evidence supporting the reported Trust position classification.
-  position_size_source: Source used for the reported Trust position classification.
-  position_size_status: Classification status for the reported Trust position.
-  redemption_terms: Terms describing repayment, redemption, or physical delivery.
-  risk: Documented product risks and risk classification.
-  schema_version: Version of the canonical data schema.
-  source_exhibit: Source exhibit supporting the canonical field or record.
-  source_section: Source workbook or document section supporting the record.
-  structure: Product structure or instrument type.
-  tenor_years: Product tenor in years.
-  term_sheet_available: Whether a source term sheet is available.
-  trust: Trust, account, or portfolio context associated with the record.
-  underlying: Underlying asset, index, rate, or reference variable.
+  annualised_rate: The yearly rate stored for a product or modelling input. It is only suitable for accumulation when the rate definition, balance basis, and holding period are compatible.
+  bank_held: The bank or intermediary identified as holding, administering, or appearing against the position. This is an evidence attribute and does not by itself prove beneficial ownership or the amount held.
+  barrier: The contractual level that activates, limits, or changes a payoff or loss condition. Its meaning depends on the observation date, direction, and product terms, so the number should not be read in isolation.
+  country: The country linked to the issuer, product, or supporting evidence. It supports jurisdictional comparability but does not identify the distribution channel or governing law unless those are separately documented.
+  coupon: The stated payment rate, schedule, or calculation formula. A coupon describes an investor payment feature and should not be confused with a product cost, issuer margin, or guaranteed return.
+  currency: The currency in which the denomination, payoff, or payment is expressed. Currency affects comparability and conversion, so a displayed USD amount may still represent a foreign-currency exposure.
+  denomination_usd: The minimum tradeable or stated unit size expressed in US dollars where available. It is not a proxy for the Trust position and must not be aggregated as invested notional.
+  display_order: The source workbook or presentation sequence retained for stable review ordering. It carries no economic, risk, or priority meaning.
+  downside: The documented loss, impairment, or adverse payoff scenario. It summarises stated product exposure and is not a substitute for a full valuation of the investor's realised loss.
+  field_statuses: Field-level labels describing evidence quality, provenance, or review treatment. They allow users to distinguish sourced values from inferred, missing, conflicting, or excluded values.
+  frequency: The interval at which a coupon, observation, call, or other payment event occurs. Frequency is a term-sheet feature and does not by itself determine the annualised rate or total return.
+  guarantor: The entity identified as guaranteeing some or all obligations under the product documentation. The presence of a guarantor does not remove issuer, market, liquidity, or documentation risk.
+  holding_period_years: The elapsed period between the documented purchase basis and the modelled end event, expressed in years. It compounds or accumulates annualised comparators for relevant products, but does not turn a one-off issuance comparator into a recurring cost.
+  isin: The International Securities Identification Number used as the immutable cross-layer join key. Matching this value is required before combining product terms, position evidence, images, OCR, or cost outputs.
+  issue_date: The date the issuer reports that the security was issued. It establishes product vintage for comparison, but it is not evidence of when the Trust bought, sold, or held the position.
+  issue_size: The issuer-reported total issuance or outstanding amount. It describes the security programme or issuance, not the Trust's investment, and must not replace a usable position amount.
+  issuer: The entity named as issuer in the product evidence. Issuer identity helps assess credit and jurisdictional context, but does not identify every distributor, guarantor, or compensation recipient.
+  maturity: The documented maturity, call, or other contractual lifecycle terms. A call feature may end the modelled lifecycle earlier than scheduled maturity, but neither date proves the realised holding outcome.
+  other_comments: Additional source notes, exceptions, or unresolved interpretation points. These comments preserve context that should be considered before treating a structured value as comparable or complete.
+  position_size_evidence: The document or control rationale supporting the position classification. It explains why an amount is usable, shared, issuer-level, minimum-denomination, missing, or otherwise excluded from Trust exposure totals.
+  position_size_source: The source used to classify the reported position amount. Source identity supports traceability, but the amount remains subject to the source's scope, date, and evidential limitations.
+  position_size_status: The controlled status assigned to the reported position basis. Only a usable invested-notional status enters exposure-based cost calculations; other statuses remain visible but are not silently treated as zero.
+  redemption_terms: The documented mechanics for repayment, redemption, delivery, or settlement at the end of the product. They describe contractual outcomes and do not establish that redemption occurred or what the Trust ultimately received.
+  risk: The documented product risks and any recorded risk classification. It is a structured summary for review, not a complete risk assessment or prediction of realised performance.
+  schema_version: The version of the canonical record schema used for the field set. It supports reproducibility and migration checks, rather than describing a product feature.
+  source_exhibit: The specific exhibit or evidence item supporting the canonical value. A populated locator improves auditability, but does not guarantee that the source resolves every ambiguity in the record.
+  source_section: The workbook, document, or section locator supporting the record. It helps reviewers reproduce the extraction and assess whether the source is product-level, account-level, or contextual.
+  structure: The instrument or payoff family assigned to the product. It provides the starting point for cohort analysis, but similar labels can conceal materially different barriers, underlyings, calls, or loss mechanics.
+  tenor_years: The contractual duration from issue to scheduled maturity, expressed in years. Tenor is not the same as the Trust holding period because the product may have been acquired later, called early, or sold before maturity.
+  term_sheet_available: Whether a term sheet or equivalent primary product document has been located. Availability supports further verification but does not mean the document has been fully reviewed or that all fields are confirmed.
+  trust: The Trust, account, or portfolio context associated with the record. It identifies the ownership or review context being analysed, but does not by itself prove a position amount or transaction history.
+  underlying: The asset, index, interest rate, spread, or other reference variable driving a product feature. The underlying identifies the source of market exposure, not the investor's economic outcome or the product's total cost.
