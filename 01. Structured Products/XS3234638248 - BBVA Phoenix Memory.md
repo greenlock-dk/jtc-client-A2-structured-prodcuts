@@ -1,3 +1,67 @@
+---
+schema_version: 1
+term_sheet_available: true
+display_order: 2
+isin: XS3234638248
+source_section: Recent structured product
+source_exhibit: BBVA Global Markets, B.V. Series 40076 Pricing Supplement, 27-Jan-2026
+trust: ''
+country: ''
+bank_held: ''
+issuer: BBVA Global Markets, B.V. Series 40076 USD 2,400,000 Equity Linked Notes due
+  2027
+guarantor: Banco Bilbao Vizcaya Argentaria, S.A.
+product_name: Series 40076 USD 2,400,000 Equity Linked Notes due 2027
+structure: Phoenix Memory Note (equity-linked, worst-of basket)
+currency: USD
+issue_date: 27-Jan-2026
+maturity: 22-Jul-2027
+tenor_years: '1.48611'
+underlying: Amazon.com Inc.; Microsoft Corp; NVIDIA Corp
+coupon: 2.75% memory coupon subject to 68% worst-value coupon barrier
+barrier: 68% coupon and redemption barrier
+frequency: Quarterly coupon valuation/payment schedule
+annualised_rate: Not reported as an annualised rate; workbook 11.00% is a derived
+  figure
+other_comments: Memory coupon and step-down automatic early redemption
+redemption_terms: Equity-linked digital redemption with physical delivery downside
+  below 68%
+downside: Physical delivery of the worst-performing share below the 68% final redemption
+  condition
+risk: Higher risk; issuer/guarantor and worst-of equity exposure
+position_size: 2,000,000
+denomination_usd: USD 1,000
+issue_size:
+  display: USD 2.4 million
+  status: Confirmed documentary nominal amount
+  source: 04. Original terms/04. BBVA/XS3234638248_BBVA_Global_Markets_Pricing_Supplement_2026-01-27.pdf;
+    Trust position size remains USD 2 million
+field_statuses:
+  source_exhibit: Original terms
+  trust: Not available in current sources
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: Original terms
+  guarantor: Original terms
+  product_name: Original terms; corrected workbook typo
+  structure: Original terms
+  currency: Original terms
+  issue_date: Original terms
+  maturity: Original terms
+  tenor_years: Workbook reference
+  underlying: Original terms
+  coupon: Original terms
+  barrier: Original terms
+  frequency: Original terms
+  annualised_rate: Derived from original terms; workbook reference retained
+  other_comments: Original terms
+  redemption_terms: Original terms
+  downside: Original terms
+  risk: Original terms
+  position_size: Workbook reference
+  denomination_usd: Original terms
+---
+
 # XS3234638248 - BBVA Phoenix Memory
 
 - ISIN: `XS3234638248`

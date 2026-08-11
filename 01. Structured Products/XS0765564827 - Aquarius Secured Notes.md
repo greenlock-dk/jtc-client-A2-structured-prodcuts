@@ -1,3 +1,73 @@
+---
+schema_version: 1
+term_sheet_available: true
+display_order: 3
+isin: XS0765564827
+source_section: Recent structured product
+source_exhibit: LX000000002045417109<br><br>Scanned document 16/ 2012-03-27 - Prospectus
+  Term Sheet
+trust: Jake
+country: ''
+bank_held: ''
+issuer: AQUA + INV(SWISS RE)
+product_name: 'AQUARIUS + INVESTMENTS PLC: US$750,000,000 Perpetual Limited Recourse
+  Secured Notes'
+structure: Perpetual limited rescourse secured notes backed by Swiss Reinsurance Co
+  Ltd.
+currency: USD
+issue_date: 29-Mar-2012
+maturity: 'Call effective: 09/11/2018'
+tenor_years: Perpetual
+underlying: Swiss Re Subordinated Capital instruments
+coupon: 8.25%
+barrier: ''
+frequency: annually
+annualised_rate: 8.25%
+other_comments: "loan notes are secured on underlying assets and have limited recourse.\
+  \ The interest on notes are what the issuer received from Swiss Re Instruments if\
+  \ it does not pay interest, the investors don\u2019t get paid."
+redemption_terms: ''
+downside: Investors can only claim against the the assets and not the issuer themselves.
+  No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance.
+  Investors may receive shares instead of cash and the value may be lower than capital.
+  Liquidity risk (no active market)<br><br>Risk:<br>This is a SPV <br>Issuer is not
+  regulated<br>If an examiner is appointed to the issuer, the trustee is precluded
+  from enforcing the security over any mortgaged property during the period. <br><br>other
+  risks in pages 8-18 of document <br>
+risk: Higher
+position_size: 200,000
+denomination_usd: 200,000 + increments of 5,000
+issue_size:
+  display: USD 750,000.00 million
+  status: confirmed
+  source: 02. BBG images/XS0765564827/XS0765564827 - image-02.png; visual confirmation of
+    Amt Issued/Outstanding as USD 750,000.00 million
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: OCR candidate; visual confirmation required
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: OCR candidate; visual confirmation required
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Workbook reference
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Workbook reference
+  risk: Workbook reference
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+  issue_size: Confirmed by visual review
+---
+
 # XS0765564827 - Aquarius Secured Notes
 
 - ISIN: `XS0765564827`
@@ -32,20 +102,20 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside | Investors can only claim against the the assets and not the issuer themselves. No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance. Investors may receive shares instead of cash and the value may be lower than capital. Liquidity risk (no active market)<br><br>Risk:<br>This is a SPV <br>Issuer is not regulated<br>If an examiner is appointed to the issuer, the trustee is precluded from enforcing the security over any mortgaged property during the period. <br><br>other risks in pages 8-18 of document <br> |  | Investors can only claim against the the assets and not the issuer themselves. No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance. Investors may receive shares instead of cash and the value may be lower than capital. Liquidity risk (no active market)<br><br>Risk:<br>This is a SPV <br>Issuer is not regulated<br>If an examiner is appointed to the issuer, the trustee is precluded from enforcing the security over any mortgaged property during the period. <br><br>other risks in pages 8-18 of document <br> | Workbook reference |
 | Risk notes | Higher |  | Higher | Workbook reference |
-| Position size (USD) | min 200,000 |  | min 200,000 | Workbook reference |
+| Position size (USD) | 200,000 |  | 200,000 | Workbook reference |
 | Denomination (USD) | 200,000 + increments of 5,000 |  | 200,000 + increments of 5,000 | Workbook reference |
 
 ## Issue Size / Amount Issued
 
-This field is separate from the Trust's position size. OCR-derived values are candidates until checked against the source image.
+This field is separate from the Trust's position size. The issue-size value was visually confirmed against the linked Bloomberg image.
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 750,000.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0765564827/XS0765564827 - image-02.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability PERPETUAL CALLED 0N 09/11/18@100.00 USD 750,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (1469)FIX-T0-VARIABLE BD` |
+| Original issue / amount issued or outstanding | USD 750,000.00 million | confirmed | `02. BBG images/XS0765564827/XS0765564827 - image-02.png` |
 
 ## Consistency Review
 
-Disagreements are preserved for manual source-image review; no unverified OCR correction is applied.
+The issue-size candidate was checked against the source image and confirmed.
 
 - No unresolved workbook/OCR field disagreements detected.
 

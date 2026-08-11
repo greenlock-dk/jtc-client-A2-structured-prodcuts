@@ -1,0 +1,273 @@
+- generic [active] [ref=e1]:
+  - region "Cookies policy":
+    - generic [ref=e3]:
+      - paragraph [ref=e6]:
+        - text: This site uses cookies. Visit our
+        - link "cookies policy page" [ref=e7] [cursor=pointer]:
+          - /url: https://www.esma.europa.eu/cookie-policy
+        - text: or click the link in any footer for more information and to change your preferences.
+      - generic [ref=e8]:
+        - link "Accept all cookies" [ref=e9] [cursor=pointer]:
+          - /url: "#accept"
+        - link "Accept only essential cookies" [ref=e10] [cursor=pointer]:
+          - /url: "#refuse"
+  - link "Skip to main content" [ref=e11] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e12]:
+    - banner [ref=e13]:
+      - generic [ref=e16]:
+        - link [ref=e18] [cursor=pointer]:
+          - /url: /
+          - img "Home" [ref=e19]
+        - search [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: "Search:"
+              - searchbox "Search:" [ref=e25]
+            - button "Search" [ref=e27] [cursor=pointer]
+      - navigation "menu-esma-megamenu navigation" [ref=e32]:
+        - button "" [ref=e33] [cursor=pointer]
+        - text:                 
+    - main [ref=e35]:
+      - generic [ref=e37]:
+        - generic [ref=e39]:
+          - link " Search filters " [ref=e40] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e41]:  Search filters
+            - generic [ref=e42]: 
+          - generic: 
+        - generic [ref=e46]:
+          - navigation "breadcrumb" [ref=e48]:
+            - paragraph [ref=e49]: Breadcrumb
+            - list [ref=e50]:
+              - listitem [ref=e51]:
+                - link "Home" [ref=e52] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e53]: "> ESMA News"
+          - heading "ESMA News" [level=1] [ref=e55]
+          - generic [ref=e58]:
+            - generic [ref=e59]: Sort by
+            - list [ref=e61]:
+              - listitem [ref=e62]:
+                - link "Reverse Chronological" [ref=e63] [cursor=pointer]:
+                  - /url: https://www.esma.europa.eu/press-news/esma-news
+              - listitem [ref=e64]:
+                - link "Chronological" [ref=e65] [cursor=pointer]:
+                  - /url: https://www.esma.europa.eu/press-news/esma-news?sort_by=chronological
+              - listitem [ref=e66]:
+                - link "Popularity" [ref=e67] [cursor=pointer]:
+                  - /url: https://www.esma.europa.eu/press-news/esma-news?sort_by=totalcount_1
+          - generic [ref=e69]:
+            - article [ref=e73]:
+              - generic [ref=e75]:
+                - generic [ref=e76]: Joint Committee
+                - generic [ref=e77]: Trading
+              - link "EBA, EIOPA and ESMA propose amendments to bilateral margin requirements 03/08/2026" [ref=e78] [cursor=pointer]:
+                - /url: /press-news/esma-news/eba-eiopa-and-esma-propose-amendments-bilateral-margin-requirements
+                - generic [ref=e79]: EBA, EIOPA and ESMA propose amendments to bilateral margin requirements
+                - generic [ref=e80]: 03/08/2026
+              - generic [ref=e81]:
+                - link:
+                  - /url: /press-news/esma-news/eba-eiopa-and-esma-propose-amendments-bilateral-margin-requirements
+                - generic [ref=e82]:
+                  - link:
+                    - /url: /press-news/esma-news/eba-eiopa-and-esma-propose-amendments-bilateral-margin-requirements
+                  - paragraph [ref=e83]:
+                    - link "The European Supervisory Authorities (EBA, EIOPA and ESMA – the ESAs) today published a" [ref=e84] [cursor=pointer]:
+                      - /url: /press-news/esma-news/eba-eiopa-and-esma-propose-amendments-bilateral-margin-requirements
+              - generic [ref=e85]:
+                - button "Download all related documents" [ref=e87] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e91]:
+              - generic [ref=e93]:
+                - generic [ref=e94]: Digital Finance and Innovation
+                - generic [ref=e95]: Joint Committee
+              - link "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector 31/07/2026 The European Supervisory Authorities (EBA, EIOPA and ESMA – the ESAs) today publishe" [ref=e96] [cursor=pointer]:
+                - /url: /press-news/esma-news/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision
+                - generic [ref=e97]: EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector
+                - generic [ref=e98]: 31/07/2026
+                - paragraph [ref=e101]: The European Supervisory Authorities (EBA, EIOPA and ESMA – the ESAs) today publishe
+              - generic [ref=e102]:
+                - button "Download all related documents" [ref=e104] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e108]:
+              - generic [ref=e109]: ESMA newsletter
+              - link "ESMA publishes latest edition of its newsletter 31/07/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator" [ref=e112] [cursor=pointer]:
+                - /url: /press-news/esma-news/esma-publishes-latest-edition-its-newsletter-44
+                - generic [ref=e113]: ESMA publishes latest edition of its newsletter
+                - generic [ref=e114]: 31/07/2026
+                - paragraph [ref=e117]: The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator
+              - generic [ref=e118]:
+                - button "Download all related documents" [ref=e120] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e124]:
+              - generic [ref=e126]:
+                - generic [ref=e127]: Market data
+                - generic [ref=e128]: Press Releases
+                - generic [ref=e129]: Trading
+              - link "ESMA authorises EuroCTP as the Consolidated Tape Provider for shares and exchange-traded funds 27/07/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator" [ref=e130] [cursor=pointer]:
+                - /url: /press-news/esma-news/esma-authorises-euroctp-consolidated-tape-provider-shares-and-exchange-traded
+                - generic [ref=e131]: ESMA authorises EuroCTP as the Consolidated Tape Provider for shares and exchange-traded funds
+                - generic [ref=e132]: 27/07/2026
+                - paragraph [ref=e135]: The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator
+              - generic [ref=e136]:
+                - button "Download all related documents" [ref=e138] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e142]:
+              - generic [ref=e143]: Post Trading
+              - link "ESMA calls on firms to finalise preparations ahead of T+1 settlement deadlines 20/07/2026" [ref=e146] [cursor=pointer]:
+                - /url: /press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines
+                - generic [ref=e147]: ESMA calls on firms to finalise preparations ahead of T+1 settlement deadlines
+                - generic [ref=e148]: 20/07/2026
+              - generic [ref=e149]:
+                - link:
+                  - /url: /press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines
+                - generic [ref=e150]:
+                  - link:
+                    - /url: /press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines
+                  - paragraph [ref=e151]:
+                    - link "The European Securities and Markets Authority (ESMA), the EU regulator and supervisor, has published a" [ref=e152] [cursor=pointer]:
+                      - /url: /press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines
+                    - link:
+                      - /url: /site
+              - generic [ref=e153]:
+                - button "Download all related documents" [ref=e155] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e159]:
+              - generic [ref=e160]: Supervisory convergence
+              - link "ESMA publishes report on cross-border investment services supervision 20/07/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator" [ref=e163] [cursor=pointer]:
+                - /url: /press-news/esma-news/esma-publishes-report-cross-border-investment-services-supervision
+                - generic [ref=e164]: ESMA publishes report on cross-border investment services supervision
+                - generic [ref=e165]: 20/07/2026
+                - paragraph [ref=e168]: The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator
+              - generic [ref=e169]:
+                - button "Download all related documents" [ref=e171] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e175]:
+              - generic [ref=e176]: Board of Appeal
+              - link "Joint Board of Appeal dismisses appeal against the EBA 16/07/2026 The Joint Board of Appeal of the European Supervisory Authorities (EBA, EIOPA and ES" [ref=e179] [cursor=pointer]:
+                - /url: /press-news/esma-news/joint-board-appeal-dismisses-appeal-against-eba
+                - generic [ref=e180]: Joint Board of Appeal dismisses appeal against the EBA
+                - generic [ref=e181]: 16/07/2026
+                - paragraph [ref=e184]: The Joint Board of Appeal of the European Supervisory Authorities (EBA, EIOPA and ES
+              - generic [ref=e185]:
+                - button "Download all related documents" [ref=e187] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e191]:
+              - generic [ref=e192]: Market data
+              - link "ESMA launches data collection under the first phase of ESAP 10/07/2026 The European Securities and Markets Authority (ESMA), the EU regulator and supervisor, has" [ref=e195] [cursor=pointer]:
+                - /url: /press-news/esma-news/esma-launches-data-collection-under-first-phase-esap
+                - generic [ref=e196]: ESMA launches data collection under the first phase of ESAP
+                - generic [ref=e197]: 10/07/2026
+                - paragraph [ref=e200]: The European Securities and Markets Authority (ESMA), the EU regulator and supervisor, has
+              - generic [ref=e201]:
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e205]:
+              - generic [ref=e207]:
+                - generic [ref=e208]: Digital Finance and Innovation
+                - generic [ref=e209]: Sustainable finance
+                - generic [ref=e210]: Trading
+              - link "New Q&As available 10/07/2026" [ref=e211] [cursor=pointer]:
+                - /url: /press-news/esma-news/new-qas-available-July-2026
+                - generic [ref=e212]: New Q&As available
+                - generic [ref=e213]: 10/07/2026
+              - generic [ref=e214]:
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+            - article [ref=e218]:
+              - generic [ref=e219]: Market data
+              - link "ESMA publishes first market capitalisation data for EU Member States 10/07/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator" [ref=e222] [cursor=pointer]:
+                - /url: /press-news/esma-news/esma-publishes-first-market-capitalisation-data-eu-member-states
+                - generic [ref=e223]: ESMA publishes first market capitalisation data for EU Member States
+                - generic [ref=e224]: 10/07/2026
+                - paragraph [ref=e227]: The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator
+              - generic [ref=e228]:
+                - button "Download all related documents" [ref=e230] [cursor=pointer]: 
+                - generic:
+                  - generic:
+                    - link "See Responses for":
+                      - /url: ""
+          - list [ref=e231]:
+            - listitem [ref=e232]:
+              - link "Load More" [ref=e233] [cursor=pointer]:
+                - /url: "?page=1"
+    - contentinfo [ref=e234]:
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - link [ref=e240] [cursor=pointer]:
+            - /url: /
+            - img "Home" [ref=e241]
+          - generic [ref=e242]:
+            - generic [ref=e243]: ESMA is an authority of the European Union
+            - img "Home" [ref=e245]
+        - generic [ref=e247]:
+          - navigation [ref=e248]:
+            - list [ref=e249]:
+              - listitem [ref=e250]:
+                - link "Careers" [ref=e251] [cursor=pointer]:
+                  - /url: /about-esma/internal-organisation/careers
+              - listitem [ref=e252]:
+                - link "ESMA Documents" [ref=e253] [cursor=pointer]:
+                  - /url: /databases-library/esma-library
+          - navigation [ref=e254]:
+            - list [ref=e255]:
+              - listitem [ref=e256]:
+                - link "Contact & Help" [ref=e257] [cursor=pointer]:
+                  - /url: /contact-help
+              - listitem [ref=e258]:
+                - link "Media Corner" [ref=e259] [cursor=pointer]:
+                  - /url: /contact-help/media-corner
+          - navigation [ref=e260]:
+            - list [ref=e261]:
+              - listitem [ref=e262]:
+                - link "Cookie Policy" [ref=e263] [cursor=pointer]:
+                  - /url: /cookie-policy
+              - listitem [ref=e264]:
+                - link "Data Protection" [ref=e265] [cursor=pointer]:
+                  - /url: /about-esma/governance-structure/legal-notice-data-protection
+          - generic [ref=e266]:
+            - heading "Social Media" [level=6] [ref=e267]
+            - navigation "Social Media Menu" [ref=e268]:
+              - list [ref=e270]:
+                - listitem [ref=e271]:
+                  - link "Open ESMA Twitter" [ref=e272] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/european-securities-and-markets-authority-esma/
+                    - text: 
+                - listitem [ref=e273]:
+                  - link "Open ESMA Instagram" [ref=e274] [cursor=pointer]:
+                    - /url: https://instagram.com/esmacomms/
+                    - text: 
+                - listitem [ref=e275]:
+                  - link "Open ESMA Linkedin" [ref=e276] [cursor=pointer]:
+                    - /url: https://twitter.com/ESMAComms
+                    - text: 
+                - listitem [ref=e277]:
+                  - link "Open ESMA Youtube channel" [ref=e278] [cursor=pointer]:
+                    - /url: https://www.youtube.com/channel/UCe5tFtIMPE5BbFGdqT330WQ
+                    - text: 

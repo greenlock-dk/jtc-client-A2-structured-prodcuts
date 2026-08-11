@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 27
+isin: XS0304286924
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 4
+trust: ''
+country: ''
+bank_held: ''
+issuer: Dexia Banque International LUX SA
+product_name: Matured
+structure: Matured
+currency: USD
+issue_date: 30-May-2007
+maturity: 27-Jun-2022
+tenor_years: '15.075'
+underlying: Business days the USD 6 month Libor falling within range of 0 - 7.5-8.0
+coupon: 7.25 - 9.0% ramping up every year
+barrier: ''
+frequency: every 1 or 2 years
+annualised_rate: ''
+other_comments: ''
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: ''
+denomination_usd: 10,000
+issue_size:
+  display: USD 10,520.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0304286924/XS0304286924 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability USD 10,520.00 (M) Quick Links Iss Sprd
+    USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS MinPiece/Increment
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Not available in current sources
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Not available in current sources
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Not available in current sources
+  denomination_usd: Workbook reference
+---
+
 # XS0304286924 - Libor Callable Note
 
 - ISIN: `XS0304286924`

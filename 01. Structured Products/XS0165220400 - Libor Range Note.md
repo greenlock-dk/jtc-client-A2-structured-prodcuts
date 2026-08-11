@@ -1,3 +1,64 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 11
+isin: XS0165220400
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 1
+trust: Ebro/Tudela
+country: Luxemborg
+bank_held: Lloyds and UBP
+issuer: Banque Caisse Epargne
+product_name: Callable - actioned
+structure: Callable - actioned
+currency: USD
+issue_date: 11-Mar-2003
+maturity: 24-Sep-2008
+tenor_years: '5.53611'
+underlying: USD 6 month Libor rate falling in a range
+coupon: 7.25%
+barrier: The coupon rate is reduced by multiplying number of days the 6 month Libor
+  is within a certain range / the number of days with each accrual period, the minimum
+  coupon rate is 0%)
+frequency: ''
+annualised_rate: ''
+other_comments: Rating AAA
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 5,000,000
+denomination_usd: 100,000
+issue_size:
+  display: USD 5,000.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0165220400/XS0165220400 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability CALLED 0N 09/24/08@100.00 USD 5,000.00
+    (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Workbook reference
+  frequency: Not available in current sources
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS0165220400 - Libor Range Note
 
 - ISIN: `XS0165220400`
@@ -32,7 +93,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 5,000,000 across different line items |  | 5,000,000 across different line items | Workbook reference |
+| Position size (USD) | 5,000,000 |  | 5,000,000 | Workbook reference |
 | Denomination (USD) | 100,000 |  | 100,000 | Workbook reference |
 
 ## Issue Size / Amount Issued

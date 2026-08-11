@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 15
+isin: XS0171914038
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 2
+trust: Sete/Ebro
+country: UK
+bank_held: Deutsche, Lloyds
+issuer: Lloyds TSB Bank
+product_name: Callable - Actioned
+structure: Callable - Actioned
+currency: USD
+issue_date: 26-Jun-2003
+maturity: 14-Apr-2008
+tenor_years: '4.8'
+underlying: Business days the USD 6 month Libor falling within range of 0 - 7.25
+coupon: 6.75%
+barrier: ''
+frequency: 3 months
+annualised_rate: ''
+other_comments: Rating AAA
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 10,700,000
+denomination_usd: 50,000
+issue_size:
+  display: USD 30,850.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0171914038/XS0171914038 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability CALLED 0N 04/14/08@100.00 USD 30,850.00
+    (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS0171914038 - Libor Callable Note
 
 - ISIN: `XS0171914038`
@@ -32,7 +91,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 10,700,000 across different line items |  | 10,700,000 across different line items | Workbook reference |
+| Position size (USD) | 10,700,000 |  | 10,700,000 | Workbook reference |
 | Denomination (USD) | 50,000 |  | 50,000 | Workbook reference |
 
 ## Issue Size / Amount Issued

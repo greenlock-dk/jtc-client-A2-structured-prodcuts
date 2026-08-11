@@ -9,6 +9,7 @@ from pathlib import Path
 from openpyxl import load_workbook
 
 from generate_phase_1_2 import format_value
+from product_frontmatter import read_product, write_product
 from review_phase_4b import dossier_for, find_candidate
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -303,6 +304,7 @@ def consolidated_rows(isin: str, workbook_record: dict[str, str], candidates: di
 
 def write_dossier(isin: str, workbook_record: dict[str, str]) -> tuple[int, int, int, int]:
     dossier = dossier_for(isin)
+    canonical_data, _ = read_product(dossier) if dossier.exists() else ({}, "")
     images, ocr_paths = source_files(isin)
     source_count = len(images)
     ocr_count = len(ocr_paths)
@@ -371,7 +373,11 @@ def write_dossier(isin: str, workbook_record: dict[str, str]) -> tuple[int, int,
         "- `OCR candidate` is a machine transcription and requires visual comparison with the linked image.",
         "- A disagreement is not resolved until the source image or an original term sheet is checked.",
     ])
-    dossier.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # Reviewed frontmatter is canonical and must survive an evidence-report rebuild.
+    if canonical_data:
+        write_product(dossier, canonical_data, "\n".join(lines) + "\n")
+    else:
+        dossier.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return source_count, ocr_count, len(discrepancies), len(resolutions)
 
 

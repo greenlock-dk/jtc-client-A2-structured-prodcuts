@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 23
+isin: XS0293931688
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 3
+trust: Sete/Tudela
+country: Australia
+bank_held: Deutsche, UBP
+issuer: Commonwealth bank Australia
+product_name: Callable - Actioned
+structure: Callable - Actioned
+currency: USD
+issue_date: 22-Mar-2007
+maturity: 14-Apr-2009
+tenor_years: '2.06111'
+underlying: CMS spread range
+coupon: 9.25%
+barrier: ''
+frequency: 3 months
+annualised_rate: ''
+other_comments: Rating AA-
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 500,000
+denomination_usd: 10,000
+issue_size:
+  display: USD 3,000.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0293931688/XS0293931688 - image-01.txt; AmtIssued/outstanding;
+    AmtIssued/outstanding 23) Sustainability CALLED 0N 04/14/09@100.00 USD 3,000.00
+    (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FL0ATERS
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS0293931688 - CMS Spread Note
 
 - ISIN: `XS0293931688`
@@ -32,7 +91,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 500,000 across different line items |  | 500,000 across different line items | Workbook reference |
+| Position size (USD) | 500,000 |  | 500,000 | Workbook reference |
 | Denomination (USD) | 10,000 |  | 10,000 | Workbook reference |
 
 ## Issue Size / Amount Issued

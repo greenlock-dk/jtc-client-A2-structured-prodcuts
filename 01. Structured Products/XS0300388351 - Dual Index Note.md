@@ -1,3 +1,64 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 9
+isin: XS0300388351
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 1
+trust: Ebro/Tudela
+country: Australia
+bank_held: UBP Jersey and Lloyds
+issuer: Commonwealth bank Australia
+product_name: Callable unsecured fixed to variable type note - actioned<br><br>Dual
+  indexed and leveraged
+structure: Callable unsecured fixed to variable type note - actioned<br><br>Dual indexed
+  and leveraged
+currency: USD
+issue_date: 30-May-2007
+maturity: 30-May-2017
+tenor_years: '10'
+underlying: USD Swap Semi-Annual 30-Year rate
+coupon: 0%
+barrier: ''
+frequency: quarterly
+annualised_rate: ''
+other_comments: Rating AA
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 600,000
+denomination_usd: 10,000
+issue_size:
+  display: USD 8,370.00 million
+  status: confirmed
+  source: 02. BBG images/XS0300388351/XS0300388351 - image-01.png; visual confirmation of
+    Amt Issued/Outstanding as USD 8,370.00 million
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+  issue_size: Confirmed by visual review
+---
+
 # XS0300388351 - Dual Index Note
 
 - ISIN: `XS0300388351`
@@ -32,20 +93,20 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 600,000 across different line items |  | 600,000 across different line items | Workbook reference |
+| Position size (USD) | 600,000 |  | 600,000 | Workbook reference |
 | Denomination (USD) | 10,000 |  | 10,000 | Workbook reference |
 
 ## Issue Size / Amount Issued
 
-This field is separate from the Trust's position size. OCR-derived values are candidates until checked against the source image.
+This field is separate from the Trust's position size. The issue-size value was visually confirmed against the linked Bloomberg image.
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 8,370.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0300388351/XS0300388351 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 8,370.00 (M) Quick Links Iss Sprd USD (M) 30 ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT Qt Recap` |
+| Original issue / amount issued or outstanding | USD 8,370.00 million | confirmed | `02. BBG images/XS0300388351/XS0300388351 - image-01.png` |
 
 ## Consistency Review
 
-Disagreements are preserved for manual source-image review; no unverified OCR correction is applied.
+The issue-size candidate was checked against the source image and confirmed.
 
 - No unresolved workbook/OCR field disagreements detected.
 

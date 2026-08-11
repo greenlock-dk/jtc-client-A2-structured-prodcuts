@@ -2,6 +2,18 @@
 
 > Research captured 9 August 2026. Five ISINs were searched individually using exact ISIN queries plus issuer, structure, and historical programme terms. No source document below should be treated as evidence of the target instrument unless explicitly marked as an exact match.
 
+## Exact-ISIN Recovery Re-check (11 August 2026)
+
+The three unresolved no-evidence instruments were searched again using the complete ISIN as the primary query, with product-name and historical-issuer terms where available:
+
+| ISIN | Exact public result | Disposition |
+| --- | --- | --- |
+| `XS0298465822` | No exact instrument page, final terms, pricing supplement, prospectus, or reliable issuer match returned | `not found`; this is not evidence that the document does not exist |
+| `XS0168875792` | No exact instrument page, final terms, pricing supplement, prospectus, or reliable issuer match returned; near-matches were different ISINs | `not found`; near-matches are excluded from product evidence |
+| `XS0318585791` | No exact instrument page, final terms, pricing supplement, prospectus, or reliable issuer match returned; generic kick-in results were unrelated products | `not found`; generic product-family documents are excluded from product evidence |
+
+This pass does not establish non-existence and does not supply terms for any target. It closes the indexed-public-search step available without issuer, exchange, regulator, or Trust archive access. The three dossiers remain explicitly excluded from structured-product conclusions.
+
 ## Scope and conclusion
 
 The search did not recover an exact public term sheet, final terms document, or pricing supplement for four of the five target ISINs. An exact pricing supplement for `XS3234638248` is now available locally and is recorded as original-term evidence in the product dossier. The search also recovered useful product-family examples and archive routes for three of the remaining four products:
@@ -212,3 +224,33 @@ The page timed out in the public crawler, so it did not yield extractable terms 
 - The historical notes may have been privately placed, delisted, held in archives not indexed by web search, or published as pricing supplements under programme names without the ISIN in indexed text.
 - For the 2003-2007 notes, the next recovery method should be directed document requests to the issuer or successor, lead distributor/custodian, Luxembourg Stock Exchange archive, and Euroclear/Clearstream documentation channels. Include ISIN, issue date, maturity date, denomination, issuer, and the internal range-accrual or CMS description in each request.
 - For `CH0252328973`, query the issuer's current structured-products desk or investor-document portal with the exact ISIN rather than relying on historical web indexing. `XS3234638248` now has an exact local BBVA pricing supplement; no further recovery action is required for its core terms.
+
+## Brave and Exa Direct-ISIN Recovery Pass (11 August 2026)
+
+This follow-up pass searched each of the 29 portfolio ISINs individually through Brave Search and Exa. Queries used the exact ISIN plus, where known, issuer, issue date, maturity, coupon/reference-rate mechanics, and the document terms “final terms”, “pricing supplement”, “term sheet”, or “prospectus”. Each result page was screened for the target ISIN before being treated as a discovery.
+
+**Result:** No additional exact original terms, final terms, pricing supplement, official target-specific listing, or product page was recovered. This is a public-indexing/discovery null result, not evidence that the documents do not exist, that the notes were unlisted, or that they were not issued under the identified programmes.
+
+### Coverage
+
+The direct pass covered:
+
+- `CH1484588913`, `XS3234638248`, `XS0765564827`, `XS1028242706`, `XS1243914071`, and `CH0252328973`.
+- `XS0297701319`, `XS0318585791`, `XS0300388351`, `XS0164480286`, `XS0165220400`, `XS0168875792`, `XS0169318291`, `XS0170303290`, `XS0171914038`, and `XS0172077769`.
+- `XS0241444883`, `XS0249805960`, `XS0277502067`, `XS0278550750`, `XS0284203071`, `XS0294314694`, `XS0293931688`, `XS0293919121`, `XS0297467705`, `XS0298465822`, `XS0304286924`, `XS0314283432`, and `XS0315745447`.
+
+### New verified recovery routes
+
+- [Commonwealth Bank EMTN programme](https://www.commbank.com.au/about-us/investors/emtn-programme.html): the issuer endpoint explicitly publishes programme materials and final terms. The current public index does not expose the 2007 target notes, but it is the strongest issuer-led retrieval route for `XS0277502067`, `XS0284203071`, `XS0293931688`, `XS0293919121`, `XS0297467705`, `XS0297701319`, `XS0300388351`, and `XS0314283432`.
+- [Morgan Stanley B.V. programme supplement](https://sp.morganstanley.com/download/prospectus/57fb1850-2b79-478c-aa77-8c400d271307/): confirms a contemporaneous Morgan Stanley B.V. medium-term-note programme and the requirement for instrument-level Final Terms. It does not name `XS1028242706`, so it is a programme-recovery lead only.
+- [Banque Internationale a Luxembourg final-terms example](https://www.bil.com/Documents/EMTN/FT_XS2219003915-en.pdf): confirms an accessible BIL EMTN final-terms repository and expected documentary format. This document is for `XS2219003915`, not `XS0241444883` or `XS0249805960`.
+
+### Excluded near-matches
+
+The searches again returned several documents for different ISINs that have similar callable LIBOR range-accrual or CMS-spread mechanics. They include the already-recorded UBS KeyInvest examples, unrelated Bank of America SEC filings, and other Commonwealth Bank and Credit Suisse structured-product sheets. None names a target ISIN and none is evidence of the target product’s terms.
+
+For `XS0298465822`, the direct search did not identify an issuer or instrument type. The [BaFin securities prospectus database](https://www.bafin.de/EN/die-bafin/publikationen-daten/datenbanken-uebersichten/prospektdatenbanken/wertpapiere/wertpapiere_node_en.html) remains the appropriate next public retrieval interface because it supports ISIN searches and points to the ESMA register for final terms.
+
+### Next recovery step
+
+Continue with the exchange archive interfaces and same-programme issuer-document retrieval. Requests should include the exact ISIN, issuer, issue date, maturity date, denomination, and the available rate-linked or equity-linked description. Do not substitute any of the near-matches above for the missing original terms.

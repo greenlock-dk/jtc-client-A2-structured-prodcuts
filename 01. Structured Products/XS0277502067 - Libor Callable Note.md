@@ -1,3 +1,63 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 19
+isin: XS0277502067
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 3
+trust: Sete/Ebro/Tudela
+country: Australia
+bank_held: Deutsche/ Lloyds, Pictet and UBP
+issuer: Commonwealth bank Australia
+product_name: Callable
+structure: Callable
+currency: USD
+issue_date: 24-Nov-2006
+maturity: 14-Dec-2021
+tenor_years: '15.0556'
+underlying: number of days USD 3 month Libor in a range initially when the libor rate
+  is greater than 4.25/4 then between 0 - up to 9.0
+coupon: 8.25%
+barrier: ''
+frequency: 3 months
+annualised_rate: ''
+other_comments: Rating AA-
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 1,000,000
+denomination_usd: 10,000
+issue_size:
+  display: USD 5,000.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0277502067/XS0277502067 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability USD 5,000.00 (M) Quick Links Iss Sprd
+    USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS0277502067 - Libor Callable Note
 
 - ISIN: `XS0277502067`
@@ -32,7 +92,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 1,000,000 across different line items |  | 1,000,000 across different line items | Workbook reference |
+| Position size (USD) | 1,000,000 |  | 1,000,000 | Workbook reference |
 | Denomination (USD) | 10,000 |  | 10,000 | Workbook reference |
 
 ## Issue Size / Amount Issued

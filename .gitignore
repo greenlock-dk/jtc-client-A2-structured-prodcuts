@@ -1,0 +1,28 @@
+# Local Python environments and bytecode
+.venv/
+__pycache__/
+*.py[cod]
+
+# Test, type-checking, and lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebook and operating-system metadata
+.ipynb_checkpoints/
+.DS_Store
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+
+# Local dashboard view state
+05. Cost modeling/.cost-model-views.json
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/

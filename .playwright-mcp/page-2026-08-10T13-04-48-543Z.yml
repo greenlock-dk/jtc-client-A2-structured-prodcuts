@@ -1,0 +1,172 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - navigation [ref=f1e3]:
+      - generic [ref=f1e4]:
+        - generic [ref=f1e5]:
+          - button "Toggle navigation" [ref=f1e6] [cursor=pointer]
+          - link [ref=f1e9] [cursor=pointer]:
+            - /url: /
+            - img "SRP" [ref=f1e10]
+          - list [ref=f1e12]:
+            - listitem [ref=f1e13]:
+              - link "Get Started" [ref=f1e14] [cursor=pointer]:
+                - /url: /home/getstarted
+            - listitem [ref=f1e15]:
+              - link "Log In )" [ref=f1e16] [cursor=pointer]:
+                - /url: /account/login
+        - text:     
+  - heading "FAQs about Structured Products" [level=1] [ref=f1e21]
+  - button "FAQs about Structured Products )" [ref=f1e27] [cursor=pointer]
+  - paragraph [ref=f1e34]: Structured products, known for their variations and multi-faceted strategies, frequently spark enquiries. Here are some FAQs covering common topics.
+  - tablist [ref=f1e38]:
+    - tab [ref=f1e40]:
+      - heading [level=6] [ref=f1e41]:
+        - button " 1. What is a structured product?" [ref=f1e42] [cursor=pointer]
+    - tab [ref=f1e44]:
+      - heading [level=6] [ref=f1e45]:
+        - button " 2. How are structured products regulated?" [ref=f1e46] [cursor=pointer]
+    - tab [ref=f1e48]:
+      - heading [level=6] [ref=f1e49]:
+        - button " 3. Are structured products too risky?" [ref=f1e50] [cursor=pointer]
+    - tab [ref=f1e52]:
+      - heading [level=6] [ref=f1e53]:
+        - button " 4. Do structured products lack transparency?" [ref=f1e54] [cursor=pointer]
+    - tab [ref=f1e56]:
+      - heading [level=6] [ref=f1e57]:
+        - button " 5. Are structured products too complex?" [ref=f1e58] [cursor=pointer]
+    - tab [ref=f1e60]:
+      - heading [level=6] [ref=f1e61]:
+        - button " 6. Are structured products too expensive?" [ref=f1e62] [cursor=pointer]
+    - tab [ref=f1e64]:
+      - heading [level=6] [ref=f1e65]:
+        - button " 7. How to invest in structured products?" [ref=f1e66] [cursor=pointer]
+    - tab [ref=f1e68]:
+      - heading [level=6] [ref=f1e69]:
+        - button " 8. Are there too many structured products?" [ref=f1e70] [cursor=pointer]
+    - tab [ref=f1e72]:
+      - heading [level=6] [ref=f1e73]:
+        - button " 9. How do banks make money on structured products?" [ref=f1e74] [cursor=pointer]
+    - tab [ref=f1e76]:
+      - heading [level=6] [ref=f1e77]:
+        - button " 10. Are banks betting against structured product investors?" [ref=f1e78] [cursor=pointer]
+    - tab [ref=f1e80]:
+      - heading [level=6] [ref=f1e81]:
+        - button " 11. How do derivatives benefit the real economy?" [ref=f1e82] [cursor=pointer]
+    - tab [ref=f1e84]:
+      - heading [level=6] [ref=f1e85]:
+        - button " 12. What is a structured note definition?" [ref=f1e86] [cursor=pointer]
+    - tab [ref=f1e88]:
+      - heading [level=6] [ref=f1e89]:
+        - button " 13. What are certificates for?" [ref=f1e90] [cursor=pointer]
+    - tab [ref=f1e92]:
+      - heading [level=6] [ref=f1e93]:
+        - button " 14. What’s the difference between a market-linked certificate of deposit and a structured note?" [ref=f1e94] [cursor=pointer]
+    - tab [ref=f1e96]:
+      - heading [level=6] [ref=f1e97]:
+        - button " 15. Is there liquidity in the structured products market?" [ref=f1e98] [cursor=pointer]
+  - generic [ref=f1e101]:
+    - heading "Interested in how structured products intelligence can power your business?" [level=2] [ref=f1e102]
+    - link "Request Demo" [ref=f1e103] [cursor=pointer]:
+      - /url: /account/register
+  - generic [ref=f1e106]:
+    - generic [ref=f1e107]:
+      - heading "Who we are" [level=5] [ref=f1e108]
+      - paragraph [ref=f1e109]: Launched in 2003, SRP is the leading provider of intelligence for the global structured product market, trusted by investment banks, hedge funds, product issuers and distributors, exchanges and asset managers.
+      - paragraph [ref=f1e110]: Today, we enable market players to find any product from over 40 million in our database and easily analyse the market. Our news service and global events cover the latest insights into the structured products market and recognises industry leading talent through our awards programmes.
+      - link "Learn more" [ref=f1e111] [cursor=pointer]:
+        - /url: /about-us
+    - img "Image" [ref=f1e113]
+  - link "( Selected Insights" [ref=f1e116] [cursor=pointer]:
+    - /url: /srp-academy/structured-products-selected-insights
+  - contentinfo [ref=f1e117]:
+    - generic [ref=f1e120]:
+      - generic [ref=f1e121]:
+        - img "SRP" [ref=f1e123]
+        - list [ref=f1e124]:
+          - listitem [ref=f1e125]:
+            - link "Terms and Conditions" [ref=f1e126] [cursor=pointer]:
+              - /url: https://www.derivia.com/terms-and-conditions
+          - listitem [ref=f1e127]:
+            - link "Privacy Policy" [ref=f1e128] [cursor=pointer]:
+              - /url: https://www.derivia.com/privacy-policy
+          - listitem [ref=f1e129]:
+            - link "Cookies Policy" [ref=f1e130] [cursor=pointer]:
+              - /url: https://www.derivia.com/cookies-policy
+          - listitem [ref=f1e131]:
+            - link "Modern Slavery Act" [ref=f1e132] [cursor=pointer]:
+              - /url: https://www.derivia.com/modern-slavery-statement
+        - list [ref=f1e133]:
+          - listitem [ref=f1e134]:
+            - link [ref=f1e135] [cursor=pointer]:
+              - /url: https://twitter.com/srp_insider?lang=en
+          - listitem [ref=f1e137]:
+            - link [ref=f1e138] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/structuredretailproducts-com/
+              - generic [ref=f1e139]: 
+          - listitem [ref=f1e140]:
+            - link [ref=f1e141] [cursor=pointer]:
+              - /url: https://www.youtube.com/channel/UC7dVLI5HxFZ6CEKA7rHhzoQ
+              - generic [ref=f1e142]: 
+      - generic [ref=f1e144]:
+        - generic [ref=f1e145]:
+          - strong [ref=f1e146]: Data Solutions
+          - list [ref=f1e147]:
+            - listitem [ref=f1e148]:
+              - link "All Data Solutions" [ref=f1e149] [cursor=pointer]:
+                - /url: /data
+            - listitem [ref=f1e150]:
+              - link "Market Analysis" [ref=f1e151] [cursor=pointer]:
+                - /url: /product/analysis
+            - listitem [ref=f1e152]:
+              - link "Product Search" [ref=f1e153] [cursor=pointer]:
+                - /url: /product/product-search
+            - listitem [ref=f1e154]:
+              - link "Greeks" [ref=f1e155] [cursor=pointer]:
+                - /url: /product/greeks
+          - strong [ref=f1e156]: Insights
+          - list [ref=f1e157]:
+            - listitem [ref=f1e158]:
+              - link "All Insights" [ref=f1e159] [cursor=pointer]:
+                - /url: /insights
+            - listitem [ref=f1e160]:
+              - link "Industry Insights" [ref=f1e161] [cursor=pointer]:
+                - /url: /insights/industry-insights
+            - listitem [ref=f1e162]:
+              - link "Data Insights" [ref=f1e163] [cursor=pointer]:
+                - /url: /insights/data-insights
+            - listitem [ref=f1e164]:
+              - link "Webinars" [ref=f1e165] [cursor=pointer]:
+                - /url: /insights/Webinars
+            - listitem [ref=f1e166]:
+              - link "Special Reports" [ref=f1e167] [cursor=pointer]:
+                - /url: /insights/reports
+        - generic [ref=f1e168]:
+          - strong [ref=f1e169]: Events & Awards
+          - list [ref=f1e170]:
+            - listitem [ref=f1e171]:
+              - link "Events Calendar" [ref=f1e172] [cursor=pointer]:
+                - /url: /event
+            - listitem [ref=f1e173]:
+              - link "Events Insights" [ref=f1e174] [cursor=pointer]:
+                - /url: /event/insights
+          - strong [ref=f1e175]: SRP Academy
+          - list [ref=f1e176]:
+            - listitem [ref=f1e177]:
+              - link "About Structured Products" [ref=f1e178] [cursor=pointer]:
+                - /url: /srp-academy/what-are-structured-products
+            - listitem [ref=f1e179]:
+              - link "Terminology" [ref=f1e180] [cursor=pointer]:
+                - /url: /srp-academy/structured-products-terminology
+        - generic [ref=f1e181]:
+          - strong [ref=f1e182]: About Us
+          - list [ref=f1e183]:
+            - listitem [ref=f1e184]:
+              - link "Company" [ref=f1e185] [cursor=pointer]:
+                - /url: /about-us
+            - listitem [ref=f1e186]:
+              - link "Contact Us" [ref=f1e187] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f1e188]:
+              - link "Help Centre" [ref=f1e189] [cursor=pointer]:
+                - /url: /help-centre
+    - paragraph [ref=f1e192]: © 2026 Structured Retail Products (SRP), Derivia Intelligence Limited, company number 15235970, 161 Farringdon Road, London, EC1R 3AL. All rights reserved.

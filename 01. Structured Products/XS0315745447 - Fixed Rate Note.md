@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 29
+isin: XS0315745447
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 5
+trust: ''
+country: ''
+bank_held: ''
+issuer: KBC IFIMA NV
+product_name: ''
+structure: Reverse Convertible, Convertible Bond, EURO MTN, EMTN
+currency: EUR
+issue_date: 03-Aug-2007
+maturity: 20-Aug-2012
+tenor_years: '5.04722'
+underlying: ''
+coupon: 10.50%
+barrier: ''
+frequency: Annual
+annualised_rate: ''
+other_comments: ''
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: ''
+denomination_usd: ''
+issue_size:
+  display: EUR 6,050.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0315745447/XS0315745447 - image-01.txt; AmtIssued/Outstanding;
+    AmtIssued/Outstanding Quick Links Type Fixed Freq Annual EUR 6,050.00 (M) 32 ALLQ
+    Pricing EUR (M)
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Not available in current sources
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: Corroborated by OCR
+  product_name: Not available in current sources
+  structure: OCR candidate; visual confirmation required
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Not available in current sources
+  coupon: Workbook reference
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Not available in current sources
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Not available in current sources
+  denomination_usd: Not available in current sources
+---
+
 # XS0315745447 - Fixed Rate Note
 
 - ISIN: `XS0315745447`

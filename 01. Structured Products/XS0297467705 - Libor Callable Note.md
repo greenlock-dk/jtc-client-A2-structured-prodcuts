@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 25
+isin: XS0297467705
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 4
+trust: ''
+country: ''
+bank_held: ''
+issuer: Commonwealth bank Australia
+product_name: Matured
+structure: Matured
+currency: USD
+issue_date: 17-Apr-2007
+maturity: 30-Apr-2022
+tenor_years: '15.0361'
+underlying: Business days the USD 6 month Libor falling within range of 0 - 7.25/7.5/8
+coupon: 7.25 - 9.0% (ramping up after 2/3/4 years)
+barrier: ''
+frequency: 3 months
+annualised_rate: ''
+other_comments: ''
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: ''
+denomination_usd: 10,000
+issue_size:
+  display: USD 5,000.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0297467705/XS0297467705 - image-01.txt; AmtIssued/Outstanding;
+    AmtIssued/Outstanding 23) Sustainability USD 5,000.00 (M) Quick Links Iss Sprd
+    USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT Qt Recap
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Not available in current sources
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Not available in current sources
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Not available in current sources
+  denomination_usd: Workbook reference
+---
+
 # XS0297467705 - Libor Callable Note
 
 - ISIN: `XS0297467705`

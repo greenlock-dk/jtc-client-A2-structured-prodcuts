@@ -12,6 +12,19 @@
         "--caps",
         "pdf"
       ]
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search@0.6.2"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${env:BRAVE_SEARCH_API}"
+      }
+    },
+    "fetch": {
+      "command": "${workspaceFolder}/.venv/bin/mcp-server-fetch"
     }
   }
 }

@@ -1,3 +1,65 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 6
+isin: CH0252328973
+source_section: Recent structured product
+source_exhibit: Balance sheet photos (earlier)-3 HEIC / <br><br>Term Sheet Excel Calculations
+trust: Jenny 2
+country: ''
+bank_held: ''
+issuer: CREDIT SUISSE NASSAU
+product_name: Credit Suisse Nassau - senior unsecured Euro MTN
+structure: Structured equity-linked note. This is a zero coupon bond with a single
+  repayment (Bullet) however it is has barriers of 55% for two linked indices.
+currency: USD
+issue_date: 28-May-2015
+maturity: 28-May-2020
+tenor_years: '5'
+underlying: SPX,<br>SMI
+coupon: 0%
+barrier: 55%
+frequency: N/A
+annualised_rate: N/A
+other_comments: 'Barrier is calculated for both initial levels: <br><br>SPX: 2125.8500<br>SMI:
+  9319.9000<br><br>SPX lower barrier: 1169.2200<br>SMI Lower Barrier: 5125.9500'
+redemption_terms: ''
+downside: 55% downside barrier for both linked indices.  Principle repayment dependent
+  on index performance. This is an exotic structured note.
+risk: ''
+position_size: ''
+denomination_usd: 1,000
+issue_size:
+  display: Not found
+  status: not found
+  source: 02. BBG images/CH0252328973/CH0252328973 - image-01.png; visual confirmation
+    found no issuance data provided for Amt Issued/Outstanding
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: OCR candidate; visual confirmation required
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Workbook reference
+  barrier: Workbook reference
+  frequency: Workbook reference
+  annualised_rate: Workbook reference
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Workbook reference
+  risk: Not available in current sources
+  position_size: Not available in current sources
+  denomination_usd: Workbook reference
+  issue_size: 'Confirmed by visual review: not found'
+---
+
 # CH0252328973 - Credit Suisse MTN
 
 - ISIN: `CH0252328973`
@@ -37,15 +99,15 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 
 ## Issue Size / Amount Issued
 
-This field is separate from the Trust's position size. OCR-derived values are candidates until checked against the source image.
+This field is separate from the Trust's position size. The source image was visually inspected and provided no issuance data.
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | Not parsed from OCR | Candidate label: numeric value requires visual confirmation | `03. BBG OCR/CH0252328973/CH0252328973 - image-01.txt; Amt Issued/outstanding; Amt Issued/outstanding 23) Sustainability BULLET USD (M) Quick Links Iss Sprd USD (M) 30 ALLQ Pricing Calc Type (99)*NO CALCULATIONS*` |
+| Original issue / amount issued or outstanding | Not found | not found | `02. BBG images/CH0252328973/CH0252328973 - image-01.png; no issuance data provided` |
 
 ## Consistency Review
 
-Disagreements are preserved for manual source-image review; no unverified OCR correction is applied.
+The source image was checked; no issuance data was provided, so the field remains `not found` rather than zero.
 
 - No unresolved workbook/OCR field disagreements detected.
 

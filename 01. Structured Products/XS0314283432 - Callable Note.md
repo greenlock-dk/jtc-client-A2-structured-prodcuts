@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 28
+isin: XS0314283432
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 4
+trust: ''
+country: ''
+bank_held: ''
+issuer: Commonwealth bank Australia
+product_name: Callable - Actioned
+structure: Callable - Actioned
+currency: USD
+issue_date: 26-Jul-2007
+maturity: 02-Feb-2009
+tenor_years: '1.51667'
+underlying: ''
+coupon: 6.25-8.00%
+barrier: ''
+frequency: not regular
+annualised_rate: ''
+other_comments: ''
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: ''
+denomination_usd: 10,000
+issue_size:
+  display: USD 43,400.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0314283432/XS0314283432 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability CALLED 0N 02/02/09@100.00 USD 43,400.00
+    (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Not available in current sources
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Not available in current sources
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Not available in current sources
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Not available in current sources
+  denomination_usd: Workbook reference
+---
+
 # XS0314283432 - Callable Note
 
 - ISIN: `XS0314283432`

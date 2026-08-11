@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: true
+display_order: 1
+isin: CH1484588913
+source_section: Recent structured product
+source_exhibit: ''
+trust: ''
+country: ''
+bank_held: ''
+issuer: Leonteq Securities AG
+guarantor: PostFinance Ltd
+product_name: Leonteq Express Certificate on S&P 500, Swiss Market Index
+structure: Autocallable Express Certificate (Index Linked)
+currency: CHF
+issue_date: 03-Mar-2026
+maturity: 03-Mar-2028
+tenor_years: '2'
+underlying: S&P 500<br>SMI
+coupon: 1.625%
+barrier: 60%
+frequency: quarterly
+annualised_rate: 6.50%
+other_comments: No memory feature
+redemption_terms: ''
+downside: cash losss (capital)
+risk: Moderate
+position_size: 10,000,000
+denomination_usd: 1,000
+issue_size:
+  display: Not available
+  status: 'Unavailable: document recovery required'
+  source: No issue-size label found in available OCR
+field_statuses:
+  source_exhibit: Not available in current sources
+  trust: Not available in current sources
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: 'confirmed: Leonteq Securities AG (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
+  guarantor: 'confirmed: PostFinance Ltd (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
+  product_name: Workbook reference
+  structure: Workbook reference
+  currency: 'confirmed: CHF (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
+  issue_date: Workbook reference
+  maturity: Workbook reference
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Workbook reference
+  barrier: Workbook reference
+  frequency: Workbook reference
+  annualised_rate: Workbook reference
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Workbook reference
+  risk: Workbook reference
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # CH1484588913 - Leonteq Express Certificate
 
 - ISIN: `CH1484588913`
@@ -16,10 +75,11 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Country of instrument |  |  |  | Not available in current sources |
 | Custodian / bank held |  |  |  | Not available in current sources |
 | ISIN | CH1484588913 |  | CH1484588913 | Workbook reference |
-| Issuer |  |  |  | Not available in current sources |
+| Issuer | (term sheet) | — | Leonteq Securities AG | confirmed: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2 |
+| Guarantor | (term sheet) | — | PostFinance Ltd | confirmed: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2 |
 | Product name | Leonteq Express Certificate on S&P 500, Swiss Market Index |  | Leonteq Express Certificate on S&P 500, Swiss Market Index | Workbook reference |
 | Product type / structure | Autocallable Express Certificate (Index Linked) |  | Autocallable Express Certificate (Index Linked) | Workbook reference |
-| Currency |  |  |  | Not available in current sources |
+| Currency | (term sheet) | — | CHF | confirmed: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2 |
 | Issue date | 03-Mar-2026 |  | 03-Mar-2026 | Workbook reference |
 | Maturity / call date | 03-Mar-2028 |  | 03-Mar-2028 | Workbook reference |
 | Tenor (years) | 2 |  | 2 | Workbook reference |

@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 4
+isin: XS1028242706
+source_section: Recent structured product
+source_exhibit: Balance sheet photos (earlier)-3 HEIC / <br><br>Term Sheet Excel Calculations
+trust: Jake
+country: ''
+bank_held: ''
+issuer: MORGAN STANLEY BV
+product_name: Morgan Stanley  Euro Medium Term Note ("EMTN")
+structure: It appears to be a zero coupon bond, that has a single repayment (bullet)
+currency: USD
+issue_date: 14-Feb-2014
+maturity: 14-Feb-2020
+tenor_years: '6'
+underlying: ''
+coupon: 0%
+barrier: ''
+frequency: N/A
+annualised_rate: N/A
+other_comments: ''
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 850,000,000
+denomination_usd: 1,000
+issue_size:
+  display: USD 850.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS1028242706/XS1028242706 - image-01.txt; AmtIssued/outstanding;
+    AmtIssued/outstanding 23) Sustainability BULLET USD 850.00 (M) Quick Links Iss
+    Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*NO CALCULATIONS*
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: OCR candidate; visual confirmation required
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Not available in current sources
+  coupon: Workbook reference
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Workbook reference
+  other_comments: Not available in current sources
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS1028242706 - Morgan Stanley EMTN
 
 - ISIN: `XS1028242706`

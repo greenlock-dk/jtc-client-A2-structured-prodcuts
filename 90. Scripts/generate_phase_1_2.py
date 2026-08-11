@@ -11,8 +11,9 @@ from openpyxl.cell.cell import Cell
 ROOT = Path(__file__).resolve().parent.parent
 WORKBOOK_PATH = ROOT / "Trust ISIN information from Bloomberg.xlsx"
 OUTPUT_DIR = ROOT / "01. Structured Products"
-DETAILED_PATH = OUTPUT_DIR / "ISIN_detailed.md"
-SUMMARY_PATH = OUTPUT_DIR / "ISIN_summary.md"
+CANONICAL_DIR = ROOT / "05. Canonical Data"
+DETAILED_PATH = CANONICAL_DIR / "ISIN_detailed.md"
+SUMMARY_PATH = CANONICAL_DIR / "ISIN_summary.md"
 NON_ISIN_SHEETS = {"Jogger - Tudella 30 June 2009", "ISINs summary", "Bloomberg data >>"}
 PRODUCT_SUFFIXES = {
     "XS0765564827": "Aquarius Secured Notes",

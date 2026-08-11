@@ -22,11 +22,13 @@ The default scope is the entire repository. Complete all products and artifacts 
 
 ## Repository model
 
-Follow the actual five-phase pipeline:
+Follow the actual five-phase pipeline and distinguish canonical records from generated views:
 
 | Phase | Content | Audit role |
 | --- | --- | --- |
-| 1-2 | `Trust ISIN information from Bloomberg.xlsx`, `01. Structured Products/ISIN_summary.md`, and `01. Structured Products/ISIN_detailed.md` | Workbook reference data and product index |
+| 1-2 | `Trust ISIN information from Bloomberg.xlsx` | Workbook reference data and source population |
+| Canonical | YAML frontmatter in individual files in `01. Structured Products/` | Canonical structured working records; the Markdown body is the evidence and review narrative |
+| Rendered views | `05. Canonical Data/views.yaml`, `05. Canonical Data/ISIN_summary.md`, and `05. Canonical Data/ISIN_detailed.md` | Generated projections of dossier frontmatter; validate by rerendering, not as independent evidence |
 | 3 | `02. BBG images/` and `IMAGE INVENTORY.md` | Primary visual evidence extracted from the workbook |
 | 4 | `03. BBG OCR/` and `OCR INVENTORY.md` | Machine transcription candidates; never confirmation by themselves |
 | 4B | `04. Product Review/`, including per-ISIN reviews and inventories | Derived comparison and review layer |
@@ -35,6 +37,16 @@ Follow the actual five-phase pipeline:
 Also inspect `04. Original terms/`, root-level Markdown/data files, `README.md`, and `90. Scripts/` when needed to understand provenance, mappings, transformations, or generated counts.
 
 Generated outputs are not independent corroboration of their inputs. Agreement between a generated file and its source does not count as two-source confirmation.
+
+### Canonical-data rules
+
+- Use ISIN as the immutable cross-layer join key.
+- Treat dossier YAML frontmatter as the canonical structured record. Do not edit `05. Canonical Data/ISIN_summary.md` or `ISIN_detailed.md` directly.
+- Treat `display_order` as canonical presentation order. Review or consolidation inventories may use a separate sorted-ISIN sequence; differing record numbers are not a source-mapping conflict unless the inventory claims to use canonical order.
+- Validate generated views by running `python "90. Scripts/render_products.py" --view summary` and `python "90. Scripts/render_products.py" --view detailed` in a disposable or read-only validation context. Do not modify source records during the audit.
+- Validate that every dossier has parseable YAML frontmatter, a unique valid ISIN, a unique `display_order`, and source paths that resolve where they are represented as repository links.
+- Validate that `05. Canonical Data/views.yaml` references known frontmatter fields and that generated rows match the dossier records after rendering.
+- Check `field_statuses` and `issue_size` metadata as part of provenance. A generated table value is not confirmed merely because it agrees with its dossier.
 
 ## Current baseline to verify, not assume
 
@@ -47,6 +59,8 @@ Existing outputs currently claim:
 - 5 instruments with no image/OCR evidence;
 - 3 workbook/OCR disagreements resolved by visual review;
 - 0 unresolved workbook/OCR disagreements.
+
+These are the current snapshot baseline, not permanent population requirements. If the project population or evidence coverage has intentionally changed, report the delta and verify that the inventories, generated views, and script invariants were updated consistently. Also verify the current structural expectations: 29 canonical dossier records, 29 rendered summary/detail rows, 24 image/OCR ISIN directories, 71 image/OCR pairs, 5 products without image/OCR, 3 products with original-term evidence, and 4 original-term PDFs.
 
 Recalculate these values from the files actually present. Report any difference from the claimed baseline. Inspect `_unmapped` locations and inventory sections directly; do not rely on narrative statements about unmapped counts.
 
@@ -87,10 +101,12 @@ Never convert a blank to zero, `not applicable`, or an inferred value. Preserve 
 ### 1. Establish the population
 
 - Enumerate all repository files relevant to product data and classify each as source, extracted evidence, intermediate output, derived record, inventory, script, or unrelated.
-- Build the master ISIN set from the workbook/summary, detailed index, individual product files, evidence directories, original terms, and review outputs.
+- Build the master ISIN set from the workbook, canonical dossier frontmatter, evidence directories, original terms, and review outputs. Use the rendered summary/detail tables as projections to validate, not as a second population source.
 - Validate ISIN syntax and check for duplicate ISINs, duplicate record numbers, duplicate files, orphan records, inconsistent filenames, broken links, and unexpected products.
-- Reconcile record numbers across `ISIN_summary.md`, `ISIN_detailed.md`, review inventory, consolidation inventory, and individual records.
+- Reconcile `display_order` between canonical dossiers and rendered views. Reconcile review/consolidation record numbers only when their numbering scheme is declared; join all layers by ISIN.
 - Recalculate file, image, OCR, product, mapped, and unmapped counts. Explain all count differences.
+
+Before comparing rendered tables, run the repository-native render validation commands and check that the generated output is deterministic and structurally valid. Do not treat successful rendering as evidence that the underlying product terms are correct.
 
 ### 2. Close the artifact ledger
 
@@ -106,6 +122,8 @@ Create an internal ledger containing every relevant artifact. Each artifact must
 For each image, verify that the inventory entry, physical file, ISIN directory, image number, OCR counterpart, and links from the product record agree. Where hashes are listed, check duplicate hash prefixes and suspicious reuse across products.
 
 For each OCR file, verify that its source image exists and is correctly paired. OCR confidence is not evidence accuracy. Visually check material OCR-derived values against the source image whenever the consolidated value depends on OCR or sources disagree.
+
+For every extracted candidate, record an explicit disposition. A candidate is accounted for only when it is used and traced, marked duplicate/redundant with its matching source, marked irrelevant with a reason, assigned as unmapped, marked unreadable/uninspected, or reported as missing its expected counterpart.
 
 ### 3. Reconcile every ISIN
 
@@ -141,6 +159,8 @@ Compare values semantically, not just as strings. Normalize only for comparison 
 - product status as of a stated date versus contractual feature;
 - distinct fields accidentally collapsed into one consolidated value.
 
+Treat `issue_size` as distinct from Trust position size and denomination. A numeric OCR issue-size candidate remains unconfirmed until its corresponding Bloomberg image or stronger documentary source is inspected. If the source image contains the issue-size label but no numeric value, use `not found` after inspection; do not infer zero or substitute position size. Where visual evidence confirms a candidate, check whether the canonical `issue_size.status` and `field_statuses` were updated to reflect that confirmation.
+
 ### 4. Test provenance and data use
 
 For every material consolidated value, identify its immediate source and ultimate evidence. Flag:
@@ -155,7 +175,15 @@ For every material consolidated value, identify its immediate source and ultimat
 - a material fact present only in narrative text but absent from the structured table;
 - a field marked unavailable even though inspected evidence supplies it.
 
-Revisit all prior `resolved by visual review` decisions. Identify the exact field, both candidate values, inspected image, chosen value, reviewer rationale if recorded, and whether the resolution is reproducible. A status label alone is not proof of review.
+Also verify the canonical frontmatter contract:
+
+- every populated material field has an appropriate `field_statuses` entry or an explicit reason why status is not applicable;
+- `issue_size.display`, `issue_size.status`, and `issue_size.source` agree with the dossier evidence section and generated views;
+- source paths in frontmatter and evidence sections resolve to the intended ISIN artifact;
+- `term_sheet_available: true` has a matching original-term artifact or an explicit external-source reference;
+- narrative evidence and canonical frontmatter do not silently disagree.
+
+Revisit all prior `resolved by visual review` decisions. Identify the exact field, workbook value, OCR value if any, inspected image or document, chosen canonical frontmatter value, `field_statuses` value, reviewer rationale if recorded, and whether the resolution is reproducible. A status label alone is not proof of review.
 
 ### 5. Classify contradictions
 
@@ -206,6 +234,8 @@ Use one status: `PASS`, `PASS WITH GAPS`, or `FAIL`.
 
 Include products, individual product files, mapped/unmapped images, OCR files, original-term artifacts, review records, contradictions, provenance gaps, unused artifacts, and uninspected items.
 
+Report generated views separately from their canonical dossier inputs. Include whether rerendering succeeded, whether the rendered files are deterministic, and whether any generated file was stale.
+
 ### 2. Population and artifact coverage
 
 | Layer | Expected | Found | Mapped | Unmapped / missing | Disposition complete? | Evidence |
@@ -235,6 +265,8 @@ Use `None identified` only after every ISIN and artifact has been checked.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 Include source gaps, unaccounted extracted facts, fields incorrectly marked unavailable, unsupported review conclusions, and all inspection limitations. An extracted item is accounted for only if it is used, explicitly redundant, irrelevant with rationale, or reported here.
+
+Do not report an expected blank source value as a contradiction. Classify it as `not found`, `not applicable`, or `uninspected` only from the evidence, preserving the distinction between a blank display, an unavailable source, and a value that was not extracted.
 
 ### 6. Prior resolutions re-performance
 

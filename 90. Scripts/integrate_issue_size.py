@@ -5,12 +5,15 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
+from product_frontmatter import read_product, write_product
+
 ROOT = Path(__file__).resolve().parent.parent
 WORKBOOK_PATH = ROOT / "Trust ISIN information from Bloomberg.xlsx"
 OCR_DIR = ROOT / "03. BBG OCR"
 PRODUCT_DIR = ROOT / "01. Structured Products"
-SUMMARY_PATH = PRODUCT_DIR / "ISIN_summary.md"
-DETAILED_PATH = PRODUCT_DIR / "ISIN_detailed.md"
+CANONICAL_DIR = ROOT / "05. Canonical Data"
+SUMMARY_PATH = CANONICAL_DIR / "ISIN_summary.md"
+DETAILED_PATH = CANONICAL_DIR / "ISIN_detailed.md"
 
 ISIN_PATTERN = re.compile(r"^(?:XS|CH)\d{10}$")
 LABEL_PATTERN = re.compile(
@@ -117,7 +120,7 @@ def integrate_dossiers(recoveries: dict[str, dict[str, str]]) -> int:
         if len(matches) != 1:
             continue
         path = matches[0]
-        text = path.read_text(encoding="utf-8")
+        canonical_data, text = read_product(path)
         section = dossier_section(isin, value)
         if RECOVERY_MARKER in text:
             before, after = text.split(RECOVERY_MARKER, 1)
@@ -134,7 +137,15 @@ def integrate_dossiers(recoveries: dict[str, dict[str, str]]) -> int:
                 text = text.rstrip() + "\n\n" + section
             else:
                 text = text[:insertion].rstrip() + "\n\n" + section + text[insertion:]
-        path.write_text(text, encoding="utf-8")
+        if canonical_data:
+            canonical_data["issue_size"] = {
+                "display": value["value"],
+                "status": value["status"],
+                "source": value["source"],
+            }
+            write_product(path, canonical_data, text)
+        else:
+            path.write_text(text, encoding="utf-8")
         updated += 1
     return updated
 

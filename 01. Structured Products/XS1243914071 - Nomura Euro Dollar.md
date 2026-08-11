@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 5
+isin: XS1243914071
+source_section: Recent structured product
+source_exhibit: Balance sheet photos (earlier)-3 HEIC / <br><br>Term Sheet Excel Calculations
+trust: Jogger 2
+country: ''
+bank_held: ''
+issuer: NOMURA BANK INTL PLC
+product_name: Nomura Bank International Plc - Euro Dollar (senior unsecured)
+structure: It appears to be a zero coupon bond, that has a single repayment (bullet)
+currency: USD
+issue_date: 15-Jun-2015
+maturity: 09-Jun-2020
+tenor_years: '4.98333'
+underlying: ''
+coupon: 0%
+barrier: ''
+frequency: N/A
+annualised_rate: N/A
+other_comments: ''
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: ''
+denomination_usd: 1,000
+issue_size:
+  display: USD 1,525.00 million
+  status: confirmed by Bloomberg image
+  source: 03. BBG OCR/XS1243914071/XS1243914071 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability BULLET USD 1,525.00 (M) Quick Links
+    Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*N0 CALCULATI0NS*
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Not available in current sources
+  bank_held: Not available in current sources
+  issuer: OCR candidate; visual confirmation required
+  product_name: Workbook reference
+  structure: Workbook reference
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Not available in current sources
+  coupon: Workbook reference
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Workbook reference
+  other_comments: Not available in current sources
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS1243914071 - Nomura Euro Dollar
 
 - ISIN: `XS1243914071`
@@ -32,7 +91,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 1,525,000,000 |  | 1,525,000,000 | Workbook reference |
+| Position size (USD) | 1,525,000,000 |  | Not established | Workbook `Size (USD)` value rejected as Trust position; same amount is Bloomberg `Amt Issued/Outstanding` |
 | Denomination (USD) | 1,000 |  | 1,000 | Workbook reference |
 
 ## Issue Size / Amount Issued
@@ -41,13 +100,13 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 1,525.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS1243914071/XS1243914071 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability BULLET USD 1,525.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*N0 CALCULATI0NS*` |
+| Original issue / amount issued or outstanding | USD 1,525.00 million | Confirmed by source image | `02. BBG images/XS1243914071/XS1243914071 - image-01.png; Amt Issued/Outstanding; USD 1,525.00 (M)` |
 
 ## Consistency Review
 
 Disagreements are preserved for manual source-image review; no unverified OCR correction is applied.
 
-- No unresolved workbook/OCR field disagreements detected.
+- The workbook row places USD 1,525,000,000 under the generic `Size (USD)` column, not a Trust-position column. The Bloomberg image identifies the same amount as issuer-level `Amt Issued/Outstanding`. There is no direct evidence for a Trust holding amount; reported position is therefore blank pending a Trust-specific holding record. See [POSITION SIZE CONTROL](../04.%20Product%20Review/POSITION%20SIZE%20CONTROL.md).
 
 ## Evidence Sources
 

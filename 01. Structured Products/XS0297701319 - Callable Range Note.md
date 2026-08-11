@@ -1,3 +1,63 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 7
+isin: XS0297701319
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 1
+trust: Sete/Ebro/Tudela
+country: Australia
+bank_held: Deutsche/ Lloyds and Pictet
+issuer: Commonwealth bank Australia
+product_name: Callable - matured
+structure: Callable - matured
+currency: USD
+issue_date: 30-Apr-2007
+maturity: 30-Apr-2010
+tenor_years: '3'
+underlying: USD/Gold spot<br>Nikkei 225
+coupon: 7.50%
+barrier: coupon rate is paid with barriers:<br>if USD/Gold Spot RT is at within 540-840;
+  and <br>Nikkei 225 is at or within 13,900-21,000 within each accrual period
+frequency: quarterly
+annualised_rate: ''
+other_comments: rating AA-
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 800,000
+denomination_usd: 10,000
+issue_size:
+  display: USD 3,000.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0297701319/XS0297701319 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability USD 3,000.00 (M) Quick Links Iss Sprd
+    USD (M) 30 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Workbook reference
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS0297701319 - Callable Range Note
 
 - ISIN: `XS0297701319`
@@ -32,7 +92,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 800,000 across different line items |  | 800,000 across different line items | Workbook reference |
+| Position size (USD) | 800,000 |  | 800,000 | Workbook reference |
 | Denomination (USD) | 10,000 |  | 10,000 | Workbook reference |
 
 ## Issue Size / Amount Issued

@@ -1,0 +1,44 @@
+views:
+  summary:
+    title: ISIN Summary
+    output: 05. Canonical Data/ISIN_summary.md
+    columns:
+      - record_number
+      - product_name
+      - isin
+      - issuer
+      - maturity
+      - position_size
+      - issue_size.display
+      - issue_size.status
+      - term_sheet_available
+  detailed:
+    title: ISIN Detailed
+    output: 05. Canonical Data/ISIN_detailed.md
+    columns:
+      - record_number
+      - source_section
+      - source_exhibit
+      - trust
+      - isin
+      - product_name
+      - country
+      - bank_held
+      - issuer
+      - issue_date
+      - maturity
+      - tenor_years
+      - structure
+      - coupon
+      - frequency
+      - annualised_rate
+      - barrier
+      - underlying
+      - other_comments
+      - downside
+      - risk
+      - position_size
+      - denomination_usd
+      - summary_record
+      - issue_size.display
+      - issue_size.status

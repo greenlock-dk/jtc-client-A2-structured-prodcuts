@@ -1,3 +1,62 @@
+---
+schema_version: 1
+term_sheet_available: false
+display_order: 14
+isin: XS0170303290
+source_section: Historical portfolio instrument
+source_exhibit: Rose Structures 08 / page 2
+trust: Ebro/Tudela
+country: Luxemborg
+bank_held: Lloyds and UBP
+issuer: Banque Caisse Epargne
+product_name: Callable - Actioned
+structure: Callable - Actioned
+currency: USD
+issue_date: 03-Jun-2003
+maturity: 16-Dec-2008
+tenor_years: '5.53611'
+underlying: USD 6 month Libor falling within range of 0 - 6.5
+coupon: 8.3% 4 June , 7.53% to next 4 June, then 6% (all with formula applied)
+barrier: ''
+frequency: 6 months
+annualised_rate: ''
+other_comments: Rating AA+
+redemption_terms: ''
+downside: ''
+risk: ''
+position_size: 6,250,000
+denomination_usd: 10,000
+issue_size:
+  display: USD 18,000.00 million
+  status: confirmed
+  source: 03. BBG OCR/XS0170303290/XS0170303290 - image-01.txt; Amt Issued/Outstanding;
+    Amt Issued/Outstanding 23) Sustainability CALLED 0N 12/16/08@100.00 USD 18,000.00
+    (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)N0 CALC-FLOATERS
+field_statuses:
+  source_exhibit: Workbook reference
+  trust: Workbook reference
+  country: Workbook reference
+  bank_held: Workbook reference
+  issuer: Corroborated by OCR
+  product_name: Workbook reference
+  structure: Complementary source descriptions
+  currency: OCR candidate; visual confirmation required
+  issue_date: Workbook reference
+  maturity: Corroborated by OCR
+  tenor_years: Workbook reference
+  underlying: Workbook reference
+  coupon: Corroborated by OCR
+  barrier: Not available in current sources
+  frequency: Workbook reference
+  annualised_rate: Not available in current sources
+  other_comments: Workbook reference
+  redemption_terms: Not available in current sources
+  downside: Not available in current sources
+  risk: Not available in current sources
+  position_size: Workbook reference
+  denomination_usd: Workbook reference
+---
+
 # XS0170303290 - Libor Callable Note
 
 - ISIN: `XS0170303290`
@@ -32,7 +91,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 6,250,000 across different line items |  | 6,250,000 across different line items | Workbook reference |
+| Position size (USD) | 6,250,000 |  | 6,250,000 | Workbook reference |
 | Denomination (USD) | 10,000 |  | 10,000 | Workbook reference |
 
 ## Issue Size / Amount Issued
