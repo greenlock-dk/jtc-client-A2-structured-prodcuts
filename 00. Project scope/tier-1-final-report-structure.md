@@ -1,9 +1,9 @@
-# Draft Structure: Tier 1 Final Report
+# Draft Structure: Current-Scope Final Report
 
 **Status:** Draft report architecture  
-**Scope:** Tier 1 - Light Analytics  
+**Scope:** Current scope - light analytics
 **Purpose:** Establish an approximate lifetime economic cost of the structured-product strategy, instrument by instrument, from acquisition or issuance through call, maturity, disposal, or the reporting cut-off.  
-**Evidence as of:** 11 August 2026 ([cost-benchmark-research.md](cost-benchmark-research.md) sixth pass; [DATA INTEGRITY AUDIT.md](../04.%20Product%20Review/DATA%20INTEGRITY%20AUDIT.md); [POSITION SIZE CONTROL.md](../04.%20Product%20Review/POSITION%20SIZE%20CONTROL.md)). Re-validate this date before publication if any underlying source document is updated later.
+**Evidence as of:** 11 August 2026 ([cost-benchmark-research.md](cost-benchmark-research.md) sixth pass; [DATA INTEGRITY AUDIT.md](../04.%20Product%20Review/DATA%20INTEGRITY%20AUDIT.md); [POSITION SIZE CONTROL.md](../04.%20Product%20Review/POSITION%20SIZE%20CONTROL.md)). The current position-size register supersedes older audit wording: 21 ISINs are `usable invested notional`, 2 are `issue/outstanding size`, and 6 are `missing`. Re-validate this date and those controls before publication if any underlying source document is updated later.
 
 This document defines the proposed structure of the final report. It does not establish any fee, payment, recipient, entitlement, disclosure failure, or recoverable amount. The final report must distinguish documented portfolio facts, external benchmark evidence, and scenario assumptions.
 
@@ -18,15 +18,11 @@ State the decision-useful result first:
 - Number of ISINs excluded from any structured-product conclusion because primary evidence or structure could not be recovered (see 3.2, path 6).
 - Concentration of the estimated cost range by the largest ISINs by notional, so the committee can see which positions drive the result.
 - Principal conclusion on whether a portfolio-wide retrocession amount is separately estimable.
-- Recommended Tier 2 priorities and any decisions required from the Trust.
-
-Use the following limitation on every headline estimate:
-
-> Indicative scenario estimate - not evidence that a fee or payment was made, received, disclosed, owed, or is recoverable.
+- Recommended follow-up records or decisions required from the Trust.
 
 ## 2. Mandate, Question, and Scope Boundary
 
-### 2.1 Tier 1 question
+### 2.1 Current-scope question
 
 > What lifetime economic costs are plausible for each structured-product holding, based on its lifecycle and trusted external evidence, and how do those costs aggregate under transparent assumptions?
 
@@ -42,7 +38,7 @@ Use the following limitation on every headline estimate:
 
 ### 2.3 Excluded work
 
-Tier 1 does not include:
+The current scope does not include:
 
 - Recovery or contractual extraction of final terms, KIDs, client agreements, or fee schedules.
 - Reconciliation to bank, custody, or payment records.
@@ -51,7 +47,7 @@ Tier 1 does not include:
 
 ## 3. Portfolio and Lifecycle Population
 
-Describe all 29 ISINs and show the lifecycle population used in the model.
+Describe all 29 ISINs and show the lifecycle population used in the model. The report must distinguish the 29-record inventory, the 21 ISINs with a usable invested-notional basis, and the 19 ISINs currently cost-assessable under the available scenarios. All 21 usable-basis ISINs remain in the analysis regardless of whether issuer issue-size evidence is available; the other 2 are retained as explicit `unbenchmarked` rows rather than treated as zero cost.
 
 ### 3.1 Required ISIN-level fields
 
@@ -80,18 +76,18 @@ For each ISIN, identify the applicable path:
 5. Lifecycle end or Trust acquisition basis unresolved.
 6. No structured-product conclusion is supported because primary evidence or structure could not be recovered.
 
-Where the Trust acquisition date is unavailable, the model may show an explicitly labelled proxy path using issue date. This must remain separate from any evidence-based result. Path 6 is a distinct outcome from an unresolved basis: it is a documented exclusion, not a zero-cost or unbenchmarked result, and applies at minimum to the ISINs identified in DATA INTEGRITY AUDIT.md G-010.
+Where the Trust acquisition date is unavailable, the model may show an explicitly labelled proxy path using issue date. This must remain separate from any evidence-based result. Path 6 is a distinct evidence limitation, not a zero-cost outcome. At the current evidence date it applies to `XS0168875792` and `XS0318585791` (DATA INTEGRITY AUDIT.md G-010) and `XS0298465822` (G-006). Any path-6 ISIN with a usable Trust position remains in the ISIN-level analysis and is labelled according to its available evidence; `XS0298465822` remains in coverage reporting without a dollar aggregation because its Trust position is missing.
 
 ## 4. Data Quality and Coverage
 
 Present the controls before presenting dollar totals.
 
-- Reconcile the model to all 29 canonical ISINs, including the ISINs excluded from a structured-product conclusion under 3.2 path 6.
-- Classify each reported `position_size` as usable invested notional, shared across line items, minimum denomination, issue/outstanding size, missing, or unclear.
-- State the position-size resolution status by name and count (for example, "N of 29 ISINs are `usable invested notional`") rather than describing it only as a generic open gap. Before publication, reconcile any conflict between POSITION SIZE CONTROL.md and the DATA INTEGRITY AUDIT.md gap register so the report cites one current figure.
+- Reconcile the model to all 29 canonical ISINs, including the 3 path-6 evidence-limited ISINs under 3.2.
+- Use the current [POSITION SIZE CONTROL.md](../04.%20Product%20Review/POSITION%20SIZE%20CONTROL.md) classifications: 21 `usable invested notional`, 2 `issue/outstanding size`, and 6 `missing`. Include every usable-basis ISIN in the analysis and do not use issuer issue size, its absence, or its documentary status as an inclusion criterion. The latter 8 ISINs remain outside Trust-exposure aggregation.
+- State the position-size resolution status by name and count in every coverage table. The current control register, rather than the superseded one-usable-row wording in older audit material, is the publication authority for those counts.
 - Exclude issuer issue size, outstanding size, and minimum denomination from Trust exposure calculations.
 - Show usable, excluded, and unresolved notional separately.
-- Identify missing acquisition dates, acquisition prices, sale dates, sale proceeds, and balance-through-time information. Where position size is largely resolved, call out explicitly that acquisition/disposal basis, not position size, is the dominant unresolved lifecycle input.
+- Identify missing acquisition dates, acquisition prices, sale dates, sale proceeds, and balance-through-time information. Although 21 position bases are usable, acquisition/disposal basis is the dominant unresolved lifecycle input for lifetime aggregation; a reported Trust position must not be treated as proof of the Trust's acquisition date, acquisition price, holding-period balance, or disposal proceeds.
 - Distinguish a documented product event from a documented Trust transaction.
 - State the currency-aggregation method before any cross-currency dollar total is shown: the single reporting currency, the FX source and rate date convention applied to non-reporting-currency ISINs (for example CHF- or EUR-denominated positions), and whether historical or spot rates are used.
 
@@ -148,12 +144,12 @@ For any retrocession conclusion, identify separately:
 
 If these elements cannot be established from reliable evidence, report the amount as `not separately estimable` or as an explicitly labelled scenario allocation. Do not infer a retrocession from the existence of a structured product, an intermediary relationship, a fee range, or a general market practice.
 
-### 6.3 Treatment in the Tier 1 model
+### 6.3 Treatment in the current-scope model
 
 - Present potential retrocession as a nested sub-allocation of distribution or service compensation.
 - Do not add it again to one-off product costs, recurring service costs, or any all-in benchmark.
 - Apply a rate only where the source defines the payment and its calculation base; otherwise show a rate-based sensitivity without presenting it as a historical payment.
-- Keep the payer, recipient, entitlement, disclosure, and recoverability questions outside the Tier 1 conclusion unless supported by primary records.
+- Keep the payer, recipient, entitlement, disclosure, and recoverability questions outside the current-scope conclusion unless supported by primary records.
 - State whether the result is evidence-based, a proxy allocation, or `not separately estimable`.
 
 ## 7. Evidence Framework
@@ -281,13 +277,15 @@ Show only where the evidence identifies the relevant payment definition and basi
 Every aggregate table should include:
 
 - Scenario name.
-- Included ISIN count.
+- Included ISIN count, distinguishing the 21 position-eligible ISINs from the 19 rows currently cost-assessable under a given scenario; show the remaining 2 usable-basis ISINs as `unbenchmarked`, not excluded.
 - Included Trust notional.
-- Excluded or unresolved ISIN count and notional.
+- Excluded or unresolved ISIN count and notional, with position-basis exclusions (2 `issue/outstanding size`; 6 `missing`) and structure exclusions (3 path-6 ISINs) shown separately.
 - One-off, recurring, and exit timing.
 - Low/base/high values.
 - Evidence confidence.
 - Key assumptions driving the result.
+
+Round every calculated monetary outcome displayed in the report, including scenario totals, ranges, and calculated coverage totals, to the nearest USD 100,000 using `ROUND(X, -5)`. Preserve source data exactly as collected: reported Trust positions, issuer issue/outstanding values, minimum denominations, and values sourced from XLS or Bloomberg must not be rounded or overwritten by this presentation convention.
 
 Include a bridge showing how the result changes when:
 
@@ -308,7 +306,7 @@ The conclusion should answer:
 - Which results are rate-based only rather than dollar estimates?
 - Is a potential retrocession amount separately estimable?
 - Which unresolved issues materially affect the result?
-- Which records or Tier 2 workstreams would most reduce uncertainty?
+- Which records would most reduce uncertainty within the current scope?
 
 The final conclusion must not describe the proxy-base or wide-sensitivity result as an actual historical fee total.
 
@@ -332,20 +330,22 @@ Prioritise actions by expected reduction in uncertainty and recovery value:
 - Appendix E: Scenario assumptions and formulas.
 - Appendix F: ISIN-level lifetime cost outputs.
 - Appendix G: Negative-evidence and search log.
-- Appendix H: Limitations, glossary, and Tier 1/Tier 2 boundary.
+- Appendix H: Limitations, glossary, and scope boundary.
 
 ## Proposed Final Report Deliverables
 
 1. PDF or Markdown methodology and findings report.
 2. Workbook or generated model with ISIN-level calculations, assumptions, source register, and coverage controls.
 3. Executive summary table suitable for board reporting.
-4. Tier 2 prioritisation list linked to unresolved cost and lifecycle inputs.
+4. Prioritisation list linked to unresolved cost and lifecycle inputs.
 
 ## Sign-Off Controls
 
 Before publication:
 
 - All 29 ISINs have exactly one lifecycle row.
+- Coverage tables reconcile to the current position-size register: 21 `usable invested notional`, 2 `issue/outstanding size`, and 6 `missing`.
+- `XS0168875792`, `XS0318585791`, and `XS0298465822` are visible as explicit evidence-limited rows. Any with a usable Trust position remains in the analysis; none is assigned a zero cost.
 - Every cost input resolves to a source or an explicitly labelled assumption.
 - Low, base, and high values are ordered correctly.
 - One-off, annual, and exit costs are not mixed.
@@ -353,9 +353,14 @@ Before publication:
 - Potential retrocession is nested, not additive.
 - Issuer issue size and minimum denomination are excluded from Trust exposure.
 - Aggregate dollar results reconcile to included usable notional.
+- Every calculated monetary outcome displayed in the report uses `ROUND(X, -5)`; source values collected from XLS and Bloomberg remain unchanged.
 - Cross-currency aggregate results state the reporting currency, FX source, and rate-date convention used.
 - Every applied rate cites a specific Verified Source Register ID; no cost result relies on an evidence-status label alone.
-- ISINs excluded from a structured-product conclusion (3.2 path 6 / DATA INTEGRITY AUDIT.md G-010) are shown as explicit exclusions, not as zero-cost or unbenchmarked line items.
-- The position-size resolution status stated in the report matches current source documents; any conflict between POSITION SIZE CONTROL.md and DATA INTEGRITY AUDIT.md has been reconciled before publication.
+- Path-6 ISINs (DATA INTEGRITY AUDIT.md G-006 and G-010) are shown as explicit evidence limitations. A usable Trust position keeps an ISIN in the analysis regardless of issuer issue-size availability; a missing Trust position prevents only dollar aggregation, not coverage reporting.
+- The position-size resolution status stated in the report matches the current POSITION SIZE CONTROL.md register; older audit wording that predates the 21 usable-basis classifications is not used for publication.
 - Every headline result states timing, coverage, scenario, confidence, and limitations.
 - The executive memo, if updated, reconciles exactly to the validated model outputs.
+
+## 15. Limitation and Disclaimer
+
+Place one dedicated limitation and disclaimer statement in the Executive Summary. It applies to all scenario results, including evidence-based and proxy-based estimates, and is not repeated elsewhere in the final report. Tables and charts should instead identify their scenario, evidence status, timing, coverage, and key assumptions.

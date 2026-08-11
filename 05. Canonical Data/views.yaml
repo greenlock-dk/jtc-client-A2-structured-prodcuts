@@ -38,6 +38,9 @@ views:
       - downside
       - risk
       - position_size
+      - position_size_status
+      - position_size_source
+      - position_size_evidence
       - denomination_usd
       - summary_record
       - issue_size.display

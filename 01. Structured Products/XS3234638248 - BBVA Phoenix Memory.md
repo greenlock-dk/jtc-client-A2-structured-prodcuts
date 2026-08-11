@@ -30,6 +30,9 @@ downside: Physical delivery of the worst-performing share below the 68% final re
   condition
 risk: Higher risk; issuer/guarantor and worst-of equity exposure
 position_size: 2,000,000
+position_size_status: user-confirmed reported Trust position
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: Reported Trust position recorded as USD 2,000,000
 denomination_usd: USD 1,000
 issue_size:
   display: USD 2.4 million

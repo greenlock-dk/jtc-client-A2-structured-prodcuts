@@ -28,6 +28,9 @@ downside: 55% downside barrier for both linked indices.  Principle repayment dep
   on index performance. This is an exotic structured note.
 risk: ''
 position_size: ''
+position_size_status: missing or not Trust-specific
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
 denomination_usd: 1,000
 issue_size:
   display: Not found

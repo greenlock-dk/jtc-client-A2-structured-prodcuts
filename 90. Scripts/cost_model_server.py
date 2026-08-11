@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import mimetypes
+import sys
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -13,6 +14,9 @@ INDEX_PATH = VISUALS_DIR / "index.html"
 VIEWS_PATH = ROOT / "05. Cost modeling" / ".cost-model-views.json"
 HOST = "127.0.0.1"
 PORT = 8000
+
+sys.path.insert(0, str(ROOT / "05. Cost modeling"))
+from generate_dashboard import generate_dashboard  # noqa: E402
 
 DEFAULT_VIEWS = {
     "current": {"visible": list(range(10)), "filters": [], "groups": [], "sorts": []},
@@ -56,6 +60,7 @@ class CostModelHandler(BaseHTTPRequestHandler):
         if requested != INDEX_PATH.resolve() or not requested.is_file():
             self.send_error(HTTPStatus.NOT_FOUND)
             return
+        generate_dashboard()
         payload = requested.read_bytes()
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", mimetypes.guess_type(str(requested))[0] or "text/plain")

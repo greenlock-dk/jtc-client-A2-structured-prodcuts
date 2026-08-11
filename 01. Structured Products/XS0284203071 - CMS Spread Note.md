@@ -25,6 +25,9 @@ redemption_terms: ''
 downside: ''
 risk: ''
 position_size: 3,190,000
+position_size_status: user-confirmed reported Trust position
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: Reported Trust position recorded as USD 3,190,000
 denomination_usd: 10,000
 issue_size:
   display: USD 10,000.00 million

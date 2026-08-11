@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
 import sys
 from datetime import datetime
@@ -90,8 +91,9 @@ def parse_usd_amount(value: str) -> float | None:
     return float(value.replace(",", ""))
 
 
-def format_money(value: float) -> str:
-    return f"{value:,.0f}"
+def format_calculated_money(value: float) -> str:
+    rounded_value = math.floor(value / 100_000 + 0.5) * 100_000
+    return f"{rounded_value:,.0f}"
 
 
 def is_numeric_display(value: str) -> bool:
@@ -119,12 +121,12 @@ def evidence_only_cost(record: dict[str, Any], status: str, cohort: str) -> str:
     if amount is None:
         return "Not calculated"
     if cohort == "Historical rate-linked":
-        return f"{format_money(amount * ESMA_ISSUANCE_LOW)} - {format_money(amount * ESMA_ISSUANCE_HIGH)}"
+        return f"{format_calculated_money(amount * ESMA_ISSUANCE_LOW)} - {format_calculated_money(amount * ESMA_ISSUANCE_HIGH)}"
     if cohort == "Equity-linked":
         tenor = tenor_years(record)
         if tenor is None:
             return "Unbenchmarked"
-        return format_money(amount * ESMA_MODERN_ANNUAL * tenor)
+        return format_calculated_money(amount * ESMA_MODERN_ANNUAL * tenor)
     return "Unbenchmarked"
 
 
@@ -133,12 +135,12 @@ def proxy_base_cost(record: dict[str, Any], status: str, cohort: str) -> str:
     if amount is None:
         return "Not calculated"
     if cohort == "Historical rate-linked":
-        return f"{format_money(amount * ESMA_ISSUANCE_LOW)} - {format_money(amount * ESMA_ISSUANCE_HIGH)}"
+        return f"{format_calculated_money(amount * ESMA_ISSUANCE_LOW)} - {format_calculated_money(amount * ESMA_ISSUANCE_HIGH)}"
     if cohort == "Equity-linked":
         tenor = tenor_years(record)
         if tenor is None:
             return "Unbenchmarked"
-        return format_money(amount * SWISS_EQUITY_LINKED_ANNUAL * tenor)
+        return format_calculated_money(amount * SWISS_EQUITY_LINKED_ANNUAL * tenor)
     return "Unbenchmarked"
 
 
@@ -148,15 +150,15 @@ def scenario_cost_range(record: dict[str, Any], status: str, cohort: str, scenar
         return "Not calculated", "Not calculated"
     if cohort == "Historical rate-linked":
         return (
-            format_money(amount * ESMA_ISSUANCE_LOW),
-            format_money(amount * ESMA_ISSUANCE_HIGH),
+            format_calculated_money(amount * ESMA_ISSUANCE_LOW),
+            format_calculated_money(amount * ESMA_ISSUANCE_HIGH),
         )
     if cohort == "Equity-linked":
         tenor = tenor_years(record)
         if tenor is None:
             return "Unbenchmarked", "Unbenchmarked"
         annual_rate = ESMA_MODERN_ANNUAL if scenario == "evidence" else SWISS_EQUITY_LINKED_ANNUAL
-        cost = format_money(amount * annual_rate * tenor)
+        cost = format_calculated_money(amount * annual_rate * tenor)
         return cost, cost
     return "Unbenchmarked", "Unbenchmarked"
 
@@ -888,12 +890,16 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
 """
 
 
-def main() -> None:
+def generate_dashboard() -> None:
     statuses = read_position_statuses()
     records = product_records()
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(dashboard_html(records, statuses), encoding="utf-8")
     print(f"Rendered {len(records)} securities to {OUTPUT_PATH.relative_to(ROOT)}")
+
+
+def main() -> None:
+    generate_dashboard()
 
 
 if __name__ == "__main__":

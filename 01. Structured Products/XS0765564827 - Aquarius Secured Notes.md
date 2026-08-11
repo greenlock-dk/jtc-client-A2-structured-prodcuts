@@ -36,6 +36,9 @@ downside: Investors can only claim against the the assets and not the issuer the
   risks in pages 8-18 of document <br>
 risk: Higher
 position_size: 200,000
+position_size_status: user-confirmed reported Trust position
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: Reported Trust position recorded as USD 200,000
 denomination_usd: 200,000 + increments of 5,000
 issue_size:
   display: USD 750,000.00 million

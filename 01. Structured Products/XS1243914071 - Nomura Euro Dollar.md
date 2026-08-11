@@ -25,6 +25,9 @@ redemption_terms: ''
 downside: ''
 risk: ''
 position_size: ''
+position_size_status: issue/outstanding size; not Trust-specific
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: No Trust-specific position amount recorded; available amount is issuer issue/outstanding size
 denomination_usd: 1,000
 issue_size:
   display: USD 1,525.00 million

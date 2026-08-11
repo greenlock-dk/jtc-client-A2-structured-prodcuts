@@ -25,6 +25,9 @@ redemption_terms: ''
 downside: ''
 risk: ''
 position_size: ''
+position_size_status: missing or not Trust-specific
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
 denomination_usd: ''
 issue_size:
   display: EUR 6,050.00 million

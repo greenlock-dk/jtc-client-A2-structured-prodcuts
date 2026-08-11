@@ -1,0 +1,511 @@
+- generic [ref=f4e2]:
+  - navigation "Views" [ref=f4e3]:
+    - heading "Views" [level=2] [ref=f4e4]
+    - list [ref=f4e5]:
+      - listitem [ref=f4e6]:
+        - button "current" [ref=f4e7] [cursor=pointer]
+      - listitem [ref=f4e8]:
+        - button "position-size" [ref=f4e9] [cursor=pointer]
+      - listitem [ref=f4e10]:
+        - button "cost audit" [ref=f4e11] [cursor=pointer]
+      - listitem [ref=f4e12]:
+        - button "full dataset" [ref=f4e13] [cursor=pointer]
+      - listitem [ref=f4e14]:
+        - button "01. ISIN summary" [ref=f4e15] [cursor=pointer]
+    - button "View actions" [ref=f4e17] [cursor=pointer]
+  - main [ref=f4e18]:
+    - generic "View builder" [ref=f4e19]:
+      - button "Columns" [ref=f4e20] [cursor=pointer]
+      - button "Filters" [ref=f4e21] [cursor=pointer]
+      - button "Group by" [ref=f4e22] [cursor=pointer]
+      - button "Sort" [ref=f4e23] [cursor=pointer]
+    - text: "Canonical YAML field: annualised_rate Canonical YAML field: bank_held Canonical YAML field: barrier Product family used for cost comparison Canonical YAML field: country Canonical YAML field: coupon Canonical YAML field: currency Canonical YAML field: denomination_usd Canonical YAML field: display_order Canonical YAML field: downside Evidence basis for lifecycle end Maximum cost supported by adoptable evidence Minimum cost supported by adoptable evidence Canonical YAML field: field_statuses Canonical YAML field: frequency Canonical YAML field: guarantor Immutable security identifier Canonical YAML field: isin Reported issuance date Canonical YAML field: issue_date Canonical YAML field: issue_size Canonical YAML field: issue_size.status Canonical YAML field: issuer Maturity or documented call date Canonical YAML field: maturity Canonical YAML field: other_comments Classification of the reported position Canonical YAML field: position_size Canonical YAML field: product_name Maximum cost using the proxy benchmark base Minimum cost using the proxy benchmark base Canonical YAML field: redemption_terms Trust-reported position amount Canonical YAML field: risk Canonical YAML field: schema_version Product name and structure Canonical YAML field: source_exhibit Canonical YAML field: source_section Canonical YAML field: structure Canonical YAML field: tenor_years Canonical YAML field: term_sheet_available Canonical YAML field: trust Canonical YAML field: underlying"
+    - table [ref=f4e25]:
+      - rowgroup [ref=f4e40]:
+        - row [ref=f4e41]:
+          - columnheader "Open row details" [ref=f4e42]
+          - columnheader [ref=f4e43]:
+            - button "ISIN. Immutable security identifier" [ref=f4e44]: ISIN
+            - separator "Resize ISIN column" [ref=f4e45]
+            - text: Immutable security identifier
+          - columnheader [ref=f4e46]:
+            - button "Security. Product name and structure" [ref=f4e47]: Security
+            - separator "Resize Security column" [ref=f4e48]
+            - text: Product name and structure
+          - columnheader [ref=f4e49]:
+            - button "Cohort. Product family used for cost comparison" [ref=f4e50]: Cohort
+            - separator "Resize Cohort column" [ref=f4e51]
+            - text: Product family used for cost comparison
+          - columnheader [ref=f4e52]:
+            - button "Issue date. Reported issuance date" [ref=f4e53]: Issue date
+            - separator "Resize Issue date column" [ref=f4e54]
+            - text: Reported issuance date
+          - columnheader [ref=f4e55]:
+            - button "Lifecycle end. Maturity or documented call date" [ref=f4e56]: Lifecycle end
+            - separator "Resize Lifecycle end column" [ref=f4e57]
+            - text: Maturity or documented call date
+          - columnheader [ref=f4e58]:
+            - button "End basis. Evidence basis for lifecycle end" [ref=f4e59]: End basis
+            - separator "Resize End basis column" [ref=f4e60]
+            - text: Evidence basis for lifecycle end
+          - columnheader [ref=f4e61]:
+            - button "Position basis. Classification of the reported position" [ref=f4e62]: Position basis
+            - separator "Resize Position basis column" [ref=f4e63]
+            - text: Classification of the reported position
+          - columnheader [ref=f4e64]:
+            - button "Reported position (USD). Trust-reported position amount" [ref=f4e65]: Reported position (USD)
+            - separator "Resize Reported position (USD) column" [ref=f4e66]
+            - text: Trust-reported position amount
+          - columnheader [ref=f4e67]:
+            - button "Evidence-only min (USD). Minimum cost supported by adoptable evidence" [ref=f4e68]: Evidence-only min (USD)
+            - separator "Resize Evidence-only min (USD) column" [ref=f4e69]
+            - text: Minimum cost supported by adoptable evidence
+          - columnheader [ref=f4e70]:
+            - button "Evidence-only max (USD). Maximum cost supported by adoptable evidence" [ref=f4e71]: Evidence-only max (USD)
+            - separator "Resize Evidence-only max (USD) column" [ref=f4e72]
+            - text: Maximum cost supported by adoptable evidence
+          - columnheader [ref=f4e73]:
+            - button "Proxy-base min (USD). Minimum cost using the proxy benchmark base" [ref=f4e74]: Proxy-base min (USD)
+            - separator "Resize Proxy-base min (USD) column" [ref=f4e75]
+            - text: Minimum cost using the proxy benchmark base
+          - columnheader [ref=f4e76]:
+            - button "Proxy-base max (USD). Maximum cost using the proxy benchmark base" [ref=f4e77]: Proxy-base max (USD)
+            - separator "Resize Proxy-base max (USD) column" [ref=f4e78]
+            - text: Maximum cost using the proxy benchmark base
+          - text: "Canonical YAML field: annualised_rate Canonical YAML field: bank_held Canonical YAML field: barrier Canonical YAML field: country Canonical YAML field: coupon Canonical YAML field: currency Canonical YAML field: denomination_usd Canonical YAML field: display_order Canonical YAML field: downside Canonical YAML field: field_statuses Canonical YAML field: frequency Canonical YAML field: guarantor Canonical YAML field: isin Canonical YAML field: issue_date Canonical YAML field: issue_size Canonical YAML field: issuer Canonical YAML field: maturity Canonical YAML field: other_comments Canonical YAML field: position_size Canonical YAML field: product_name Canonical YAML field: redemption_terms Canonical YAML field: risk Canonical YAML field: schema_version Canonical YAML field: source_exhibit Canonical YAML field: source_section Canonical YAML field: structure Canonical YAML field: tenor_years Canonical YAML field: term_sheet_available Canonical YAML field: trust Canonical YAML field: underlying Canonical YAML field: issue_size.status"
+      - rowgroup [ref=f4e79]:
+        - row [ref=f4e80]:
+          - cell [ref=f4e81]:
+            - button "Open row details" [ref=f4e82] [cursor=pointer]
+          - cell "CH1484588913" [ref=f4e86]
+          - cell "Leonteq Express Certificate on S&P 500, Swiss Market Index" [ref=f4e87]
+          - cell "Equity-linked" [ref=f4e88]
+          - cell "03 Mar 2026" [ref=f4e89]
+          - cell "03 Mar 2028" [ref=f4e90]
+          - cell "Reported maturity" [ref=f4e91]
+          - cell "usable invested notional" [ref=f4e92]
+          - cell "10,000,000" [ref=f4e93]
+          - cell "206,000" [ref=f4e94]
+          - cell "206,000" [ref=f4e95]
+          - cell "340,000" [ref=f4e96]
+          - cell "340,000" [ref=f4e97]
+        - row [ref=f4e98]:
+          - cell [ref=f4e99]:
+            - button "Open row details" [ref=f4e100] [cursor=pointer]
+          - cell "XS3234638248" [ref=f4e104]
+          - cell "Series 40076 USD 2,400,000 Equity Linked Notes due 2027" [ref=f4e105]
+          - cell "Equity-linked" [ref=f4e106]
+          - cell "27 Jan 2026" [ref=f4e107]
+          - cell "22 Jul 2027" [ref=f4e108]
+          - cell "Reported maturity" [ref=f4e109]
+          - cell "usable invested notional" [ref=f4e110]
+          - cell "2,000,000" [ref=f4e111]
+          - cell "30,614" [ref=f4e112]
+          - cell "30,614" [ref=f4e113]
+          - cell "50,528" [ref=f4e114]
+          - cell "50,528" [ref=f4e115]
+        - row [ref=f4e116]:
+          - cell [ref=f4e117]:
+            - button "Open row details" [ref=f4e118] [cursor=pointer]
+          - cell "XS0765564827" [ref=f4e122]
+          - 'cell "AQUARIUS + INVESTMENTS PLC: US$750,000,000 Perpetual Limited Recourse Secured Notes" [ref=f4e123]'
+          - cell "Conventional / specialist debt" [ref=f4e124]
+          - cell "29 Mar 2012" [ref=f4e125]
+          - cell "09 Nov 2018" [ref=f4e126]
+          - cell "Documented call date" [ref=f4e127]
+          - cell "usable invested notional" [ref=f4e128]
+          - cell "200,000" [ref=f4e129]
+          - cell "Unbenchmarked" [ref=f4e130]
+          - cell "Unbenchmarked" [ref=f4e131]
+          - cell "Unbenchmarked" [ref=f4e132]
+          - cell "Unbenchmarked" [ref=f4e133]
+        - row [ref=f4e134]:
+          - cell [ref=f4e135]:
+            - button "Open row details" [ref=f4e136] [cursor=pointer]
+          - cell "XS1028242706" [ref=f4e140]
+          - cell "Morgan Stanley Euro Medium Term Note (\"EMTN\")" [ref=f4e141]
+          - cell "Conventional / specialist debt" [ref=f4e142]
+          - cell "14 Feb 2014" [ref=f4e143]
+          - cell "14 Feb 2020" [ref=f4e144]
+          - cell "Reported maturity" [ref=f4e145]
+          - cell "usable invested notional" [ref=f4e146]
+          - cell "850,000,000" [ref=f4e147]
+          - cell "Unbenchmarked" [ref=f4e148]
+          - cell "Unbenchmarked" [ref=f4e149]
+          - cell "Unbenchmarked" [ref=f4e150]
+          - cell "Unbenchmarked" [ref=f4e151]
+        - row [ref=f4e152]:
+          - cell [ref=f4e153]:
+            - button "Open row details" [ref=f4e154] [cursor=pointer]
+          - cell "XS1243914071" [ref=f4e158]
+          - cell "Nomura Bank International Plc - Euro Dollar (senior unsecured)" [ref=f4e159]
+          - cell "Conventional / specialist debt" [ref=f4e160]
+          - cell "15 Jun 2015" [ref=f4e161]
+          - cell "09 Jun 2020" [ref=f4e162]
+          - cell "Reported maturity" [ref=f4e163]
+          - cell "usable invested notional" [ref=f4e164]
+          - cell "1,525,000,000" [ref=f4e165]
+          - cell "Unbenchmarked" [ref=f4e166]
+          - cell "Unbenchmarked" [ref=f4e167]
+          - cell "Unbenchmarked" [ref=f4e168]
+          - cell "Unbenchmarked" [ref=f4e169]
+        - row [ref=f4e170]:
+          - cell [ref=f4e171]:
+            - button "Open row details" [ref=f4e172] [cursor=pointer]
+          - cell "CH0252328973" [ref=f4e176]
+          - cell "Credit Suisse Nassau - senior unsecured Euro MTN" [ref=f4e177]
+          - cell "Equity-linked" [ref=f4e178]
+          - cell "28 May 2015" [ref=f4e179]
+          - cell "28 May 2020" [ref=f4e180]
+          - cell "Reported maturity" [ref=f4e181]
+          - cell "missing" [ref=f4e182]
+          - cell [ref=f4e183]
+          - cell "Not calculated" [ref=f4e184]
+          - cell "Not calculated" [ref=f4e185]
+          - cell "Not calculated" [ref=f4e186]
+          - cell "Not calculated" [ref=f4e187]
+        - row [ref=f4e188]:
+          - cell [ref=f4e189]:
+            - button "Open row details" [ref=f4e190] [cursor=pointer]
+          - cell "XS0297701319" [ref=f4e194]
+          - cell "Callable - matured" [ref=f4e195]
+          - cell "Historical rate-linked" [ref=f4e196]
+          - cell "30 Apr 2007" [ref=f4e197]
+          - cell "30 Apr 2010" [ref=f4e198]
+          - cell "Reported maturity" [ref=f4e199]
+          - cell "usable invested notional" [ref=f4e200]
+          - cell "800,000" [ref=f4e201]
+          - cell "36,800" [ref=f4e202]
+          - cell "44,000" [ref=f4e203]
+          - cell "36,800" [ref=f4e204]
+          - cell "44,000" [ref=f4e205]
+        - row [ref=f4e206]:
+          - cell [ref=f4e207]:
+            - button "Open row details" [ref=f4e208] [cursor=pointer]
+          - cell "XS0318585791" [ref=f4e212]
+          - cell "Kick in" [ref=f4e213]
+          - cell "Equity-linked" [ref=f4e214]
+          - cell [ref=f4e215]
+          - cell "21 Sep 2011" [ref=f4e216]
+          - cell "Reported maturity" [ref=f4e217]
+          - cell "usable invested notional" [ref=f4e218]
+          - cell "800,000" [ref=f4e219]
+          - cell "Unbenchmarked" [ref=f4e220]
+          - cell "Unbenchmarked" [ref=f4e221]
+          - cell "Unbenchmarked" [ref=f4e222]
+          - cell "Unbenchmarked" [ref=f4e223]
+        - row [ref=f4e224]:
+          - cell [ref=f4e225]:
+            - button "Open row details" [ref=f4e226] [cursor=pointer]
+          - cell "XS0300388351" [ref=f4e230]
+          - cell "Callable unsecured fixed to variable type note - actioned<br><br>Dual indexed and leveraged" [ref=f4e231]
+          - cell "Equity-linked" [ref=f4e232]
+          - cell "30 May 2007" [ref=f4e233]
+          - cell "30 May 2017" [ref=f4e234]
+          - cell "Reported maturity" [ref=f4e235]
+          - cell "usable invested notional" [ref=f4e236]
+          - cell "600,000" [ref=f4e237]
+          - cell "61,800" [ref=f4e238]
+          - cell "61,800" [ref=f4e239]
+          - cell "102,000" [ref=f4e240]
+          - cell "102,000" [ref=f4e241]
+        - row [ref=f4e242]:
+          - cell [ref=f4e243]:
+            - button "Open row details" [ref=f4e244] [cursor=pointer]
+          - cell "XS0164480286" [ref=f4e248]
+          - cell "Callable - actioned Euro MTN" [ref=f4e249]
+          - cell "Historical rate-linked" [ref=f4e250]
+          - cell "28 Feb 2003" [ref=f4e251]
+          - cell "25 Mar 2008" [ref=f4e252]
+          - cell "Documented call date" [ref=f4e253]
+          - cell "usable invested notional" [ref=f4e254]
+          - cell "5,900,000" [ref=f4e255]
+          - cell "271,400" [ref=f4e256]
+          - cell "324,500" [ref=f4e257]
+          - cell "271,400" [ref=f4e258]
+          - cell "324,500" [ref=f4e259]
+        - row [ref=f4e260]:
+          - cell [ref=f4e261]:
+            - button "Open row details" [ref=f4e262] [cursor=pointer]
+          - cell "XS0165220400" [ref=f4e266]
+          - cell "Callable - actioned" [ref=f4e267]
+          - cell "Historical rate-linked" [ref=f4e268]
+          - cell "11 Mar 2003" [ref=f4e269]
+          - cell "24 Sep 2008" [ref=f4e270]
+          - cell "Reported maturity" [ref=f4e271]
+          - cell "usable invested notional" [ref=f4e272]
+          - cell "5,000,000" [ref=f4e273]
+          - cell "230,000" [ref=f4e274]
+          - cell "275,000" [ref=f4e275]
+          - cell "230,000" [ref=f4e276]
+          - cell "275,000" [ref=f4e277]
+        - row [ref=f4e278]:
+          - cell [ref=f4e279]:
+            - button "Open row details" [ref=f4e280] [cursor=pointer]
+          - cell "XS0168875792" [ref=f4e284]
+          - cell "Callable" [ref=f4e285]
+          - cell "Historical rate-linked" [ref=f4e286]
+          - cell [ref=f4e287]
+          - cell "24 Apr 2018" [ref=f4e288]
+          - cell "Reported maturity" [ref=f4e289]
+          - cell "usable invested notional" [ref=f4e290]
+          - cell "1,600,000" [ref=f4e291]
+          - cell "73,600" [ref=f4e292]
+          - cell "88,000" [ref=f4e293]
+          - cell "73,600" [ref=f4e294]
+          - cell "88,000" [ref=f4e295]
+        - row [ref=f4e296]:
+          - cell [ref=f4e297]:
+            - button "Open row details" [ref=f4e298] [cursor=pointer]
+          - cell "XS0169318291" [ref=f4e302]
+          - cell "Callable- Actioned" [ref=f4e303]
+          - cell "Historical rate-linked" [ref=f4e304]
+          - cell "19 May 2003" [ref=f4e305]
+          - cell "01 Jun 2010" [ref=f4e306]
+          - cell "Reported maturity" [ref=f4e307]
+          - cell "usable invested notional" [ref=f4e308]
+          - cell "9,650,000" [ref=f4e309]
+          - cell "443,900" [ref=f4e310]
+          - cell "530,750" [ref=f4e311]
+          - cell "443,900" [ref=f4e312]
+          - cell "530,750" [ref=f4e313]
+        - row [ref=f4e314]:
+          - cell [ref=f4e315]:
+            - button "Open row details" [ref=f4e316] [cursor=pointer]
+          - cell "XS0170303290" [ref=f4e320]
+          - cell "Callable - Actioned" [ref=f4e321]
+          - cell "Historical rate-linked" [ref=f4e322]
+          - cell "03 Jun 2003" [ref=f4e323]
+          - cell "16 Dec 2008" [ref=f4e324]
+          - cell "Reported maturity" [ref=f4e325]
+          - cell "usable invested notional" [ref=f4e326]
+          - cell "6,250,000" [ref=f4e327]
+          - cell "287,500" [ref=f4e328]
+          - cell "343,750" [ref=f4e329]
+          - cell "287,500" [ref=f4e330]
+          - cell "343,750" [ref=f4e331]
+        - row [ref=f4e332]:
+          - cell [ref=f4e333]:
+            - button "Open row details" [ref=f4e334] [cursor=pointer]
+          - cell "XS0171914038" [ref=f4e338]
+          - cell "Callable - Actioned" [ref=f4e339]
+          - cell "Historical rate-linked" [ref=f4e340]
+          - cell "26 Jun 2003" [ref=f4e341]
+          - cell "14 Apr 2008" [ref=f4e342]
+          - cell "Reported maturity" [ref=f4e343]
+          - cell "usable invested notional" [ref=f4e344]
+          - cell "10,700,000" [ref=f4e345]
+          - cell "492,200" [ref=f4e346]
+          - cell "588,500" [ref=f4e347]
+          - cell "492,200" [ref=f4e348]
+          - cell "588,500" [ref=f4e349]
+        - row [ref=f4e350]:
+          - cell [ref=f4e351]:
+            - button "Open row details" [ref=f4e352] [cursor=pointer]
+          - cell "XS0172077769" [ref=f4e356]
+          - cell "Callable - Actioned" [ref=f4e357]
+          - cell "Historical rate-linked" [ref=f4e358]
+          - cell "27 Jun 2003" [ref=f4e359]
+          - cell "14 Apr 2008" [ref=f4e360]
+          - cell "Reported maturity" [ref=f4e361]
+          - cell "usable invested notional" [ref=f4e362]
+          - cell "1,400,000" [ref=f4e363]
+          - cell "64,400" [ref=f4e364]
+          - cell "77,000" [ref=f4e365]
+          - cell "64,400" [ref=f4e366]
+          - cell "77,000" [ref=f4e367]
+        - row [ref=f4e368]:
+          - cell [ref=f4e369]:
+            - button "Open row details" [ref=f4e370] [cursor=pointer]
+          - cell "XS0241444883" [ref=f4e374]
+          - cell "Callable - Actioned" [ref=f4e375]
+          - cell "Historical rate-linked" [ref=f4e376]
+          - cell "10 Jan 2006" [ref=f4e377]
+          - cell "10 Feb 2009" [ref=f4e378]
+          - cell "Reported maturity" [ref=f4e379]
+          - cell "usable invested notional" [ref=f4e380]
+          - cell "1,380,000" [ref=f4e381]
+          - cell "63,480" [ref=f4e382]
+          - cell "75,900" [ref=f4e383]
+          - cell "63,480" [ref=f4e384]
+          - cell "75,900" [ref=f4e385]
+        - row [ref=f4e386]:
+          - cell [ref=f4e387]:
+            - button "Open row details" [ref=f4e388] [cursor=pointer]
+          - cell "XS0249805960" [ref=f4e392]
+          - cell "Callable" [ref=f4e393]
+          - cell "Historical rate-linked" [ref=f4e394]
+          - cell "28 Mar 2006" [ref=f4e395]
+          - cell "11 May 2021" [ref=f4e396]
+          - cell "Scheduled maturity" [ref=f4e397]
+          - cell "usable invested notional" [ref=f4e398]
+          - cell "5,600,000" [ref=f4e399]
+          - cell "257,600" [ref=f4e400]
+          - cell "308,000" [ref=f4e401]
+          - cell "257,600" [ref=f4e402]
+          - cell "308,000" [ref=f4e403]
+        - row [ref=f4e404]:
+          - cell [ref=f4e405]:
+            - button "Open row details" [ref=f4e406] [cursor=pointer]
+          - cell "XS0277502067" [ref=f4e410]
+          - cell "Callable" [ref=f4e411]
+          - cell "Historical rate-linked" [ref=f4e412]
+          - cell "24 Nov 2006" [ref=f4e413]
+          - cell "14 Dec 2021" [ref=f4e414]
+          - cell "Reported maturity" [ref=f4e415]
+          - cell "usable invested notional" [ref=f4e416]
+          - cell "1,000,000" [ref=f4e417]
+          - cell "46,000" [ref=f4e418]
+          - cell "55,000" [ref=f4e419]
+          - cell "46,000" [ref=f4e420]
+          - cell "55,000" [ref=f4e421]
+        - row [ref=f4e422]:
+          - cell [ref=f4e423]:
+            - button "Open row details" [ref=f4e424] [cursor=pointer]
+          - cell "XS0278550750" [ref=f4e428]
+          - cell "Callable - Actioned" [ref=f4e429]
+          - cell "Historical rate-linked" [ref=f4e430]
+          - cell "05 Dec 2006" [ref=f4e431]
+          - cell "03 Jan 2009" [ref=f4e432]
+          - cell "Reported maturity" [ref=f4e433]
+          - cell "usable invested notional" [ref=f4e434]
+          - cell "1,000,000" [ref=f4e435]
+          - cell "46,000" [ref=f4e436]
+          - cell "55,000" [ref=f4e437]
+          - cell "46,000" [ref=f4e438]
+          - cell "55,000" [ref=f4e439]
+        - row [ref=f4e440]:
+          - cell [ref=f4e441]:
+            - button "Open row details" [ref=f4e442] [cursor=pointer]
+          - cell "XS0284203071" [ref=f4e446]
+          - cell "Callable" [ref=f4e447]
+          - cell "Historical rate-linked" [ref=f4e448]
+          - cell "18 Jan 2007" [ref=f4e449]
+          - cell "14 Feb 2022" [ref=f4e450]
+          - cell "Reported maturity" [ref=f4e451]
+          - cell "usable invested notional" [ref=f4e452]
+          - cell "3,190,000" [ref=f4e453]
+          - cell "146,740" [ref=f4e454]
+          - cell "175,450" [ref=f4e455]
+          - cell "146,740" [ref=f4e456]
+          - cell "175,450" [ref=f4e457]
+        - row [ref=f4e458]:
+          - cell [ref=f4e459]:
+            - button "Open row details" [ref=f4e460] [cursor=pointer]
+          - cell "XS0294314694" [ref=f4e464]
+          - cell "Callable" [ref=f4e465]
+          - cell "Historical rate-linked" [ref=f4e466]
+          - cell "26 Mar 2007" [ref=f4e467]
+          - cell "02 Apr 2022" [ref=f4e468]
+          - cell "Reported maturity" [ref=f4e469]
+          - cell "usable invested notional" [ref=f4e470]
+          - cell "2,200,000" [ref=f4e471]
+          - cell "101,200" [ref=f4e472]
+          - cell "121,000" [ref=f4e473]
+          - cell "101,200" [ref=f4e474]
+          - cell "121,000" [ref=f4e475]
+        - row [ref=f4e476]:
+          - cell [ref=f4e477]:
+            - button "Open row details" [ref=f4e478] [cursor=pointer]
+          - cell "XS0293931688" [ref=f4e482]
+          - cell "Callable - Actioned" [ref=f4e483]
+          - cell "Historical rate-linked" [ref=f4e484]
+          - cell "22 Mar 2007" [ref=f4e485]
+          - cell "14 Apr 2009" [ref=f4e486]
+          - cell "Reported maturity" [ref=f4e487]
+          - cell "usable invested notional" [ref=f4e488]
+          - cell "500,000" [ref=f4e489]
+          - cell "23,000" [ref=f4e490]
+          - cell "27,500" [ref=f4e491]
+          - cell "23,000" [ref=f4e492]
+          - cell "27,500" [ref=f4e493]
+        - row [ref=f4e494]:
+          - cell [ref=f4e495]:
+            - button "Open row details" [ref=f4e496] [cursor=pointer]
+          - cell "XS0293919121" [ref=f4e500]
+          - cell "Callable" [ref=f4e501]
+          - cell "Historical rate-linked" [ref=f4e502]
+          - cell "22 Mar 2007" [ref=f4e503]
+          - cell "10 Apr 2022" [ref=f4e504]
+          - cell "Reported maturity" [ref=f4e505]
+          - cell "usable invested notional" [ref=f4e506]
+          - cell "1,450,000" [ref=f4e507]
+          - cell "66,700" [ref=f4e508]
+          - cell "79,750" [ref=f4e509]
+          - cell "66,700" [ref=f4e510]
+          - cell "79,750" [ref=f4e511]
+        - row [ref=f4e512]:
+          - cell [ref=f4e513]:
+            - button "Open row details" [ref=f4e514] [cursor=pointer]
+          - cell "XS0297467705" [ref=f4e518]
+          - cell "Matured" [ref=f4e519]
+          - cell "Historical rate-linked" [ref=f4e520]
+          - cell "17 Apr 2007" [ref=f4e521]
+          - cell "30 Apr 2022" [ref=f4e522]
+          - cell "Reported maturity" [ref=f4e523]
+          - cell "missing" [ref=f4e524]
+          - cell [ref=f4e525]
+          - cell "Not calculated" [ref=f4e526]
+          - cell "Not calculated" [ref=f4e527]
+          - cell "Not calculated" [ref=f4e528]
+          - cell "Not calculated" [ref=f4e529]
+        - row [ref=f4e530]:
+          - cell [ref=f4e531]:
+            - button "Open row details" [ref=f4e532] [cursor=pointer]
+          - cell "XS0298465822" [ref=f4e536]
+          - cell "Not reported" [ref=f4e537]
+          - cell "Conventional / specialist debt" [ref=f4e538]
+          - cell [ref=f4e539]
+          - cell [ref=f4e540]
+          - cell "Reported maturity" [ref=f4e541]
+          - cell "missing" [ref=f4e542]
+          - cell [ref=f4e543]
+          - cell "Not calculated" [ref=f4e544]
+          - cell "Not calculated" [ref=f4e545]
+          - cell "Not calculated" [ref=f4e546]
+          - cell "Not calculated" [ref=f4e547]
+        - row [ref=f4e548]:
+          - cell [ref=f4e549]:
+            - button "Open row details" [ref=f4e550] [cursor=pointer]
+          - cell "XS0304286924" [ref=f4e554]
+          - cell "Matured" [ref=f4e555]
+          - cell "Historical rate-linked" [ref=f4e556]
+          - cell "30 May 2007" [ref=f4e557]
+          - cell "27 Jun 2022" [ref=f4e558]
+          - cell "Reported maturity" [ref=f4e559]
+          - cell "missing" [ref=f4e560]
+          - cell [ref=f4e561]
+          - cell "Not calculated" [ref=f4e562]
+          - cell "Not calculated" [ref=f4e563]
+          - cell "Not calculated" [ref=f4e564]
+          - cell "Not calculated" [ref=f4e565]
+        - row [ref=f4e566]:
+          - cell [ref=f4e567]:
+            - button "Open row details" [ref=f4e568] [cursor=pointer]
+          - cell "XS0314283432" [ref=f4e572]
+          - cell "Callable - Actioned" [ref=f4e573]
+          - cell "Historical rate-linked" [ref=f4e574]
+          - cell "26 Jul 2007" [ref=f4e575]
+          - cell "02 Feb 2009" [ref=f4e576]
+          - cell "Reported maturity" [ref=f4e577]
+          - cell "missing" [ref=f4e578]
+          - cell [ref=f4e579]
+          - cell "Not calculated" [ref=f4e580]
+          - cell "Not calculated" [ref=f4e581]
+          - cell "Not calculated" [ref=f4e582]
+          - cell "Not calculated" [ref=f4e583]
+        - row [ref=f4e584]:
+          - cell [ref=f4e585]:
+            - button "Open row details" [ref=f4e586] [cursor=pointer]
+          - cell "XS0315745447" [ref=f4e590]
+          - cell "Reverse Convertible, Convertible Bond, EURO MTN, EMTN" [ref=f4e591]
+          - cell "Conventional / specialist debt" [ref=f4e592]
+          - cell "03 Aug 2007" [ref=f4e593]
+          - cell "20 Aug 2012" [ref=f4e594]
+          - cell "Reported maturity" [ref=f4e595]
+          - cell "missing" [ref=f4e596]
+          - cell [ref=f4e597]
+          - cell "Not calculated" [ref=f4e598]
+          - cell "Not calculated" [ref=f4e599]
+          - cell "Not calculated" [ref=f4e600]
+          - cell "Not calculated" [ref=f4e601]

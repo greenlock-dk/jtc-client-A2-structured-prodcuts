@@ -22,7 +22,7 @@ This register separates the reported Trust position from issuer-level issue/outs
 | CH1484588913 | USD 10,000,000 | `usable invested notional` | User-confirmed reported Trust position | Not available | Retain user confirmation with model output |
 | XS3234638248 | USD 2,000,000 | `usable invested notional` | Trust position explicitly distinguished from documentary nominal amount | USD 2.4 million | Retain as the model example; preserve documentary source |
 | XS0765564827 | USD 200,000 | `usable invested notional` | User-confirmed reported Trust position | USD 750 million | Retain user confirmation with model output |
-| XS1028242706 | USD 850,000,000 | `usable invested notional` | User-confirmed reported Trust position | USD 850 million | Retain user confirmation with model output |
+| XS1028242706 | USD 850,000,000 | `issue/outstanding size` | Bloomberg image explicitly labels USD 850.00 million as `Amt Issued/Outstanding`; no separate Trust-specific holding evidence | USD 850 million | Exclude from Trust exposure; recover a Trust holding record before using as position |
 | XS1243914071 | USD 1,525,000,000 | `issue/outstanding size` | Bloomberg image explicitly labels USD 1,525.00 million as `Amt Issued/Outstanding`; no separate Trust-specific holding evidence | USD 1,525 million | Exclude from Trust exposure; recover a Trust holding record before using as position |
 | CH0252328973 | Missing | `missing` | No reported position amount | Not found | Recover Trust-specific position evidence |
 | XS0297701319 | USD 800,000 | `usable invested notional` | User-confirmed reported Trust position | USD 3,000 million | Retain user confirmation with model output |

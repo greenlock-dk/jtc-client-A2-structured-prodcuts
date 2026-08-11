@@ -1,0 +1,117 @@
+[     280ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/api/views:0
+[     297ms] [WARNING] Backend unavailable; using browser-local view state. Error: HTTP 404
+    at loadViews (http://127.0.0.1:8765/index.html:627:41) @ http://127.0.0.1:8765/index.html:632
+[     450ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at loadViews (http://127.0.0.1:8765/index.html:637:13)
+[    3936ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   41038ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   41155ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   41269ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   45353ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/api/views:0
+[   45353ms] [WARNING] Backend unavailable; using browser-local view state. Error: HTTP 404
+    at loadViews (http://127.0.0.1:8765/index.html:627:41) @ http://127.0.0.1:8765/index.html:632
+[   45415ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at loadViews (http://127.0.0.1:8765/index.html:637:13)
+[   45543ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   45655ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   45773ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   54690ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   57311ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   57422ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   57542ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[   68607ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/api/views:0
+[   68607ms] [WARNING] Backend unavailable; using browser-local view state. Error: HTTP 404
+    at loadViews (http://127.0.0.1:8765/index.html:627:41) @ http://127.0.0.1:8765/index.html:632
+[   68668ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at loadViews (http://127.0.0.1:8765/index.html:637:13)
+[  113099ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLUListElement.<anonymous> (http://127.0.0.1:8765/index.html:765:13)
+[  117635ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLUListElement.<anonymous> (http://127.0.0.1:8765/index.html:765:13)
+    at eval (eval at evaluate (:311:30), <anonymous>:4:11)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+[  125993ms] TypeError: Cannot read properties of null (reading 'querySelector')
+    at http://127.0.0.1:8765/index.html:446:40
+    at Array.forEach (<anonymous>)
+    at renderSortIndicators (http://127.0.0.1:8765/index.html:444:44)
+    at renderTable (http://127.0.0.1:8765/index.html:578:13)
+    at HTMLElement.<anonymous> (http://127.0.0.1:8765/index.html:704:13)
+[  150850ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/api/views:0
+[  150850ms] [WARNING] Backend unavailable; using browser-local view state. Error: HTTP 404
+    at loadViews (http://127.0.0.1:8765/index.html:628:41) @ http://127.0.0.1:8765/index.html:633

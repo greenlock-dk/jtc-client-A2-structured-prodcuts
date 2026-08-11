@@ -24,11 +24,14 @@ other_comments: ''
 redemption_terms: ''
 downside: ''
 risk: ''
-position_size: 850,000,000
+position_size: ''
+position_size_status: issue/outstanding size; not Trust-specific
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: No Trust-specific position amount recorded; available amount is issuer issue/outstanding size
 denomination_usd: 1,000
 issue_size:
   display: USD 850.00 million
-  status: confirmed
+  status: confirmed by Bloomberg image
   source: 03. BBG OCR/XS1028242706/XS1028242706 - image-01.txt; AmtIssued/outstanding;
     AmtIssued/outstanding 23) Sustainability BULLET USD 850.00 (M) Quick Links Iss
     Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*NO CALCULATIONS*
@@ -91,7 +94,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Redemption terms |  |  |  | Not available in current sources |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
-| Position size (USD) | 850,000,000 |  | 850,000,000 | Workbook reference |
+| Position size (USD) | 850,000,000 |  | Not established | Workbook `Size (USD)` value rejected as Trust position; same amount is Bloomberg `Amt Issued/Outstanding` |
 | Denomination (USD) | 1,000 |  | 1,000 | Workbook reference |
 
 ## Issue Size / Amount Issued
@@ -100,13 +103,13 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 850.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS1028242706/XS1028242706 - image-01.txt; AmtIssued/outstanding; AmtIssued/outstanding 23) Sustainability BULLET USD 850.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*NO CALCULATIONS*` |
+| Original issue / amount issued or outstanding | USD 850.00 million | Confirmed by source image | `02. BBG images/XS1028242706/XS1028242706 - image-01.png; Amt Issued/Outstanding; USD 850.00 (M)` |
 
 ## Consistency Review
 
 Disagreements are preserved for manual source-image review; no unverified OCR correction is applied.
 
-- No unresolved workbook/OCR field disagreements detected.
+- The workbook row places USD 850,000,000 under the generic `Size (USD)` column, not a Trust-position column. The Bloomberg image identifies the same amount as issuer-level `Amt Issued/Outstanding`. There is no direct evidence for a Trust holding amount; reported position is therefore blank pending a Trust-specific holding record. See [POSITION SIZE CONTROL](../04.%20Product%20Review/POSITION%20SIZE%20CONTROL.md).
 
 ## Evidence Sources
 

@@ -1,0 +1,1533 @@
+- generic [ref=e2]:
+  - navigation "Views" [ref=e3]:
+    - heading "Views" [level=2] [ref=e4]
+    - list [ref=e5]:
+      - listitem [ref=e6]:
+        - button "current" [ref=e7] [cursor=pointer]
+      - listitem [ref=e8]:
+        - button "position-size" [ref=e9] [cursor=pointer]
+      - listitem [ref=e10]:
+        - button "cost audit" [ref=e11] [cursor=pointer]
+      - listitem [ref=e12]:
+        - button "full dataset" [ref=e13] [cursor=pointer]
+      - listitem [ref=e14]:
+        - button "01. ISIN summary" [ref=e15] [cursor=pointer]
+    - button "View actions" [ref=e17] [cursor=pointer]
+  - main [ref=e18]:
+    - generic "View builder" [ref=e19]:
+      - button "Columns" [ref=e20] [cursor=pointer]
+      - button "Filters" [ref=e21] [cursor=pointer]
+      - button "Group by" [ref=e22] [cursor=pointer]
+      - button "Sort" [ref=e23] [cursor=pointer]
+    - text: "Canonical YAML field: annualised_rate Canonical YAML field: bank_held Canonical YAML field: barrier Product family used for cost comparison Canonical YAML field: country Canonical YAML field: coupon Canonical YAML field: currency Canonical YAML field: denomination_usd Canonical YAML field: display_order Canonical YAML field: downside Evidence basis for lifecycle end Maximum cost supported by adoptable evidence Minimum cost supported by adoptable evidence Canonical YAML field: field_statuses Canonical YAML field: frequency Canonical YAML field: guarantor Immutable security identifier Canonical YAML field: isin Reported issuance date Canonical YAML field: issue_date Canonical YAML field: issue_size Canonical YAML field: issue_size.status Canonical YAML field: issuer Maturity or documented call date Canonical YAML field: maturity Canonical YAML field: other_comments Classification of the reported position Canonical YAML field: position_size Canonical YAML field: product_name Maximum cost using the proxy benchmark base Minimum cost using the proxy benchmark base Canonical YAML field: redemption_terms Trust-reported position amount Canonical YAML field: risk Canonical YAML field: schema_version Product name and structure Canonical YAML field: source_exhibit Canonical YAML field: source_section Canonical YAML field: structure Canonical YAML field: tenor_years Canonical YAML field: term_sheet_available Canonical YAML field: trust Canonical YAML field: underlying"
+    - table [ref=e25]:
+      - rowgroup [ref=e40]:
+        - row [ref=e41]:
+          - columnheader "Open row details" [ref=e42]
+          - columnheader [ref=e43]:
+            - button "ISIN. Immutable security identifier" [ref=e44]: ISIN
+            - separator "Resize ISIN column" [ref=e45]
+            - text: Immutable security identifier
+          - columnheader [ref=e46]:
+            - button "Security. Product name and structure" [ref=e47]: Security
+            - separator "Resize Security column" [ref=e48]
+            - text: Product name and structure
+          - columnheader [ref=e49]:
+            - button "Cohort. Product family used for cost comparison" [ref=e50]: Cohort
+            - separator "Resize Cohort column" [ref=e51]
+            - text: Product family used for cost comparison
+          - columnheader [ref=e52]:
+            - button "Issue date. Reported issuance date" [ref=e53]: Issue date
+            - separator "Resize Issue date column" [ref=e54]
+            - text: Reported issuance date
+          - columnheader [ref=e55]:
+            - button "Lifecycle end. Maturity or documented call date" [ref=e56]: Lifecycle end
+            - separator "Resize Lifecycle end column" [ref=e57]
+            - text: Maturity or documented call date
+          - columnheader [ref=e58]:
+            - button "End basis. Evidence basis for lifecycle end" [ref=e59]: End basis
+            - separator "Resize End basis column" [ref=e60]
+            - text: Evidence basis for lifecycle end
+          - columnheader [ref=e61]:
+            - button "Position basis. Classification of the reported position" [ref=e62]: Position basis
+            - separator "Resize Position basis column" [ref=e63]
+            - text: Classification of the reported position
+          - columnheader [ref=e64]:
+            - button "Reported position (USD). Trust-reported position amount" [ref=e65]: Reported position (USD)
+            - separator "Resize Reported position (USD) column" [ref=e66]
+            - text: Trust-reported position amount
+          - columnheader [ref=e67]:
+            - button "Evidence-only min (USD). Minimum cost supported by adoptable evidence" [ref=e68]: Evidence-only min (USD)
+            - separator "Resize Evidence-only min (USD) column" [ref=e69]
+            - text: Minimum cost supported by adoptable evidence
+          - columnheader [ref=e70]:
+            - button "Evidence-only max (USD). Maximum cost supported by adoptable evidence" [ref=e71]: Evidence-only max (USD)
+            - separator "Resize Evidence-only max (USD) column" [ref=e72]
+            - text: Maximum cost supported by adoptable evidence
+          - columnheader [ref=e73]:
+            - button "Proxy-base min (USD). Minimum cost using the proxy benchmark base" [ref=e74]: Proxy-base min (USD)
+            - separator "Resize Proxy-base min (USD) column" [ref=e75]
+            - text: Minimum cost using the proxy benchmark base
+          - columnheader [ref=e76]:
+            - button "Proxy-base max (USD). Maximum cost using the proxy benchmark base" [ref=e77]: Proxy-base max (USD)
+            - separator "Resize Proxy-base max (USD) column" [ref=e78]
+            - text: Maximum cost using the proxy benchmark base
+          - 'columnheader "Annualised Rate. Canonical YAML field: annualised_rate Resize Annualised Rate column Canonical YAML field: annualised_rate"':
+            - 'button "Annualised Rate. Canonical YAML field: annualised_rate" [ref=e79]': Annualised Rate
+            - separator "Resize Annualised Rate column" [ref=e80]
+            - text: "Canonical YAML field: annualised_rate"
+          - 'columnheader "Bank Held. Canonical YAML field: bank_held Resize Bank Held column Canonical YAML field: bank_held"':
+            - 'button "Bank Held. Canonical YAML field: bank_held" [ref=e81]': Bank Held
+            - separator "Resize Bank Held column" [ref=e82]
+            - text: "Canonical YAML field: bank_held"
+          - 'columnheader "Barrier. Canonical YAML field: barrier Resize Barrier column Canonical YAML field: barrier"':
+            - 'button "Barrier. Canonical YAML field: barrier" [ref=e83]': Barrier
+            - separator "Resize Barrier column" [ref=e84]
+            - text: "Canonical YAML field: barrier"
+          - 'columnheader "Country. Canonical YAML field: country Resize Country column Canonical YAML field: country"':
+            - 'button "Country. Canonical YAML field: country" [ref=e85]': Country
+            - separator "Resize Country column" [ref=e86]
+            - text: "Canonical YAML field: country"
+          - 'columnheader "Coupon. Canonical YAML field: coupon Resize Coupon column Canonical YAML field: coupon"':
+            - 'button "Coupon. Canonical YAML field: coupon" [ref=e87]': Coupon
+            - separator "Resize Coupon column" [ref=e88]
+            - text: "Canonical YAML field: coupon"
+          - 'columnheader "Currency. Canonical YAML field: currency Resize Currency column Canonical YAML field: currency"':
+            - 'button "Currency. Canonical YAML field: currency" [ref=e89]': Currency
+            - separator "Resize Currency column" [ref=e90]
+            - text: "Canonical YAML field: currency"
+          - 'columnheader "Denomination Usd. Canonical YAML field: denomination_usd Resize Denomination Usd column Canonical YAML field: denomination_usd"':
+            - 'button "Denomination Usd. Canonical YAML field: denomination_usd" [ref=e91]': Denomination Usd
+            - separator "Resize Denomination Usd column" [ref=e92]
+            - text: "Canonical YAML field: denomination_usd"
+          - 'columnheader "Display Order. Canonical YAML field: display_order Resize Display Order column Canonical YAML field: display_order"':
+            - 'button "Display Order. Canonical YAML field: display_order" [ref=e93]': Display Order
+            - separator "Resize Display Order column" [ref=e94]
+            - text: "Canonical YAML field: display_order"
+          - 'columnheader "Downside. Canonical YAML field: downside Resize Downside column Canonical YAML field: downside"':
+            - 'button "Downside. Canonical YAML field: downside" [ref=e95]': Downside
+            - separator "Resize Downside column" [ref=e96]
+            - text: "Canonical YAML field: downside"
+          - 'columnheader "Field Statuses. Canonical YAML field: field_statuses Resize Field Statuses column Canonical YAML field: field_statuses"':
+            - 'button "Field Statuses. Canonical YAML field: field_statuses" [ref=e97]': Field Statuses
+            - separator "Resize Field Statuses column" [ref=e98]
+            - text: "Canonical YAML field: field_statuses"
+          - 'columnheader "Frequency. Canonical YAML field: frequency Resize Frequency column Canonical YAML field: frequency"':
+            - 'button "Frequency. Canonical YAML field: frequency" [ref=e99]': Frequency
+            - separator "Resize Frequency column" [ref=e100]
+            - text: "Canonical YAML field: frequency"
+          - 'columnheader "Guarantor. Canonical YAML field: guarantor Resize Guarantor column Canonical YAML field: guarantor"':
+            - 'button "Guarantor. Canonical YAML field: guarantor" [ref=e101]': Guarantor
+            - separator "Resize Guarantor column" [ref=e102]
+            - text: "Canonical YAML field: guarantor"
+          - 'columnheader "Isin. Canonical YAML field: isin Resize Isin column Canonical YAML field: isin"':
+            - 'button "Isin. Canonical YAML field: isin" [ref=e103]': Isin
+            - separator "Resize Isin column" [ref=e104]
+            - text: "Canonical YAML field: isin"
+          - 'columnheader "Issue Date. Canonical YAML field: issue_date Resize Issue Date column Canonical YAML field: issue_date"':
+            - 'button "Issue Date. Canonical YAML field: issue_date" [ref=e105]': Issue Date
+            - separator "Resize Issue Date column" [ref=e106]
+            - text: "Canonical YAML field: issue_date"
+          - 'columnheader "Issue Size. Canonical YAML field: issue_size Resize Issue Size column Canonical YAML field: issue_size"':
+            - 'button "Issue Size. Canonical YAML field: issue_size" [ref=e107]': Issue Size
+            - separator "Resize Issue Size column" [ref=e108]
+            - text: "Canonical YAML field: issue_size"
+          - 'columnheader "Issuer. Canonical YAML field: issuer Resize Issuer column Canonical YAML field: issuer"':
+            - 'button "Issuer. Canonical YAML field: issuer" [ref=e109]': Issuer
+            - separator "Resize Issuer column" [ref=e110]
+            - text: "Canonical YAML field: issuer"
+          - 'columnheader "Maturity. Canonical YAML field: maturity Resize Maturity column Canonical YAML field: maturity"':
+            - 'button "Maturity. Canonical YAML field: maturity" [ref=e111]': Maturity
+            - separator "Resize Maturity column" [ref=e112]
+            - text: "Canonical YAML field: maturity"
+          - 'columnheader "Other Comments. Canonical YAML field: other_comments Resize Other Comments column Canonical YAML field: other_comments"':
+            - 'button "Other Comments. Canonical YAML field: other_comments" [ref=e113]': Other Comments
+            - separator "Resize Other Comments column" [ref=e114]
+            - text: "Canonical YAML field: other_comments"
+          - 'columnheader "Position Size. Canonical YAML field: position_size Resize Position Size column Canonical YAML field: position_size"':
+            - 'button "Position Size. Canonical YAML field: position_size" [ref=e115]': Position Size
+            - separator "Resize Position Size column" [ref=e116]
+            - text: "Canonical YAML field: position_size"
+          - 'columnheader "Product Name. Canonical YAML field: product_name Resize Product Name column Canonical YAML field: product_name"':
+            - 'button "Product Name. Canonical YAML field: product_name" [ref=e117]': Product Name
+            - separator "Resize Product Name column" [ref=e118]
+            - text: "Canonical YAML field: product_name"
+          - 'columnheader "Redemption Terms. Canonical YAML field: redemption_terms Resize Redemption Terms column Canonical YAML field: redemption_terms"':
+            - 'button "Redemption Terms. Canonical YAML field: redemption_terms" [ref=e119]': Redemption Terms
+            - separator "Resize Redemption Terms column" [ref=e120]
+            - text: "Canonical YAML field: redemption_terms"
+          - 'columnheader "Risk. Canonical YAML field: risk Resize Risk column Canonical YAML field: risk"':
+            - 'button "Risk. Canonical YAML field: risk" [ref=e121]': Risk
+            - separator "Resize Risk column" [ref=e122]
+            - text: "Canonical YAML field: risk"
+          - 'columnheader "Schema Version. Canonical YAML field: schema_version Resize Schema Version column Canonical YAML field: schema_version"':
+            - 'button "Schema Version. Canonical YAML field: schema_version" [ref=e123]': Schema Version
+            - separator "Resize Schema Version column" [ref=e124]
+            - text: "Canonical YAML field: schema_version"
+          - 'columnheader "Source Exhibit. Canonical YAML field: source_exhibit Resize Source Exhibit column Canonical YAML field: source_exhibit"':
+            - 'button "Source Exhibit. Canonical YAML field: source_exhibit" [ref=e125]': Source Exhibit
+            - separator "Resize Source Exhibit column" [ref=e126]
+            - text: "Canonical YAML field: source_exhibit"
+          - 'columnheader "Source Section. Canonical YAML field: source_section Resize Source Section column Canonical YAML field: source_section"':
+            - 'button "Source Section. Canonical YAML field: source_section" [ref=e127]': Source Section
+            - separator "Resize Source Section column" [ref=e128]
+            - text: "Canonical YAML field: source_section"
+          - 'columnheader "Structure. Canonical YAML field: structure Resize Structure column Canonical YAML field: structure"':
+            - 'button "Structure. Canonical YAML field: structure" [ref=e129]': Structure
+            - separator "Resize Structure column" [ref=e130]
+            - text: "Canonical YAML field: structure"
+          - 'columnheader "Tenor Years. Canonical YAML field: tenor_years Resize Tenor Years column Canonical YAML field: tenor_years"':
+            - 'button "Tenor Years. Canonical YAML field: tenor_years" [ref=e131]': Tenor Years
+            - separator "Resize Tenor Years column" [ref=e132]
+            - text: "Canonical YAML field: tenor_years"
+          - 'columnheader "Term Sheet Available. Canonical YAML field: term_sheet_available Resize Term Sheet Available column Canonical YAML field: term_sheet_available"':
+            - 'button "Term Sheet Available. Canonical YAML field: term_sheet_available" [ref=e133]': Term Sheet Available
+            - separator "Resize Term Sheet Available column" [ref=e134]
+            - text: "Canonical YAML field: term_sheet_available"
+          - 'columnheader "Trust. Canonical YAML field: trust Resize Trust column Canonical YAML field: trust"':
+            - 'button "Trust. Canonical YAML field: trust" [ref=e135]': Trust
+            - separator "Resize Trust column" [ref=e136]
+            - text: "Canonical YAML field: trust"
+          - 'columnheader "Underlying. Canonical YAML field: underlying Resize Underlying column Canonical YAML field: underlying"':
+            - 'button "Underlying. Canonical YAML field: underlying" [ref=e137]': Underlying
+            - separator "Resize Underlying column" [ref=e138]
+            - text: "Canonical YAML field: underlying"
+          - 'columnheader "Issue-size status. Canonical YAML field: issue_size.status Resize Issue-size status column Canonical YAML field: issue_size.status"':
+            - 'button "Issue-size status. Canonical YAML field: issue_size.status" [ref=e139]': Issue-size status
+            - separator "Resize Issue-size status column" [ref=e140]
+            - text: "Canonical YAML field: issue_size.status"
+      - rowgroup [ref=e141]:
+        - row [ref=e142]:
+          - cell [ref=e143]:
+            - button "Open row details" [ref=e144] [cursor=pointer]
+          - cell "CH1484588913" [ref=e148]
+          - cell "Leonteq Express Certificate on S&P 500, Swiss Market Index" [ref=e149]
+          - cell "Equity-linked" [ref=e150]
+          - cell "03 Mar 2026" [ref=e151]
+          - cell "03 Mar 2028" [ref=e152]
+          - cell "Reported maturity" [ref=e153]
+          - cell "usable invested notional" [ref=e154]
+          - cell "10,000,000" [ref=e155]
+          - cell "206,000" [ref=e156]
+          - cell "206,000" [ref=e157]
+          - cell "340,000" [ref=e158]
+          - cell "340,000" [ref=e159]
+          - cell "6.50%"
+          - cell
+          - cell "60%"
+          - cell
+          - cell "1.625%"
+          - cell
+          - cell "1,000"
+          - cell "1"
+          - cell "cash losss (capital)"
+          - 'cell "{\"annualised_rate\":\"Workbook reference\",\"bank_held\":\"Not available in current sources\",\"barrier\":\"Workbook reference\",\"country\":\"Not available in current sources\",\"coupon\":\"Workbook reference\",\"currency\":\"Not available in current sources\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Workbook reference\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Not available in current sources\",\"maturity\":\"Workbook reference\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Workbook reference\",\"source_exhibit\":\"Not available in current sources\",\"structure\":\"Workbook reference\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Not available in current sources\",\"underlying\":\"Workbook reference\"}"'
+          - cell "quarterly"
+          - cell
+          - cell "CH1484588913"
+          - cell "03-Mar-2026"
+          - 'cell "{\"display\":\"Not available\",\"source\":\"No issue-size label found in available OCR\",\"status\":\"Unavailable: document recovery required\"}"'
+          - cell
+          - cell "03-Mar-2028"
+          - cell "No memory feature"
+          - cell "10,000,000"
+          - cell "Leonteq Express Certificate on S&P 500, Swiss Market Index"
+          - cell
+          - cell "Moderate"
+          - cell "1"
+          - cell
+          - cell "Recent structured product"
+          - cell "Autocallable Express Certificate (Index Linked)"
+          - cell "2"
+          - cell "True"
+          - cell
+          - cell "S&P 500<br>SMI"
+          - cell
+        - row [ref=e160]:
+          - cell [ref=e161]:
+            - button "Open row details" [ref=e162] [cursor=pointer]
+          - cell "XS3234638248" [ref=e166]
+          - cell "Series 40076 USD 2,400,000 Equity Linked Notes due 2027" [ref=e167]
+          - cell "Equity-linked" [ref=e168]
+          - cell "27 Jan 2026" [ref=e169]
+          - cell "22 Jul 2027" [ref=e170]
+          - cell "Reported maturity" [ref=e171]
+          - cell "usable invested notional" [ref=e172]
+          - cell "2,000,000" [ref=e173]
+          - cell "30,614" [ref=e174]
+          - cell "30,614" [ref=e175]
+          - cell "50,528" [ref=e176]
+          - cell "50,528" [ref=e177]
+          - cell "Not reported as an annualised rate; workbook 11.00% is a derived figure"
+          - cell
+          - cell "68% coupon and redemption barrier"
+          - cell
+          - cell "2.75% memory coupon subject to 68% worst-value coupon barrier"
+          - cell "USD"
+          - cell "USD 1,000"
+          - cell "2"
+          - cell "Physical delivery of the worst-performing share below the 68% final redemption condition"
+          - 'cell "{\"annualised_rate\":\"Derived from original terms; workbook reference retained\",\"bank_held\":\"Not available in current sources\",\"barrier\":\"Original terms\",\"country\":\"Not available in current sources\",\"coupon\":\"Original terms\",\"currency\":\"Original terms\",\"denomination_usd\":\"Original terms\",\"downside\":\"Original terms\",\"frequency\":\"Original terms\",\"guarantor\":\"Original terms\",\"issue_date\":\"Original terms\",\"issuer\":\"Original terms\",\"maturity\":\"Original terms\",\"other_comments\":\"Original terms\",\"position_size\":\"Workbook reference\",\"product_name\":\"Original terms; corrected workbook typo\",\"redemption_terms\":\"Original terms\",\"risk\":\"Original terms\",\"source_exhibit\":\"Original terms\",\"structure\":\"Original terms\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Not available in current sources\",\"underlying\":\"Original terms\"}"'
+          - cell "Quarterly coupon valuation/payment schedule"
+          - cell "Banco Bilbao Vizcaya Argentaria, S.A."
+          - cell "XS3234638248"
+          - cell "27-Jan-2026"
+          - 'cell "{\"display\":\"USD 2.4 million\",\"source\":\"04. Original terms/04. BBVA/XS3234638248_BBVA_Global_Markets_Pricing_Supplement_2026-01-27.pdf; Trust position size remains USD 2 million\",\"status\":\"Confirmed documentary nominal amount\"}"'
+          - cell "BBVA Global Markets, B.V. Series 40076 USD 2,400,000 Equity Linked Notes due 2027"
+          - cell "22-Jul-2027"
+          - cell "Memory coupon and step-down automatic early redemption"
+          - cell "2,000,000"
+          - cell "Series 40076 USD 2,400,000 Equity Linked Notes due 2027"
+          - cell "Equity-linked digital redemption with physical delivery downside below 68%"
+          - cell "Higher risk; issuer/guarantor and worst-of equity exposure"
+          - cell "1"
+          - cell "BBVA Global Markets, B.V. Series 40076 Pricing Supplement, 27-Jan-2026"
+          - cell "Recent structured product"
+          - cell "Phoenix Memory Note (equity-linked, worst-of basket)"
+          - cell "1.48611"
+          - cell "True"
+          - cell
+          - cell "Amazon.com Inc.; Microsoft Corp; NVIDIA Corp"
+          - cell
+        - row [ref=e178]:
+          - cell [ref=e179]:
+            - button "Open row details" [ref=e180] [cursor=pointer]
+          - cell "XS0765564827" [ref=e184]
+          - 'cell "AQUARIUS + INVESTMENTS PLC: US$750,000,000 Perpetual Limited Recourse Secured Notes" [ref=e185]'
+          - cell "Conventional / specialist debt" [ref=e186]
+          - cell "29 Mar 2012" [ref=e187]
+          - cell "09 Nov 2018" [ref=e188]
+          - cell "Documented call date" [ref=e189]
+          - cell "usable invested notional" [ref=e190]
+          - cell "200,000" [ref=e191]
+          - cell "Unbenchmarked" [ref=e192]
+          - cell "Unbenchmarked" [ref=e193]
+          - cell "Unbenchmarked" [ref=e194]
+          - cell "Unbenchmarked" [ref=e195]
+          - cell "8.25%"
+          - cell
+          - cell
+          - cell
+          - cell "8.25%"
+          - cell "USD"
+          - cell "200,000 + increments of 5,000"
+          - cell "3"
+          - cell "Investors can only claim against the the assets and not the issuer themselves. No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance. Investors may receive shares instead of cash and the value may be lower than capital. Liquidity risk (no active market)<br><br>Risk:<br>This is a SPV <br>Issuer is not regulated<br>If an examiner is appointed to the issuer, the trustee is precluded from enforcing the security over any mortgaged property during the period. <br><br>other risks in pages 8-18 of document <br>"
+          - cell
+          - cell "annually"
+          - cell
+          - cell "XS0765564827"
+          - cell "29-Mar-2012"
+          - 'cell "{\"display\":\"USD 750,000.00 million\",\"source\":\"02. BBG images/XS0765564827/XS0765564827 - image-02.png; visual confirmation of Amt Issued/Outstanding as USD 750,000.00 million\",\"status\":\"confirmed\"}"'
+          - cell "AQUA + INV(SWISS RE)"
+          - 'cell "Call effective: 09/11/2018"'
+          - cell "loan notes are secured on underlying assets and have limited recourse. The interest on notes are what the issuer received from Swiss Re Instruments if it does not pay interest, the investors don’t get paid."
+          - cell "200,000"
+          - 'cell "AQUARIUS + INVESTMENTS PLC: US$750,000,000 Perpetual Limited Recourse Secured Notes"'
+          - cell
+          - cell "Higher"
+          - cell "1"
+          - cell "LX000000002045417109<br><br>Scanned document 16/ 2012-03-27 - Prospectus Term Sheet"
+          - cell "Recent structured product"
+          - cell "Perpetual limited rescourse secured notes backed by Swiss Reinsurance Co Ltd."
+          - cell "Perpetual"
+          - cell "True"
+          - cell "Jake"
+          - cell "Swiss Re Subordinated Capital instruments"
+          - cell "Confirmed by visual review"
+        - row [ref=e196]:
+          - cell [ref=e197]:
+            - button "Open row details" [ref=e198] [cursor=pointer]
+          - cell "XS1028242706" [ref=e202]
+          - cell "Morgan Stanley Euro Medium Term Note (\"EMTN\")" [ref=e203]
+          - cell "Conventional / specialist debt" [ref=e204]
+          - cell "14 Feb 2014" [ref=e205]
+          - cell "14 Feb 2020" [ref=e206]
+          - cell "Reported maturity" [ref=e207]
+          - cell "usable invested notional" [ref=e208]
+          - cell "850,000,000" [ref=e209]
+          - cell "Unbenchmarked" [ref=e210]
+          - cell "Unbenchmarked" [ref=e211]
+          - cell "Unbenchmarked" [ref=e212]
+          - cell "Unbenchmarked" [ref=e213]
+          - cell "N/A"
+          - cell
+          - cell
+          - cell
+          - cell "0%"
+          - cell "USD"
+          - cell "1,000"
+          - cell "4"
+          - cell
+          - cell
+          - cell "N/A"
+          - cell
+          - cell "XS1028242706"
+          - cell "14-Feb-2014"
+          - 'cell "{\"display\":\"USD 850.00 million\",\"source\":\"03. BBG OCR/XS1028242706/XS1028242706 - image-01.txt; AmtIssued/outstanding; AmtIssued/outstanding 23) Sustainability BULLET USD 850.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*NO CALCULATIONS*\",\"status\":\"confirmed\"}"'
+          - cell "MORGAN STANLEY BV"
+          - cell "14-Feb-2020"
+          - cell
+          - cell "850,000,000"
+          - cell "Morgan Stanley Euro Medium Term Note (\"EMTN\")"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Balance sheet photos (earlier)-3 HEIC / <br><br>Term Sheet Excel Calculations"
+          - cell "Recent structured product"
+          - cell "It appears to be a zero coupon bond, that has a single repayment (bullet)"
+          - cell "6"
+          - cell "False"
+          - cell "Jake"
+          - cell
+          - cell
+        - row [ref=e214]:
+          - cell [ref=e215]:
+            - button "Open row details" [ref=e216] [cursor=pointer]
+          - cell "XS1243914071" [ref=e220]
+          - cell "Nomura Bank International Plc - Euro Dollar (senior unsecured)" [ref=e221]
+          - cell "Conventional / specialist debt" [ref=e222]
+          - cell "15 Jun 2015" [ref=e223]
+          - cell "09 Jun 2020" [ref=e224]
+          - cell "Reported maturity" [ref=e225]
+          - cell "usable invested notional" [ref=e226]
+          - cell "1,525,000,000" [ref=e227]
+          - cell "Unbenchmarked" [ref=e228]
+          - cell "Unbenchmarked" [ref=e229]
+          - cell "Unbenchmarked" [ref=e230]
+          - cell "Unbenchmarked" [ref=e231]
+          - cell "N/A"
+          - cell
+          - cell
+          - cell
+          - cell "0%"
+          - cell "USD"
+          - cell "1,000"
+          - cell "5"
+          - cell
+          - cell
+          - cell "N/A"
+          - cell
+          - cell "XS1243914071"
+          - cell "15-Jun-2015"
+          - 'cell "{\"display\":\"USD 1,525.00 million\",\"source\":\"03. BBG OCR/XS1243914071/XS1243914071 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability BULLET USD 1,525.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*N0 CALCULATI0NS*\",\"status\":\"confirmed\"}"'
+          - cell "NOMURA BANK INTL PLC"
+          - cell "09-Jun-2020"
+          - cell
+          - cell "1,525,000,000"
+          - cell "Nomura Bank International Plc - Euro Dollar (senior unsecured)"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Balance sheet photos (earlier)-3 HEIC / <br><br>Term Sheet Excel Calculations"
+          - cell "Recent structured product"
+          - cell "It appears to be a zero coupon bond, that has a single repayment (bullet)"
+          - cell "4.98333"
+          - cell "False"
+          - cell "Jogger 2"
+          - cell
+          - cell
+        - row [ref=e232]:
+          - cell [ref=e233]:
+            - button "Open row details" [ref=e234] [cursor=pointer]
+          - cell "CH0252328973" [ref=e238]
+          - cell "Credit Suisse Nassau - senior unsecured Euro MTN" [ref=e239]
+          - cell "Equity-linked" [ref=e240]
+          - cell "28 May 2015" [ref=e241]
+          - cell "28 May 2020" [ref=e242]
+          - cell "Reported maturity" [ref=e243]
+          - cell "missing" [ref=e244]
+          - cell [ref=e245]
+          - cell "Not calculated" [ref=e246]
+          - cell "Not calculated" [ref=e247]
+          - cell "Not calculated" [ref=e248]
+          - cell "Not calculated" [ref=e249]
+          - cell "N/A"
+          - cell
+          - cell "55%"
+          - cell
+          - cell "0%"
+          - cell "USD"
+          - cell "1,000"
+          - cell "6"
+          - cell "55% downside barrier for both linked indices. Principle repayment dependent on index performance. This is an exotic structured note."
+          - cell
+          - cell "N/A"
+          - cell
+          - cell "CH0252328973"
+          - cell "28-May-2015"
+          - 'cell "{\"display\":\"Not found\",\"source\":\"02. BBG images/CH0252328973/CH0252328973 - image-01.png; visual confirmation found no issuance data provided for Amt Issued/Outstanding\",\"status\":\"not found\"}"'
+          - cell "CREDIT SUISSE NASSAU"
+          - cell "28-May-2020"
+          - 'cell "Barrier is calculated for both initial levels: <br><br>SPX: 2125.8500<br>SMI: 9319.9000<br><br>SPX lower barrier: 1169.2200<br>SMI Lower Barrier: 5125.9500"'
+          - cell
+          - cell "Credit Suisse Nassau - senior unsecured Euro MTN"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Balance sheet photos (earlier)-3 HEIC / <br><br>Term Sheet Excel Calculations"
+          - cell "Recent structured product"
+          - cell "Structured equity-linked note. This is a zero coupon bond with a single repayment (Bullet) however it is has barriers of 55% for two linked indices."
+          - cell "5"
+          - cell "False"
+          - cell "Jenny 2"
+          - cell "SPX,<br>SMI"
+          - 'cell "Confirmed by visual review: not found"'
+        - row [ref=e250]:
+          - cell [ref=e251]:
+            - button "Open row details" [ref=e252] [cursor=pointer]
+          - cell "XS0297701319" [ref=e256]
+          - cell "Callable - matured" [ref=e257]
+          - cell "Historical rate-linked" [ref=e258]
+          - cell "30 Apr 2007" [ref=e259]
+          - cell "30 Apr 2010" [ref=e260]
+          - cell "Reported maturity" [ref=e261]
+          - cell "usable invested notional" [ref=e262]
+          - cell "800,000" [ref=e263]
+          - cell "36,800" [ref=e264]
+          - cell "44,000" [ref=e265]
+          - cell "36,800" [ref=e266]
+          - cell "44,000" [ref=e267]
+          - cell
+          - cell "Deutsche/ Lloyds and Pictet"
+          - cell "coupon rate is paid with barriers:<br>if USD/Gold Spot RT is at within 540-840; and <br>Nikkei 225 is at or within 13,900-21,000 within each accrual period"
+          - cell "Australia"
+          - cell "7.50%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "7"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Workbook reference\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "quarterly"
+          - cell
+          - cell "XS0297701319"
+          - cell "30-Apr-2007"
+          - 'cell "{\"display\":\"USD 3,000.00 million\",\"source\":\"03. BBG OCR/XS0297701319/XS0297701319 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 3,000.00 (M) Quick Links Iss Sprd USD (M) 30 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "30-Apr-2010"
+          - cell "rating AA-"
+          - cell "800,000"
+          - cell "Callable - matured"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - matured"
+          - cell "3"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "USD/Gold spot<br>Nikkei 225"
+          - cell
+        - row [ref=e268]:
+          - cell [ref=e269]:
+            - button "Open row details" [ref=e270] [cursor=pointer]
+          - cell "XS0318585791" [ref=e274]
+          - cell "Kick in" [ref=e275]
+          - cell "Equity-linked" [ref=e276]
+          - cell [ref=e277]
+          - cell "21 Sep 2011" [ref=e278]
+          - cell "Reported maturity" [ref=e279]
+          - cell "usable invested notional" [ref=e280]
+          - cell "800,000" [ref=e281]
+          - cell "Unbenchmarked" [ref=e282]
+          - cell "Unbenchmarked" [ref=e283]
+          - cell "Unbenchmarked" [ref=e284]
+          - cell "Unbenchmarked" [ref=e285]
+          - cell
+          - cell "Lloyds, Pictet and UBP"
+          - cell
+          - cell "Luxemborg"
+          - cell
+          - cell
+          - cell
+          - cell "8"
+          - cell
+          - 'cell "{\"annualised_rate\":\"not found\",\"bank_held\":\"Workbook reference\",\"barrier\":\"not found\",\"country\":\"Workbook reference\",\"coupon\":\"not found\",\"currency\":\"not found\",\"denomination_usd\":\"not found\",\"downside\":\"not found\",\"frequency\":\"not found\",\"issue_date\":\"not found\",\"issuer\":\"not found\",\"maturity\":\"Workbook reference\",\"other_comments\":\"not found\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"not found\",\"risk\":\"not found\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Workbook reference\",\"tenor_years\":\"not found\",\"trust\":\"Workbook reference\",\"underlying\":\"not found\"}"'
+          - cell
+          - cell
+          - cell "XS0318585791"
+          - cell
+          - 'cell "{\"display\":\"Not available\",\"source\":\"No issue-size label found in available OCR\",\"status\":\"Unavailable: document recovery required\"}"'
+          - cell
+          - cell "21-Sep-2011"
+          - cell
+          - cell "800,000"
+          - cell "Kick in"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Kick in"
+          - cell
+          - cell "False"
+          - cell "Ebro/Tudela"
+          - cell
+          - cell
+        - row [ref=e286]:
+          - cell [ref=e287]:
+            - button "Open row details" [ref=e288] [cursor=pointer]
+          - cell "XS0300388351" [ref=e292]
+          - cell "Callable unsecured fixed to variable type note - actioned<br><br>Dual indexed and leveraged" [ref=e293]
+          - cell "Equity-linked" [ref=e294]
+          - cell "30 May 2007" [ref=e295]
+          - cell "30 May 2017" [ref=e296]
+          - cell "Reported maturity" [ref=e297]
+          - cell "usable invested notional" [ref=e298]
+          - cell "600,000" [ref=e299]
+          - cell "61,800" [ref=e300]
+          - cell "61,800" [ref=e301]
+          - cell "102,000" [ref=e302]
+          - cell "102,000" [ref=e303]
+          - cell
+          - cell "UBP Jersey and Lloyds"
+          - cell
+          - cell "Australia"
+          - cell "0%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "9"
+          - cell
+          - cell
+          - cell "quarterly"
+          - cell
+          - cell "XS0300388351"
+          - cell "30-May-2007"
+          - 'cell "{\"display\":\"USD 8,370.00 million\",\"source\":\"02. BBG images/XS0300388351/XS0300388351 - image-01.png; visual confirmation of Amt Issued/Outstanding as USD 8,370.00 million\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "30-May-2017"
+          - cell "Rating AA"
+          - cell "600,000"
+          - cell "Callable unsecured fixed to variable type note - actioned<br><br>Dual indexed and leveraged"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Callable unsecured fixed to variable type note - actioned<br><br>Dual indexed and leveraged"
+          - cell "10"
+          - cell "False"
+          - cell "Ebro/Tudela"
+          - cell "USD Swap Semi-Annual 30-Year rate"
+          - cell "Confirmed by visual review"
+        - row [ref=e304]:
+          - cell [ref=e305]:
+            - button "Open row details" [ref=e306] [cursor=pointer]
+          - cell "XS0164480286" [ref=e310]
+          - cell "Callable - actioned Euro MTN" [ref=e311]
+          - cell "Historical rate-linked" [ref=e312]
+          - cell "28 Feb 2003" [ref=e313]
+          - cell "25 Mar 2008" [ref=e314]
+          - cell "Documented call date" [ref=e315]
+          - cell "usable invested notional" [ref=e316]
+          - cell "5,900,000" [ref=e317]
+          - cell "271,400" [ref=e318]
+          - cell "324,500" [ref=e319]
+          - cell "271,400" [ref=e320]
+          - cell "324,500" [ref=e321]
+          - cell
+          - cell "Deutsche/ Lloyds, Pictet and UBP"
+          - cell
+          - cell "UK"
+          - cell "7.50%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "10"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Workbook reference\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Not available in current sources\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Resolved by visual Bloomberg review\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell
+          - cell
+          - cell "XS0164480286"
+          - cell "28-Feb-2003"
+          - 'cell "{\"display\":\"USD 19,550.00 million\",\"source\":\"03. BBG OCR/XS0164480286/XS0164480286 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 03/25/08@100.00 USD 19,550.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Lloyds TSB Bank"
+          - 'cell "Maturity: 21-Mar-2018; Call effective: 25-Mar-2008"'
+          - cell "Rating AA+"
+          - cell "5,900,000"
+          - cell "Callable - actioned Euro MTN"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - actioned Euro MTN"
+          - cell "15.0694"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "USD 6 month Libor rate falling in a range"
+          - cell
+        - row [ref=e322]:
+          - cell [ref=e323]:
+            - button "Open row details" [ref=e324] [cursor=pointer]
+          - cell "XS0165220400" [ref=e328]
+          - cell "Callable - actioned" [ref=e329]
+          - cell "Historical rate-linked" [ref=e330]
+          - cell "11 Mar 2003" [ref=e331]
+          - cell "24 Sep 2008" [ref=e332]
+          - cell "Reported maturity" [ref=e333]
+          - cell "usable invested notional" [ref=e334]
+          - cell "5,000,000" [ref=e335]
+          - cell "230,000" [ref=e336]
+          - cell "275,000" [ref=e337]
+          - cell "230,000" [ref=e338]
+          - cell "275,000" [ref=e339]
+          - cell
+          - cell "Lloyds and UBP"
+          - cell "The coupon rate is reduced by multiplying number of days the 6 month Libor is within a certain range / the number of days with each accrual period, the minimum coupon rate is 0%)"
+          - cell "Luxemborg"
+          - cell "7.25%"
+          - cell "USD"
+          - cell "100,000"
+          - cell "11"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Workbook reference\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Not available in current sources\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell
+          - cell
+          - cell "XS0165220400"
+          - cell "11-Mar-2003"
+          - 'cell "{\"display\":\"USD 5,000.00 million\",\"source\":\"03. BBG OCR/XS0165220400/XS0165220400 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 09/24/08@100.00 USD 5,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Banque Caisse Epargne"
+          - cell "24-Sep-2008"
+          - cell "Rating AAA"
+          - cell "5,000,000"
+          - cell "Callable - actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - actioned"
+          - cell "5.53611"
+          - cell "False"
+          - cell "Ebro/Tudela"
+          - cell "USD 6 month Libor rate falling in a range"
+          - cell
+        - row [ref=e340]:
+          - cell [ref=e341]:
+            - button "Open row details" [ref=e342] [cursor=pointer]
+          - cell "XS0168875792" [ref=e346]
+          - cell "Callable" [ref=e347]
+          - cell "Historical rate-linked" [ref=e348]
+          - cell [ref=e349]
+          - cell "24 Apr 2018" [ref=e350]
+          - cell "Reported maturity" [ref=e351]
+          - cell "usable invested notional" [ref=e352]
+          - cell "1,600,000" [ref=e353]
+          - cell "73,600" [ref=e354]
+          - cell "88,000" [ref=e355]
+          - cell "73,600" [ref=e356]
+          - cell "88,000" [ref=e357]
+          - cell
+          - cell "Deutsche, Lloyds and UBP"
+          - cell
+          - cell "Norway"
+          - cell
+          - cell
+          - cell
+          - cell "12"
+          - cell
+          - 'cell "{\"annualised_rate\":\"not found\",\"bank_held\":\"Workbook reference\",\"barrier\":\"not found\",\"country\":\"Workbook reference\",\"coupon\":\"not found\",\"currency\":\"not found\",\"denomination_usd\":\"not found\",\"downside\":\"not found\",\"frequency\":\"not found\",\"issue_date\":\"not found\",\"issuer\":\"not found\",\"maturity\":\"Workbook reference\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"not found\",\"risk\":\"not found\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Workbook reference\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell
+          - cell
+          - cell "XS0168875792"
+          - cell
+          - 'cell "{\"display\":\"Not available\",\"source\":\"No issue-size label found in available OCR\",\"status\":\"Unavailable: document recovery required\"}"'
+          - cell
+          - cell "24-Apr-2018"
+          - cell "Rating AAA"
+          - cell "1,600,000"
+          - cell "Callable"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Callable"
+          - cell "118.317"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "Libor"
+          - cell
+        - row [ref=e358]:
+          - cell [ref=e359]:
+            - button "Open row details" [ref=e360] [cursor=pointer]
+          - cell "XS0169318291" [ref=e364]
+          - cell "Callable- Actioned" [ref=e365]
+          - cell "Historical rate-linked" [ref=e366]
+          - cell "19 May 2003" [ref=e367]
+          - cell "01 Jun 2010" [ref=e368]
+          - cell "Reported maturity" [ref=e369]
+          - cell "usable invested notional" [ref=e370]
+          - cell "9,650,000" [ref=e371]
+          - cell "443,900" [ref=e372]
+          - cell "530,750" [ref=e373]
+          - cell "443,900" [ref=e374]
+          - cell "530,750" [ref=e375]
+          - cell
+          - cell "Deutsche, Lloyds and UBP"
+          - cell "The coupon rate is reduced by multiplying number of days the 6 month Libor is within a certain range / the number of days with each accrual period, the minimum coupon rate is 0%)"
+          - cell "UK"
+          - cell "6.80%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "13"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Workbook reference\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Not available in current sources\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell
+          - cell
+          - cell "XS0169318291"
+          - cell "19-May-2003"
+          - 'cell "{\"display\":\"USD 24,070.00 million\",\"source\":\"03. BBG OCR/XS0169318291/XS0169318291 - image-01.txt; Amt Issued/outstanding; Amt Issued/outstanding 23) Sustainability CALLED 0N 06/01/10@100.00 USD 24,070.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FL0ATERS\",\"status\":\"confirmed\"}"'
+          - cell "Lloyds TSB Bank"
+          - cell "01-Jun-2010"
+          - cell "Rating AAA"
+          - cell "9,650,000"
+          - cell "Callable- Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 1"
+          - cell "Historical portfolio instrument"
+          - cell "Callable- Actioned"
+          - cell "7.03333"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "USD 6 month Libor rate falling in a range"
+          - cell
+        - row [ref=e376]:
+          - cell [ref=e377]:
+            - button "Open row details" [ref=e378] [cursor=pointer]
+          - cell "XS0170303290" [ref=e382]
+          - cell "Callable - Actioned" [ref=e383]
+          - cell "Historical rate-linked" [ref=e384]
+          - cell "03 Jun 2003" [ref=e385]
+          - cell "16 Dec 2008" [ref=e386]
+          - cell "Reported maturity" [ref=e387]
+          - cell "usable invested notional" [ref=e388]
+          - cell "6,250,000" [ref=e389]
+          - cell "287,500" [ref=e390]
+          - cell "343,750" [ref=e391]
+          - cell "287,500" [ref=e392]
+          - cell "343,750" [ref=e393]
+          - cell
+          - cell "Lloyds and UBP"
+          - cell
+          - cell "Luxemborg"
+          - cell "8.3% 4 June , 7.53% to next 4 June, then 6% (all with formula applied)"
+          - cell "USD"
+          - cell "10,000"
+          - cell "14"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "6 months"
+          - cell
+          - cell "XS0170303290"
+          - cell "03-Jun-2003"
+          - 'cell "{\"display\":\"USD 18,000.00 million\",\"source\":\"03. BBG OCR/XS0170303290/XS0170303290 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 12/16/08@100.00 USD 18,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)N0 CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Banque Caisse Epargne"
+          - cell "16-Dec-2008"
+          - cell "Rating AA+"
+          - cell "6,250,000"
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 2"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "5.53611"
+          - cell "False"
+          - cell "Ebro/Tudela"
+          - cell "USD 6 month Libor falling within range of 0 - 6.5"
+          - cell
+        - row [ref=e394]:
+          - cell [ref=e395]:
+            - button "Open row details" [ref=e396] [cursor=pointer]
+          - cell "XS0171914038" [ref=e400]
+          - cell "Callable - Actioned" [ref=e401]
+          - cell "Historical rate-linked" [ref=e402]
+          - cell "26 Jun 2003" [ref=e403]
+          - cell "14 Apr 2008" [ref=e404]
+          - cell "Reported maturity" [ref=e405]
+          - cell "usable invested notional" [ref=e406]
+          - cell "10,700,000" [ref=e407]
+          - cell "492,200" [ref=e408]
+          - cell "588,500" [ref=e409]
+          - cell "492,200" [ref=e410]
+          - cell "588,500" [ref=e411]
+          - cell
+          - cell "Deutsche, Lloyds"
+          - cell
+          - cell "UK"
+          - cell "6.75%"
+          - cell "USD"
+          - cell "50,000"
+          - cell "15"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0171914038"
+          - cell "26-Jun-2003"
+          - 'cell "{\"display\":\"USD 30,850.00 million\",\"source\":\"03. BBG OCR/XS0171914038/XS0171914038 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 04/14/08@100.00 USD 30,850.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Lloyds TSB Bank"
+          - cell "14-Apr-2008"
+          - cell "Rating AAA"
+          - cell "10,700,000"
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 2"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "4.8"
+          - cell "False"
+          - cell "Sete/Ebro"
+          - cell "Business days the USD 6 month Libor falling within range of 0 - 7.25"
+          - cell
+        - row [ref=e412]:
+          - cell [ref=e413]:
+            - button "Open row details" [ref=e414] [cursor=pointer]
+          - cell "XS0172077769" [ref=e418]
+          - cell "Callable - Actioned" [ref=e419]
+          - cell "Historical rate-linked" [ref=e420]
+          - cell "27 Jun 2003" [ref=e421]
+          - cell "14 Apr 2008" [ref=e422]
+          - cell "Reported maturity" [ref=e423]
+          - cell "usable invested notional" [ref=e424]
+          - cell "1,400,000" [ref=e425]
+          - cell "64,400" [ref=e426]
+          - cell "77,000" [ref=e427]
+          - cell "64,400" [ref=e428]
+          - cell "77,000" [ref=e429]
+          - cell
+          - cell "Deutsche/ Lloyds and Pictet"
+          - cell
+          - cell "UK"
+          - cell "7.25%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "16"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0172077769"
+          - cell "27-Jun-2003"
+          - 'cell "{\"display\":\"USD 6,200.00 million\",\"source\":\"03. BBG OCR/XS0172077769/XS0172077769 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 04/14/08@100.00 USD 6,200.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Lloyds TSB Bank"
+          - cell "14-Apr-2008"
+          - cell "Rating AA"
+          - cell "1,400,000"
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 2"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "4.79722"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "Business days the USD 6 month Libor falling within range of 0 - 3/4/5/7"
+          - cell
+        - row [ref=e430]:
+          - cell [ref=e431]:
+            - button "Open row details" [ref=e432] [cursor=pointer]
+          - cell "XS0241444883" [ref=e436]
+          - cell "Callable - Actioned" [ref=e437]
+          - cell "Historical rate-linked" [ref=e438]
+          - cell "10 Jan 2006" [ref=e439]
+          - cell "10 Feb 2009" [ref=e440]
+          - cell "Reported maturity" [ref=e441]
+          - cell "usable invested notional" [ref=e442]
+          - cell "1,380,000" [ref=e443]
+          - cell "63,480" [ref=e444]
+          - cell "75,900" [ref=e445]
+          - cell "63,480" [ref=e446]
+          - cell "75,900" [ref=e447]
+          - cell
+          - cell "Deutsche/ Lloyds and Pictet"
+          - cell
+          - cell "Luxemborg"
+          - cell "Initial 7.25%; ratchet increments of 0.05%, 0.15%, and 0.25% per the dated coupon schedule"
+          - cell "USD"
+          - cell "10,000"
+          - cell "17"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Resolved by visual Bloomberg review\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0241444883"
+          - cell "10-Jan-2006"
+          - 'cell "{\"display\":\"USD 5,000.00 million\",\"source\":\"03. BBG OCR/XS0241444883/XS0241444883 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 02/10/09@100.00 USD 5,000.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Banque international Lux"
+          - cell "10-Feb-2009"
+          - cell "Rating AA"
+          - cell "1,380,000"
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 2"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "3.08333"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "Business days the USD 6 month Libor falling within range of 0 - 7.25/8/9"
+          - cell
+        - row [ref=e448]:
+          - cell [ref=e449]:
+            - button "Open row details" [ref=e450] [cursor=pointer]
+          - cell "XS0249805960" [ref=e454]
+          - cell "Callable" [ref=e455]
+          - cell "Historical rate-linked" [ref=e456]
+          - cell "28 Mar 2006" [ref=e457]
+          - cell "11 May 2021" [ref=e458]
+          - cell "Scheduled maturity" [ref=e459]
+          - cell "usable invested notional" [ref=e460]
+          - cell "5,600,000" [ref=e461]
+          - cell "257,600" [ref=e462]
+          - cell "308,000" [ref=e463]
+          - cell "257,600" [ref=e464]
+          - cell "308,000" [ref=e465]
+          - cell
+          - cell "Deutsche/ Lloyds and UBP"
+          - cell
+          - cell "Luxemborg"
+          - cell "7.5% to 7 May thereafter a range between 7.5% - 6.25%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "18"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Resolved by visual Bloomberg review\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0249805960"
+          - cell "28-Mar-2006"
+          - 'cell "{\"display\":\"USD 17,200.00 million\",\"source\":\"03. BBG OCR/XS0249805960/XS0249805960 - image-01.txt; AmtIssued/outstanding; AmtIssued/outstanding 23) Sustainability USD 17,200.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment\",\"status\":\"confirmed\"}"'
+          - cell "Banque international Lux"
+          - 'cell "Maturity: 11-May-2021"'
+          - cell "Rating AA"
+          - cell "5,600,000"
+          - cell "Callable"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable"
+          - cell "14.9528"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "number of days USD 6 month Libor in a range initially when the libor rate is greater than 4.25/4 then between 0 - up to 7.0"
+          - cell
+        - row [ref=e466]:
+          - cell [ref=e467]:
+            - button "Open row details" [ref=e468] [cursor=pointer]
+          - cell "XS0277502067" [ref=e472]
+          - cell "Callable" [ref=e473]
+          - cell "Historical rate-linked" [ref=e474]
+          - cell "24 Nov 2006" [ref=e475]
+          - cell "14 Dec 2021" [ref=e476]
+          - cell "Reported maturity" [ref=e477]
+          - cell "usable invested notional" [ref=e478]
+          - cell "1,000,000" [ref=e479]
+          - cell "46,000" [ref=e480]
+          - cell "55,000" [ref=e481]
+          - cell "46,000" [ref=e482]
+          - cell "55,000" [ref=e483]
+          - cell
+          - cell "Deutsche/ Lloyds, Pictet and UBP"
+          - cell
+          - cell "Australia"
+          - cell "8.25%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "19"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0277502067"
+          - cell "24-Nov-2006"
+          - 'cell "{\"display\":\"USD 5,000.00 million\",\"source\":\"03. BBG OCR/XS0277502067/XS0277502067 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 5,000.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "14-Dec-2021"
+          - cell "Rating AA-"
+          - cell "1,000,000"
+          - cell "Callable"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable"
+          - cell "15.0556"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "number of days USD 3 month Libor in a range initially when the libor rate is greater than 4.25/4 then between 0 - up to 9.0"
+          - cell
+        - row [ref=e484]:
+          - cell [ref=e485]:
+            - button "Open row details" [ref=e486] [cursor=pointer]
+          - cell "XS0278550750" [ref=e490]
+          - cell "Callable - Actioned" [ref=e491]
+          - cell "Historical rate-linked" [ref=e492]
+          - cell "05 Dec 2006" [ref=e493]
+          - cell "03 Jan 2009" [ref=e494]
+          - cell "Reported maturity" [ref=e495]
+          - cell "usable invested notional" [ref=e496]
+          - cell "1,000,000" [ref=e497]
+          - cell "46,000" [ref=e498]
+          - cell "55,000" [ref=e499]
+          - cell "46,000" [ref=e500]
+          - cell "55,000" [ref=e501]
+          - cell
+          - cell "Lloyds and UBP"
+          - cell
+          - cell "Luxemborg"
+          - cell "8.50%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "20"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Workbook reference\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0278550750"
+          - cell "05-Dec-2006"
+          - 'cell "{\"display\":\"USD 10,000.00 million\",\"source\":\"03. BBG OCR/XS0278550750/XS0278550750 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N01/03/09@100.00 USD 10,000.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)N0 CALC-FLOATERS\",\"status\":\"confirmed\"}"'
+          - cell "Dexia Banque International LUX SA"
+          - cell "03-Jan-2009"
+          - cell "Rating AA-"
+          - cell "1,000,000"
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "2.07778"
+          - cell "False"
+          - cell "Ebro/Tudela"
+          - cell "number of days USD 3 month Libor in a range initially when the libor rate is greater than 4.25/4 then between 0 - up to 9.0"
+          - cell
+        - row [ref=e502]:
+          - cell [ref=e503]:
+            - button "Open row details" [ref=e504] [cursor=pointer]
+          - cell "XS0284203071" [ref=e508]
+          - cell "Callable" [ref=e509]
+          - cell "Historical rate-linked" [ref=e510]
+          - cell "18 Jan 2007" [ref=e511]
+          - cell "14 Feb 2022" [ref=e512]
+          - cell "Reported maturity" [ref=e513]
+          - cell "usable invested notional" [ref=e514]
+          - cell "3,190,000" [ref=e515]
+          - cell "146,740" [ref=e516]
+          - cell "175,450" [ref=e517]
+          - cell "146,740" [ref=e518]
+          - cell "175,450" [ref=e519]
+          - cell
+          - cell "Deutsche/ Lloyds, Pictet and UBP"
+          - cell
+          - cell "Australia"
+          - cell "9.50%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "21"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Not available in current sources\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell
+          - cell
+          - cell "XS0284203071"
+          - cell "18-Jan-2007"
+          - 'cell "{\"display\":\"USD 10,000.00 million\",\"source\":\"03. BBG OCR/XS0284203071/XS0284203071 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 10,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "14-Feb-2022"
+          - cell "Rating AA-"
+          - cell "3,190,000"
+          - cell "Callable"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable"
+          - cell "15.0722"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "CMS spread range"
+          - cell
+        - row [ref=e520]:
+          - cell [ref=e521]:
+            - button "Open row details" [ref=e522] [cursor=pointer]
+          - cell "XS0294314694" [ref=e526]
+          - cell "Callable" [ref=e527]
+          - cell "Historical rate-linked" [ref=e528]
+          - cell "26 Mar 2007" [ref=e529]
+          - cell "02 Apr 2022" [ref=e530]
+          - cell "Reported maturity" [ref=e531]
+          - cell "usable invested notional" [ref=e532]
+          - cell "2,200,000" [ref=e533]
+          - cell "101,200" [ref=e534]
+          - cell "121,000" [ref=e535]
+          - cell "101,200" [ref=e536]
+          - cell "121,000" [ref=e537]
+          - cell
+          - cell "Deutsche, Lloyds"
+          - cell
+          - cell "UK"
+          - cell "7.25 - 8.0%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "22"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0294314694"
+          - cell "26-Mar-2007"
+          - 'cell "{\"display\":\"USD 10,000.00 million\",\"source\":\"03. BBG OCR/XS0294314694/XS0294314694 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 10,000.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT Qt Recap\",\"status\":\"confirmed\"}"'
+          - cell "Bank of Scotland PLC"
+          - cell "02-Apr-2022"
+          - cell "Rating AA"
+          - cell "2,200,000"
+          - cell "Callable"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable"
+          - cell "15.0167"
+          - cell "False"
+          - cell "Sete/Ebro"
+          - cell "number of days USD 3 month Libor in a range initially when the libor rate is greater than 4.25/4 then between 0 - up to 8.0"
+          - cell
+        - row [ref=e538]:
+          - cell [ref=e539]:
+            - button "Open row details" [ref=e540] [cursor=pointer]
+          - cell "XS0293931688" [ref=e544]
+          - cell "Callable - Actioned" [ref=e545]
+          - cell "Historical rate-linked" [ref=e546]
+          - cell "22 Mar 2007" [ref=e547]
+          - cell "14 Apr 2009" [ref=e548]
+          - cell "Reported maturity" [ref=e549]
+          - cell "usable invested notional" [ref=e550]
+          - cell "500,000" [ref=e551]
+          - cell "23,000" [ref=e552]
+          - cell "27,500" [ref=e553]
+          - cell "23,000" [ref=e554]
+          - cell "27,500" [ref=e555]
+          - cell
+          - cell "Deutsche, UBP"
+          - cell
+          - cell "Australia"
+          - cell "9.25%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "23"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0293931688"
+          - cell "22-Mar-2007"
+          - 'cell "{\"display\":\"USD 3,000.00 million\",\"source\":\"03. BBG OCR/XS0293931688/XS0293931688 - image-01.txt; AmtIssued/outstanding; AmtIssued/outstanding 23) Sustainability CALLED 0N 04/14/09@100.00 USD 3,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FL0ATERS\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "14-Apr-2009"
+          - cell "Rating AA-"
+          - cell "500,000"
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "2.06111"
+          - cell "False"
+          - cell "Sete/Tudela"
+          - cell "CMS spread range"
+          - cell
+        - row [ref=e556]:
+          - cell [ref=e557]:
+            - button "Open row details" [ref=e558] [cursor=pointer]
+          - cell "XS0293919121" [ref=e562]
+          - cell "Callable" [ref=e563]
+          - cell "Historical rate-linked" [ref=e564]
+          - cell "22 Mar 2007" [ref=e565]
+          - cell "10 Apr 2022" [ref=e566]
+          - cell "Reported maturity" [ref=e567]
+          - cell "usable invested notional" [ref=e568]
+          - cell "1,450,000" [ref=e569]
+          - cell "66,700" [ref=e570]
+          - cell "79,750" [ref=e571]
+          - cell "66,700" [ref=e572]
+          - cell "79,750" [ref=e573]
+          - cell
+          - cell "Deutsche/ Lloyds, Pictet and UBP"
+          - cell
+          - cell "Australia"
+          - cell "7.5- 15.0% (increasing to every 2 years)"
+          - cell "USD"
+          - cell "10,000"
+          - cell "24"
+          - cell
+          - 'cell "{\"annualised_rate\":\"Not available in current sources\",\"bank_held\":\"Workbook reference\",\"barrier\":\"Not available in current sources\",\"country\":\"Workbook reference\",\"coupon\":\"Corroborated by OCR\",\"currency\":\"OCR candidate; visual confirmation required\",\"denomination_usd\":\"Workbook reference\",\"downside\":\"Not available in current sources\",\"frequency\":\"Workbook reference\",\"issue_date\":\"Workbook reference\",\"issuer\":\"Corroborated by OCR\",\"maturity\":\"Corroborated by OCR\",\"other_comments\":\"Workbook reference\",\"position_size\":\"Workbook reference\",\"product_name\":\"Workbook reference\",\"redemption_terms\":\"Not available in current sources\",\"risk\":\"Not available in current sources\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"Complementary source descriptions\",\"tenor_years\":\"Workbook reference\",\"trust\":\"Workbook reference\",\"underlying\":\"Workbook reference\"}"'
+          - cell "3 months"
+          - cell
+          - cell "XS0293919121"
+          - cell "22-Mar-2007"
+          - 'cell "{\"display\":\"USD 2,000.00 million\",\"source\":\"03. BBG OCR/XS0293919121/XS0293919121 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 2,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "10-Apr-2022"
+          - cell "Rating AA"
+          - cell "1,450,000"
+          - cell "Callable"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 3"
+          - cell "Historical portfolio instrument"
+          - cell "Callable"
+          - cell "15.05"
+          - cell "False"
+          - cell "Sete/Ebro/Tudela"
+          - cell "Business days the USD 6 month Libor falling within range of 0 - 6/6.25/6.5/6.75/7/9"
+          - cell
+        - row [ref=e574]:
+          - cell [ref=e575]:
+            - button "Open row details" [ref=e576] [cursor=pointer]
+          - cell "XS0297467705" [ref=e580]
+          - cell "Matured" [ref=e581]
+          - cell "Historical rate-linked" [ref=e582]
+          - cell "17 Apr 2007" [ref=e583]
+          - cell "30 Apr 2022" [ref=e584]
+          - cell "Reported maturity" [ref=e585]
+          - cell "missing" [ref=e586]
+          - cell [ref=e587]
+          - cell "Not calculated" [ref=e588]
+          - cell "Not calculated" [ref=e589]
+          - cell "Not calculated" [ref=e590]
+          - cell "Not calculated" [ref=e591]
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "7.25 - 9.0% (ramping up after 2/3/4 years)"
+          - cell "USD"
+          - cell "10,000"
+          - cell "25"
+          - cell
+          - cell
+          - cell "3 months"
+          - cell
+          - cell "XS0297467705"
+          - cell "17-Apr-2007"
+          - 'cell "{\"display\":\"USD 5,000.00 million\",\"source\":\"03. BBG OCR/XS0297467705/XS0297467705 - image-01.txt; AmtIssued/Outstanding; AmtIssued/Outstanding 23) Sustainability USD 5,000.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT Qt Recap\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "30-Apr-2022"
+          - cell
+          - cell
+          - cell "Matured"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 4"
+          - cell "Historical portfolio instrument"
+          - cell "Matured"
+          - cell "15.0361"
+          - cell "False"
+          - cell
+          - cell "Business days the USD 6 month Libor falling within range of 0 - 7.25/7.5/8"
+          - cell
+        - row [ref=e592]:
+          - cell [ref=e593]:
+            - button "Open row details" [ref=e594] [cursor=pointer]
+          - cell "XS0298465822" [ref=e598]
+          - cell "Not reported" [ref=e599]
+          - cell "Conventional / specialist debt" [ref=e600]
+          - cell [ref=e601]
+          - cell [ref=e602]
+          - cell "Reported maturity" [ref=e603]
+          - cell "missing" [ref=e604]
+          - cell [ref=e605]
+          - cell "Not calculated" [ref=e606]
+          - cell "Not calculated" [ref=e607]
+          - cell "Not calculated" [ref=e608]
+          - cell "Not calculated" [ref=e609]
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "26"
+          - cell
+          - 'cell "{\"annualised_rate\":\"not found\",\"bank_held\":\"not found\",\"barrier\":\"not found\",\"country\":\"not found\",\"coupon\":\"not found\",\"currency\":\"not found\",\"denomination_usd\":\"not found\",\"downside\":\"not found\",\"frequency\":\"not found\",\"issue_date\":\"not found\",\"issuer\":\"not found\",\"maturity\":\"not found\",\"other_comments\":\"not found\",\"position_size\":\"not found\",\"product_name\":\"not found\",\"redemption_terms\":\"not found\",\"risk\":\"not found\",\"source_exhibit\":\"Workbook reference\",\"structure\":\"not found\",\"tenor_years\":\"Workbook reference\",\"trust\":\"not found\",\"underlying\":\"not found\"}"'
+          - cell
+          - cell
+          - cell "XS0298465822"
+          - cell
+          - 'cell "{\"display\":\"Not available\",\"source\":\"No issue-size label found in available OCR\",\"status\":\"Unavailable: document recovery required\"}"'
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 4"
+          - cell "Historical portfolio instrument"
+          - cell
+          - cell "0"
+          - cell "False"
+          - cell
+          - cell
+          - cell
+        - row [ref=e610]:
+          - cell [ref=e611]:
+            - button "Open row details" [ref=e612] [cursor=pointer]
+          - cell "XS0304286924" [ref=e616]
+          - cell "Matured" [ref=e617]
+          - cell "Historical rate-linked" [ref=e618]
+          - cell "30 May 2007" [ref=e619]
+          - cell "27 Jun 2022" [ref=e620]
+          - cell "Reported maturity" [ref=e621]
+          - cell "missing" [ref=e622]
+          - cell [ref=e623]
+          - cell "Not calculated" [ref=e624]
+          - cell "Not calculated" [ref=e625]
+          - cell "Not calculated" [ref=e626]
+          - cell "Not calculated" [ref=e627]
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "7.25 - 9.0% ramping up every year"
+          - cell "USD"
+          - cell "10,000"
+          - cell "27"
+          - cell
+          - cell
+          - cell "every 1 or 2 years"
+          - cell
+          - cell "XS0304286924"
+          - cell "30-May-2007"
+          - 'cell "{\"display\":\"USD 10,520.00 million\",\"source\":\"03. BBG OCR/XS0304286924/XS0304286924 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 10,520.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (198)NO CALC-FLOATERS MinPiece/Increment\",\"status\":\"confirmed\"}"'
+          - cell "Dexia Banque International LUX SA"
+          - cell "27-Jun-2022"
+          - cell
+          - cell
+          - cell "Matured"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 4"
+          - cell "Historical portfolio instrument"
+          - cell "Matured"
+          - cell "15.075"
+          - cell "False"
+          - cell
+          - cell "Business days the USD 6 month Libor falling within range of 0 - 7.5-8.0"
+          - cell
+        - row [ref=e628]:
+          - cell [ref=e629]:
+            - button "Open row details" [ref=e630] [cursor=pointer]
+          - cell "XS0314283432" [ref=e634]
+          - cell "Callable - Actioned" [ref=e635]
+          - cell "Historical rate-linked" [ref=e636]
+          - cell "26 Jul 2007" [ref=e637]
+          - cell "02 Feb 2009" [ref=e638]
+          - cell "Reported maturity" [ref=e639]
+          - cell "missing" [ref=e640]
+          - cell [ref=e641]
+          - cell "Not calculated" [ref=e642]
+          - cell "Not calculated" [ref=e643]
+          - cell "Not calculated" [ref=e644]
+          - cell "Not calculated" [ref=e645]
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "6.25-8.00%"
+          - cell "USD"
+          - cell "10,000"
+          - cell "28"
+          - cell
+          - cell
+          - cell "not regular"
+          - cell
+          - cell "XS0314283432"
+          - cell "26-Jul-2007"
+          - 'cell "{\"display\":\"USD 43,400.00 million\",\"source\":\"03. BBG OCR/XS0314283432/XS0314283432 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 02/02/09@100.00 USD 43,400.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT\",\"status\":\"confirmed\"}"'
+          - cell "Commonwealth bank Australia"
+          - cell "02-Feb-2009"
+          - cell
+          - cell
+          - cell "Callable - Actioned"
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 4"
+          - cell "Historical portfolio instrument"
+          - cell "Callable - Actioned"
+          - cell "1.51667"
+          - cell "False"
+          - cell
+          - cell
+          - cell
+        - row [ref=e646]:
+          - cell [ref=e647]:
+            - button "Open row details" [ref=e648] [cursor=pointer]
+          - cell "XS0315745447" [ref=e652]
+          - cell "Reverse Convertible, Convertible Bond, EURO MTN, EMTN" [ref=e653]
+          - cell "Conventional / specialist debt" [ref=e654]
+          - cell "03 Aug 2007" [ref=e655]
+          - cell "20 Aug 2012" [ref=e656]
+          - cell "Reported maturity" [ref=e657]
+          - cell "missing" [ref=e658]
+          - cell [ref=e659]
+          - cell "Not calculated" [ref=e660]
+          - cell "Not calculated" [ref=e661]
+          - cell "Not calculated" [ref=e662]
+          - cell "Not calculated" [ref=e663]
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "10.50%"
+          - cell "EUR"
+          - cell
+          - cell "29"
+          - cell
+          - cell
+          - cell "Annual"
+          - cell
+          - cell "XS0315745447"
+          - cell "03-Aug-2007"
+          - 'cell "{\"display\":\"EUR 6,050.00 million\",\"source\":\"03. BBG OCR/XS0315745447/XS0315745447 - image-01.txt; AmtIssued/Outstanding; AmtIssued/Outstanding Quick Links Type Fixed Freq Annual EUR 6,050.00 (M) 32 ALLQ Pricing EUR (M)\",\"status\":\"confirmed\"}"'
+          - cell "KBC IFIMA NV"
+          - cell "20-Aug-2012"
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell
+          - cell "1"
+          - cell "Rose Structures 08 / page 5"
+          - cell "Historical portfolio instrument"
+          - cell "Reverse Convertible, Convertible Bond, EURO MTN, EMTN"
+          - cell "5.04722"
+          - cell "False"
+          - cell
+          - cell
+          - cell

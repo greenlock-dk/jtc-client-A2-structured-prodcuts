@@ -7,7 +7,7 @@
 | <a id="ch1484588913"></a>1 | Leonteq Express Certificate on S&P 500, Swiss Market Index | CH1484588913 | Leonteq Securities AG | 03-Mar-2028 | 10,000,000 | Not available | Unavailable: document recovery required | True |
 | <a id="xs3234638248"></a>2 | Series 40076 USD 2,400,000 Equity Linked Notes due 2027 | XS3234638248 | BBVA Global Markets, B.V. Series 40076 USD 2,400,000 Equity Linked Notes due 2027 | 22-Jul-2027 | 2,000,000 | USD 2.4 million | Confirmed documentary nominal amount | True |
 | <a id="xs0765564827"></a>3 | AQUARIUS + INVESTMENTS PLC: US$750,000,000 Perpetual Limited Recourse Secured Notes | XS0765564827 | AQUA + INV(SWISS RE) | Call effective: 09/11/2018 | 200,000 | USD 750,000.00 million | confirmed | True |
-| <a id="xs1028242706"></a>4 | Morgan Stanley  Euro Medium Term Note ("EMTN") | XS1028242706 | MORGAN STANLEY BV | 14-Feb-2020 | 850,000,000 | USD 850.00 million | confirmed | False |
+| <a id="xs1028242706"></a>4 | Morgan Stanley  Euro Medium Term Note ("EMTN") | XS1028242706 | MORGAN STANLEY BV | 14-Feb-2020 |  | USD 850.00 million | confirmed by Bloomberg image | False |
 | <a id="xs1243914071"></a>5 | Nomura Bank International Plc - Euro Dollar (senior unsecured) | XS1243914071 | NOMURA BANK INTL PLC | 09-Jun-2020 |  | USD 1,525.00 million | confirmed by Bloomberg image | False |
 | <a id="ch0252328973"></a>6 | Credit Suisse Nassau - senior unsecured Euro MTN | CH0252328973 | CREDIT SUISSE NASSAU | 28-May-2020 |  | Not found | not found | False |
 | <a id="xs0297701319"></a>7 | Callable - matured | XS0297701319 | Commonwealth bank Australia | 30-Apr-2010 | 800,000 | USD 3,000.00 million | confirmed | False |

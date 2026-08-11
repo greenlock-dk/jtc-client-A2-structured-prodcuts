@@ -26,6 +26,9 @@ redemption_terms: ''
 downside: cash losss (capital)
 risk: Moderate
 position_size: 10,000,000
+position_size_status: user-confirmed reported Trust position
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_evidence: Reported Trust position recorded as USD 10,000,000
 denomination_usd: 1,000
 issue_size:
   display: Not available

@@ -1,0 +1,6 @@
+[    1673ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/api/views:0
+[    1701ms] [WARNING] Backend unavailable; using browser-local view state. Error: HTTP 404
+    at loadViews (http://127.0.0.1:8765/index.html:505:41) @ http://127.0.0.1:8765/index.html:509
+[    6392ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/api/views:0
+[    6392ms] [WARNING] Backend unavailable; using browser-local view state. Error: HTTP 404
+    at loadViews (http://127.0.0.1:8765/index.html:505:41) @ http://127.0.0.1:8765/index.html:509
