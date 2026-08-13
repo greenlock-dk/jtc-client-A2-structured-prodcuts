@@ -252,7 +252,7 @@ def product_records() -> list[dict[str, Any]]:
 
 def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: list[str]) -> str:
     isin = str(record["isin"])
-    lifecycle_end, lifecycle_basis = extract_lifecycle_end(str(record.get("maturity", "")))
+    lifecycle_end, _ = extract_lifecycle_end(str(record.get("maturity", "")))
     status = statuses[isin]
     position = str(record.get("position_size", "Missing"))
     cohort = product_cohort(record)
@@ -266,8 +266,6 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
         cohort,
         format_date(str(record.get("issue_date", ""))),
         lifecycle_end,
-        lifecycle_basis,
-        status,
         position,
         evidence_min,
         evidence_max,
@@ -294,10 +292,20 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         "denomination_usd",
         "downside",
         "frequency",
+        "field_statuses",
+        "guarantor",
         "other_comments",
+        "position_size_evidence",
+        "position_size_source",
+        "position_size_status",
         "redemption_terms",
         "risk",
         "schema_version",
+        "source_exhibit",
+        "source_section",
+        "tenor_years",
+        "underlying",
+        "end_basis",
     }
     curated_headers = (
         "ISIN",
@@ -305,8 +313,6 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         "Cohort",
         "Issue date",
         "Lifecycle end",
-        "End basis",
-        "Position basis",
         "Reported position (USD)",
         "Evidence-only min (USD)",
         "Evidence-only max (USD)",
@@ -404,6 +410,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         main {{ min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 16px 36px rgba(31, 61, 48, 0.08); }}
         .toolbar {{ display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 20px; border-bottom: 1px solid var(--line); background: var(--paper); }}
         .tool-button {{ padding: 9px 13px; border: 1px solid var(--line-strong); background: var(--wash); color: #29453a; font-size: 13px; font-weight: 700; cursor: pointer; }}
+        #export-csv {{ margin-left: auto; }}
         .tool-button:hover, .tool-button[aria-expanded="true"] {{ border-color: #78b59d; background: var(--accent-soft); color: var(--accent-dark); }}
         .builder-panel {{ display: none; padding: 18px 20px; border-bottom: 1px solid var(--line); background: var(--wash); }}
         .builder-panel.is-open {{ display: block; }}
@@ -489,9 +496,16 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         @media (prefers-reduced-motion: reduce) {{
             *, *::before, *::after {{ scroll-behavior: auto !important; transition-duration: 0.01ms !important; }}
         }}
+        .backend-banner {{ display: flex; gap: 12px; align-items: center; justify-content: space-between; max-width: 1920px; margin: 0 auto 14px; padding: 12px 16px; border: 1px solid #e6c66b; border-radius: var(--radius); background: #fdf6e0; color: #6b5410; font-size: 13px; }}
+        .backend-banner[hidden] {{ display: none; }}
+        .backend-banner button {{ flex: 0 0 auto; padding: 6px 10px; border: 1px solid #d9b957; background: transparent; color: #6b5410; font-size: 12px; font-weight: 700; cursor: pointer; }}
   </style>
 </head>
 <body>
+    <div class="backend-banner" id="backend-banner" role="status" hidden>
+        <span>View changes are only saved in this browser tab. Run <code>python "90. Scripts/cost_model_server.py"</code> and open <code>http://127.0.0.1:8000/</code> to keep columns, sorting and filters across refreshes and devices.</span>
+        <button type="button" id="backend-banner-dismiss">Dismiss</button>
+    </div>
     <div class="shell">
         <nav class="views" id="views-nav" aria-label="Views">
             <h2>Views</h2>
@@ -517,6 +531,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 <button class="tool-button" type="button" data-panel="filters-panel" aria-expanded="false">Filters</button>
                 <button class="tool-button" type="button" data-panel="groups-panel" aria-expanded="false">Group by</button>
                 <button class="tool-button" type="button" data-panel="sorts-panel" aria-expanded="false">Sort</button>
+                <button class="tool-button" id="export-csv" type="button">Export CSV</button>
             </div>
             <section class="builder-panel" id="columns-panel" aria-label="Choose columns">
                 <h2>Visible columns</h2>
@@ -586,8 +601,8 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             cell.classList.toggle('numeric-column', numericColumns[index]);
             cell.classList.toggle('usd-column', usdColumns[index]);
         }});
-        const curatedColumnCount = 12;
-        const curatedColumnWidths = [120, 340, 180, 130, 150, 150, 170, 170, 190, 190, 190, 190];
+        const curatedColumnCount = 13;
+        const curatedColumnWidths = [120, 340, 180, 130, 150, 170, 190, 190, 190, 190, 190, 190, 190];
         const defaultColumnWidths = headerNames.map((_, index) => curatedColumnWidths[index] || 180);
         function createViewState(allColumns = false) {{
             const visible = allColumns ? headerNames.map((_, index) => index) : headerNames.map((_, index) => index).filter((index) => index < curatedColumnCount);
@@ -663,6 +678,27 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 if (result !== 0) return sort.direction === 'desc' ? -result : result;
             }}
             return 0;
+        }}
+        function csvCell(value) {{
+            return `"${{String(value).replace(/"/g, '""')}}"`;
+        }}
+        function exportCsv() {{
+            const state = activeState();
+            const visible = new Set(state.visible);
+            const columns = state.order.filter((index) => visible.has(index));
+            const rows = originalRows
+                .filter((row) => state.filters.every((filter) => matchesFilter(row, filter)))
+                .sort((left, right) => compareRows(left, right, state.sorts));
+            const csv = [
+                columns.map((index) => csvCell(headerNames[index])).join(','),
+                ...rows.map((row) => columns.map((index) => csvCell(valueFor(row, index))).join(',')),
+            ].join('\\r\\n');
+            const filename = `${{(activeView || 'view').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase() || 'view'}}.csv`;
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(new Blob([`\\ufeff${{csv}}`], {{ type: 'text/csv;charset=utf-8' }}));
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(link.href);
         }}
         function groupedRows(rows, groups, level = 0) {{
             if (level >= groups.length) return rows;
@@ -827,6 +863,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             panels.filter((candidate) => candidate !== panel).forEach((candidate) => candidate.classList.remove('is-open'));
             panelButtons.filter((candidate) => candidate !== button).forEach((candidate) => candidate.setAttribute('aria-expanded', 'false'));
         }}));
+        document.querySelector('#export-csv').addEventListener('click', exportCsv);
         function saveViews() {{
             normalizeViewOrder();
             localStorage.setItem('jtc-cost-model-views', JSON.stringify(viewState));
@@ -849,6 +886,8 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 viewsLoaded = true;
             }} catch (error) {{
                 console.warn('Backend unavailable; using browser-local view state.', error);
+                const banner = document.querySelector('#backend-banner');
+                if (sessionStorage.getItem('jtc-cost-model-banner-dismissed') !== '1') banner.hidden = false;
             }}
             normalizeViewOrder();
             renderViewList();
@@ -1029,6 +1068,10 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             if (event.target.dataset.removeSort) activeState().sorts.splice(index, 1);
             else if (event.target.dataset.moveSort) reorderRule(activeState().sorts, index, event.target.dataset.direction);
             renderTable();
+        }});
+        document.querySelector('#backend-banner-dismiss').addEventListener('click', () => {{
+            sessionStorage.setItem('jtc-cost-model-banner-dismissed', '1');
+            document.querySelector('#backend-banner').hidden = true;
         }});
         loadViews();
   </script>

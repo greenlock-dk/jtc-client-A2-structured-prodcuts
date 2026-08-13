@@ -254,3 +254,26 @@ For `XS0298465822`, the direct search did not identify an issuer or instrument t
 ### Next recovery step
 
 Continue with the exchange archive interfaces and same-programme issuer-document retrieval. Requests should include the exact ISIN, issuer, issue date, maturity date, denomination, and the available rate-linked or equity-linked description. Do not substitute any of the near-matches above for the missing original terms.
+
+## Sequential Exa and Web Archive Check (12 August 2026)
+
+A further recovery pass was run sequentially through Exa, one ISIN per search, with exact-ISIN acceptance criteria. The searches targeted original final terms, pricing supplements, term sheets, prospectuses, issuer pages, regulator records, and exchange listings. Similar products with different ISINs were treated as excluded near-matches.
+
+### Results
+
+| ISIN | Exa / archive outcome | Evidence status |
+| --- | --- | --- |
+| `XS0164480286` | Exa returned unrelated Lloyds and Bank of America range-accrual documents; the Internet Archive CDX query for URLs containing the exact ISIN returned no captures | `not found` |
+| `XS0165220400` | Exa returned unrelated Bank of America range-accrual documents; the Internet Archive CDX query for URLs containing the exact ISIN returned no captures | `not found` |
+| `XS0169318291` | Exa returned unrelated later Lloyds range-accrual and UBS documents with different ISINs | `not found` |
+| `XS0170303290` | Exa returned an unrelated Bank of America range-accrual document with a different issuer and ISIN | `not found` |
+| `XS0315745447` | Exa returned the known KBC IFIMA base prospectus for a different ISIN (`XS0363151647`); no instrument-level terms were recovered | `programme lead only` |
+| `XS0304286924` | Exa returned the BIL/Dexia EMTN programme repository and a 2008 Dexia programme document, but no document naming the target ISIN | `programme/archive lead only` |
+| `XS0298465822` | Exa returned a current ISIN lookup interface backed by ESMA/FCA FIRDS data, but no instrument identity, issuer, listing, or terms for the target | `identification lead only` |
+| `XS0318585791` | Exa returned an unrelated HSBC pricing supplement and no document naming the target ISIN | `not found` |
+
+The direct Wayback CDX checks for `XS0164480286`, `XS0165220400`, and `XS0169318291` each returned an empty capture set. This is an archive-index null result, not evidence that the documents never existed. No new original price terms were recovered in this pass.
+
+### Search discipline
+
+The Exa responses contained useful product-family and programme examples, including Lloyds range-accrual material, the KBC IFIMA base prospectus, and Dexia/BIL programme material. These remain recovery leads only. They must not be entered as confirmed terms for the target instruments unless the exact ISIN appears in the source document.

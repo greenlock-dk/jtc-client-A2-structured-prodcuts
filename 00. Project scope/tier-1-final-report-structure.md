@@ -19,6 +19,19 @@ State the decision-useful result first:
 - Concentration of the estimated cost range by the largest ISINs by notional, so the committee can see which positions drive the result.
 - Principal conclusion on whether a portfolio-wide retrocession amount is separately estimable.
 - Recommended follow-up records or decisions required from the Trust.
+- One dedicated limitation and disclaimer statement applying to all evidence-based and proxy-based scenario results; do not repeat it elsewhere in the report.
+
+### Proposed executive summary cost table
+
+| Method / component | Cost | Coverage | Treatment |
+|---|---:|---:|---|
+| **Evidence-based total** | **$2.9m–$3.5m** | **19 ISINs / $70.2m** | Adopted external comparators only |
+| **Combined proxy scenario** | **$6.6m** | **18 ISINs / $68.6m** | Sum of proxy components |
+| Embedded product proxy | $3.3m | 19 ISINs | One-off product-cost assumption |
+| Recurring service proxy | $2.6m | 18 ISINs | Assumed annual rate multiplied by holding period |
+| Exit / transaction proxy | $0.7m | 18 ISINs | Assumed contingent exit cost |
+
+All amounts are rounded to the nearest `$100,000`. The evidence-based total is supported by adopted external comparators, not proof that costs were charged or paid. The proxy rows are assumption-led; potential retrocession remains a nested, non-additive sub-allocation and is not separately estimable.
 
 ## 2. Mandate, Question, and Scope Boundary
 
@@ -45,25 +58,17 @@ The current scope does not include:
 - Proof of a payment, recipient, disclosure, waiver, entitlement, limitation position, damages, or recoverability.
 - A legal opinion, audit opinion, or evidential conclusion.
 
+### 2.4 Investor Profile Relevance and Suitability Lens
+
+Include a concise suitability lens stating that the 29-ISIN population is mixed and should not be described as a conservative capital-preservation strategy solely because some products are debt instruments or pay coupons. Summarise the relevance of financial knowledge, capacity, risk tolerance, liquidity needs, investment horizon, downside awareness, and supporting documentation. This is not a client-specific recommendation or legal conclusion. The detailed analysis and cohort matrix belong in Appendix H: [05-investor-suitability.md](Final%20Report/05-investor-suitability.md).
+
 ## 3. Portfolio and Lifecycle Population
 
 Describe all 29 ISINs and show the lifecycle population used in the model. The report must distinguish the 29-record inventory, the 21 ISINs with a usable invested-notional basis, and the 19 ISINs currently cost-assessable under the available scenarios. All 21 usable-basis ISINs remain in the analysis regardless of whether issuer issue-size evidence is available; the other 2 are retained as explicit `unbenchmarked` rows rather than treated as zero cost.
 
 ### 3.1 Required ISIN-level fields
 
-| Field | Role in the model |
-| --- | --- |
-| ISIN | Stable product identifier |
-| Product name and structure | Product classification |
-| Cohort | Benchmark selection |
-| Issuer, guarantor, currency | Comparability and credit context |
-| Issue date | Product lifecycle anchor or proxy start date |
-| Acquisition date | Trust exposure start; unknown unless supported by Trust records |
-| Acquisition notional and price | Cost calculation basis; never substituted with issuer issue size |
-| Call, maturity, sale, or reporting-cut-off date | Lifecycle end event |
-| Holding-period basis | Actual, documented, or proxy |
-| Position-size status | Usability control for dollar aggregation |
-| Evidence status | Provenance and confidence flag |
+Each lifecycle row should include the stable identifier, product and cohort classification, issuer and currency context, issue and Trust acquisition dates, acquisition basis, lifecycle end event, holding-period basis, position-size status, and evidence status. The full field dictionary and 29-ISIN lifecycle matrix belong in Appendix A.
 
 ### 3.2 Lifecycle event treatment
 
@@ -116,66 +121,11 @@ Rules:
 - Do not treat an unbenchmarked component as zero.
 - Do not multiply a current position by the full historical strategy period without transaction and balance data.
 
-## 6. How Retrocessions Work
+## 6. Evidence Framework
 
-Explain retrocessions as a possible allocation of compensation within a distribution or service chain, not as an automatic additional product cost or proof of a payment to the Trust's intermediary. The section should remain descriptive unless primary documents identify the relevant arrangement.
+Use a documented source hierarchy, comparability assessment, and evidence-status label for every quantitative input. Prioritise official regulatory and product evidence, then transparent academic or market datasets, then named industry or professional studies. Score comparability across payoff, vintage, jurisdiction/channel, cost definition, unit/timing, and method/data quality. Adopt only sufficiently comparable evidence; label partial matches as secondary comparators or sensitivity inputs and low-scoring material as context only. The full source hierarchy, scoring rubric, benchmark register, and adoption decisions belong in Appendices C and D.
 
-### 6.1 Distribution and service chain
-
-Describe, at a high level, the possible participants and payment paths:
-
-- Product manufacturer, issuer, or arranger that designs and prices the instrument.
-- Distributor, placement agent, bank, adviser, or platform that introduces, recommends, or places the product.
-- Sub-distributor or other intermediary that may receive part of the distribution or service compensation.
-- Client or Trust, which may bear an embedded product margin, an explicit charge, or a recurring service cost depending on the arrangement.
-
-Show that a retrocession is generally a payment or revenue share from one intermediary to another, rather than a separate charge automatically added to the investor's cost. Distinguish the investor-facing cost from the internal allocation of that cost or revenue.
-
-### 6.2 What must be established
-
-For any retrocession conclusion, identify separately:
-
-- The payer and recipient.
-- The contractual or commercial basis for the payment.
-- The product, service, client account, or transaction to which it relates.
-- The rate, amount, calculation base, and payment timing.
-- Whether the amount is included within distribution or service compensation, or is an additional client charge.
-- Any disclosure, consent, rebate, waiver, or conflict-management treatment.
-
-If these elements cannot be established from reliable evidence, report the amount as `not separately estimable` or as an explicitly labelled scenario allocation. Do not infer a retrocession from the existence of a structured product, an intermediary relationship, a fee range, or a general market practice.
-
-### 6.3 Treatment in the current-scope model
-
-- Present potential retrocession as a nested sub-allocation of distribution or service compensation.
-- Do not add it again to one-off product costs, recurring service costs, or any all-in benchmark.
-- Apply a rate only where the source defines the payment and its calculation base; otherwise show a rate-based sensitivity without presenting it as a historical payment.
-- Keep the payer, recipient, entitlement, disclosure, and recoverability questions outside the current-scope conclusion unless supported by primary records.
-- State whether the result is evidence-based, a proxy allocation, or `not separately estimable`.
-
-## 7. Evidence Framework
-
-### 6.1 Source hierarchy
-
-Prioritise:
-
-1. Official regulators, enacted rules, public KIDs, final terms, pricing supplements, and comparable product disclosures.
-2. Peer-reviewed academic studies and recognised market datasets with transparent methods.
-3. Named industry or professional studies with a defined population and methodology.
-
-### 6.2 Comparability dimensions
-
-Score every quantitative observation from `0` to `2` for:
-
-- Product/payoff.
-- Vintage and regulatory regime.
-- Jurisdiction and distribution channel.
-- Cost definition.
-- Unit and timing.
-- Method and data quality.
-
-Use high-scoring evidence for adopted bands, partial matches only as labelled secondary comparators or sensitivity inputs, and low-scoring evidence as context only.
-
-### 6.3 Evidence status labels
+### 7.1 Evidence status labels
 
 Every input should be labelled as one of:
 
@@ -188,7 +138,7 @@ Every input should be labelled as one of:
 
 Every `Adopted benchmark` or `Secondary comparator` label must also cite the specific source ID from the Verified Source Register in [cost-benchmark-research.md](cost-benchmark-research.md) (for example `CH-05`, `EU-04`, `AC-02`) rather than the evidence-status word alone, so a reader can trace any applied rate back to one named source.
 
-## 8. Cohort Findings
+## 7. Cohort Findings
 
 Use the same structure for each cohort:
 
@@ -210,17 +160,17 @@ These cohort names must match the labels the cost model actually assigns (curren
 
 The historical rate-linked cohort should receive specific attention because it is the dominant vintage population and the principal unresolved evidence gap.
 
-## 9. Scenario Methodology
+## 8. Scenario Methodology
 
-### 8.1 Scenario A: Evidence-only
+### 9.1 Scenario A: Evidence-only
 
 Use only evidence meeting the adoption rules. Leave unsupported components as `unbenchmarked` or `not separately estimable`. This is the most defensible but potentially incomplete result.
 
-### 8.2 Scenario B: Proxy-base
+### 9.2 Scenario B: Proxy-base
 
 Use the closest available cohort comparator where direct evidence is absent, with explicit adjustments or limitations for payoff, vintage, jurisdiction, channel, and timing. Use documented proxy lifecycle dates only where the Trust transaction date is unavailable.
 
-### 8.3 Scenario C: Wide sensitivity
+### 9.3 Scenario C: Wide sensitivity
 
 Test conservative, central, and upper cases for:
 
@@ -234,11 +184,11 @@ Test conservative, central, and upper cases for:
 
 A sensitivity is not evidence that the tested amount was paid.
 
-## 10. Lifetime Cost Results
+## 9. Lifetime Cost Results
 
 Report results in separate, non-additive views.
 
-### 9.1 One-off product costs
+### 10.1 One-off product costs
 
 For each ISIN and cohort, show:
 
@@ -248,7 +198,7 @@ For each ISIN and cohort, show:
 - Evidence status, comparability, and the specific source ID applied (for example `EU-05`, `CH-05`, `US-01`).
 - Lifecycle event used.
 
-### 9.2 Recurring service costs
+### 10.2 Recurring service costs
 
 Show:
 
@@ -257,7 +207,7 @@ Show:
 - Balance and period assumptions.
 - Advisory, management, custody, and brokerage components separately, each citing its supporting source ID where a comparator exists (for example `EU-04`, `CH-06`).
 
-### 9.3 Contingent exit costs
+### 10.3 Contingent exit costs
 
 Show separately for documented or assumed early exits:
 
@@ -268,11 +218,31 @@ Show separately for documented or assumed early exits:
 
 Do not include exit costs in hold-to-maturity issuance totals.
 
-### 9.4 Potential intermediary compensation
+### 10.4 Potential intermediary compensation
 
 Show only where the evidence identifies the relevant payment definition and basis, citing the specific source ID. Present potential retrocession as a nested sub-allocation of distribution or service compensation. Otherwise state `not separately estimable`.
 
-## 11. Sensitivity and Coverage Presentation
+### 10.5 Illustrative ISIN calculation example
+
+Include one worked example in the final report to show how the evidence-based and proxy-based methods differ for the same product. Use a two-column presentation, or equivalent side-by-side visual, with the product basis above the columns and source notes below them.
+
+**Illustrative product basis:** `XS0171914038`; USD 10.7m Trust-reported position; documented purchase on 26 June 2003; documented call on 14 April 2008; approximately 4.8-year holding period. The example must be clearly labelled illustrative and must not be presented as a portfolio-wide historical conclusion.
+
+| Evidence-driven assessment | Proxy-based assessment |
+| --- | --- |
+| Uses the adopted historical all-in issuance comparator of `4.6%-5.5%` of notional. | Uses the midpoint of the issuance comparator and adds illustrative recurring-service and exit proxies. |
+| USD 10.7m x 4.6% = USD 492,200  \nUSD 10.7m x 5.5% = USD 588,500  \n\n**Evidence-driven cost range: USD 492,200-USD 588,500** | Embedded product cost: USD 10.7m x 5.05% = USD 540,350  \nRecurring service cost: USD 10.7m x 0.56% x 4.8 years = USD 287,616  \nAssumed exit cost: USD 10.7m x 0.96% = USD 102,720  \n\n**Total proxy-based: USD 930,686** |
+
+**Evidence and assumption notes:**
+
+- The `4.6%-5.5%` issuance comparator is the ESMA historical comparator `EU-05`; it is evidence for a comparable pricing measure, not proof of a fee charged or paid on this ISIN.
+- The `5.05%` embedded proxy is the midpoint of the evidence range and is an assumption-led calculation convention, not a separate observed rate.
+- The `0.56%` recurring-service proxy is an illustrative assumption informed by the Swiss service-fee comparator `WM-01`; the exact rate is not evidenced for the Trust.
+- The `0.96%` exit proxy is a low-confidence, contingent assumption informed by the exit-cost evidence identified in the Verified Source Register, including `EXIT-01`; it must not be included for a hold-to-maturity result without an assumed or documented exit.
+- The holding period and lifecycle event must be sourced from the product or Trust records for the selected example. A proxy acquisition date must be identified as such if the Trust purchase date is unavailable.
+- Displayed calculated monetary amounts in the published report must follow the report-wide rounding rule of `ROUND(X, -5)`; the unrounded figures above are retained here solely to demonstrate the calculation mechanics.
+
+## 10. Sensitivity and Coverage Presentation
 
 Every aggregate table should include:
 
@@ -295,7 +265,7 @@ Include a bridge showing how the result changes when:
 4. Products are held to call/maturity rather than sold early.
 5. Annual service costs are excluded, added, or accumulated over alternative periods.
 
-## 12. Conclusions and Decisions
+## 11. Conclusions and Decisions
 
 The conclusion should answer:
 
@@ -310,7 +280,7 @@ The conclusion should answer:
 
 The final conclusion must not describe the proxy-base or wide-sensitivity result as an actual historical fee total.
 
-## 13. Recommended Next Actions
+## 12. Recommended Next Actions
 
 Prioritise actions by expected reduction in uncertainty and recovery value:
 
@@ -321,25 +291,21 @@ Prioritise actions by expected reduction in uncertainty and recovery value:
 5. Obtain account-level advisory, custody, brokerage, and transaction records if those components are required.
 6. Update the model only when each new input has a source, definition, timing, and non-overlap decision.
 
-## 14. Appendices
+## 13. Appendices
 
-- Appendix A: 29-ISIN lifecycle matrix.
+- Appendix A: ISIN-level field dictionary and 29-ISIN lifecycle matrix.
 - Appendix B: Position-size usability and coverage register.
-- Appendix C: Benchmark evidence register.
+- Appendix C: Benchmark evidence register, source hierarchy, and evidence-status definitions.
 - Appendix D: Benchmark comparability scores and adoption decisions.
 - Appendix E: Scenario assumptions and formulas.
 - Appendix F: ISIN-level lifetime cost outputs.
 - Appendix G: Negative-evidence and search log.
-- Appendix H: Limitations, glossary, and scope boundary.
 
-## Proposed Final Report Deliverables
+- Appendix H: Investor suitability analysis and proposed cohort matrix, supported by [05-investor-suitability.md](Final%20Report/05-investor-suitability.md).
+- Appendix I: Limitations, glossary, and scope boundary.
+- Appendix J: Publication sign-off controls.
 
-1. PDF or Markdown methodology and findings report.
-2. Workbook or generated model with ISIN-level calculations, assumptions, source register, and coverage controls.
-3. Executive summary table suitable for board reporting.
-4. Prioritisation list linked to unresolved cost and lifecycle inputs.
-
-## Sign-Off Controls
+## Appendix J: Publication Sign-Off Controls
 
 Before publication:
 
@@ -360,7 +326,3 @@ Before publication:
 - The position-size resolution status stated in the report matches the current POSITION SIZE CONTROL.md register; older audit wording that predates the 21 usable-basis classifications is not used for publication.
 - Every headline result states timing, coverage, scenario, confidence, and limitations.
 - The executive memo, if updated, reconciles exactly to the validated model outputs.
-
-## 15. Limitation and Disclaimer
-
-Place one dedicated limitation and disclaimer statement in the Executive Summary. It applies to all scenario results, including evidence-based and proxy-based estimates, and is not repeated elsewhere in the final report. Tables and charts should instead identify their scenario, evidence status, timing, coverage, and key assumptions.

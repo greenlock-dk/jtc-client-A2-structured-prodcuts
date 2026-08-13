@@ -49,5 +49,14 @@ python "90. Scripts/cost_model_server.py"
 ```
 
 The generated HTML dashboard is written to `07. Visutals/index.html` and served
-at `http://127.0.0.1:8000/`. View definitions are persisted in the local
-`05. Cost modeling/.cost-model-views.json` file through the `/api/views` endpoint.
+at `http://127.0.0.1:8000/`. View definitions (selected columns, sorting,
+filters, groups) are persisted in the local `05. Cost modeling/.cost-model-views.json`
+file through the `/api/views` endpoint.
+
+**Always open the dashboard at `http://127.0.0.1:8000/`, not through VS Code's
+Simple Browser / Live Preview extension.** Live Preview serves the file on its
+own (often random) port and doesn't implement `/api/views`, so neither the
+backend save nor the browser's local fallback storage can persist — every
+refresh looks like a fresh browser origin and your view resets. If you open
+the dashboard without the backend running, a banner will warn you that
+changes are only kept in that browser tab.

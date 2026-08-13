@@ -6,6 +6,7 @@ import sys
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from threading import Lock
 from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,6 +23,7 @@ DEFAULT_VIEWS = {
     "current": {"visible": list(range(10)), "filters": [], "groups": [], "sorts": []},
     "position-size": {"visible": list(range(10)), "filters": [], "groups": [], "sorts": []},
 }
+views_lock = Lock()
 
 
 def read_views() -> dict:
@@ -35,9 +37,10 @@ def read_views() -> dict:
 
 
 def write_views(value: dict) -> None:
-    temporary_path = VIEWS_PATH.with_suffix(".tmp")
-    temporary_path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
-    temporary_path.replace(VIEWS_PATH)
+    with views_lock:
+        temporary_path = VIEWS_PATH.with_suffix(".tmp")
+        temporary_path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+        temporary_path.replace(VIEWS_PATH)
 
 
 class CostModelHandler(BaseHTTPRequestHandler):
@@ -81,7 +84,11 @@ class CostModelHandler(BaseHTTPRequestHandler):
         if not isinstance(value, dict) or not value:
             self.send_json(HTTPStatus.BAD_REQUEST, {"error": "At least one view is required."})
             return
-        write_views(value)
+        try:
+            write_views(value)
+        except OSError:
+            self.send_json(HTTPStatus.INTERNAL_SERVER_ERROR, {"error": "View changes could not be saved."})
+            return
         self.send_json(HTTPStatus.OK, value)
 
     def log_message(self, format: str, *args: object) -> None:
