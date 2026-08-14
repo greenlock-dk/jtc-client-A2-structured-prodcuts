@@ -53,11 +53,20 @@ at `http://127.0.0.1:8000/`. View definitions (selected columns, sorting,
 filters, groups) are persisted in the local `05. Cost modeling/.cost-model-views.json`
 file through the `/api/views` endpoint.
 
-The fixed `Sources` view presents the verified research register from
-`00. Project scope/cost-benchmark-research.md`. It shows each source's market,
-payoff relevance, cohort applicability, cost bucket, observed result, Tier 1
-use, limitations, and locator. Builder controls are hidden for this view, but
-the source register remains exportable as CSV.
+The fixed `90. Definitions` view presents the definition for every dashboard
+column. The fixed `91. Sources` view presents the verified research register
+from `00. Project scope/cost-benchmark-research.md`, including each source's
+market, payoff relevance, cohort applicability, cost bucket, observed result,
+Tier 1 use, limitations, and locator. Builder controls are hidden for both
+views.
+
+The fixed `92. Data download` view provides separate CSV downloads for the
+complete Data table, Sources table, and Definitions table. The Data CSV always
+contains all rows and all HTML data columns, including columns hidden in the
+normal dashboard and rows excluded by active filters. The view also provides
+an Excel workbook with three sheets named `Data`, `Sources`, and `Definitions`.
+The workbook download requires the local backend server; the CSV downloads work
+from the generated HTML without it.
 
 The `03c. Cost charts` view shows vertical clustered bars per ISIN, ordered from
 highest to lowest total proxy cost. Each ISIN has a total proxy-cost bar and a

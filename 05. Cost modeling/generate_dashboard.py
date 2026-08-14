@@ -393,7 +393,7 @@ def product_records() -> list[dict[str, Any]]:
     return sorted(records, key=lambda record: (record.get("display_order", 9999), record["isin"]))
 
 
-def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: list[str]) -> str:
+def table_cells(record: dict[str, Any], statuses: dict[str, str], yaml_fields: list[str]) -> tuple[str, ...]:
     isin = str(record["isin"])
     lifecycle_end, _ = extract_lifecycle_end(str(record.get("maturity", "")))
     status = statuses[isin]
@@ -403,7 +403,7 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
     embedded_proxy, recurring_proxy, exit_proxy, proxy_total, proxy_status = proxy_component_costs(
         record, status, cohort
     )
-    cells = (
+    return (
         isin,
         str(record.get("product_name") or record.get("structure") or "Not reported"),
         cohort,
@@ -418,6 +418,10 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
         proxy_total,
         proxy_status,
     ) + tuple(format_yaml_value(record.get(field)) for field in yaml_fields)
+
+
+def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: list[str]) -> str:
+    cells = table_cells(record, statuses, yaml_fields)
     return "<tr>" + "".join(
         f'<td class="numeric-cell" data-column-index="{index}">{html.escape(cell)}</td>'
         if is_numeric_display(cell)
@@ -426,9 +430,8 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
     ) + "</tr>"
 
 
-def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> str:
+def dashboard_table_data(records: list[dict[str, Any]], statuses: dict[str, str]) -> dict[str, Any]:
     tooltips = read_tooltips()
-    source_rows = research_source_rows()
     html_excluded_yaml_fields = {
         "annualised_rate",
         "barrier",
@@ -488,17 +491,44 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         tooltips["canonical"].get(field, f"Canonical YAML field: {field}.")
         for field in yaml_fields
     )
+    source_rows = research_source_rows()
+    return {
+        "data_headers": headers,
+        "data_tooltips": header_tooltips,
+        "data_rows": [table_cells(record, statuses, yaml_fields) for record in records],
+        "source_headers": SOURCE_HEADERS,
+        "source_rows": [tuple(row[header] for header in SOURCE_HEADERS) for row in source_rows],
+        "definition_headers": ("Column / field", "Definition"),
+        "definition_rows": list(zip(headers, header_tooltips)),
+    }
+
+
+def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> str:
+    table_data = dashboard_table_data(records, statuses)
+    headers = table_data["data_headers"]
+    header_tooltips = table_data["data_tooltips"]
     definition_rows = "".join(
         f'<tr title="{html.escape(tooltip)}" data-tooltip="{html.escape(tooltip)}"><td class="definition-name">{html.escape(header)}</td><td>{html.escape(tooltip)}</td></tr>'
-        for header, tooltip in zip(headers, header_tooltips)
+        for header, tooltip in table_data["definition_rows"]
     )
     header_html = "".join(
         f'<th scope="col" data-column-index="{index}" data-tooltip="{html.escape(tooltip)}" title="{html.escape(tooltip)}"><button type="button" aria-label="{html.escape(header)}. {html.escape(tooltip)}"><span class="header-label">{html.escape(header)}</span><span class="sort-icon" aria-hidden="true"></span></button><span class="column-resizer" data-resize-column="{index}" role="separator" aria-label="Resize {html.escape(header)} column"></span></th>'
         for index, (header, tooltip) in enumerate(zip(headers, header_tooltips))
     )
-    rows = "\n".join(table_row(record, statuses, yaml_fields) for record in records)
-    source_header_html = "".join(f'<th scope="col">{html.escape(header)}</th>' for header in SOURCE_HEADERS)
-    source_rows_html = source_table_rows(source_rows)
+    rows = "\n".join(
+        "<tr>" + "".join(
+            f'<td class="numeric-cell" data-column-index="{index}">{html.escape(cell)}</td>'
+            if is_numeric_display(cell)
+            else f'<td data-column-index="{index}">{html.escape(cell)}</td>'
+            for index, cell in enumerate(row)
+        ) + "</tr>"
+        for row in table_data["data_rows"]
+    )
+    source_header_html = "".join(f'<th scope="col">{html.escape(header)}</th>' for header in table_data["source_headers"])
+    source_rows_html = "\n".join(
+        "<tr>" + "".join(f"<td>{html.escape(cell)}</td>" for cell in row) + "</tr>"
+        for row in table_data["source_rows"]
+    )
     chart_rows = [chart_row(record, statuses) for record in records]
     chart_data = json.dumps(chart_rows, ensure_ascii=True).replace("</", "<\\/")
     return f"""<!doctype html>
@@ -652,7 +682,10 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
           .chart-header {{ display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: end; justify-content: space-between; margin-bottom: 16px; }}
           .chart-header h2 {{ margin: 0; color: var(--accent-dark); font-size: 18px; letter-spacing: -0.01em; }}
           .chart-intro {{ max-width: 72ch; margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; }}
-          .chart-actions {{ display: inline-flex; flex-wrap: wrap; gap: 8px; align-items: center; }}
+          .chart-actions {{ display: inline-flex; flex-wrap: wrap; gap: 12px; align-items: end; }}
+          .chart-unit-control {{ display: grid; gap: 4px; min-width: 220px; }}
+          .chart-unit-control label {{ color: #52675c; font-size: 11px; font-weight: 850; letter-spacing: 0.04em; text-transform: uppercase; }}
+          .chart-unit-control select {{ min-height: 34px; padding: 7px 30px 7px 10px; border: 1px solid var(--line-strong); border-radius: 7px; background: var(--paper); color: #29453a; font: inherit; font-size: 12px; font-weight: 750; cursor: pointer; }}
           .chart-toggle {{ display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--line-strong); border-radius: 9px; background: var(--wash); }}
           .chart-toggle button {{ padding: 8px 12px; border: 0; border-radius: 6px; background: transparent; color: #52675c; font-size: 12px; font-weight: 800; cursor: pointer; }}
           .chart-toggle button[aria-pressed="true"] {{ background: var(--accent); color: white; box-shadow: 0 2px 6px rgba(23, 107, 82, 0.18); }}
@@ -701,9 +734,19 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 .sources-table th:nth-child(10) {{ min-width: 280px; }}
                 .sources-table td {{ max-width: 440px; padding: 12px 14px; white-space: normal; overflow-wrap: anywhere; vertical-align: top; }}
                 .sources-table tbody tr:hover {{ background: #f0f8f3; }}
+                .data-download-view {{ padding: 20px; background: var(--paper); }}
+                .data-download-view[hidden] {{ display: none; }}
+                .data-download-view h2 {{ margin: 0 0 6px; color: var(--accent-dark); font-size: 18px; }}
+                .data-download-intro {{ max-width: 78ch; margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.5; }}
+                .download-grid {{ display: grid; grid-template-columns: repeat(2, minmax(220px, 300px)); gap: 10px; max-width: 640px; }}
+                .download-grid .tool-button {{ text-align: left; }}
+                .download-status {{ margin: 16px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; }}
+                .download-status.is-error {{ color: #8a322d; }}
                 @media (max-width: 720px) {{
                         .sources-view {{ padding: 14px; }}
                         .sources-table td {{ max-width: 300px; }}
+                    .data-download-view {{ padding: 14px; }}
+                    .download-grid {{ grid-template-columns: 1fr; }}
                 }}
   </style>
 </head>
@@ -719,8 +762,9 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 <li><button class="view-button" type="button" data-view="current">Current</button></li>
                 <li><button class="view-button" type="button" data-view="position-size">by Position Size</button></li>
                 <li><button class="view-button" type="button" data-view="full dataset">full dataset</button></li>
-                <li><button class="view-button" type="button" data-view="Sources">Sources</button></li>
-                <li><button class="view-button" type="button" data-view="Definitions">Definitions</button></li>
+                <li><button class="view-button" type="button" data-view="90. Definitions">90. Definitions</button></li>
+                <li><button class="view-button" type="button" data-view="91. Sources">91. Sources</button></li>
+                <li><button class="view-button" type="button" data-view="92. Data download">92. Data download</button></li>
             </ul>
             <div class="view-actions">
                 <button class="view-action-toggle" id="view-actions-toggle" type="button" aria-expanded="false" aria-haspopup="menu">View actions</button>
@@ -793,6 +837,17 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                     </table>
                 </div>
             </section>
+            <section class="data-download-view" id="data-download-view" aria-labelledby="data-download-heading" hidden>
+                <h2 id="data-download-heading">92. Data download</h2>
+                <p class="data-download-intro">Download the complete Data table, including rows and columns hidden in the dashboard, together with the Sources and Definitions tables.</p>
+                <div class="download-grid" aria-label="Download tables">
+                    <button class="tool-button" id="download-data-csv" type="button">Download Data CSV</button>
+                    <button class="tool-button" id="download-sources-csv" type="button">Download Sources CSV</button>
+                    <button class="tool-button" id="download-definitions-csv" type="button">Download Definitions CSV</button>
+                    <button class="tool-button" id="download-workbook" type="button">Download Excel workbook (all-in-one)</button>
+                </div>
+                <p class="download-status" id="download-status" role="status" hidden></p>
+            </section>
             <section class="cost-charts" id="cost-charts" aria-labelledby="cost-charts-heading" hidden>
                 <div class="chart-header">
                     <div>
@@ -800,9 +855,13 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                         <p class="chart-intro" id="chart-intro">Total proxy cost compared with the maximum evidence-based cost estimate.</p>
                     </div>
                     <div class="chart-actions">
-                        <div class="chart-toggle" role="group" aria-label="Chart units">
-                            <button type="button" data-chart-mode="absolute" aria-pressed="true">Absolute</button>
-                            <button type="button" data-chart-mode="relative" aria-pressed="false">Relative*</button>
+                        <div class="chart-unit-control">
+                            <label for="chart-unit">Chart units</label>
+                            <select id="chart-unit">
+                                <option value="absolute">Absolute USD</option>
+                                <option value="cumulative">Cumulative % of position</option>
+                                <option value="annualized">Annualized equivalent % p.a.</option>
+                            </select>
                         </div>
                         <div class="chart-toggle" role="group" aria-label="Chart detail">
                             <button type="button" data-chart-detail="summary" aria-pressed="true">Summary</button>
@@ -813,7 +872,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 <div class="chart-stage" id="chart-stage"></div>
                 <div class="chart-legend" id="chart-legend" aria-label="Chart legend"></div>
                 <div class="chart-tooltip" id="chart-tooltip" role="tooltip" hidden></div>
-                <p class="chart-note">* Relative values are annualized as cost USD / usable position size / holding period years.</p>
+                <p class="chart-note" id="chart-note">Absolute bars show modeled dollar amounts; the assumed-exit component is contingent.</p>
                 <div class="chart-footer">
                     <button class="chart-export-icon" id="export-chart-svg" type="button" aria-label="Export chart as SVG" title="Export chart as SVG">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11"></path><path d="m8 10 4 4 4-4"></path><path d="M5 18v2h14v-2"></path></svg>
@@ -859,15 +918,41 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             'full dataset': createViewState(true),
             '03c. Cost charts': {{ mode: 'absolute', detail: 'summary' }},
         }};
-        const sourceViewName = 'Sources';
+        const definitionsViewName = '90. Definitions';
+        const sourceViewName = '91. Sources';
+        const dataDownloadViewName = '92. Data download';
+        const fixedViewNames = new Set([definitionsViewName, sourceViewName, dataDownloadViewName]);
+        const legacyViewNames = {{ Definitions: definitionsViewName, Sources: sourceViewName }};
         const chartViewName = '03c. Cost charts';
         const chartData = {chart_data};
+        const chartAssumptions = {{
+            equityEmbeddedAnnualRate: {SWISS_EQUITY_LINKED_ANNUAL},
+            historicalEmbeddedOneOffRate: {EMBEDDED_HISTORICAL_BASE},
+            recurringAnnualRate: {SWISS_SERVICE_BASE_ANNUAL},
+            exitOneOffRate: {EXIT_TRANSACTION_BASE},
+        }};
+        const chartUnitLabels = {{
+            absolute: 'Absolute USD',
+            cumulative: 'Cumulative % of position',
+            annualized: 'Annualized equivalent % p.a.',
+        }};
+        const chartUnitModes = new Set(Object.keys(chartUnitLabels));
+        function normalizeChartMode(mode) {{
+            if (mode === 'relative') return 'annualized';
+            return chartUnitModes.has(mode) ? mode : 'absolute';
+        }}
         let viewState = JSON.parse(localStorage.getItem('jtc-cost-model-views') || 'null') || defaultViewState;
         if (!viewState['full dataset']) viewState['full dataset'] = createViewState(true);
         if (!viewState[chartViewName]) viewState[chartViewName] = {{ mode: 'absolute', detail: 'summary' }};
-        viewState[chartViewName].mode = viewState[chartViewName].mode === 'relative' ? 'relative' : 'absolute';
+        viewState[chartViewName].mode = normalizeChartMode(viewState[chartViewName].mode);
         viewState[chartViewName].detail = viewState[chartViewName].detail === 'detailed' ? 'detailed' : 'summary';
         let viewOrder = JSON.parse(localStorage.getItem('jtc-cost-model-view-order') || 'null');
+        function migrateLegacyViewNames() {{
+            Object.keys(legacyViewNames).forEach((legacyName) => delete viewState[legacyName]);
+            fixedViewNames.forEach((viewName) => delete viewState[viewName]);
+            if (Array.isArray(viewOrder)) viewOrder = viewOrder.filter((name) => !fixedViewNames.has(legacyViewNames[name] || name));
+        }}
+        migrateLegacyViewNames();
         let viewsLoaded = false;
         let activeView = null;
         const tableBody = table.tBodies[0];
@@ -875,7 +960,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         const widthColumns = document.querySelector('#column-widths');
         const chartView = document.querySelector('#cost-charts');
         const chartStage = document.querySelector('#chart-stage');
-        const chartModeButtons = [...document.querySelectorAll('[data-chart-mode]')];
+        const chartUnitSelect = document.querySelector('#chart-unit');
         const chartDetailButtons = [...document.querySelectorAll('[data-chart-detail]')];
         headerNames.forEach((_, index) => {{
             const column = document.createElement('col');
@@ -900,9 +985,9 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         }}
         function normalizeViewOrder() {{
             const names = Object.keys(viewState);
-            const saved = Array.isArray(viewOrder) ? viewOrder.filter((name) => typeof name === 'string' && names.includes(name)) : [];
+            const saved = Array.isArray(viewOrder) ? viewOrder.filter((name) => typeof name === 'string' && names.includes(name) && !fixedViewNames.has(name)) : [];
             viewOrder = [...new Set(saved)].concat(names.filter((name) => !saved.includes(name)));
-            if (activeView !== 'Definitions' && activeView !== sourceViewName && !viewOrder.includes(activeView)) activeView = viewOrder[0] || names[0];
+            if (!fixedViewNames.has(activeView) && activeView !== chartViewName && !viewOrder.includes(activeView)) activeView = viewOrder[0] || names[0];
         }}
         function saveViewOrder() {{
             localStorage.setItem('jtc-cost-model-view-order', JSON.stringify(viewOrder));
@@ -939,28 +1024,35 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         }}
         function formatChartValue(value, mode) {{
             if (value === null || !Number.isFinite(value)) return 'N/A';
-            if (mode === 'relative') return `${{(value * 100).toFixed(2)}}%`;
+            if (mode !== 'absolute') return `${{(value * 100).toFixed(2)}}%`;
             return `$${{Math.round(value).toLocaleString('en-US')}}`;
+        }}
+        function formatUsd(value) {{
+            return value === null || !Number.isFinite(value) ? 'N/A' : `$${{Math.round(value).toLocaleString('en-US')}}`;
+        }}
+        function formatRate(value) {{
+            return value === null || !Number.isFinite(value) ? 'N/A' : `${{(value * 100).toFixed(2)}}%`;
         }}
         function renderCostChart() {{
             const state = viewState[chartViewName] || (viewState[chartViewName] = {{ mode: 'absolute', detail: 'summary' }});
-            const mode = state.mode === 'relative' ? 'relative' : 'absolute';
+            const mode = normalizeChartMode(state.mode);
+            state.mode = mode;
             const detail = state.detail === 'detailed' ? 'detailed' : 'summary';
-            const valueKey = mode === 'relative' ? 'relative_proxy' : 'proxy_total';
-            const evidenceKey = mode === 'relative' ? 'relative_evidence' : 'evidence_high';
+            const valueKey = 'proxy_total';
+            const evidenceKey = 'evidence_high';
             const chartValue = (row, key) => {{
                 const value = row[key];
-                if (mode === 'absolute' || key.startsWith('relative_') || value === null || !Number.isFinite(value)) return value;
-                const denominator = row.position * row.holding_period;
+                if (mode === 'absolute' || value === null || !Number.isFinite(value)) return value;
+                const denominator = mode === 'annualized' ? row.position * row.holding_period : row.position;
                 return Number.isFinite(denominator) && denominator > 0 ? value / denominator : null;
             }};
             const detailLegend = detail === 'detailed'
                 ? [['proxy-embedded-key', 'Embedded product proxy'], ['proxy-recurring-key', 'Recurring service proxy'], ['proxy-exit-key', 'Exit / transaction proxy'], ['evidence-min-key', 'Evidence minimum'], ['evidence-delta-key', 'Evidence range to maximum']]
                 : [['proxy-embedded-key', 'Total proxy cost'], ['evidence-min-key', 'Evidence cost (max)']];
             document.querySelector('#chart-legend').innerHTML = detailLegend.map(([className, label]) => `<span class="${{className}}">${{label}}</span>`).join('');
-            const rows = [...chartData].filter((row) => Number.isFinite(row[valueKey]) || Number.isFinite(row[evidenceKey])).sort((left, right) => {{
-                const leftValue = left[valueKey];
-                const rightValue = right[valueKey];
+            const rows = [...chartData].filter((row) => Number.isFinite(chartValue(row, valueKey)) || Number.isFinite(chartValue(row, evidenceKey))).sort((left, right) => {{
+                const leftValue = chartValue(left, valueKey);
+                const rightValue = chartValue(right, valueKey);
                 if (leftValue === null && rightValue === null) return left.isin.localeCompare(right.isin);
                 if (leftValue === null) return 1;
                 if (rightValue === null) return -1;
@@ -975,7 +1067,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const dataMax = Math.max(...values, 0);
             let maxValue = Math.max(dataMax, 1);
             let tickCount = 4;
-            if (mode === 'relative') {{
+            if (mode !== 'absolute') {{
                 const percentMax = dataMax * 100;
                 const targetStep = percentMax / 4 || 1;
                 const magnitude = 10 ** Math.floor(Math.log10(targetStep));
@@ -988,8 +1080,30 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const barWidth = Math.min(25, Math.max(12, plotWidth / rows.length / 3.6));
             const groupWidth = plotWidth / Math.max(rows.length, 1);
             const y = (value) => margin.top + plotHeight - (value / maxValue) * plotHeight;
-            const tickLabel = (value) => mode === 'relative' ? `${{(value * 100).toFixed(1)}}%` : `$${{(Math.round(value / 10000) * 10000).toLocaleString('en-US')}}`;
-            let markup = `<svg class="chart-svg" role="img" aria-labelledby="cost-chart-title cost-chart-desc" viewBox="0 0 ${{width}} ${{height}}"><title id="cost-chart-title">Cost comparison by ISIN</title><desc id="cost-chart-desc">Vertical clustered bars sorted from highest to lowest total proxy cost. Each ISIN has a proxy cost bar and an evidence maximum bar.</desc>`;
+            const tickLabel = (value) => mode !== 'absolute' ? `${{(value * 100).toFixed(1)}}%` : `$${{(Math.round(value / 10000) * 10000).toLocaleString('en-US')}}`;
+            const chartTitle = `Cost comparison by ISIN - ${{chartUnitLabels[mode]}}`;
+            const chartDescription = detail === 'detailed'
+                ? `Vertical stacked bars show proxy components and evidence range in ${{chartUnitLabels[mode]}}.`
+                : `Vertical bars show total proxy cost and maximum evidence cost in ${{chartUnitLabels[mode]}}.`;
+            let markup = `<svg class="chart-svg" role="img" aria-labelledby="cost-chart-title cost-chart-desc" viewBox="0 0 ${{width}} ${{height}}"><title id="cost-chart-title">${{escapeHtml(chartTitle)}}</title><desc id="cost-chart-desc">${{escapeHtml(chartDescription)}}</desc>`;
+            const componentFormula = (row, component) => {{
+                const amount = row[component];
+                if (!Number.isFinite(amount) || !Number.isFinite(row.position) || row.position <= 0) return 'N/A';
+                const positionRate = amount / row.position;
+                if (component === 'recurring_proxy') {{
+                    if (!Number.isFinite(row.holding_period) || row.holding_period <= 0) return 'N/A';
+                    const cumulativeRate = chartAssumptions.recurringAnnualRate * row.holding_period;
+                    return formatRate(chartAssumptions.recurringAnnualRate) + ' p.a. x ' + row.holding_period.toFixed(2) + ' years = ' + formatRate(cumulativeRate) + ' of position = ' + formatUsd(amount);
+                }}
+                if (component === 'embedded_proxy' && row.cohort === 'Equity-linked') {{
+                    if (!Number.isFinite(row.holding_period) || row.holding_period <= 0) return 'N/A';
+                    const cumulativeRate = chartAssumptions.equityEmbeddedAnnualRate * row.holding_period;
+                    return formatRate(chartAssumptions.equityEmbeddedAnnualRate) + ' p.a. x ' + row.holding_period.toFixed(2) + ' years = ' + formatRate(cumulativeRate) + ' of position = ' + formatUsd(amount);
+                }}
+                if (component === 'embedded_proxy') return formatRate(chartAssumptions.historicalEmbeddedOneOffRate) + ' one-off = ' + formatRate(positionRate) + ' of position = ' + formatUsd(amount);
+                if (component === 'exit_proxy') return formatRate(chartAssumptions.exitOneOffRate) + ' one-off assumed exit = ' + formatRate(positionRate) + ' of position = ' + formatUsd(amount);
+                return formatUsd(amount);
+            }};
             for (let tick = 0; tick <= tickCount; tick += 1) {{
                 const value = maxValue * tick / tickCount;
                 const yPosition = y(value);
@@ -1012,6 +1126,9 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 const embeddedProxy = formatChartValue(chartValue(row, 'embedded_proxy'), mode);
                 const recurringProxy = formatChartValue(chartValue(row, 'recurring_proxy'), mode);
                 const exitProxy = formatChartValue(chartValue(row, 'exit_proxy'), mode);
+                const embeddedFormula = componentFormula(row, 'embedded_proxy');
+                const recurringFormula = componentFormula(row, 'recurring_proxy');
+                const exitFormula = componentFormula(row, 'exit_proxy');
                 let proxyStack = 0;
                 let evidenceStack = 0;
                 bars.forEach(([value, x, series, label]) => {{
@@ -1022,8 +1139,9 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                     const barHeight = y(stack) - barY;
                     if (isEvidence) evidenceStack += value;
                     else proxyStack += value;
-                    const detailText = `${{row.isin}} | ${{row.security}} | Issuer: ${{row.issuer}} | ${{label}}: ${{formatChartValue(value, mode)}} | ${{series.startsWith('proxy') && detail === 'summary' ? `Embedded product proxy: ${{embeddedProxy}} | Recurring service proxy: ${{recurringProxy}} | Exit / transaction proxy: ${{exitProxy}}` : `Evidence range: ${{evidenceRange}}`}} | Position: ${{position}} | Holding period: ${{holdingPeriod}} | Status: ${{row.status}}`;
-                    markup += `<rect class="chart-bar ${{series}}" tabindex="0" data-isin="${{escapeHtml(row.isin)}}" data-security="${{escapeHtml(row.security)}}" data-issuer="${{escapeHtml(row.issuer)}}" data-series="${{escapeHtml(series)}}" data-label="${{escapeHtml(label)}}" data-value="${{escapeHtml(formatChartValue(value, mode))}}" data-range="${{escapeHtml(evidenceRange)}}" data-embedded-proxy="${{escapeHtml(embeddedProxy)}}" data-recurring-proxy="${{escapeHtml(recurringProxy)}}" data-exit-proxy="${{escapeHtml(exitProxy)}}" data-position="${{escapeHtml(position)}}" data-holding-period="${{escapeHtml(holdingPeriod)}}" data-status="${{escapeHtml(row.status)}}" x="${{x}}" y="${{barY}}" width="${{barWidth}}" height="${{Math.max(barHeight, 1)}}" role="img" aria-label="${{escapeHtml(detailText)}}"><title>${{escapeHtml(detailText)}}</title></rect>`;
+                    const formula = series === 'proxy-embedded' ? embeddedFormula : series === 'proxy-recurring' ? recurringFormula : series === 'proxy-exit' ? exitFormula : series === 'proxy' ? 'Embedded + recurring service + assumed exit = ' + formatUsd(row.proxy_total) : 'Evidence range: ' + evidenceRange;
+                    const detailText = `${{row.isin}} | ${{row.security}} | Issuer: ${{row.issuer}} | Unit: ${{chartUnitLabels[mode]}} | ${{label}}: ${{formatChartValue(value, mode)}} | Calculation: ${{formula}} | Position: ${{position}} | Holding period: ${{holdingPeriod}} | Status: ${{row.status}}`;
+                    markup += `<rect class="chart-bar ${{series}}" tabindex="0" data-isin="${{escapeHtml(row.isin)}}" data-security="${{escapeHtml(row.security)}}" data-issuer="${{escapeHtml(row.issuer)}}" data-series="${{escapeHtml(series)}}" data-label="${{escapeHtml(label)}}" data-value="${{escapeHtml(formatChartValue(value, mode))}}" data-unit="${{escapeHtml(chartUnitLabels[mode])}}" data-formula="${{escapeHtml(formula)}}" data-range="${{escapeHtml(evidenceRange)}}" data-embedded-proxy="${{escapeHtml(embeddedProxy)}}" data-recurring-proxy="${{escapeHtml(recurringProxy)}}" data-exit-proxy="${{escapeHtml(exitProxy)}}" data-embedded-formula="${{escapeHtml(embeddedFormula)}}" data-recurring-formula="${{escapeHtml(recurringFormula)}}" data-exit-formula="${{escapeHtml(exitFormula)}}" data-position="${{escapeHtml(position)}}" data-holding-period="${{escapeHtml(holdingPeriod)}}" data-status="${{escapeHtml(row.status)}}" x="${{x}}" y="${{barY}}" width="${{barWidth}}" height="${{Math.max(barHeight, 1)}}" role="img" aria-label="${{escapeHtml(detailText)}}"><title>${{escapeHtml(detailText)}}</title></rect>`;
                 }});
                 const labelY = margin.top + plotHeight + 22;
                 markup += `<text class="chart-label" x="${{center}}" y="${{labelY}}" text-anchor="middle">${{escapeHtml(row.isin)}}</text>`;
@@ -1034,15 +1152,23 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const hideTooltip = () => {{ tooltip.hidden = true; }};
             const showTooltip = (event) => {{
                 const bar = event.currentTarget;
+                const isProxy = bar.dataset.series.startsWith('proxy');
+                const proxyRows = bar.dataset.series === 'proxy'
+                    ? [
+                        ['Embedded product proxy', bar.dataset.embeddedProxy],
+                        ['Embedded calculation', bar.dataset.embeddedFormula],
+                        ['Recurring service proxy', bar.dataset.recurringProxy],
+                        ['Recurring calculation', bar.dataset.recurringFormula],
+                        ['Exit / transaction proxy', bar.dataset.exitProxy],
+                        ['Exit calculation', bar.dataset.exitFormula],
+                    ]
+                    : isProxy ? [['Calculation', bar.dataset.formula]] : [['Evidence range', bar.dataset.range]];
                 const rows = [
                     ['Security', bar.dataset.security],
                     ['Issuer', bar.dataset.issuer],
+                    ['Chart units', bar.dataset.unit],
                     ['Measure', `${{bar.dataset.label}}: ${{bar.dataset.value}}`],
-                    ...(bar.dataset.series === 'proxy' ? [
-                        ['Embedded product proxy', bar.dataset.embeddedProxy],
-                        ['Recurring service proxy', bar.dataset.recurringProxy],
-                        ['Exit / transaction proxy', bar.dataset.exitProxy],
-                    ] : [['Evidence range', bar.dataset.range]]),
+                    ...proxyRows,
                     ['Position', bar.dataset.position],
                     ['Holding period', bar.dataset.holdingPeriod],
                     ['Status', bar.dataset.status],
@@ -1062,11 +1188,17 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 bar.addEventListener('focus', showTooltip);
                 bar.addEventListener('blur', hideTooltip);
             }});
-            chartModeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.chartMode === mode)));
+            chartUnitSelect.value = mode;
             chartDetailButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.chartDetail === detail)));
-            document.querySelector('#chart-intro').textContent = detail === 'detailed'
-                ? (mode === 'relative' ? 'Annualized proxy components and evidence range as percentages of usable position size.' : 'Proxy cost components and the evidence range from minimum to maximum.')
-                : (mode === 'relative' ? 'Annualized cost as a percentage of usable position size, compared with the maximum evidence-based estimate.' : 'Total proxy cost compared with the maximum evidence-based cost estimate.');
+            const intro = detail === 'detailed'
+                ? (mode === 'absolute' ? 'Proxy cost components and the evidence range from minimum to maximum.' : mode === 'cumulative' ? 'Cumulative proxy components as percentages of usable position size; recurring service is accumulated over the holding period.' : 'Annualized equivalent of proxy components as percentages of usable position size; one-off costs are spread over the holding period.')
+                : (mode === 'absolute' ? 'Total proxy cost compared with the maximum evidence-based cost estimate.' : mode === 'cumulative' ? 'Cumulative proxy cost as a percentage of usable position size, compared with the maximum evidence-based estimate.' : 'Annualized equivalent proxy cost as a percentage of usable position size, compared with the maximum evidence-based estimate.');
+            document.querySelector('#chart-intro').textContent = intro;
+            document.querySelector('#chart-note').textContent = mode === 'absolute'
+                ? 'Absolute bars show modeled dollar amounts; the assumed-exit component is contingent.'
+                : mode === 'cumulative'
+                    ? 'Cumulative % of position uses cost USD / usable position size. Recurring service is accumulated over the holding period; exit is a one-off assumed-exit component.'
+                    : 'Annualized equivalent uses total scenario cost USD / usable position size / holding period years. It is not an annual fee rate.';
         }}
         function exportChartSvg() {{
             const source = chartStage.querySelector('svg');
@@ -1131,7 +1263,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             }});
             svg.append(legend);
             const serialized = new XMLSerializer().serializeToString(svg);
-            const mode = viewState[chartViewName]?.mode === 'relative' ? 'relative' : 'absolute';
+            const mode = normalizeChartMode(viewState[chartViewName]?.mode);
             const filename = `03c-cost-charts-${{mode}}-${{detail}}.svg`;
             const link = document.createElement('a');
             link.href = URL.createObjectURL(new Blob([serialized], {{ type: 'image/svg+xml;charset=utf-8' }}));
@@ -1142,15 +1274,56 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         function csvCell(value) {{
             return `"${{String(value).replace(/"/g, '""')}}"`;
         }}
+        function downloadBlob(blob, filename) {{
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(url), 0);
+        }}
+        function downloadCsvRows(rows, filename) {{
+            const csv = rows.map((row) => row.map(csvCell).join(',')).join('\\r\\n');
+            downloadBlob(new Blob([`\\ufeff${{csv}}`], {{ type: 'text/csv;charset=utf-8' }}), filename);
+        }}
+        function tableCsvRows(tableElement) {{
+            return [...tableElement.rows].map((row) => [...row.cells].map((cell) => cell.textContent.trim()));
+        }}
+        function exportDataCsv() {{
+            const rows = [
+                headerNames,
+                ...originalRows.map((row) => headerNames.map((_, index) => valueFor(row, index))),
+            ];
+            downloadCsvRows(rows, 'data.csv');
+        }}
+        function exportSourcesCsv() {{
+            downloadCsvRows(tableCsvRows(document.querySelector('#sources-table')), 'sources.csv');
+        }}
+        function exportDefinitionsCsv() {{
+            downloadCsvRows(tableCsvRows(document.querySelector('.definitions-table')), 'definitions.csv');
+        }}
+        function setDownloadStatus(message, isError = false) {{
+            const status = document.querySelector('#download-status');
+            status.textContent = message;
+            status.hidden = false;
+            status.classList.toggle('is-error', isError);
+        }}
+        function exportWorkbook() {{
+            setDownloadStatus('Preparing Excel workbook...');
+            fetch('/api/downloads/data-workbook.xlsx')
+                .then((response) => {{
+                    if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
+                    return response.blob();
+                }})
+                .then((blob) => {{
+                    downloadBlob(blob, 'structured-products-data.xlsx');
+                    setDownloadStatus('Excel workbook downloaded.');
+                }})
+                .catch(() => setDownloadStatus('Excel workbook requires the local dashboard server. Start the cost model server and try again.', true));
+        }}
         function exportCsv() {{
             if (activeView === sourceViewName) {{
-                const sourceTable = document.querySelector('#sources-table');
-                const sourceCsv = [...sourceTable.querySelectorAll('tr')].map((row) => [...row.cells].map((cell) => csvCell(cell.textContent.trim())).join(',')).join('\\r\\n');
-                const sourceLink = document.createElement('a');
-                sourceLink.href = URL.createObjectURL(new Blob([`\\ufeff${{sourceCsv}}`], {{ type: 'text/csv;charset=utf-8' }}));
-                sourceLink.download = 'sources.csv';
-                sourceLink.click();
-                URL.revokeObjectURL(sourceLink.href);
+                exportSourcesCsv();
                 return;
             }}
             const state = activeState();
@@ -1291,21 +1464,24 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             renderTable();
         }});
         function renderTable() {{
-            const definitionsView = activeView === 'Definitions';
+            const definitionsView = activeView === definitionsViewName;
             const isSourcesView = activeView === sourceViewName;
+            const isDataDownloadView = activeView === dataDownloadViewName;
             const isChartView = activeView === chartViewName;
+            const isFixedView = definitionsView || isSourcesView || isDataDownloadView;
             document.querySelector('#definitions-view').hidden = !definitionsView;
             document.querySelector('#sources-view').hidden = !isSourcesView;
-            document.querySelectorAll('.toolbar').forEach((panel) => panel.hidden = definitionsView || isSourcesView);
-            document.querySelectorAll('.builder-panel').forEach((panel) => panel.hidden = definitionsView || isSourcesView || isChartView);
-            document.querySelectorAll('[data-panel]').forEach((button) => button.hidden = definitionsView || isSourcesView || isChartView);
+            document.querySelector('#data-download-view').hidden = !isDataDownloadView;
+            document.querySelectorAll('.toolbar').forEach((panel) => panel.hidden = isFixedView);
+            document.querySelectorAll('.builder-panel').forEach((panel) => panel.hidden = isFixedView || isChartView);
+            document.querySelectorAll('[data-panel]').forEach((button) => button.hidden = isFixedView || isChartView);
             if (isChartView) {{
                 panels.forEach((panel) => panel.classList.remove('is-open'));
                 panelButtons.forEach((button) => button.setAttribute('aria-expanded', 'false'));
             }}
             chartView.hidden = !isChartView;
-            document.querySelector('#main-table-scroll').hidden = definitionsView || isSourcesView || isChartView;
-            if (definitionsView || isSourcesView || isChartView) {{
+            document.querySelector('#main-table-scroll').hidden = isFixedView || isChartView;
+            if (isFixedView || isChartView) {{
                 if (isChartView) renderCostChart();
                 return;
             }}
@@ -1347,12 +1523,16 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             panelButtons.filter((candidate) => candidate !== button).forEach((candidate) => candidate.setAttribute('aria-expanded', 'false'));
         }}));
         document.querySelector('#export-csv').addEventListener('click', exportCsv);
+        document.querySelector('#download-data-csv').addEventListener('click', exportDataCsv);
+        document.querySelector('#download-sources-csv').addEventListener('click', exportSourcesCsv);
+        document.querySelector('#download-definitions-csv').addEventListener('click', exportDefinitionsCsv);
+        document.querySelector('#download-workbook').addEventListener('click', exportWorkbook);
         document.querySelector('#export-chart-svg').addEventListener('click', exportChartSvg);
-        chartModeButtons.forEach((button) => button.addEventListener('click', () => {{
-            viewState[chartViewName].mode = button.dataset.chartMode;
+        chartUnitSelect.addEventListener('change', () => {{
+            viewState[chartViewName].mode = normalizeChartMode(chartUnitSelect.value);
             renderCostChart();
             saveViews();
-        }}));
+        }});
         chartDetailButtons.forEach((button) => button.addEventListener('click', () => {{
             viewState[chartViewName].detail = button.dataset.chartDetail;
             renderCostChart();
@@ -1377,6 +1557,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
                 const savedViews = await response.json();
                 if (savedViews && typeof savedViews === 'object' && Object.keys(savedViews).length) viewState = savedViews;
+                migrateLegacyViewNames();
                 if (!viewState[chartViewName]) viewState[chartViewName] = {{ mode: 'absolute' }};
                 viewsLoaded = true;
             }} catch (error) {{
@@ -1385,6 +1566,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 if (sessionStorage.getItem('jtc-cost-model-banner-dismissed') !== '1') banner.hidden = false;
             }}
             normalizeViewOrder();
+            saveViews();
             renderViewList();
             renderTable();
         }}
@@ -1403,23 +1585,18 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 item.draggable = false;
                 return item;
             }});
-            const definitionsItem = document.createElement('li');
-            const definitionsButton = document.createElement('button');
-            definitionsButton.className = 'view-button';
-            definitionsButton.type = 'button';
-            definitionsButton.dataset.view = 'Definitions';
-            definitionsButton.textContent = 'Definitions';
-            if (activeView === 'Definitions') definitionsButton.setAttribute('aria-current', 'page');
-            definitionsItem.append(definitionsButton);
-            const sourcesItem = document.createElement('li');
-            const sourcesButton = document.createElement('button');
-            sourcesButton.className = 'view-button';
-            sourcesButton.type = 'button';
-            sourcesButton.dataset.view = sourceViewName;
-            sourcesButton.textContent = sourceViewName;
-            if (activeView === sourceViewName) sourcesButton.setAttribute('aria-current', 'page');
-            sourcesItem.append(sourcesButton);
-            list.replaceChildren(...viewItems, sourcesItem, definitionsItem);
+            const fixedItems = [definitionsViewName, sourceViewName, dataDownloadViewName].map((viewName) => {{
+                const item = document.createElement('li');
+                const button = document.createElement('button');
+                button.className = 'view-button';
+                button.type = 'button';
+                button.dataset.view = viewName;
+                button.textContent = viewName;
+                if (activeView === viewName) button.setAttribute('aria-current', 'page');
+                item.append(button);
+                return item;
+            }});
+            list.replaceChildren(...viewItems, ...fixedItems);
         }}
         function moveView(viewName, targetName) {{
             normalizeViewOrder();
@@ -1488,7 +1665,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const action = event.target.closest('[data-view-action]')?.dataset.viewAction;
             if (!action) return;
             closeViewActionMenu();
-            if (activeView === 'Definitions' || activeView === sourceViewName) return;
+            if (fixedViewNames.has(activeView)) return;
             if (action === 'new') {{
                 const name = prompt('Name this view');
                 if (!name || viewState[name.trim()]) return;

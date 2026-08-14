@@ -19,8 +19,10 @@ curated:
   Proxy total (USD): The reconciled lifetime proxy total calculated as embedded product proxy plus recurring service proxy over the holding period plus the assumed exit and transaction proxy. Its displayed components must sum to this amount.
   Proxy calculation status: States whether the proxy is embedded-only, includes other modelled groups, unbenchmarked, or not calculated. It prevents an unmodelled group from being read as evidence of zero cost.
   Cost charts: A fixed per-ISIN vertical clustered chart with total proxy cost and maximum evidence cost shown as paired bars. ISINs are ordered from highest to lowest total proxy cost in the active chart mode.
+  Chart units: Selects one measurement basis for both summary and detailed cost charts - absolute USD, cumulative percentage of usable position, or annualized equivalent percentage per annum.
   Absolute chart mode: Displays the calculated cost values in US dollars. The evidence bar uses the maximum of the evidence-based range.
-  Relative chart mode: Displays annualised cost as cost USD divided by usable position size and holding period years. Rows without a valid position size or holding period are shown as N/A rather than zero.
+  Cumulative chart mode: Displays holding-period cost as cost USD divided by usable position size. Recurring service is accumulated over the valid holding period; one-off embedded and assumed-exit components remain one-off amounts.
+  Annualized equivalent chart mode: Displays total scenario cost as cost USD divided by usable position size and holding period years. It is an annualized equivalent for comparison, not a claim that one-off or exit costs recur annually.
   Evidence cost (max): The upper end of the evidence-based cost range used for the chart's evidence bar. The lower evidence value remains available in the bar detail.
 
 canonical:
