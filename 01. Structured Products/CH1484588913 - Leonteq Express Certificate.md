@@ -12,7 +12,7 @@ issuer: Leonteq Securities AG
 guarantor: PostFinance Ltd
 product_name: Leonteq Express Certificate on S&P 500, Swiss Market Index
 structure: Autocallable Express Certificate (Index Linked)
-currency: CHF
+currency: USD
 issue_date: 03-Mar-2026
 purchase_date: 03-Mar-2026
 maturity: 03-Mar-2028
@@ -24,28 +24,32 @@ barrier: 60%
 frequency: quarterly
 annualised_rate: 6.50%
 other_comments: No memory feature
-redemption_terms: ''
-downside: cash losss (capital)
-risk: Moderate
+redemption_terms: Autocall may redeem early at denomination; without early redemption or a barrier event, final cash settlement equals denomination; after a barrier event, redemption depends on the worst-performing underlying.
+downside: A barrier event can make redemption depend on the worst-performing underlying; the term sheet warns investors may lose some or all invested capital.
+risk: Moderate; term sheet warns of potential capital loss and issuer credit risk.
 position_size: 10,000,000
 position_size_status: user-confirmed reported Trust position
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
 position_size_evidence: Reported Trust position recorded as USD 10,000,000
 denomination_usd: 1,000
 issue_size:
-  display: Not available
-  status: 'Unavailable: document recovery required'
-  source: No issue-size label found in available OCR
+  display: USD 10,000,000
+  status: Confirmed documentary nominal amount
+  source: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, page 1; issue size stated as USD 10,000,000
 field_statuses:
   source_exhibit: Not available in current sources
   trust: Not available in current sources
   country: Not available in current sources
   bank_held: Not available in current sources
-  issuer: 'confirmed: Leonteq Securities AG (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
-  guarantor: 'confirmed: PostFinance Ltd (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
+  issuer: 'confirmed: Leonteq Securities AG (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf,
+    pages 1-2)'
+  guarantor: 'confirmed: PostFinance Ltd (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf,
+    pages 1-2)'
   product_name: Workbook reference
   structure: Workbook reference
-  currency: 'confirmed: CHF (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
+  currency: 'confirmed: USD settlement currency (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf,
+    pages 1-2)'
   issue_date: Workbook reference
   maturity: Workbook reference
   tenor_years: Workbook reference
@@ -55,11 +59,12 @@ field_statuses:
   frequency: Workbook reference
   annualised_rate: Workbook reference
   other_comments: Workbook reference
-  redemption_terms: Not available in current sources
-  downside: Workbook reference
-  risk: Workbook reference
+  redemption_terms: 'Original terms (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2)'
+  downside: 'Original terms (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-3)'
+  risk: 'Original terms and workbook reference (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-3)'
   position_size: Workbook reference
   denomination_usd: Workbook reference
+  issue_size: 'Confirmed documentary nominal amount (04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, page 1)'
 ---
 
 # CH1484588913 - Leonteq Express Certificate
@@ -84,7 +89,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Guarantor | (term sheet) | — | PostFinance Ltd | confirmed: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2 |
 | Product name | Leonteq Express Certificate on S&P 500, Swiss Market Index |  | Leonteq Express Certificate on S&P 500, Swiss Market Index | Workbook reference |
 | Product type / structure | Autocallable Express Certificate (Index Linked) |  | Autocallable Express Certificate (Index Linked) | Workbook reference |
-| Currency | (term sheet) | — | CHF | confirmed: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2 |
+| Currency | (term sheet) | — | USD | confirmed: 04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, pages 1-2 |
 | Issue date | 03-Mar-2026 |  | 03-Mar-2026 | Workbook reference |
 | Maturity / call date | 03-Mar-2028 |  | 03-Mar-2028 | Workbook reference |
 | Tenor (years) | 2 |  | 2 | Workbook reference |
@@ -94,9 +99,9 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Observation / payment frequency | quarterly |  | quarterly | Workbook reference |
 | Annualised rate | 6.50% |  | 6.50% | Workbook reference |
 | Other comments | No memory feature |  | No memory feature | Workbook reference |
-| Redemption terms |  |  |  | Not available in current sources |
-| Downside | cash losss (capital) |  | cash losss (capital) | Workbook reference |
-| Risk notes | Moderate |  | Moderate | Workbook reference |
+| Redemption terms | Autocall may redeem early at denomination; without early redemption or a barrier event, final cash settlement equals denomination; after a barrier event, redemption depends on the worst-performing underlying | — | Autocall may redeem early at denomination; without early redemption or a barrier event, final cash settlement equals denomination; after a barrier event, redemption depends on the worst-performing underlying | Original terms |
+| Downside | cash loss (capital) | — | A barrier event can make redemption depend on the worst-performing underlying; the term sheet warns investors may lose some or all invested capital | Original terms |
+| Risk notes | Moderate | — | Moderate; term sheet warns of potential capital loss and issuer credit risk | Original terms and workbook reference |
 | Position size (USD) | 10,000,000 |  | 10,000,000 | Workbook reference |
 | Denomination (USD) | 1,000 |  | 1,000 | Workbook reference |
 
@@ -106,7 +111,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | Not available | Unavailable: document recovery required | `No issue-size label found in available OCR` |
+| Original issue / amount issued or outstanding | USD 10,000,000 | Confirmed documentary nominal amount | `04. Original terms/01. Leonteq/CH1484588913_Leonteq_Termsheet.pdf, page 1; issue size stated as USD 10,000,000` |
 
 ## Consistency Review
 

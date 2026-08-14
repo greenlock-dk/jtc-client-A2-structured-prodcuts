@@ -28,15 +28,16 @@ downside: ''
 risk: ''
 position_size: ''
 position_size_status: issue/outstanding size; not Trust-specific
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
-position_size_evidence: No Trust-specific position amount recorded; available amount is issuer issue/outstanding size
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
+position_size_evidence: No Trust-specific position amount recorded; available amount
+  is issuer issue/outstanding size
 denomination_usd: 1,000
 issue_size:
   display: USD 850.00 million
-  status: confirmed by Bloomberg image
-  source: 03. BBG OCR/XS1028242706/XS1028242706 - image-01.txt; AmtIssued/outstanding;
-    AmtIssued/outstanding 23) Sustainability BULLET USD 850.00 (M) Quick Links Iss
-    Sprd USD (M) 32 ALLQ Pricing Calc Type (99)*NO CALCULATIONS*
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS1028242706/XS1028242706 - image-01.png; visual review confirmed
+    USD 850.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Workbook reference
@@ -60,6 +61,7 @@ field_statuses:
   risk: Not available in current sources
   position_size: Workbook reference
   denomination_usd: Workbook reference
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS1028242706 - Morgan Stanley EMTN
@@ -105,7 +107,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 850.00 million | Confirmed by source image | `02. BBG images/XS1028242706/XS1028242706 - image-01.png; Amt Issued/Outstanding; USD 850.00 (M)` |
+| Original issue / amount issued or outstanding | USD 850.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS1028242706/XS1028242706 - image-01.png; visual review confirmed USD 850.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

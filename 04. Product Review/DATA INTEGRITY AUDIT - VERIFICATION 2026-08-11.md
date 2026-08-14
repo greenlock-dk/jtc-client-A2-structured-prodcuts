@@ -1,5 +1,7 @@
 # Structured Products Data Integrity Audit - Verification & Re-Performance
 
+> Historical snapshot dated 2026-08-11. Superseded for current-state counts and findings by [DATA INTEGRITY AUDIT.md](DATA%20INTEGRITY%20AUDIT.md) and [GAP RESOLUTION STATUS - INTERNAL VS EXTERNAL.md](GAP%20RESOLUTION%20STATUS%20-%20INTERNAL%20VS%20EXTERNAL.md), which include the 2026-08-13/14 visual review and local documentary evidence updates.
+
 **Audit date:** 2026-08-11 (verification/re-performance of prior audit from same date)  
 **Scope:** Complete repository, current working tree  
 **Verification status:** Prior audit FAIL remains confirmed; no improvement; all critical gaps persist

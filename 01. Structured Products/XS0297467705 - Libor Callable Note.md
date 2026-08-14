@@ -28,15 +28,16 @@ downside: ''
 risk: ''
 position_size: ''
 position_size_status: missing or not Trust-specific
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
-position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding
+  size is not substituted
 denomination_usd: 10,000
 issue_size:
   display: USD 5,000.00 million
-  status: confirmed
-  source: 03. BBG OCR/XS0297467705/XS0297467705 - image-01.txt; AmtIssued/Outstanding;
-    AmtIssued/Outstanding 23) Sustainability USD 5,000.00 (M) Quick Links Iss Sprd
-    USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT Qt Recap
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0297467705/XS0297467705 - image-01.png; visual review confirmed
+    USD 5,000.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Not available in current sources
@@ -60,6 +61,7 @@ field_statuses:
   risk: Not available in current sources
   position_size: Not available in current sources
   denomination_usd: Workbook reference
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0297467705 - Libor Callable Note
@@ -105,7 +107,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 5,000.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0297467705/XS0297467705 - image-01.txt; AmtIssued/Outstanding; AmtIssued/Outstanding 23) Sustainability USD 5,000.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT Qt Recap` |
+| Original issue / amount issued or outstanding | USD 5,000.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0297467705/XS0297467705 - image-01.png; visual review confirmed USD 5,000.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

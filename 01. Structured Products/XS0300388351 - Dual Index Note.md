@@ -30,14 +30,15 @@ downside: ''
 risk: ''
 position_size: 600,000
 position_size_status: user-confirmed reported Trust position
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
 position_size_evidence: Reported Trust position recorded as USD 600,000
 denomination_usd: 10,000
 issue_size:
   display: USD 8,370.00 million
-  status: confirmed
-  source: 02. BBG images/XS0300388351/XS0300388351 - image-01.png; visual confirmation of
-    Amt Issued/Outstanding as USD 8,370.00 million
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0300388351/XS0300388351 - image-01.png; visual review confirmed
+    USD 8,370.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Workbook reference
@@ -61,7 +62,7 @@ field_statuses:
   risk: Not available in current sources
   position_size: Workbook reference
   denomination_usd: Workbook reference
-  issue_size: Confirmed by visual review
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0300388351 - Dual Index Note
@@ -103,11 +104,11 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 
 ## Issue Size / Amount Issued
 
-This field is separate from the Trust's position size. The issue-size value was visually confirmed against the linked Bloomberg image.
+This field is separate from the Trust's position size. OCR-derived values are candidates until checked against the source image.
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 8,370.00 million | confirmed | `02. BBG images/XS0300388351/XS0300388351 - image-01.png` |
+| Original issue / amount issued or outstanding | USD 8,370.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0300388351/XS0300388351 - image-01.png; visual review confirmed USD 8,370.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

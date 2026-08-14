@@ -28,7 +28,7 @@ annualised_rate: 8.25%
 other_comments: "loan notes are secured on underlying assets and have limited recourse.\
   \ The interest on notes are what the issuer received from Swiss Re Instruments if\
   \ it does not pay interest, the investors don\u2019t get paid."
-redemption_terms: ''
+redemption_terms: Perpetual notes subject to early redemption, including issuer tax, regulatory, and par redemption events; stock settlement may apply. The notes were subsequently redeemed in full on 11-Sep-2018 at the pro rata share of underlying proceeds.
 downside: Investors can only claim against the the assets and not the issuer themselves.
   No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance.
   Investors may receive shares instead of cash and the value may be lower than capital.
@@ -39,14 +39,15 @@ downside: Investors can only claim against the the assets and not the issuer the
 risk: Higher
 position_size: 200,000
 position_size_status: user-confirmed reported Trust position
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
 position_size_evidence: Reported Trust position recorded as USD 200,000
 denomination_usd: 200,000 + increments of 5,000
 issue_size:
   display: USD 750,000.00 million
-  status: confirmed
-  source: 02. BBG images/XS0765564827/XS0765564827 - image-02.png; visual confirmation of
-    Amt Issued/Outstanding as USD 750,000.00 million
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0765564827/XS0765564827 - image-02.png; visual review confirmed
+    USD 750,000.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Workbook reference
@@ -65,12 +66,12 @@ field_statuses:
   frequency: Workbook reference
   annualised_rate: Workbook reference
   other_comments: Workbook reference
-  redemption_terms: Not available in current sources
+  redemption_terms: 'Original terms (04. Original terms/03. Aquarius/Prospectus-_2012-03-27.pdf, pages 1, 50, and 69; 04. Original terms/03. Aquarius/Publication-_2018-07-03.pdf, pages 1-2)'
   downside: Workbook reference
   risk: Workbook reference
   position_size: Workbook reference
   denomination_usd: Workbook reference
-  issue_size: Confirmed by visual review
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0765564827 - Aquarius Secured Notes
@@ -104,7 +105,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Observation / payment frequency | annually |  | annually | Workbook reference |
 | Annualised rate | 8.25% |  | 8.25% | Workbook reference |
 | Other comments | loan notes are secured on underlying assets and have limited recourse. The interest on notes are what the issuer received from Swiss Re Instruments if it does not pay interest, the investors don’t get paid. |  | loan notes are secured on underlying assets and have limited recourse. The interest on notes are what the issuer received from Swiss Re Instruments if it does not pay interest, the investors don’t get paid. | Workbook reference |
-| Redemption terms |  |  |  | Not available in current sources |
+| Redemption terms |  |  | Perpetual notes subject to early redemption; the notes were subsequently redeemed in full on 11-Sep-2018 at the pro rata share of underlying proceeds | Original terms |
 | Downside | Investors can only claim against the the assets and not the issuer themselves. No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance. Investors may receive shares instead of cash and the value may be lower than capital. Liquidity risk (no active market)<br><br>Risk:<br>This is a SPV <br>Issuer is not regulated<br>If an examiner is appointed to the issuer, the trustee is precluded from enforcing the security over any mortgaged property during the period. <br><br>other risks in pages 8-18 of document <br> |  | Investors can only claim against the the assets and not the issuer themselves. No guarantee from Swiss Re or affiliates. Therefore dependent on Swiss Re performance. Investors may receive shares instead of cash and the value may be lower than capital. Liquidity risk (no active market)<br><br>Risk:<br>This is a SPV <br>Issuer is not regulated<br>If an examiner is appointed to the issuer, the trustee is precluded from enforcing the security over any mortgaged property during the period. <br><br>other risks in pages 8-18 of document <br> | Workbook reference |
 | Risk notes | Higher |  | Higher | Workbook reference |
 | Position size (USD) | 200,000 |  | 200,000 | Workbook reference |
@@ -112,11 +113,11 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 
 ## Issue Size / Amount Issued
 
-This field is separate from the Trust's position size. The issue-size value was visually confirmed against the linked Bloomberg image.
+This field is separate from the Trust's position size. OCR-derived values are candidates until checked against the source image.
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 750,000.00 million | confirmed | `02. BBG images/XS0765564827/XS0765564827 - image-02.png` |
+| Original issue / amount issued or outstanding | USD 750,000.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0765564827/XS0765564827 - image-02.png; visual review confirmed USD 750,000.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

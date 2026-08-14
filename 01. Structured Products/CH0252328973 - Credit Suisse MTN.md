@@ -25,20 +25,22 @@ frequency: N/A
 annualised_rate: N/A
 other_comments: 'Barrier is calculated for both initial levels: <br><br>SPX: 2125.8500<br>SMI:
   9319.9000<br><br>SPX lower barrier: 1169.2200<br>SMI Lower Barrier: 5125.9500'
-redemption_terms: ''
+redemption_terms: Bullet single repayment; principal repayment depends on the performance of the two linked indices subject to the 55% barriers.
 downside: 55% downside barrier for both linked indices.  Principle repayment dependent
   on index performance. This is an exotic structured note.
 risk: ''
 position_size: ''
 position_size_status: missing or not Trust-specific
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
-position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding
+  size is not substituted
 denomination_usd: 1,000
 issue_size:
   display: Not found
-  status: not found
-  source: 02. BBG images/CH0252328973/CH0252328973 - image-01.png; visual confirmation
-    found no issuance data provided for Amt Issued/Outstanding
+  status: 'Confirmed by visual Bloomberg review: not found'
+  source: 02. BBG images/CH0252328973/CH0252328973 - image-01.png; visual review found
+    an Amt Issued/Outstanding label without a numeric value
 field_statuses:
   source_exhibit: Workbook reference
   trust: Workbook reference
@@ -57,12 +59,12 @@ field_statuses:
   frequency: Workbook reference
   annualised_rate: Workbook reference
   other_comments: Workbook reference
-  redemption_terms: Not available in current sources
+  redemption_terms: Workbook reference
   downside: Workbook reference
   risk: Not available in current sources
   position_size: Not available in current sources
   denomination_usd: Workbook reference
-  issue_size: 'Confirmed by visual review: not found'
+  issue_size: 'Confirmed by visual Bloomberg review: not found'
 ---
 
 # CH0252328973 - Credit Suisse MTN
@@ -96,7 +98,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Observation / payment frequency | N/A |  | N/A | Workbook reference |
 | Annualised rate | N/A |  | N/A | Workbook reference |
 | Other comments | Barrier is calculated for both initial levels: <br><br>SPX: 2125.8500<br>SMI: 9319.9000<br><br>SPX lower barrier: 1169.2200<br>SMI Lower Barrier: 5125.9500 |  | Barrier is calculated for both initial levels: <br><br>SPX: 2125.8500<br>SMI: 9319.9000<br><br>SPX lower barrier: 1169.2200<br>SMI Lower Barrier: 5125.9500 | Workbook reference |
-| Redemption terms |  |  |  | Not available in current sources |
+| Redemption terms | Bullet single repayment; principal repayment dependent on index performance |  | Bullet single repayment; principal repayment depends on the performance of the two linked indices subject to the 55% barriers | Workbook reference |
 | Downside | 55% downside barrier for both linked indices.  Principle repayment dependent on index performance. This is an exotic structured note. |  | 55% downside barrier for both linked indices.  Principle repayment dependent on index performance. This is an exotic structured note. | Workbook reference |
 | Risk notes |  |  |  | Not available in current sources |
 | Position size (USD) |  |  |  | Not available in current sources |
@@ -104,11 +106,11 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 
 ## Issue Size / Amount Issued
 
-This field is separate from the Trust's position size. The source image was visually inspected and provided no issuance data.
+This field is separate from the Trust's position size. OCR-derived values are candidates until checked against the source image.
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | Not found | not found | `02. BBG images/CH0252328973/CH0252328973 - image-01.png; no issuance data provided` |
+| Original issue / amount issued or outstanding | Not found | Confirmed by visual Bloomberg review: not found | `02. BBG images/CH0252328973/CH0252328973 - image-01.png; visual review found an Amt Issued/Outstanding label without a numeric value` |
 
 ## Consistency Review
 

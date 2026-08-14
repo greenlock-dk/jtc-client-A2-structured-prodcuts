@@ -28,8 +28,10 @@ downside: ''
 risk: ''
 position_size: ''
 position_size_status: missing or not Trust-specific
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
-position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding
+  size is not substituted
 denomination_usd: ''
 issue_size:
   display: Not available
@@ -58,6 +60,7 @@ field_statuses:
   risk: not found
   position_size: not found
   denomination_usd: not found
+  issue_size: 'Unavailable: document recovery required'
 ---
 
 # XS0298465822 - Unspecified Instrument

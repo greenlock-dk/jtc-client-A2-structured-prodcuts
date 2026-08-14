@@ -28,7 +28,8 @@ downside: ''
 risk: ''
 position_size: 800,000
 position_size_status: user-confirmed reported Trust position
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
 position_size_evidence: Reported Trust position recorded as USD 800,000
 denomination_usd: ''
 issue_size:
@@ -58,6 +59,7 @@ field_statuses:
   risk: not found
   position_size: Workbook reference
   denomination_usd: not found
+  issue_size: 'Unavailable: document recovery required'
 ---
 
 # XS0318585791 - Kick In Note

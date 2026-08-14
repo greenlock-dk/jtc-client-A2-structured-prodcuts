@@ -1,0 +1,369 @@
+- generic [ref=e2]:
+  - navigation "Views" [ref=e3]:
+    - heading "Views" [level=2] [ref=e4]
+    - list [ref=e5]:
+      - listitem [ref=e6]:
+        - button "01. ISIN summary" [ref=e7] [cursor=pointer]
+      - listitem [ref=e8]:
+        - button "03. Cost - joint analysis" [ref=e9] [cursor=pointer]
+      - listitem [ref=e10]:
+        - button "03a. Cost - evidence driven" [ref=e11] [cursor=pointer]
+      - listitem [ref=e12]:
+        - button "03b. Cost - proxy driven" [ref=e13] [cursor=pointer]
+      - listitem [ref=e14]:
+        - button "02. Position size" [ref=e15] [cursor=pointer]
+      - listitem [ref=e16]:
+        - button "03c. Cost charts" [ref=e17] [cursor=pointer]
+      - listitem [ref=e18]:
+        - button "Definitions" [ref=e19] [cursor=pointer]
+    - button "View actions" [ref=e21] [cursor=pointer]
+  - main [ref=e22]:
+    - generic "View builder" [ref=e23]:
+      - button "Columns" [ref=e24] [cursor=pointer]
+      - button "Filters" [ref=e25] [cursor=pointer]
+      - button "Group by" [ref=e26] [cursor=pointer]
+      - button "Sort" [ref=e27] [cursor=pointer]
+      - button "Export CSV" [ref=e28] [cursor=pointer]
+    - text: "The bank or intermediary identified as holding, administering, or appearing against the position. This is an evidence attribute and does not by itself prove beneficial ownership or the amount held. The product grouping used to select a comparable cost observation. Cohort membership is an analytical classification and does not establish that the products have identical terms or economics. The country linked to the issuer, product, or supporting evidence. It supports jurisdictional comparability but does not identify the distribution channel or governing law unless those are separately documented. The currency in which the denomination, payoff, or payment is expressed. Currency affects comparability and conversion, so a displayed USD amount may still represent a foreign-currency exposure. The source workbook or presentation sequence retained for stable review ordering. It carries no economic, risk, or priority meaning. The upper end of the cost range produced only from comparators that meet the adoption rules for the relevant cohort. It is a bounded evidence scenario, not a complete lifetime-cost estimate where transaction, service, or exit evidence is missing. The lower end of the cost range produced only from comparators that meet the adoption rules for the relevant cohort. It excludes unsupported components and must not be interpreted as proof that the amount was charged or paid. The elapsed period between the documented purchase basis and the modelled end event, expressed in years. It compounds or accumulates annualised comparators for relevant products, but does not turn a one-off issuance comparator into a recurring cost. The unique identifier used to join the product across dossiers, evidence, and generated views. It is the most reliable way to trace a row back to its source record. The reported date on which the security was issued. It anchors vintage and regulatory-regime comparisons, but does not establish the Trust acquisition date. The issuer-reported total issuance or outstanding amount. It describes the security programme or issuance, not the Trust's investment, and must not replace a usable position amount. The entity named as issuer in the product evidence. Issuer identity helps assess credit and jurisdictional context, but does not identify every distributor, guarantor, or compensation recipient. The earliest documented end event used by the model, normally a contractual call or scheduled maturity. It should not be read as proof that the security was actually held until that date. The documented maturity, call, or other contractual lifecycle terms. A call feature may end the modelled lifecycle earlier than scheduled maturity, but neither date proves the realised holding outcome. States whether the proxy is embedded-only, includes other modelled groups, unbenchmarked, or not calculated. It prevents an unmodelled group from being read as evidence of zero cost. The one-off or product-cost proxy used as the controlling embedded component. A displayed range preserves the source-supported range rather than inventing a midpoint. The contingent exit and transaction component. Zero means no exit scenario is currently modelled. The annual investment-service proxy accumulated over the valid holding period so that it can be added to the one-off embedded and assumed-exit components in the displayed total. The reconciled lifetime proxy total calculated as embedded product proxy plus recurring service proxy over the holding period plus the assumed exit and transaction proxy. Its displayed components must sum to this amount. Canonical YAML field: purchase_date. The usable Trust-reported amount converted or recorded in US dollars for scenario calculations. It is an exposure basis, not evidence of purchase price, current balance, fee payment, or lifetime holding. The displayed product name, supplemented by its structure where a name is unavailable. It is a navigation label, not a complete description of the payoff or risk. The instrument or payoff family assigned to the product. It provides the starting point for cohort analysis, but similar labels can conceal materially different barriers, underlyings, calls, or loss mechanics. Whether a term sheet or equivalent primary product document has been located. Availability supports further verification but does not mean the document has been fully reviewed or that all fields are confirmed. The Trust, account, or portfolio context associated with the record. It identifies the ownership or review context being analysed, but does not by itself prove a position amount or transaction history."
+    - table [ref=e30]:
+      - rowgroup [ref=e41]:
+        - row [ref=e42]:
+          - columnheader [ref=e43]:
+            - button "ISIN. The unique identifier used to join the product across dossiers, evidence, and generated views. It is the most reliable way to trace a row back to its source record." [ref=e44] [cursor=pointer]:
+              - generic [ref=e45]: ISIN
+            - separator "Resize ISIN column" [ref=e47]
+            - text: The unique identifier used to join the product across dossiers, evidence, and generated views. It is the most reliable way to trace a row back to its source record.
+          - columnheader [ref=e48]:
+            - button "Issuer. The entity named as issuer in the product evidence. Issuer identity helps assess credit and jurisdictional context, but does not identify every distributor, guarantor, or compensation recipient." [ref=e49] [cursor=pointer]:
+              - generic [ref=e50]: Issuer
+            - separator "Resize Issuer column" [ref=e52]
+            - text: The entity named as issuer in the product evidence. Issuer identity helps assess credit and jurisdictional context, but does not identify every distributor, guarantor, or compensation recipient.
+          - columnheader [ref=e53]:
+            - button "Security. The displayed product name, supplemented by its structure where a name is unavailable. It is a navigation label, not a complete description of the payoff or risk." [ref=e54] [cursor=pointer]:
+              - generic [ref=e55]: Security
+            - separator "Resize Security column" [ref=e57]
+            - text: The displayed product name, supplemented by its structure where a name is unavailable. It is a navigation label, not a complete description of the payoff or risk.
+          - text: The product grouping used to select a comparable cost observation. Cohort membership is an analytical classification and does not establish that the products have identical terms or economics.
+          - columnheader [ref=e58]:
+            - button "Bank Held. The bank or intermediary identified as holding, administering, or appearing against the position. This is an evidence attribute and does not by itself prove beneficial ownership or the amount held." [ref=e59] [cursor=pointer]:
+              - generic [ref=e60]: Bank Held
+            - separator "Resize Bank Held column" [ref=e62]
+            - text: The bank or intermediary identified as holding, administering, or appearing against the position. This is an evidence attribute and does not by itself prove beneficial ownership or the amount held.
+          - columnheader [ref=e63]:
+            - button "Issue date. The reported date on which the security was issued. It anchors vintage and regulatory-regime comparisons, but does not establish the Trust acquisition date." [ref=e64] [cursor=pointer]:
+              - generic [ref=e65]: Issue date
+            - separator "Resize Issue date column" [ref=e67]
+            - text: The reported date on which the security was issued. It anchors vintage and regulatory-regime comparisons, but does not establish the Trust acquisition date.
+          - columnheader [ref=e68]:
+            - button "Lifecycle end. The earliest documented end event used by the model, normally a contractual call or scheduled maturity. It should not be read as proof that the security was actually held until that date." [ref=e69] [cursor=pointer]:
+              - generic [ref=e70]: Lifecycle end
+            - separator "Resize Lifecycle end column" [ref=e72]
+            - text: The earliest documented end event used by the model, normally a contractual call or scheduled maturity. It should not be read as proof that the security was actually held until that date.
+          - columnheader [ref=e73]:
+            - button "Reported position (USD). The usable Trust-reported amount converted or recorded in US dollars for scenario calculations. It is an exposure basis, not evidence of purchase price, current balance, fee payment, or lifetime holding." [ref=e74] [cursor=pointer]:
+              - generic [ref=e75]: Reported position (USD)
+            - separator "Resize Reported position (USD) column" [ref=e77]
+            - text: The usable Trust-reported amount converted or recorded in US dollars for scenario calculations. It is an exposure basis, not evidence of purchase price, current balance, fee payment, or lifetime holding.
+          - text: The lower end of the cost range produced only from comparators that meet the adoption rules for the relevant cohort. It excludes unsupported components and must not be interpreted as proof that the amount was charged or paid. The upper end of the cost range produced only from comparators that meet the adoption rules for the relevant cohort. It is a bounded evidence scenario, not a complete lifetime-cost estimate where transaction, service, or exit evidence is missing. The one-off or product-cost proxy used as the controlling embedded component. A displayed range preserves the source-supported range rather than inventing a midpoint. The annual investment-service proxy accumulated over the valid holding period so that it can be added to the one-off embedded and assumed-exit components in the displayed total. The contingent exit and transaction component. Zero means no exit scenario is currently modelled. The reconciled lifetime proxy total calculated as embedded product proxy plus recurring service proxy over the holding period plus the assumed exit and transaction proxy. Its displayed components must sum to this amount. States whether the proxy is embedded-only, includes other modelled groups, unbenchmarked, or not calculated. It prevents an unmodelled group from being read as evidence of zero cost.
+          - columnheader [ref=e78]:
+            - button "Country. The country linked to the issuer, product, or supporting evidence. It supports jurisdictional comparability but does not identify the distribution channel or governing law unless those are separately documented." [ref=e79] [cursor=pointer]:
+              - generic [ref=e80]: Country
+            - separator "Resize Country column" [ref=e82]
+            - text: The country linked to the issuer, product, or supporting evidence. It supports jurisdictional comparability but does not identify the distribution channel or governing law unless those are separately documented.
+          - text: "The currency in which the denomination, payoff, or payment is expressed. Currency affects comparability and conversion, so a displayed USD amount may still represent a foreign-currency exposure. The source workbook or presentation sequence retained for stable review ordering. It carries no economic, risk, or priority meaning. The elapsed period between the documented purchase basis and the modelled end event, expressed in years. It compounds or accumulates annualised comparators for relevant products, but does not turn a one-off issuance comparator into a recurring cost. The issuer-reported total issuance or outstanding amount. It describes the security programme or issuance, not the Trust's investment, and must not replace a usable position amount. The documented maturity, call, or other contractual lifecycle terms. A call feature may end the modelled lifecycle earlier than scheduled maturity, but neither date proves the realised holding outcome. Canonical YAML field: purchase_date. The instrument or payoff family assigned to the product. It provides the starting point for cohort analysis, but similar labels can conceal materially different barriers, underlyings, calls, or loss mechanics. Whether a term sheet or equivalent primary product document has been located. Availability supports further verification but does not mean the document has been fully reviewed or that all fields are confirmed."
+          - columnheader [ref=e83]:
+            - button "Trust. The Trust, account, or portfolio context associated with the record. It identifies the ownership or review context being analysed, but does not by itself prove a position amount or transaction history." [ref=e84] [cursor=pointer]:
+              - generic [ref=e85]: Trust
+            - separator "Resize Trust column" [ref=e87]
+            - text: The Trust, account, or portfolio context associated with the record. It identifies the ownership or review context being analysed, but does not by itself prove a position amount or transaction history.
+      - rowgroup [ref=e88]:
+        - row [ref=e89]:
+          - cell "XS0171914038" [ref=e90]
+          - cell "Lloyds TSB Bank" [ref=e91]
+          - cell "Callable - Actioned" [ref=e92]
+          - cell "Deutsche, Lloyds" [ref=e93]
+          - cell "26 Jun 2003" [ref=e94]
+          - cell "14 Apr 2008" [ref=e95]
+          - cell "10,700,000" [ref=e96]
+          - cell "UK" [ref=e97]
+          - cell "Sete/Ebro" [ref=e98]
+        - row [ref=e99]:
+          - cell "CH1484588913" [ref=e100]
+          - cell "Leonteq Securities AG" [ref=e101]
+          - cell "Leonteq Express Certificate on S&P 500, Swiss Market Index" [ref=e102]
+          - cell [ref=e103]
+          - cell "03 Mar 2026" [ref=e104]
+          - cell "03 Mar 2028" [ref=e105]
+          - cell "10,000,000" [ref=e106]
+          - cell [ref=e107]
+          - cell [ref=e108]
+        - row [ref=e109]:
+          - cell "XS0169318291" [ref=e110]
+          - cell "Lloyds TSB Bank" [ref=e111]
+          - cell "Callable- Actioned" [ref=e112]
+          - cell "Deutsche, Lloyds and UBP" [ref=e113]
+          - cell "19 May 2003" [ref=e114]
+          - cell "01 Jun 2010" [ref=e115]
+          - cell "9,650,000" [ref=e116]
+          - cell "UK" [ref=e117]
+          - cell "Sete/Ebro/Tudela" [ref=e118]
+        - row [ref=e119]:
+          - cell "XS0170303290" [ref=e120]
+          - cell "Banque Caisse Epargne" [ref=e121]
+          - cell "Callable - Actioned" [ref=e122]
+          - cell "Lloyds and UBP" [ref=e123]
+          - cell "03 Jun 2003" [ref=e124]
+          - cell "16 Dec 2008" [ref=e125]
+          - cell "6,250,000" [ref=e126]
+          - cell "Luxemborg" [ref=e127]
+          - cell "Ebro/Tudela" [ref=e128]
+        - row [ref=e129]:
+          - cell "XS0164480286" [ref=e130]
+          - cell "Lloyds TSB Bank" [ref=e131]
+          - cell "Callable - actioned Euro MTN" [ref=e132]
+          - cell "Deutsche/ Lloyds, Pictet and UBP" [ref=e133]
+          - cell "28 Feb 2003" [ref=e134]
+          - cell "25 Mar 2008" [ref=e135]
+          - cell "5,900,000" [ref=e136]
+          - cell "UK" [ref=e137]
+          - cell "Sete/Ebro/Tudela" [ref=e138]
+        - row [ref=e139]:
+          - cell "XS0249805960" [ref=e140]
+          - cell "Banque international Lux" [ref=e141]
+          - cell "Callable" [ref=e142]
+          - cell "Deutsche/ Lloyds and UBP" [ref=e143]
+          - cell "28 Mar 2006" [ref=e144]
+          - cell "11 May 2021" [ref=e145]
+          - cell "5,600,000" [ref=e146]
+          - cell "Luxemborg" [ref=e147]
+          - cell "Sete/Ebro/Tudela" [ref=e148]
+        - row [ref=e149]:
+          - cell "XS0165220400" [ref=e150]
+          - cell "Banque Caisse Epargne" [ref=e151]
+          - cell "Callable - actioned" [ref=e152]
+          - cell "Lloyds and UBP" [ref=e153]
+          - cell "11 Mar 2003" [ref=e154]
+          - cell "24 Sep 2008" [ref=e155]
+          - cell "5,000,000" [ref=e156]
+          - cell "Luxemborg" [ref=e157]
+          - cell "Ebro/Tudela" [ref=e158]
+        - row [ref=e159]:
+          - cell "XS0284203071" [ref=e160]
+          - cell "Commonwealth bank Australia" [ref=e161]
+          - cell "Callable" [ref=e162]
+          - cell "Deutsche/ Lloyds, Pictet and UBP" [ref=e163]
+          - cell "18 Jan 2007" [ref=e164]
+          - cell "14 Feb 2022" [ref=e165]
+          - cell "3,190,000" [ref=e166]
+          - cell "Australia" [ref=e167]
+          - cell "Sete/Ebro/Tudela" [ref=e168]
+        - row [ref=e169]:
+          - cell "XS0294314694" [ref=e170]
+          - cell "Bank of Scotland PLC" [ref=e171]
+          - cell "Callable" [ref=e172]
+          - cell "Deutsche, Lloyds" [ref=e173]
+          - cell "26 Mar 2007" [ref=e174]
+          - cell "02 Apr 2022" [ref=e175]
+          - cell "2,200,000" [ref=e176]
+          - cell "UK" [ref=e177]
+          - cell "Sete/Ebro" [ref=e178]
+        - row [ref=e179]:
+          - cell "XS3234638248" [ref=e180]
+          - cell "BBVA Global Markets, B.V. Series 40076 USD 2,400,000 Equity Linked Notes due 2027" [ref=e181]
+          - cell "Series 40076 USD 2,400,000 Equity Linked Notes due 2027" [ref=e182]
+          - cell [ref=e183]
+          - cell "27 Jan 2026" [ref=e184]
+          - cell "22 Jul 2027" [ref=e185]
+          - cell "2,000,000" [ref=e186]
+          - cell [ref=e187]
+          - cell [ref=e188]
+        - row [ref=e189]:
+          - cell "XS0168875792" [ref=e190]
+          - cell [ref=e191]
+          - cell "Callable" [ref=e192]
+          - cell "Deutsche, Lloyds and UBP" [ref=e193]
+          - cell [ref=e194]
+          - cell "24 Apr 2018" [ref=e195]
+          - cell "1,600,000" [ref=e196]
+          - cell "Norway" [ref=e197]
+          - cell "Sete/Ebro/Tudela" [ref=e198]
+        - row [ref=e199]:
+          - cell "XS0293919121" [ref=e200]
+          - cell "Commonwealth bank Australia" [ref=e201]
+          - cell "Callable" [ref=e202]
+          - cell "Deutsche/ Lloyds, Pictet and UBP" [ref=e203]
+          - cell "22 Mar 2007" [ref=e204]
+          - cell "10 Apr 2022" [ref=e205]
+          - cell "1,450,000" [ref=e206]
+          - cell "Australia" [ref=e207]
+          - cell "Sete/Ebro/Tudela" [ref=e208]
+        - row [ref=e209]:
+          - cell "XS0172077769" [ref=e210]
+          - cell "Lloyds TSB Bank" [ref=e211]
+          - cell "Callable - Actioned" [ref=e212]
+          - cell "Deutsche/ Lloyds and Pictet" [ref=e213]
+          - cell "27 Jun 2003" [ref=e214]
+          - cell "14 Apr 2008" [ref=e215]
+          - cell "1,400,000" [ref=e216]
+          - cell "UK" [ref=e217]
+          - cell "Sete/Ebro/Tudela" [ref=e218]
+        - row [ref=e219]:
+          - cell "XS0241444883" [ref=e220]
+          - cell "Banque international Lux" [ref=e221]
+          - cell "Callable - Actioned" [ref=e222]
+          - cell "Deutsche/ Lloyds and Pictet" [ref=e223]
+          - cell "10 Jan 2006" [ref=e224]
+          - cell "10 Feb 2009" [ref=e225]
+          - cell "1,380,000" [ref=e226]
+          - cell "Luxemborg" [ref=e227]
+          - cell "Sete/Ebro/Tudela" [ref=e228]
+        - row [ref=e229]:
+          - cell "XS0277502067" [ref=e230]
+          - cell "Commonwealth bank Australia" [ref=e231]
+          - cell "Callable" [ref=e232]
+          - cell "Deutsche/ Lloyds, Pictet and UBP" [ref=e233]
+          - cell "24 Nov 2006" [ref=e234]
+          - cell "14 Dec 2021" [ref=e235]
+          - cell "1,000,000" [ref=e236]
+          - cell "Australia" [ref=e237]
+          - cell "Sete/Ebro/Tudela" [ref=e238]
+        - row [ref=e239]:
+          - cell "XS0278550750" [ref=e240]
+          - cell "Dexia Banque International LUX SA" [ref=e241]
+          - cell "Callable - Actioned" [ref=e242]
+          - cell "Lloyds and UBP" [ref=e243]
+          - cell "05 Dec 2006" [ref=e244]
+          - cell "03 Jan 2009" [ref=e245]
+          - cell "1,000,000" [ref=e246]
+          - cell "Luxemborg" [ref=e247]
+          - cell "Ebro/Tudela" [ref=e248]
+        - row [ref=e249]:
+          - cell "XS0297701319" [ref=e250]
+          - cell "Commonwealth bank Australia" [ref=e251]
+          - cell "Callable - matured" [ref=e252]
+          - cell "Deutsche/ Lloyds and Pictet" [ref=e253]
+          - cell "30 Apr 2007" [ref=e254]
+          - cell "30 Apr 2010" [ref=e255]
+          - cell "800,000" [ref=e256]
+          - cell "Australia" [ref=e257]
+          - cell "Sete/Ebro/Tudela" [ref=e258]
+        - row [ref=e259]:
+          - cell "XS0318585791" [ref=e260]
+          - cell [ref=e261]
+          - cell "Kick in" [ref=e262]
+          - cell "Lloyds, Pictet and UBP" [ref=e263]
+          - cell [ref=e264]
+          - cell "21 Sep 2011" [ref=e265]
+          - cell "800,000" [ref=e266]
+          - cell "Luxemborg" [ref=e267]
+          - cell "Ebro/Tudela" [ref=e268]
+        - row [ref=e269]:
+          - cell "XS0300388351" [ref=e270]
+          - cell "Commonwealth bank Australia" [ref=e271]
+          - cell "Callable unsecured fixed to variable type note - actioned<br><br>Dual indexed and leveraged" [ref=e272]
+          - cell "UBP Jersey and Lloyds" [ref=e273]
+          - cell "30 May 2007" [ref=e274]
+          - cell "30 May 2017" [ref=e275]
+          - cell "600,000" [ref=e276]
+          - cell "Australia" [ref=e277]
+          - cell "Ebro/Tudela" [ref=e278]
+        - row [ref=e279]:
+          - cell "XS0293931688" [ref=e280]
+          - cell "Commonwealth bank Australia" [ref=e281]
+          - cell "Callable - Actioned" [ref=e282]
+          - cell "Deutsche, UBP" [ref=e283]
+          - cell "22 Mar 2007" [ref=e284]
+          - cell "14 Apr 2009" [ref=e285]
+          - cell "500,000" [ref=e286]
+          - cell "Australia" [ref=e287]
+          - cell "Sete/Tudela" [ref=e288]
+        - row [ref=e289]:
+          - cell "XS0765564827" [ref=e290]
+          - cell "AQUA + INV(SWISS RE)" [ref=e291]
+          - 'cell "AQUARIUS + INVESTMENTS PLC: US$750,000,000 Perpetual Limited Recourse Secured Notes" [ref=e292]'
+          - cell [ref=e293]
+          - cell "29 Mar 2012" [ref=e294]
+          - cell "09 Nov 2018" [ref=e295]
+          - cell "200,000" [ref=e296]
+          - cell [ref=e297]
+          - cell "Jake" [ref=e298]
+        - row [ref=e299]:
+          - cell "XS1028242706" [ref=e300]
+          - cell "MORGAN STANLEY BV" [ref=e301]
+          - cell "Morgan Stanley Euro Medium Term Note (\"EMTN\")" [ref=e302]
+          - cell [ref=e303]
+          - cell "14 Feb 2014" [ref=e304]
+          - cell "14 Feb 2020" [ref=e305]
+          - cell [ref=e306]
+          - cell [ref=e307]
+          - cell "Jake" [ref=e308]
+        - row [ref=e309]:
+          - cell "XS1243914071" [ref=e310]
+          - cell "NOMURA BANK INTL PLC" [ref=e311]
+          - cell "Nomura Bank International Plc - Euro Dollar (senior unsecured)" [ref=e312]
+          - cell [ref=e313]
+          - cell "15 Jun 2015" [ref=e314]
+          - cell "09 Jun 2020" [ref=e315]
+          - cell [ref=e316]
+          - cell [ref=e317]
+          - cell "Jogger 2" [ref=e318]
+        - row [ref=e319]:
+          - cell "CH0252328973" [ref=e320]
+          - cell "CREDIT SUISSE NASSAU" [ref=e321]
+          - cell "Credit Suisse Nassau - senior unsecured Euro MTN" [ref=e322]
+          - cell [ref=e323]
+          - cell "28 May 2015" [ref=e324]
+          - cell "28 May 2020" [ref=e325]
+          - cell [ref=e326]
+          - cell [ref=e327]
+          - cell "Jenny 2" [ref=e328]
+        - row [ref=e329]:
+          - cell "XS0297467705" [ref=e330]
+          - cell "Commonwealth bank Australia" [ref=e331]
+          - cell "Matured" [ref=e332]
+          - cell [ref=e333]
+          - cell "17 Apr 2007" [ref=e334]
+          - cell "30 Apr 2022" [ref=e335]
+          - cell [ref=e336]
+          - cell [ref=e337]
+          - cell [ref=e338]
+        - row [ref=e339]:
+          - cell "XS0298465822" [ref=e340]
+          - cell [ref=e341]
+          - cell "Not reported" [ref=e342]
+          - cell [ref=e343]
+          - cell [ref=e344]
+          - cell [ref=e345]
+          - cell [ref=e346]
+          - cell [ref=e347]
+          - cell [ref=e348]
+        - row [ref=e349]:
+          - cell "XS0304286924" [ref=e350]
+          - cell "Dexia Banque International LUX SA" [ref=e351]
+          - cell "Matured" [ref=e352]
+          - cell [ref=e353]
+          - cell "30 May 2007" [ref=e354]
+          - cell "27 Jun 2022" [ref=e355]
+          - cell [ref=e356]
+          - cell [ref=e357]
+          - cell [ref=e358]
+        - row [ref=e359]:
+          - cell "XS0314283432" [ref=e360]
+          - cell "Commonwealth bank Australia" [ref=e361]
+          - cell "Callable - Actioned" [ref=e362]
+          - cell [ref=e363]
+          - cell "26 Jul 2007" [ref=e364]
+          - cell "02 Feb 2009" [ref=e365]
+          - cell [ref=e366]
+          - cell [ref=e367]
+          - cell [ref=e368]
+        - row [ref=e369]:
+          - cell "XS0315745447" [ref=e370]
+          - cell "KBC IFIMA NV" [ref=e371]
+          - cell "Reverse Convertible, Convertible Bond, EURO MTN, EMTN" [ref=e372]
+          - cell [ref=e373]
+          - cell "03 Aug 2007" [ref=e374]
+          - cell "20 Aug 2012" [ref=e375]
+          - cell [ref=e376]
+          - cell [ref=e377]
+          - cell [ref=e378]

@@ -28,7 +28,7 @@ A proxy-based estimate is a sensitivity to a stated assumption, reported separat
 | Issuer issue-size unavailable | 3 | USD 12.4 million | Remain included because a usable Trust position is available. |
 | Position-basis exclusions | 8 | n/a | 2 issuer/outstanding-size values and 6 missing values; excluded from Trust-exposure aggregation. |
 
-The 21-ISIN, USD 71.4 million population includes `CH1484588913`, `XS0168875792`, and `XS0318585791` despite unavailable issuer issue-size evidence. `XS0168875792` and `XS0318585791` remain explicitly evidence-limited, while `XS0298465822` remains in the 29-ISIN coverage register without a dollar aggregation because its Trust position is missing. The two currently unbenchmarked usable-basis rows are `XS0765564827` and `XS0318585791`.
+The 21-ISIN, USD 71.4 million population includes `CH1484588913`, `XS0168875792`, and `XS0318585791`; the latter two remain without documentary issue-size evidence, while Leonteq now has a USD 10,000,000 documentary nominal amount. `XS0168875792` and `XS0318585791` remain explicitly evidence-limited, while `XS0298465822` remains in the 29-ISIN coverage register without a dollar aggregation because its Trust position is missing. The two currently unbenchmarked usable-basis rows are `XS0765564827` and `XS0318585791`.
 
 The reported positions are a controlled exposure basis, not evidence of acquisition date, acquisition price, balance through time, sale proceeds, or redemption proceeds. Consequently, they cannot yet support a lifetime aggregation from acquisition through disposal or maturity.
 
@@ -60,14 +60,14 @@ The principal limitations are not portfolio completeness but transaction and pro
 1. Trust acquisition dates, prices, holdings through time, sale dates, sale proceeds, and redemption proceeds have not been reconciled. These are required to convert annual or contingent rates into a lifetime cost.
 2. The dominant 2003-2007 historical rate-linked population lacks an adopted, comparable component-cost benchmark despite targeted research. Existing modern, equity-linked, US, and all-in observations must remain labelled comparators or sensitivities.
 3. Three ISINs remain explicit exclusions from a structured-product conclusion. They must remain visible in coverage reporting and must not be coded as zero-cost or ordinary unbenchmarked rows.
-4. The data-integrity audit remains a fail for payoff/risk evidence and visual reinspection completeness. Deterministic canonical views and complete artifact pairing do not substitute for final terms or Trust transaction records.
+4. The data-integrity audit remains a fail for payoff/risk evidence and the three explicit structure exclusions. Deterministic canonical views and complete artifact pairing do not substitute for final terms or Trust transaction records; the mapped image/OCR visual reinspection is complete.
 
 ### Recommended decisions and next actions
 
 1. Authorise recovery of Trust acquisition, custody, balance, disposal, call, maturity, and redemption records for the largest position-basis ISINs, beginning with the 19-ISIN, USD 70.2 million cost-assessable population.
 2. Recover final terms and pricing supplements for the historical rate-linked cohort before adopting any component-level issuance or distribution assumption.
 3. Seek product- and account-level documents that identify the payer, recipient, calculation basis, amount, timing, and disclosure treatment of any third-party compensation. Until then, report retrocession as `not separately estimable`.
-4. Maintain evidence-only, proxy-base, and wide-sensitivity views as separate, non-additive results. Require each applied rate to cite its specific source-register ID and comparability rationale.
+4. Maintain evidence-based and proxy-base views as separate, non-additive results. Any low/base/high or alternative holding-period test remains an explicitly labelled assumption within the proxy-base view, not a third scenario. Require each applied rate to cite its specific source-register ID and comparability rationale.
 5. Reassess the three explicit structure exclusions only if primary issuer, exchange, Bloomberg, or Trust evidence is recovered.
 
 ### Basis and references

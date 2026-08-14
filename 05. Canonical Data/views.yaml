@@ -37,6 +37,7 @@ views:
       - barrier
       - underlying
       - other_comments
+      - redemption_terms
       - downside
       - risk
       - position_size

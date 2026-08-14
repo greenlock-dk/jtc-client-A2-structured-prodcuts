@@ -3,8 +3,6 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from openpyxl import load_workbook
-
 from product_frontmatter import read_product, write_product
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,16 +23,41 @@ AMOUNT_PATTERN = re.compile(
     r"(?i)\b(USD|EUR|CHF|GBP|AUD|CAD|JPY)\s*\n?\s*([\d,]+(?:\.\d+)?)\s*\(M\)"
 )
 RECOVERY_MARKER = "## Issue Size / Amount Issued"
+VISUALLY_INSPECTED_IMAGES = {
+    "CH0252328973": "02. BBG images/CH0252328973/CH0252328973 - image-01.png",
+    "XS0164480286": "02. BBG images/XS0164480286/XS0164480286 - image-01.png",
+    "XS0165220400": "02. BBG images/XS0165220400/XS0165220400 - image-01.png",
+    "XS0169318291": "02. BBG images/XS0169318291/XS0169318291 - image-01.png",
+    "XS0170303290": "02. BBG images/XS0170303290/XS0170303290 - image-01.png",
+    "XS0171914038": "02. BBG images/XS0171914038/XS0171914038 - image-01.png",
+    "XS0172077769": "02. BBG images/XS0172077769/XS0172077769 - image-01.png",
+    "XS0241444883": "02. BBG images/XS0241444883/XS0241444883 - image-01.png",
+    "XS0249805960": "02. BBG images/XS0249805960/XS0249805960 - image-01.png",
+    "XS0277502067": "02. BBG images/XS0277502067/XS0277502067 - image-01.png",
+    "XS0278550750": "02. BBG images/XS0278550750/XS0278550750 - image-01.png",
+    "XS0284203071": "02. BBG images/XS0284203071/XS0284203071 - image-01.png",
+    "XS0293919121": "02. BBG images/XS0293919121/XS0293919121 - image-01.png",
+    "XS0293931688": "02. BBG images/XS0293931688/XS0293931688 - image-01.png",
+    "XS0294314694": "02. BBG images/XS0294314694/XS0294314694 - image-01.png",
+    "XS0297467705": "02. BBG images/XS0297467705/XS0297467705 - image-01.png",
+    "XS0297701319": "02. BBG images/XS0297701319/XS0297701319 - image-01.png",
+    "XS0300388351": "02. BBG images/XS0300388351/XS0300388351 - image-01.png",
+    "XS0304286924": "02. BBG images/XS0304286924/XS0304286924 - image-01.png",
+    "XS0314283432": "02. BBG images/XS0314283432/XS0314283432 - image-01.png",
+    "XS0315745447": "02. BBG images/XS0315745447/XS0315745447 - image-01.png",
+    "XS0765564827": "02. BBG images/XS0765564827/XS0765564827 - image-02.png",
+    "XS1028242706": "02. BBG images/XS1028242706/XS1028242706 - image-01.png",
+    "XS1243914071": "02. BBG images/XS1243914071/XS1243914071 - image-01.png",
+}
 
 
 def portfolio_isins() -> list[str]:
-    workbook = load_workbook(WORKBOOK_PATH, data_only=True, read_only=True)
-    worksheet = workbook["ISINs summary"]
     isins = []
-    for row in worksheet.iter_rows(values_only=True):
-        for value in row:
-            if isinstance(value, str) and ISIN_PATTERN.fullmatch(value.strip()) and value.strip() not in isins:
-                isins.append(value.strip())
+    for path in sorted(PRODUCT_DIR.glob("[XC][HS]* - *.md")):
+        record, _ = read_product(path)
+        isin = record.get("isin")
+        if isinstance(isin, str) and ISIN_PATTERN.fullmatch(isin) and isin not in isins:
+            isins.append(isin)
     return isins
 
 
@@ -76,6 +99,15 @@ def all_recoveries() -> dict[str, dict[str, str]]:
         "source": "04. Original terms/04. BBVA/XS3234638248_BBVA_Global_Markets_Pricing_Supplement_2026-01-27.pdf",
     }
     values["XS3234638248"]["source"] += "; Trust position size remains USD 2 million"
+    for isin, image_path in VISUALLY_INSPECTED_IMAGES.items():
+        value = values[isin]
+        if value["value"] == "Not parsed from OCR":
+            value["value"] = "Not found"
+            value["status"] = "Confirmed by visual Bloomberg review: not found"
+            value["source"] = f"{image_path}; visual review found an Amt Issued/Outstanding label without a numeric value"
+        else:
+            value["status"] = "Confirmed by visual Bloomberg review"
+            value["source"] = f"{image_path}; visual review confirmed {value['value']} under Amt Issued/Outstanding"
     return values
 
 
@@ -143,6 +175,7 @@ def integrate_dossiers(recoveries: dict[str, dict[str, str]]) -> int:
                 "status": value["status"],
                 "source": value["source"],
             }
+            canonical_data.setdefault("field_statuses", {})["issue_size"] = value["status"]
             write_product(path, canonical_data, text)
         else:
             path.write_text(text, encoding="utf-8")

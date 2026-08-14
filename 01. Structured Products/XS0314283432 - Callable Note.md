@@ -23,20 +23,21 @@ barrier: ''
 frequency: not regular
 annualised_rate: ''
 other_comments: ''
-redemption_terms: ''
+redemption_terms: 'Called on 02-Feb-2009 at 100.00 as displayed in 02. BBG images/XS0314283432/XS0314283432 - image-01.png'
 downside: ''
 risk: ''
 position_size: ''
 position_size_status: missing or not Trust-specific
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
-position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding
+  size is not substituted
 denomination_usd: 10,000
 issue_size:
   display: USD 43,400.00 million
-  status: confirmed
-  source: 03. BBG OCR/XS0314283432/XS0314283432 - image-01.txt; Amt Issued/Outstanding;
-    Amt Issued/Outstanding 23) Sustainability CALLED 0N 02/02/09@100.00 USD 43,400.00
-    (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0314283432/XS0314283432 - image-01.png; visual review confirmed
+    USD 43,400.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Not available in current sources
@@ -55,11 +56,12 @@ field_statuses:
   frequency: Workbook reference
   annualised_rate: Not available in current sources
   other_comments: Not available in current sources
-  redemption_terms: Not available in current sources
+  redemption_terms: 'Confirmed by visual Bloomberg review; 02. BBG images/XS0314283432/XS0314283432 - image-01.png'
   downside: Not available in current sources
   risk: Not available in current sources
   position_size: Not available in current sources
   denomination_usd: Workbook reference
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0314283432 - Callable Note
@@ -93,7 +95,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Observation / payment frequency | not regular |  | not regular | Workbook reference |
 | Annualised rate |  |  |  | Not available in current sources |
 | Other comments |  |  |  | Not available in current sources |
-| Redemption terms |  |  |  | Not available in current sources |
+| Redemption terms |  | CALLED ON 02/02/09@100.00 | Called on 02-Feb-2009 at 100.00 | Confirmed by visual Bloomberg review |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
 | Position size (USD) |  |  |  | Not available in current sources |
@@ -105,7 +107,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 43,400.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0314283432/XS0314283432 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability CALLED 0N 02/02/09@100.00 USD 43,400.00 (M) Quick Links Iss Sprd USD (M) 3D ALLQ Pricing Calc Type (521)ACCRUED ONLY FLOAT` |
+| Original issue / amount issued or outstanding | USD 43,400.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0314283432/XS0314283432 - image-01.png; visual review confirmed USD 43,400.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

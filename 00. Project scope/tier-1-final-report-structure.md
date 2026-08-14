@@ -98,6 +98,8 @@ Present the controls before presenting dollar totals.
 
 No aggregate dollar total should be presented as strategy-wide unless its investment basis is reconciled. Rate-based results may still be shown for rows with unresolved dollar bases.
 
+Every coverage table should state the scenario, included ISIN count, included Trust notional, position-size status, excluded or unresolved ISINs and notional, timing treatment, and evidence confidence. The 21 position-eligible ISINs, 19 currently cost-assessable rows, 2 usable-basis unbenchmarked rows, 2 issue/outstanding-size rows, 6 missing-basis rows, and 3 path-6 evidence-limited ISINs must remain distinguishable.
+
 ## 5. Cost Taxonomy and Double-Counting Rules
 
 The model uses mutually exclusive cost buckets.
@@ -162,33 +164,19 @@ The historical rate-linked cohort should receive specific attention because it i
 
 ## 8. Scenario Methodology
 
-### 9.1 Scenario A: Evidence-only
+### 8.1 Scenario A: Evidence-only
 
 Use only evidence meeting the adoption rules. Leave unsupported components as `unbenchmarked` or `not separately estimable`. This is the most defensible but potentially incomplete result.
 
-### 9.2 Scenario B: Proxy-base
+### 8.2 Scenario B: Proxy-base
 
-Use the closest available cohort comparator where direct evidence is absent, with explicit adjustments or limitations for payoff, vintage, jurisdiction, channel, and timing. Use documented proxy lifecycle dates only where the Trust transaction date is unavailable.
-
-### 9.3 Scenario C: Wide sensitivity
-
-Test conservative, central, and upper cases for:
-
-- One-off issuance rates.
-- Distribution comparators.
-- Recurring service rates.
-- Holding periods.
-- Early-exit versus hold-to-maturity paths.
-- Acquisition-date and balance assumptions.
-- Inclusion and exclusion of unresolved rows.
-
-A sensitivity is not evidence that the tested amount was paid.
+Use the closest available cohort comparator where direct evidence is absent, with explicit adjustments or limitations for payoff, vintage, jurisdiction, channel, and timing. Use documented proxy lifecycle dates only where the Trust transaction date is unavailable. Any low/base/high or alternative holding-period test remains an assumption within this proxy-base scenario, not a third scenario, and must not be presented as evidence that the tested amount was paid. Show the assumption, source ID, coverage, timing, and confidence beside the resulting proxy amount.
 
 ## 9. Lifetime Cost Results
 
 Report results in separate, non-additive views.
 
-### 10.1 One-off product costs
+### 9.1 One-off product costs
 
 For each ISIN and cohort, show:
 
@@ -198,7 +186,7 @@ For each ISIN and cohort, show:
 - Evidence status, comparability, and the specific source ID applied (for example `EU-05`, `CH-05`, `US-01`).
 - Lifecycle event used.
 
-### 10.2 Recurring service costs
+### 9.2 Recurring service costs
 
 Show:
 
@@ -207,7 +195,7 @@ Show:
 - Balance and period assumptions.
 - Advisory, management, custody, and brokerage components separately, each citing its supporting source ID where a comparator exists (for example `EU-04`, `CH-06`).
 
-### 10.3 Contingent exit costs
+### 9.3 Contingent exit costs
 
 Show separately for documented or assumed early exits:
 
@@ -218,11 +206,11 @@ Show separately for documented or assumed early exits:
 
 Do not include exit costs in hold-to-maturity issuance totals.
 
-### 10.4 Potential intermediary compensation
+### 9.4 Potential intermediary compensation
 
 Show only where the evidence identifies the relevant payment definition and basis, citing the specific source ID. Present potential retrocession as a nested sub-allocation of distribution or service compensation. Otherwise state `not separately estimable`.
 
-### 10.5 Illustrative ISIN calculation example
+### 9.5 Illustrative ISIN calculation example
 
 Include one worked example in the final report to show how the evidence-based and proxy-based methods differ for the same product. Use a two-column presentation, or equivalent side-by-side visual, with the product basis above the columns and source notes below them.
 
@@ -242,30 +230,9 @@ Include one worked example in the final report to show how the evidence-based an
 - The holding period and lifecycle event must be sourced from the product or Trust records for the selected example. A proxy acquisition date must be identified as such if the Trust purchase date is unavailable.
 - Displayed calculated monetary amounts in the published report must follow the report-wide rounding rule of `ROUND(X, -5)`; the unrounded figures above are retained here solely to demonstrate the calculation mechanics.
 
-## 10. Sensitivity and Coverage Presentation
+Round every calculated monetary outcome displayed in the report, including scenario totals, ranges, and coverage totals, to the nearest USD 100,000 using `ROUND(X, -5)`. Preserve source data exactly as collected: reported Trust positions, issuer issue/outstanding values, minimum denominations, and values sourced from XLS or Bloomberg must not be rounded or overwritten by this presentation convention.
 
-Every aggregate table should include:
-
-- Scenario name.
-- Included ISIN count, distinguishing the 21 position-eligible ISINs from the 19 rows currently cost-assessable under a given scenario; show the remaining 2 usable-basis ISINs as `unbenchmarked`, not excluded.
-- Included Trust notional.
-- Excluded or unresolved ISIN count and notional, with position-basis exclusions (2 `issue/outstanding size`; 6 `missing`) and structure exclusions (3 path-6 ISINs) shown separately.
-- One-off, recurring, and exit timing.
-- Low/base/high values.
-- Evidence confidence.
-- Key assumptions driving the result.
-
-Round every calculated monetary outcome displayed in the report, including scenario totals, ranges, and calculated coverage totals, to the nearest USD 100,000 using `ROUND(X, -5)`. Preserve source data exactly as collected: reported Trust positions, issuer issue/outstanding values, minimum denominations, and values sourced from XLS or Bloomberg must not be rounded or overwritten by this presentation convention.
-
-Include a bridge showing how the result changes when:
-
-1. Only usable invested notional is included.
-2. Missing and unresolved rows are added under proxy assumptions.
-3. Products are assumed acquired at issuance rather than at an unknown later date.
-4. Products are held to call/maturity rather than sold early.
-5. Annual service costs are excluded, added, or accumulated over alternative periods.
-
-## 11. Conclusions and Decisions
+## 10. Conclusions and Decisions
 
 The conclusion should answer:
 
@@ -278,9 +245,11 @@ The conclusion should answer:
 - Which unresolved issues materially affect the result?
 - Which records would most reduce uncertainty within the current scope?
 
-The final conclusion must not describe the proxy-base or wide-sensitivity result as an actual historical fee total.
+Include a bridge comparing the evidence-based and proxy-based results, showing separately the effect of usable invested notional, unresolved rows under proxy assumptions, proxy acquisition dates, hold-to-call or maturity treatment, and proxy-only recurring service or exit assumptions.
 
-## 12. Recommended Next Actions
+The final conclusion must not describe the proxy-base result as an actual historical fee total.
+
+## 11. Recommended Next Actions
 
 Prioritise actions by expected reduction in uncertainty and recovery value:
 
@@ -291,7 +260,7 @@ Prioritise actions by expected reduction in uncertainty and recovery value:
 5. Obtain account-level advisory, custody, brokerage, and transaction records if those components are required.
 6. Update the model only when each new input has a source, definition, timing, and non-overlap decision.
 
-## 13. Appendices
+## 12. Appendices
 
 - Appendix A: ISIN-level field dictionary and 29-ISIN lifecycle matrix.
 - Appendix B: Position-size usability and coverage register.

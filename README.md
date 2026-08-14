@@ -53,6 +53,18 @@ at `http://127.0.0.1:8000/`. View definitions (selected columns, sorting,
 filters, groups) are persisted in the local `05. Cost modeling/.cost-model-views.json`
 file through the `/api/views` endpoint.
 
+The fixed `Sources` view presents the verified research register from
+`00. Project scope/cost-benchmark-research.md`. It shows each source's market,
+payoff relevance, cohort applicability, cost bucket, observed result, Tier 1
+use, limitations, and locator. Builder controls are hidden for this view, but
+the source register remains exportable as CSV.
+
+The `03c. Cost charts` view shows vertical clustered bars per ISIN, ordered from
+highest to lowest total proxy cost. Each ISIN has a total proxy-cost bar and a
+maximum evidence-cost bar. The `Absolute` toggle displays USD values; `Relative*`
+displays annualised cost as cost USD / usable position size / holding period years.
+Rows without a valid denominator are marked `N/A`, not treated as zero.
+
 **Always open the dashboard at `http://127.0.0.1:8000/`, not through VS Code's
 Simple Browser / Live Preview extension.** Live Preview serves the file on its
 own (often random) port and doesn't implement `/api/views`, so neither the

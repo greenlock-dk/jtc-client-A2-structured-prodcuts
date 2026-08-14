@@ -29,15 +29,15 @@ downside: ''
 risk: ''
 position_size: 800,000
 position_size_status: user-confirmed reported Trust position
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
 position_size_evidence: Reported Trust position recorded as USD 800,000
 denomination_usd: 10,000
 issue_size:
   display: USD 3,000.00 million
-  status: confirmed
-  source: 03. BBG OCR/XS0297701319/XS0297701319 - image-01.txt; Amt Issued/Outstanding;
-    Amt Issued/Outstanding 23) Sustainability USD 3,000.00 (M) Quick Links Iss Sprd
-    USD (M) 30 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0297701319/XS0297701319 - image-01.png; visual review confirmed
+    USD 3,000.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Workbook reference
@@ -61,6 +61,7 @@ field_statuses:
   risk: Not available in current sources
   position_size: Workbook reference
   denomination_usd: Workbook reference
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0297701319 - Callable Range Note
@@ -106,7 +107,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 3,000.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0297701319/XS0297701319 - image-01.txt; Amt Issued/Outstanding; Amt Issued/Outstanding 23) Sustainability USD 3,000.00 (M) Quick Links Iss Sprd USD (M) 30 ALLQ Pricing Calc Type (198)NO CALC-FLOATERS Min Piece/Increment` |
+| Original issue / amount issued or outstanding | USD 3,000.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0297701319/XS0297701319 - image-01.png; visual review confirmed USD 3,000.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

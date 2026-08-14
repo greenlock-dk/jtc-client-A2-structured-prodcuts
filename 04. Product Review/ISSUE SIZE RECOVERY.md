@@ -2,13 +2,15 @@
 
 > Automated recovery pass over all portfolio ISINs and available Bloomberg OCR.
 > `Amt Issued/outstanding` is treated as a candidate issue/outstanding-size field, not confirmed evidence until checked against the source image.
+> Documentary nominal amounts are recorded below when the local original terms provide a stronger source than Bloomberg OCR.
+> Subsequent visual review on 2026-08-13 confirmed all 23 numeric mapped Bloomberg candidates and confirmed CH0252328973 as `not found`; per-row `Candidate: visual confirmation required` labels below describe this earlier OCR-only pass.
 
 ## Results
 
 | ISIN | OCR labels found | Recovered field/context | Status |
 | --- | ---: | --- | --- |
-| `CH1484588913` | 0 | No issue-size label found in available OCR | Unavailable: document recovery required |
-| `XS3234638248` | 0 | No issue-size label found in available OCR | Unavailable: document recovery required |
+| `CH1484588913` | 0 | No issue-size label found in available OCR; local Leonteq term sheet states USD 10,000,000 issue size | Confirmed documentary nominal amount |
+| `XS3234638248` | 0 | No issue-size label found in available OCR; local BBVA pricing supplement states USD 2.4 million nominal amount | Confirmed documentary nominal amount |
 | `XS0765564827` | 1 | `03. BBG OCR/XS0765564827/XS0765564827 - image-02.txt`: Amt Issued/Outstanding 23) Sustainability PERPETUAL CALLED 0N 09/11/18@100.00 USD 750,000.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (1469)FIX-T0-VARIABLE BD; recovered numeric candidate: USD 750,000.00 million | Candidate: visual confirmation required |
 | `XS1028242706` | 1 | `03. BBG OCR/XS1028242706/XS1028242706 - image-01.txt` and source image: `Amt Issued/Outstanding` USD 850.00 (M); recovered numeric value: USD 850.00 million | Confirmed by source image |
 | `XS1243914071` | 1 | `03. BBG OCR/XS1243914071/XS1243914071 - image-01.txt` and source image: `Amt Issued/Outstanding` USD 1,525.00 (M); recovered numeric value: USD 1,525.00 million | Confirmed by source image |
@@ -42,7 +44,8 @@
 - Portfolio instruments scanned: 29
 - Instruments with issue-size label candidates: 24
 - Instruments with no available issue-size label: 5
-- Confirmed original issue sizes: 0
+- Confirmed numeric Bloomberg issue sizes: 23
+- Confirmed documentary nominal amounts outside Bloomberg image/OCR: 2
 
 ## Interpretation
 

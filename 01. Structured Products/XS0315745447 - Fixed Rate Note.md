@@ -28,15 +28,16 @@ downside: ''
 risk: ''
 position_size: ''
 position_size_status: missing or not Trust-specific
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
-position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding size is not substituted
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
+position_size_evidence: No Trust-specific position amount recorded; issuer issue/outstanding
+  size is not substituted
 denomination_usd: ''
 issue_size:
   display: EUR 6,050.00 million
-  status: confirmed
-  source: 03. BBG OCR/XS0315745447/XS0315745447 - image-01.txt; AmtIssued/Outstanding;
-    AmtIssued/Outstanding Quick Links Type Fixed Freq Annual EUR 6,050.00 (M) 32 ALLQ
-    Pricing EUR (M)
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0315745447/XS0315745447 - image-01.png; visual review confirmed
+    EUR 6,050.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Not available in current sources
@@ -60,6 +61,7 @@ field_statuses:
   risk: Not available in current sources
   position_size: Not available in current sources
   denomination_usd: Not available in current sources
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0315745447 - Fixed Rate Note
@@ -105,7 +107,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | EUR 6,050.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0315745447/XS0315745447 - image-01.txt; AmtIssued/Outstanding; AmtIssued/Outstanding Quick Links Type Fixed Freq Annual EUR 6,050.00 (M) 32 ALLQ Pricing EUR (M)` |
+| Original issue / amount issued or outstanding | EUR 6,050.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0315745447/XS0315745447 - image-01.png; visual review confirmed EUR 6,050.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

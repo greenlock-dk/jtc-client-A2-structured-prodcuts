@@ -25,20 +25,20 @@ barrier: The coupon rate is reduced by multiplying number of days the 6 month Li
 frequency: ''
 annualised_rate: ''
 other_comments: Rating AAA
-redemption_terms: ''
+redemption_terms: 'Called on 01-Jun-2010 at 100.00 as displayed in 02. BBG images/XS0169318291/XS0169318291 - image-01.png'
 downside: ''
 risk: ''
 position_size: 9,650,000
 position_size_status: user-confirmed reported Trust position
-position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs summary"
+position_size_source: Trust ISIN information from Bloomberg.xlsx, worksheet "ISINs
+  summary"
 position_size_evidence: Reported Trust position recorded as USD 9,650,000
 denomination_usd: 10,000
 issue_size:
   display: USD 24,070.00 million
-  status: confirmed
-  source: 03. BBG OCR/XS0169318291/XS0169318291 - image-01.txt; Amt Issued/outstanding;
-    Amt Issued/outstanding 23) Sustainability CALLED 0N 06/01/10@100.00 USD 24,070.00
-    (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FL0ATERS
+  status: Confirmed by visual Bloomberg review
+  source: 02. BBG images/XS0169318291/XS0169318291 - image-01.png; visual review confirmed
+    USD 24,070.00 million under Amt Issued/Outstanding
 field_statuses:
   source_exhibit: Workbook reference
   trust: Workbook reference
@@ -57,11 +57,12 @@ field_statuses:
   frequency: Not available in current sources
   annualised_rate: Not available in current sources
   other_comments: Workbook reference
-  redemption_terms: Not available in current sources
+  redemption_terms: 'Confirmed by visual Bloomberg review; 02. BBG images/XS0169318291/XS0169318291 - image-01.png'
   downside: Not available in current sources
   risk: Not available in current sources
   position_size: Workbook reference
   denomination_usd: Workbook reference
+  issue_size: Confirmed by visual Bloomberg review
 ---
 
 # XS0169318291 - Libor Callable Note
@@ -95,7 +96,7 @@ Workbook values are retained as the reference layer. OCR values are supporting c
 | Observation / payment frequency |  |  |  | Not available in current sources |
 | Annualised rate |  |  |  | Not available in current sources |
 | Other comments | Rating AAA |  | Rating AAA | Workbook reference |
-| Redemption terms |  |  |  | Not available in current sources |
+| Redemption terms |  | CALLED ON 06/01/10@100.00 | Called on 01-Jun-2010 at 100.00 | Confirmed by visual Bloomberg review |
 | Downside |  |  |  | Not available in current sources |
 | Risk notes |  |  |  | Not available in current sources |
 | Position size (USD) | 9,650,000 |  | 9,650,000 | Workbook reference |
@@ -107,7 +108,7 @@ This field is separate from the Trust's position size. OCR-derived values are ca
 
 | Field | Value | Status | Source |
 | --- | --- | --- | --- |
-| Original issue / amount issued or outstanding | USD 24,070.00 million | Candidate: visual confirmation required | `03. BBG OCR/XS0169318291/XS0169318291 - image-01.txt; Amt Issued/outstanding; Amt Issued/outstanding 23) Sustainability CALLED 0N 06/01/10@100.00 USD 24,070.00 (M) Quick Links Iss Sprd USD (M) 32 ALLQ Pricing Calc Type (198)NO CALC-FL0ATERS` |
+| Original issue / amount issued or outstanding | USD 24,070.00 million | Confirmed by visual Bloomberg review | `02. BBG images/XS0169318291/XS0169318291 - image-01.png; visual review confirmed USD 24,070.00 million under Amt Issued/Outstanding` |
 
 ## Consistency Review
 

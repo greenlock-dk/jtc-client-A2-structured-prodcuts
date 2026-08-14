@@ -15,6 +15,7 @@ PRODUCT_DIR = ROOT / "01. Structured Products"
 POSITION_CONTROL = ROOT / "04. Product Review" / "POSITION SIZE CONTROL.md"
 OUTPUT_PATH = ROOT / "07. Visutals" / "index.html"
 TOOLTIP_PATH = ROOT / "05. Cost modeling" / "tooltips.yaml"
+RESEARCH_REPORT = ROOT / "00. Project scope" / "cost-benchmark-research.md"
 
 sys.path.insert(0, str(ROOT / "90. Scripts"))
 from product_frontmatter import read_product  # noqa: E402
@@ -206,6 +207,148 @@ def scenario_cost_range(record: dict[str, Any], status: str, cohort: str, scenar
     return "Unbenchmarked", "Unbenchmarked"
 
 
+def chart_row(record: dict[str, Any], statuses: dict[str, str]) -> dict[str, Any]:
+    isin = str(record["isin"])
+    status = statuses[isin]
+    cohort = product_cohort(record)
+    position_amount = usable_position_amount(record, status)
+    holding_period = holding_period_years(record)
+    evidence_low = evidence_high = proxy_total = None
+    embedded_proxy = recurring_proxy = exit_proxy = None
+    calculation_status = "Not calculated"
+
+    if position_amount is not None:
+        evidence_low_value, evidence_high_value = scenario_cost_range(record, status, cohort, "evidence")
+        evidence_low = parse_usd_amount(evidence_low_value)
+        evidence_high = parse_usd_amount(evidence_high_value)
+        components = proxy_component_costs(record, status, cohort)
+        embedded_proxy = parse_usd_amount(components[0])
+        recurring_proxy = parse_usd_amount(components[1])
+        exit_proxy = parse_usd_amount(components[2])
+        proxy_total = parse_usd_amount(components[3])
+        calculation_status = components[4]
+        if proxy_total is None and evidence_high is not None:
+            calculation_status = "Unbenchmarked"
+
+    relative_proxy = None
+    relative_evidence = None
+    if position_amount is not None and holding_period is not None:
+        denominator = position_amount * holding_period
+        if proxy_total is not None:
+            relative_proxy = proxy_total / denominator
+        if evidence_high is not None:
+            relative_evidence = evidence_high / denominator
+
+    return {
+        "isin": isin,
+        "security": str(record.get("product_name") or record.get("structure") or "Not reported"),
+        "issuer": str(record.get("issuer") or "Not reported"),
+        "cohort": cohort,
+        "position": position_amount,
+        "holding_period": holding_period,
+        "evidence_low": evidence_low,
+        "evidence_high": evidence_high,
+        "embedded_proxy": embedded_proxy,
+        "recurring_proxy": recurring_proxy,
+        "exit_proxy": exit_proxy,
+        "proxy_total": proxy_total,
+        "relative_proxy": relative_proxy,
+        "relative_evidence": relative_evidence,
+        "status": calculation_status,
+    }
+
+
+def research_source_rows() -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    in_register = False
+    for line in RESEARCH_REPORT.read_text(encoding="utf-8").splitlines():
+        if line.strip() == "## Verified Source Register":
+            in_register = True
+            continue
+        if in_register and line.startswith("## "):
+            break
+        if not in_register or not line.startswith("|") or line.startswith("| ---"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) != 5 or cells[0] == "ID":
+            continue
+        source_id, source, evidence, tier_use, limitations = cells
+        locator_match = re.search(r"\((https?://[^)]+)\)", source)
+        locator = locator_match.group(1) if locator_match else ""
+        source_name = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", source).strip()
+        searchable = " ".join((source_name, evidence, tier_use, limitations)).lower()
+        if source_id.startswith("EU-"):
+            jurisdiction = "European Union"
+        elif source_id.startswith(("CH-", "WM-")):
+            jurisdiction = "Switzerland"
+        elif source_id.startswith("US-"):
+            jurisdiction = "United States"
+        elif source_id.startswith("AC-"):
+            jurisdiction = "Academic / source-specific"
+        elif source_id.startswith("EXIT-"):
+            jurisdiction = "United States / Europe"
+        else:
+            jurisdiction = "Industry / source-specific"
+        if any(term in searchable for term in ("libor", "range-accrual", "range accrual", "cms-spread", "rate-linked")):
+            payoff = "Rate-linked / callable / range-accrual"
+            applies_to = "Historical rate-linked cohort; no direct ISIN mapping"
+        elif any(term in searchable for term in ("equity-linked", "discount certificate", "bonus certificate", "barrier reverse", "dax")):
+            payoff = "Equity-linked certificates"
+            applies_to = "Modern equity-linked cohort; no direct ISIN mapping"
+        elif "structured product" in searchable or "structured note" in searchable:
+            payoff = "Structured products / notes"
+            applies_to = "Structured-product cohorts; no direct ISIN mapping"
+        else:
+            payoff = "General investment products"
+            applies_to = "No direct ISIN mapping; context only"
+        if any(term in searchable for term in ("distribution", "commission", "placement", "selling", "retrocession", "inducement")):
+            cost_bucket = "Distribution / third-party compensation"
+        elif any(term in searchable for term in ("service", "advisory", "custody", "brokerage")):
+            cost_bucket = "Investment-service cost"
+        elif any(term in searchable for term in ("exit", "spread", "unwind", "liquidity")):
+            cost_bucket = "Exit / transaction cost"
+        elif any(term in searchable for term in ("margin", "premium", "overpricing", "hedging", "issuer")):
+            cost_bucket = "Product manufacturing / embedded cost"
+        else:
+            cost_bucket = "Methodology / controls"
+        rows.append({
+            "Source ID": source_id,
+            "Source": source_name,
+            "Jurisdiction / Market": jurisdiction,
+            "Product / Payoff Type": payoff,
+            "Applies To": applies_to,
+            "Cost Bucket": cost_bucket,
+            "Observed Result": evidence,
+            "Tier 1 Use": tier_use,
+            "Limitations": limitations,
+            "Locator / Link": locator,
+        })
+    if not rows:
+        raise ValueError("Verified Source Register is empty")
+    return rows
+
+
+SOURCE_HEADERS = (
+    "Source ID",
+    "Source",
+    "Jurisdiction / Market",
+    "Product / Payoff Type",
+    "Applies To",
+    "Cost Bucket",
+    "Observed Result",
+    "Tier 1 Use",
+    "Limitations",
+    "Locator / Link",
+)
+
+
+def source_table_rows(source_rows: list[dict[str, str]]) -> str:
+    return "\n".join(
+        "<tr>" + "".join(f"<td>{html.escape(row[header])}</td>" for header in SOURCE_HEADERS) + "</tr>"
+        for row in source_rows
+    )
+
+
 def scenario_totals(records: list[dict[str, Any]], statuses: dict[str, str]) -> dict[str, float | int]:
     totals: dict[str, float | int] = {
         "populated_positions": 0,
@@ -285,6 +428,7 @@ def table_row(record: dict[str, Any], statuses: dict[str, str], yaml_fields: lis
 
 def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> str:
     tooltips = read_tooltips()
+    source_rows = research_source_rows()
     html_excluded_yaml_fields = {
         "annualised_rate",
         "barrier",
@@ -353,6 +497,10 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         for index, (header, tooltip) in enumerate(zip(headers, header_tooltips))
     )
     rows = "\n".join(table_row(record, statuses, yaml_fields) for record in records)
+    source_header_html = "".join(f'<th scope="col">{html.escape(header)}</th>' for header in SOURCE_HEADERS)
+    source_rows_html = source_table_rows(source_rows)
+    chart_rows = [chart_row(record, statuses) for record in records]
+    chart_data = json.dumps(chart_rows, ensure_ascii=True).replace("</", "<\\/")
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -499,6 +647,64 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         .backend-banner {{ display: flex; gap: 12px; align-items: center; justify-content: space-between; max-width: 1920px; margin: 0 auto 14px; padding: 12px 16px; border: 1px solid #e6c66b; border-radius: var(--radius); background: #fdf6e0; color: #6b5410; font-size: 13px; }}
         .backend-banner[hidden] {{ display: none; }}
         .backend-banner button {{ flex: 0 0 auto; padding: 6px 10px; border: 1px solid #d9b957; background: transparent; color: #6b5410; font-size: 12px; font-weight: 700; cursor: pointer; }}
+          .cost-charts {{ position: relative; padding: 20px 20px 58px; overflow-x: auto; background: var(--paper); }}
+          .cost-charts[hidden] {{ display: none; }}
+          .chart-header {{ display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: end; justify-content: space-between; margin-bottom: 16px; }}
+          .chart-header h2 {{ margin: 0; color: var(--accent-dark); font-size: 18px; letter-spacing: -0.01em; }}
+          .chart-intro {{ max-width: 72ch; margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; }}
+          .chart-actions {{ display: inline-flex; flex-wrap: wrap; gap: 8px; align-items: center; }}
+          .chart-toggle {{ display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--line-strong); border-radius: 9px; background: var(--wash); }}
+          .chart-toggle button {{ padding: 8px 12px; border: 0; border-radius: 6px; background: transparent; color: #52675c; font-size: 12px; font-weight: 800; cursor: pointer; }}
+          .chart-toggle button[aria-pressed="true"] {{ background: var(--accent); color: white; box-shadow: 0 2px 6px rgba(23, 107, 82, 0.18); }}
+          .chart-legend {{ display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin: 12px auto 0; color: #52675c; font-size: 12px; font-weight: 700; }}
+          .chart-legend span::before {{ display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 2px; content: ""; vertical-align: -1px; }}
+          .chart-legend .proxy-embedded-key::before {{ background: #176b52; }}
+          .chart-legend .proxy-recurring-key::before {{ background: #2f8b6c; }}
+          .chart-legend .proxy-exit-key::before {{ background: #79b89d; }}
+          .chart-legend .evidence-min-key::before {{ background: #62676b; }}
+          .chart-legend .evidence-delta-key::before {{ background: #c5c9cc; }}
+          .chart-stage {{ min-width: 900px; border-top: 1px solid var(--line); }}
+          .chart-svg {{ display: block; width: 100%; min-width: 900px; height: 540px; overflow: visible; }}
+          .chart-gridline {{ stroke: #dfe8e1; stroke-width: 1; }}
+          .chart-axis {{ stroke: #9eb3a5; stroke-width: 1; }}
+          .chart-tick, .chart-label {{ fill: #63706a; font-size: 11px; }}
+          .chart-label {{ fill: #29453a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 800; }}
+        .chart-bar {{ cursor: help; transition: opacity 140ms ease; }}
+          .chart-bar:hover, .chart-bar:focus {{ opacity: 0.78; outline: none; }}
+          .chart-bar.proxy {{ fill: #176b52; }}
+          .chart-bar.proxy-embedded {{ fill: #176b52; }}
+          .chart-bar.proxy-recurring {{ fill: #2f8b6c; }}
+          .chart-bar.proxy-exit {{ fill: #79b89d; }}
+          .chart-bar.evidence {{ fill: #62676b; }}
+          .chart-bar.evidence-delta {{ fill: #c5c9cc; }}
+          .chart-note {{ position: absolute; bottom: 20px; left: 20px; max-width: calc(100% - 72px); margin: 0; color: var(--muted); font-size: 12px; }}
+          .chart-footer {{ position: absolute; right: 20px; bottom: 14px; display: flex; align-items: center; justify-content: flex-end; margin: 0; }}
+          .chart-export-icon {{ display: inline-grid; width: 32px; height: 32px; place-items: center; padding: 0; border: 1px solid transparent; border-radius: 8px; background: transparent; color: #6d8177; cursor: pointer; }}
+          .chart-export-icon:hover, .chart-export-icon:focus-visible {{ border-color: var(--line-strong); background: var(--wash); color: var(--accent-dark); }}
+          .chart-export-icon svg {{ width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }}
+        .chart-tooltip {{ position: fixed; z-index: 40; width: min(300px, calc(100vw - 24px)); padding: 12px 14px; border: 1px solid #9fc3b0; border-radius: 10px; background: #173d31; color: #f4fbf7; box-shadow: 0 12px 28px rgba(15, 77, 59, 0.22); font-size: 12px; line-height: 1.45; pointer-events: none; }}
+        .chart-tooltip[hidden] {{ display: none; }}
+        .chart-tooltip strong {{ display: block; margin-bottom: 5px; color: white; font-size: 13px; }}
+        .chart-tooltip span {{ display: block; color: #d7ebe0; }}
+        .chart-tooltip .tooltip-row {{ display: flex; gap: 10px; justify-content: space-between; padding: 2px 0; }}
+        .chart-tooltip .tooltip-label {{ color: #b9d7c8; }}
+        .chart-tooltip .tooltip-value {{ color: #f4fbf7; font-variant-numeric: tabular-nums; text-align: right; }}
+                .sources-view {{ padding: 20px; background: var(--paper); }}
+                .sources-view[hidden] {{ display: none; }}
+                .sources-view h2 {{ margin: 0 0 6px; color: var(--accent-dark); font-size: 18px; }}
+                .sources-intro {{ max-width: 80ch; margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.5; }}
+                .sources-table {{ width: max-content; min-width: 100%; table-layout: fixed; }}
+                .sources-table th {{ position: static; min-width: 150px; padding: 12px 14px; background: #edf4ef; color: #315044; font-size: 11px; font-weight: 850; letter-spacing: 0.05em; text-align: left; text-transform: uppercase; white-space: normal; }}
+                .sources-table th:nth-child(1) {{ min-width: 90px; }}
+                .sources-table th:nth-child(2) {{ min-width: 280px; }}
+                .sources-table th:nth-child(7), .sources-table th:nth-child(8), .sources-table th:nth-child(9) {{ min-width: 340px; }}
+                .sources-table th:nth-child(10) {{ min-width: 280px; }}
+                .sources-table td {{ max-width: 440px; padding: 12px 14px; white-space: normal; overflow-wrap: anywhere; vertical-align: top; }}
+                .sources-table tbody tr:hover {{ background: #f0f8f3; }}
+                @media (max-width: 720px) {{
+                        .sources-view {{ padding: 14px; }}
+                        .sources-table td {{ max-width: 300px; }}
+                }}
   </style>
 </head>
 <body>
@@ -513,6 +719,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 <li><button class="view-button" type="button" data-view="current">Current</button></li>
                 <li><button class="view-button" type="button" data-view="position-size">by Position Size</button></li>
                 <li><button class="view-button" type="button" data-view="full dataset">full dataset</button></li>
+                <li><button class="view-button" type="button" data-view="Sources">Sources</button></li>
                 <li><button class="view-button" type="button" data-view="Definitions">Definitions</button></li>
             </ul>
             <div class="view-actions">
@@ -576,6 +783,43 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                     </table>
                 </div>
             </section>
+            <section class="sources-view" id="sources-view" aria-labelledby="sources-heading" hidden>
+                <h2 id="sources-heading">Research sources</h2>
+                <p class="sources-intro">Verified research findings, their intended Tier 1 use, and the cohorts they may inform. Applicability is cohort-level unless a direct ISIN mapping is documented.</p>
+                <div class="table-scroll">
+                    <table class="sources-table" id="sources-table">
+                        <thead><tr>{source_header_html}</tr></thead>
+                        <tbody>{source_rows_html}</tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="cost-charts" id="cost-charts" aria-labelledby="cost-charts-heading" hidden>
+                <div class="chart-header">
+                    <div>
+                        <h2 id="cost-charts-heading">Cost by ISIN</h2>
+                        <p class="chart-intro" id="chart-intro">Total proxy cost compared with the maximum evidence-based cost estimate.</p>
+                    </div>
+                    <div class="chart-actions">
+                        <div class="chart-toggle" role="group" aria-label="Chart units">
+                            <button type="button" data-chart-mode="absolute" aria-pressed="true">Absolute</button>
+                            <button type="button" data-chart-mode="relative" aria-pressed="false">Relative*</button>
+                        </div>
+                        <div class="chart-toggle" role="group" aria-label="Chart detail">
+                            <button type="button" data-chart-detail="summary" aria-pressed="true">Summary</button>
+                            <button type="button" data-chart-detail="detailed" aria-pressed="false">Detailed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-stage" id="chart-stage"></div>
+                <div class="chart-legend" id="chart-legend" aria-label="Chart legend"></div>
+                <div class="chart-tooltip" id="chart-tooltip" role="tooltip" hidden></div>
+                <p class="chart-note">* Relative values are annualized as cost USD / usable position size / holding period years.</p>
+                <div class="chart-footer">
+                    <button class="chart-export-icon" id="export-chart-svg" type="button" aria-label="Export chart as SVG" title="Export chart as SVG">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11"></path><path d="m8 10 4 4 4-4"></path><path d="M5 18v2h14v-2"></path></svg>
+                    </button>
+                </div>
+            </section>
         <div class="table-scroll" id="main-table-scroll">
         <table id="cost-model">
             <colgroup id="column-widths"></colgroup>
@@ -596,7 +840,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         const columnTooltips = {json.dumps(header_tooltips)};
         const originalRows = [...table.tBodies[0].rows];
         const numericColumns = headerNames.map((_, index) => originalRows.some((row) => row.cells[index]?.classList.contains('numeric-cell')));
-        const usdColumns = headerNames.map((name) => /\(USD\)$/i.test(name));
+        const usdColumns = headerNames.map((name) => /\\(USD\\)$/i.test(name));
         [...table.tHead.rows[0].cells].forEach((cell, index) => {{
             cell.classList.toggle('numeric-column', numericColumns[index]);
             cell.classList.toggle('usd-column', usdColumns[index]);
@@ -613,15 +857,26 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             current: createViewState(),
             'position-size': {{ ...createViewState(), visible: [...new Set([...createViewState().visible, ...positionSizeVisible])] }},
             'full dataset': createViewState(true),
+            '03c. Cost charts': {{ mode: 'absolute', detail: 'summary' }},
         }};
+        const sourceViewName = 'Sources';
+        const chartViewName = '03c. Cost charts';
+        const chartData = {chart_data};
         let viewState = JSON.parse(localStorage.getItem('jtc-cost-model-views') || 'null') || defaultViewState;
         if (!viewState['full dataset']) viewState['full dataset'] = createViewState(true);
+        if (!viewState[chartViewName]) viewState[chartViewName] = {{ mode: 'absolute', detail: 'summary' }};
+        viewState[chartViewName].mode = viewState[chartViewName].mode === 'relative' ? 'relative' : 'absolute';
+        viewState[chartViewName].detail = viewState[chartViewName].detail === 'detailed' ? 'detailed' : 'summary';
         let viewOrder = JSON.parse(localStorage.getItem('jtc-cost-model-view-order') || 'null');
         let viewsLoaded = false;
         let activeView = null;
         const tableBody = table.tBodies[0];
         const tableScroll = document.querySelector('#main-table-scroll');
         const widthColumns = document.querySelector('#column-widths');
+        const chartView = document.querySelector('#cost-charts');
+        const chartStage = document.querySelector('#chart-stage');
+        const chartModeButtons = [...document.querySelectorAll('[data-chart-mode]')];
+        const chartDetailButtons = [...document.querySelectorAll('[data-chart-detail]')];
         headerNames.forEach((_, index) => {{
             const column = document.createElement('col');
             column.dataset.columnIndex = index;
@@ -647,7 +902,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const names = Object.keys(viewState);
             const saved = Array.isArray(viewOrder) ? viewOrder.filter((name) => typeof name === 'string' && names.includes(name)) : [];
             viewOrder = [...new Set(saved)].concat(names.filter((name) => !saved.includes(name)));
-            if (activeView !== 'Definitions' && !viewOrder.includes(activeView)) activeView = viewOrder[0] || names[0];
+            if (activeView !== 'Definitions' && activeView !== sourceViewName && !viewOrder.includes(activeView)) activeView = viewOrder[0] || names[0];
         }}
         function saveViewOrder() {{
             localStorage.setItem('jtc-cost-model-view-order', JSON.stringify(viewOrder));
@@ -679,10 +934,225 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             }}
             return 0;
         }}
+        function escapeHtml(value) {{
+            return String(value).replace(/[&<>"']/g, (character) => ({{ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }})[character]);
+        }}
+        function formatChartValue(value, mode) {{
+            if (value === null || !Number.isFinite(value)) return 'N/A';
+            if (mode === 'relative') return `${{(value * 100).toFixed(2)}}%`;
+            return `$${{Math.round(value).toLocaleString('en-US')}}`;
+        }}
+        function renderCostChart() {{
+            const state = viewState[chartViewName] || (viewState[chartViewName] = {{ mode: 'absolute', detail: 'summary' }});
+            const mode = state.mode === 'relative' ? 'relative' : 'absolute';
+            const detail = state.detail === 'detailed' ? 'detailed' : 'summary';
+            const valueKey = mode === 'relative' ? 'relative_proxy' : 'proxy_total';
+            const evidenceKey = mode === 'relative' ? 'relative_evidence' : 'evidence_high';
+            const chartValue = (row, key) => {{
+                const value = row[key];
+                if (mode === 'absolute' || key.startsWith('relative_') || value === null || !Number.isFinite(value)) return value;
+                const denominator = row.position * row.holding_period;
+                return Number.isFinite(denominator) && denominator > 0 ? value / denominator : null;
+            }};
+            const detailLegend = detail === 'detailed'
+                ? [['proxy-embedded-key', 'Embedded product proxy'], ['proxy-recurring-key', 'Recurring service proxy'], ['proxy-exit-key', 'Exit / transaction proxy'], ['evidence-min-key', 'Evidence minimum'], ['evidence-delta-key', 'Evidence range to maximum']]
+                : [['proxy-embedded-key', 'Total proxy cost'], ['evidence-min-key', 'Evidence cost (max)']];
+            document.querySelector('#chart-legend').innerHTML = detailLegend.map(([className, label]) => `<span class="${{className}}">${{label}}</span>`).join('');
+            const rows = [...chartData].filter((row) => Number.isFinite(row[valueKey]) || Number.isFinite(row[evidenceKey])).sort((left, right) => {{
+                const leftValue = left[valueKey];
+                const rightValue = right[valueKey];
+                if (leftValue === null && rightValue === null) return left.isin.localeCompare(right.isin);
+                if (leftValue === null) return 1;
+                if (rightValue === null) return -1;
+                return rightValue - leftValue || left.isin.localeCompare(right.isin);
+            }});
+            const width = Math.max(900, rows.length * 92 + 112);
+            const height = 540;
+            const margin = {{ top: 28, right: 24, bottom: 72, left: 88 }};
+            const plotWidth = width - margin.left - margin.right;
+            const plotHeight = height - margin.top - margin.bottom;
+            const values = rows.flatMap((row) => [chartValue(row, valueKey), chartValue(row, evidenceKey)]).filter((value) => value !== null && Number.isFinite(value));
+            const dataMax = Math.max(...values, 0);
+            let maxValue = Math.max(dataMax, 1);
+            let tickCount = 4;
+            if (mode === 'relative') {{
+                const percentMax = dataMax * 100;
+                const targetStep = percentMax / 4 || 1;
+                const magnitude = 10 ** Math.floor(Math.log10(targetStep));
+                const normalizedStep = targetStep / magnitude;
+                const niceStep = ([1, 2, 2.5, 5, 10].find((step) => normalizedStep <= step) || 10) * magnitude;
+                const axisMaxPercent = Math.max(niceStep, Math.ceil(percentMax / niceStep) * niceStep);
+                maxValue = axisMaxPercent / 100;
+                tickCount = Math.round(axisMaxPercent / niceStep);
+            }}
+            const barWidth = Math.min(25, Math.max(12, plotWidth / rows.length / 3.6));
+            const groupWidth = plotWidth / Math.max(rows.length, 1);
+            const y = (value) => margin.top + plotHeight - (value / maxValue) * plotHeight;
+            const tickLabel = (value) => mode === 'relative' ? `${{(value * 100).toFixed(1)}}%` : `$${{(Math.round(value / 10000) * 10000).toLocaleString('en-US')}}`;
+            let markup = `<svg class="chart-svg" role="img" aria-labelledby="cost-chart-title cost-chart-desc" viewBox="0 0 ${{width}} ${{height}}"><title id="cost-chart-title">Cost comparison by ISIN</title><desc id="cost-chart-desc">Vertical clustered bars sorted from highest to lowest total proxy cost. Each ISIN has a proxy cost bar and an evidence maximum bar.</desc>`;
+            for (let tick = 0; tick <= tickCount; tick += 1) {{
+                const value = maxValue * tick / tickCount;
+                const yPosition = y(value);
+                markup += `<line class="chart-gridline" x1="${{margin.left}}" x2="${{width - margin.right}}" y1="${{yPosition}}" y2="${{yPosition}}"></line><text class="chart-tick" x="${{margin.left - 10}}" y="${{yPosition + 4}}" text-anchor="end">${{escapeHtml(tickLabel(value))}}</text>`;
+            }}
+            markup += `<line class="chart-axis" x1="${{margin.left}}" x2="${{width - margin.right}}" y1="${{margin.top + plotHeight}}" y2="${{margin.top + plotHeight}}"></line>`;
+            rows.forEach((row, index) => {{
+                const center = margin.left + groupWidth * (index + 0.5);
+                const proxyX = center - barWidth - 2;
+                const evidenceX = center + 2;
+                const evidenceLow = chartValue(row, 'evidence_low');
+                const evidenceHigh = chartValue(row, 'evidence_high');
+                const evidenceDelta = Number.isFinite(evidenceLow) && Number.isFinite(evidenceHigh) ? Math.max(0, evidenceHigh - evidenceLow) : null;
+                const bars = detail === 'detailed'
+                    ? [[chartValue(row, 'embedded_proxy'), proxyX, 'proxy-embedded', 'Embedded product proxy'], [chartValue(row, 'recurring_proxy'), proxyX, 'proxy-recurring', 'Recurring service proxy'], [chartValue(row, 'exit_proxy'), proxyX, 'proxy-exit', 'Exit / transaction proxy'], [evidenceLow, evidenceX, 'evidence', 'Evidence minimum'], [evidenceDelta, evidenceX, 'evidence-delta', 'Evidence range to maximum']]
+                    : [[chartValue(row, valueKey), proxyX, 'proxy', 'Total proxy cost'], [chartValue(row, evidenceKey), evidenceX, 'evidence', 'Evidence cost (max)']];
+                const evidenceRange = `${{formatChartValue(evidenceLow, mode)}} - ${{formatChartValue(evidenceHigh, mode)}}`;
+                const position = row.position === null ? 'N/A' : `$${{Math.round(row.position).toLocaleString('en-US')}}`;
+                const holdingPeriod = row.holding_period === null ? 'N/A' : `${{row.holding_period.toFixed(2)}} years`;
+                const embeddedProxy = formatChartValue(chartValue(row, 'embedded_proxy'), mode);
+                const recurringProxy = formatChartValue(chartValue(row, 'recurring_proxy'), mode);
+                const exitProxy = formatChartValue(chartValue(row, 'exit_proxy'), mode);
+                let proxyStack = 0;
+                let evidenceStack = 0;
+                bars.forEach(([value, x, series, label]) => {{
+                    if (value === null || !Number.isFinite(value) || value <= 0) return;
+                    const isEvidence = x === evidenceX;
+                    const stack = isEvidence ? evidenceStack : proxyStack;
+                    const barY = y(stack + value);
+                    const barHeight = y(stack) - barY;
+                    if (isEvidence) evidenceStack += value;
+                    else proxyStack += value;
+                    const detailText = `${{row.isin}} | ${{row.security}} | Issuer: ${{row.issuer}} | ${{label}}: ${{formatChartValue(value, mode)}} | ${{series.startsWith('proxy') && detail === 'summary' ? `Embedded product proxy: ${{embeddedProxy}} | Recurring service proxy: ${{recurringProxy}} | Exit / transaction proxy: ${{exitProxy}}` : `Evidence range: ${{evidenceRange}}`}} | Position: ${{position}} | Holding period: ${{holdingPeriod}} | Status: ${{row.status}}`;
+                    markup += `<rect class="chart-bar ${{series}}" tabindex="0" data-isin="${{escapeHtml(row.isin)}}" data-security="${{escapeHtml(row.security)}}" data-issuer="${{escapeHtml(row.issuer)}}" data-series="${{escapeHtml(series)}}" data-label="${{escapeHtml(label)}}" data-value="${{escapeHtml(formatChartValue(value, mode))}}" data-range="${{escapeHtml(evidenceRange)}}" data-embedded-proxy="${{escapeHtml(embeddedProxy)}}" data-recurring-proxy="${{escapeHtml(recurringProxy)}}" data-exit-proxy="${{escapeHtml(exitProxy)}}" data-position="${{escapeHtml(position)}}" data-holding-period="${{escapeHtml(holdingPeriod)}}" data-status="${{escapeHtml(row.status)}}" x="${{x}}" y="${{barY}}" width="${{barWidth}}" height="${{Math.max(barHeight, 1)}}" role="img" aria-label="${{escapeHtml(detailText)}}"><title>${{escapeHtml(detailText)}}</title></rect>`;
+                }});
+                const labelY = margin.top + plotHeight + 22;
+                markup += `<text class="chart-label" x="${{center}}" y="${{labelY}}" text-anchor="middle">${{escapeHtml(row.isin)}}</text>`;
+            }});
+            markup += '</svg>';
+            chartStage.innerHTML = markup;
+            const tooltip = document.querySelector('#chart-tooltip');
+            const hideTooltip = () => {{ tooltip.hidden = true; }};
+            const showTooltip = (event) => {{
+                const bar = event.currentTarget;
+                const rows = [
+                    ['Security', bar.dataset.security],
+                    ['Issuer', bar.dataset.issuer],
+                    ['Measure', `${{bar.dataset.label}}: ${{bar.dataset.value}}`],
+                    ...(bar.dataset.series === 'proxy' ? [
+                        ['Embedded product proxy', bar.dataset.embeddedProxy],
+                        ['Recurring service proxy', bar.dataset.recurringProxy],
+                        ['Exit / transaction proxy', bar.dataset.exitProxy],
+                    ] : [['Evidence range', bar.dataset.range]]),
+                    ['Position', bar.dataset.position],
+                    ['Holding period', bar.dataset.holdingPeriod],
+                    ['Status', bar.dataset.status],
+                ];
+                tooltip.innerHTML = `<strong>${{escapeHtml(bar.dataset.isin)}}</strong>${{rows.map(([label, value]) => `<span class="tooltip-row"><span class="tooltip-label">${{escapeHtml(label)}}</span><span class="tooltip-value">${{escapeHtml(value)}}</span></span>`).join('')}}`;
+                tooltip.hidden = false;
+                const rect = bar.getBoundingClientRect();
+                const x = event.clientX || rect.left + rect.width / 2;
+                const yPosition = event.clientY || rect.top;
+                tooltip.style.left = `${{Math.min(Math.max(12, x + 14), window.innerWidth - tooltip.offsetWidth - 12)}}px`;
+                tooltip.style.top = `${{Math.min(Math.max(12, yPosition - tooltip.offsetHeight - 12), window.innerHeight - tooltip.offsetHeight - 12)}}px`;
+            }};
+            chartStage.querySelectorAll('.chart-bar').forEach((bar) => {{
+                bar.addEventListener('pointerenter', showTooltip);
+                bar.addEventListener('pointermove', showTooltip);
+                bar.addEventListener('pointerleave', hideTooltip);
+                bar.addEventListener('focus', showTooltip);
+                bar.addEventListener('blur', hideTooltip);
+            }});
+            chartModeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.chartMode === mode)));
+            chartDetailButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.chartDetail === detail)));
+            document.querySelector('#chart-intro').textContent = detail === 'detailed'
+                ? (mode === 'relative' ? 'Annualized proxy components and evidence range as percentages of usable position size.' : 'Proxy cost components and the evidence range from minimum to maximum.')
+                : (mode === 'relative' ? 'Annualized cost as a percentage of usable position size, compared with the maximum evidence-based estimate.' : 'Total proxy cost compared with the maximum evidence-based cost estimate.');
+        }}
+        function exportChartSvg() {{
+            const source = chartStage.querySelector('svg');
+            if (!source) return;
+            const svg = source.cloneNode(true);
+            const sourceElements = source.querySelectorAll('*');
+            const clonedElements = svg.querySelectorAll('*');
+            const presentationProperties = ['fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'font-family', 'font-size', 'font-weight', 'text-anchor', 'opacity'];
+            sourceElements.forEach((sourceElement, index) => {{
+                const clonedElement = clonedElements[index];
+                if (!clonedElement) return;
+                const computedStyle = getComputedStyle(sourceElement);
+                presentationProperties.forEach((property) => {{
+                    const value = computedStyle.getPropertyValue(property);
+                    if (value) clonedElement.setAttribute(property, value);
+                }});
+            }});
+            const viewBox = svg.viewBox.baseVal;
+            const legendHeight = 34;
+            const originalHeight = viewBox.height;
+            const chartContent = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            [...svg.children].forEach((child) => {{
+                if (child.tagName !== 'title' && child.tagName !== 'desc') chartContent.append(child);
+            }});
+            chartContent.setAttribute('transform', 'translate(0 0)');
+            svg.append(chartContent);
+            svg.setAttribute('viewBox', `0 0 ${{viewBox.width}} ${{originalHeight + legendHeight}}`);
+            svg.setAttribute('height', String(originalHeight + legendHeight));
+            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+            style.textContent = '.chart-gridline{{stroke:#dfe8e1;stroke-width:1}}.chart-axis{{stroke:#9eb3a5;stroke-width:1}}.chart-tick,.chart-label{{fill:#63706a;font-size:11px}}.chart-label{{fill:#29453a;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:800}}.chart-bar.proxy,.chart-bar.proxy-embedded{{fill:#176b52}}.chart-bar.proxy-recurring{{fill:#2f8b6c}}.chart-bar.proxy-exit{{fill:#79b89d}}.chart-bar.evidence{{fill:#62676b}}.chart-bar.evidence-delta{{fill:#c5c9cc}}';
+            svg.insertBefore(style, svg.firstChild);
+            const legend = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            legend.setAttribute('aria-label', 'Chart legend');
+            const detail = viewState[chartViewName]?.detail === 'detailed' ? 'detailed' : 'summary';
+            const legendItems = detail === 'detailed'
+                ? [['#176b52', 'Embedded product proxy'], ['#2f8b6c', 'Recurring service proxy'], ['#79b89d', 'Exit / transaction proxy'], ['#62676b', 'Evidence minimum'], ['#c5c9cc', 'Evidence range to maximum']]
+                : [['#176b52', 'Total proxy cost'], ['#62676b', 'Evidence cost (max)']];
+            const legendGap = 16;
+            const legendWidths = legendItems.map(([, label]) => 26 + label.length * 7);
+            const legendWidth = legendWidths.reduce((total, itemWidth) => total + itemWidth, 0) + legendGap * Math.max(legendItems.length - 1, 0);
+            let legendX = (viewBox.width - legendWidth) / 2;
+            legend.setAttribute('transform', `translate(0 ${{originalHeight + 8}})`);
+            legendItems.forEach(([color, label], index) => {{
+                const swatch = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                swatch.setAttribute('x', String(legendX));
+                swatch.setAttribute('y', '0');
+                swatch.setAttribute('width', '10');
+                swatch.setAttribute('height', '10');
+                swatch.setAttribute('rx', '2');
+                swatch.setAttribute('fill', color);
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', String(legendX + 16));
+                text.setAttribute('y', '9');
+                text.setAttribute('fill', '#52675c');
+                text.setAttribute('font-family', 'ui-sans-serif,system-ui,sans-serif');
+                text.setAttribute('font-size', '12');
+                text.setAttribute('font-weight', '700');
+                text.textContent = label;
+                legend.append(swatch, text);
+                legendX += legendWidths[index] + legendGap;
+            }});
+            svg.append(legend);
+            const serialized = new XMLSerializer().serializeToString(svg);
+            const mode = viewState[chartViewName]?.mode === 'relative' ? 'relative' : 'absolute';
+            const filename = `03c-cost-charts-${{mode}}-${{detail}}.svg`;
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(new Blob([serialized], {{ type: 'image/svg+xml;charset=utf-8' }}));
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }}
         function csvCell(value) {{
             return `"${{String(value).replace(/"/g, '""')}}"`;
         }}
         function exportCsv() {{
+            if (activeView === sourceViewName) {{
+                const sourceTable = document.querySelector('#sources-table');
+                const sourceCsv = [...sourceTable.querySelectorAll('tr')].map((row) => [...row.cells].map((cell) => csvCell(cell.textContent.trim())).join(',')).join('\\r\\n');
+                const sourceLink = document.createElement('a');
+                sourceLink.href = URL.createObjectURL(new Blob([`\\ufeff${{sourceCsv}}`], {{ type: 'text/csv;charset=utf-8' }}));
+                sourceLink.download = 'sources.csv';
+                sourceLink.click();
+                URL.revokeObjectURL(sourceLink.href);
+                return;
+            }}
             const state = activeState();
             const visible = new Set(state.visible);
             const columns = state.order.filter((index) => visible.has(index));
@@ -822,10 +1292,23 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
         }});
         function renderTable() {{
             const definitionsView = activeView === 'Definitions';
+            const isSourcesView = activeView === sourceViewName;
+            const isChartView = activeView === chartViewName;
             document.querySelector('#definitions-view').hidden = !definitionsView;
-            document.querySelectorAll('.toolbar, .builder-panel').forEach((panel) => panel.hidden = definitionsView);
-            document.querySelector('#main-table-scroll').hidden = definitionsView;
-            if (definitionsView) return;
+            document.querySelector('#sources-view').hidden = !isSourcesView;
+            document.querySelectorAll('.toolbar').forEach((panel) => panel.hidden = definitionsView || isSourcesView);
+            document.querySelectorAll('.builder-panel').forEach((panel) => panel.hidden = definitionsView || isSourcesView || isChartView);
+            document.querySelectorAll('[data-panel]').forEach((button) => button.hidden = definitionsView || isSourcesView || isChartView);
+            if (isChartView) {{
+                panels.forEach((panel) => panel.classList.remove('is-open'));
+                panelButtons.forEach((button) => button.setAttribute('aria-expanded', 'false'));
+            }}
+            chartView.hidden = !isChartView;
+            document.querySelector('#main-table-scroll').hidden = definitionsView || isSourcesView || isChartView;
+            if (definitionsView || isSourcesView || isChartView) {{
+                if (isChartView) renderCostChart();
+                return;
+            }}
             const state = activeState();
             const visible = new Set(state.visible);
             applyColumnOrder();
@@ -864,6 +1347,17 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             panelButtons.filter((candidate) => candidate !== button).forEach((candidate) => candidate.setAttribute('aria-expanded', 'false'));
         }}));
         document.querySelector('#export-csv').addEventListener('click', exportCsv);
+        document.querySelector('#export-chart-svg').addEventListener('click', exportChartSvg);
+        chartModeButtons.forEach((button) => button.addEventListener('click', () => {{
+            viewState[chartViewName].mode = button.dataset.chartMode;
+            renderCostChart();
+            saveViews();
+        }}));
+        chartDetailButtons.forEach((button) => button.addEventListener('click', () => {{
+            viewState[chartViewName].detail = button.dataset.chartDetail;
+            renderCostChart();
+            saveViews();
+        }}));
         function saveViews() {{
             normalizeViewOrder();
             localStorage.setItem('jtc-cost-model-views', JSON.stringify(viewState));
@@ -883,6 +1377,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
                 if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
                 const savedViews = await response.json();
                 if (savedViews && typeof savedViews === 'object' && Object.keys(savedViews).length) viewState = savedViews;
+                if (!viewState[chartViewName]) viewState[chartViewName] = {{ mode: 'absolute' }};
                 viewsLoaded = true;
             }} catch (error) {{
                 console.warn('Backend unavailable; using browser-local view state.', error);
@@ -916,7 +1411,15 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             definitionsButton.textContent = 'Definitions';
             if (activeView === 'Definitions') definitionsButton.setAttribute('aria-current', 'page');
             definitionsItem.append(definitionsButton);
-            list.replaceChildren(...viewItems, definitionsItem);
+            const sourcesItem = document.createElement('li');
+            const sourcesButton = document.createElement('button');
+            sourcesButton.className = 'view-button';
+            sourcesButton.type = 'button';
+            sourcesButton.dataset.view = sourceViewName;
+            sourcesButton.textContent = sourceViewName;
+            if (activeView === sourceViewName) sourcesButton.setAttribute('aria-current', 'page');
+            sourcesItem.append(sourcesButton);
+            list.replaceChildren(...viewItems, sourcesItem, definitionsItem);
         }}
         function moveView(viewName, targetName) {{
             normalizeViewOrder();
@@ -985,7 +1488,7 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             const action = event.target.closest('[data-view-action]')?.dataset.viewAction;
             if (!action) return;
             closeViewActionMenu();
-            if (activeView === 'Definitions' && action !== 'new') return;
+            if (activeView === 'Definitions' || activeView === sourceViewName) return;
             if (action === 'new') {{
                 const name = prompt('Name this view');
                 if (!name || viewState[name.trim()]) return;

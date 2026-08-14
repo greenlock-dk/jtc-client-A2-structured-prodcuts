@@ -36,6 +36,7 @@ HEADERS = {
     "barrier": "Barrier",
     "underlying": "Underlying",
     "other_comments": "Other comments",
+    "redemption_terms": "Redemption terms",
     "downside": "Downside",
     "risk": "Risk",
     "position_size": "Reported Trust position size (USD)",
