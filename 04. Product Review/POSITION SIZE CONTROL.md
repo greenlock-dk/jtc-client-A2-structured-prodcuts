@@ -1,6 +1,6 @@
 # Position Size Control
 
-Audit date: 2026-08-11
+Audit date: 2026-08-18
 
 This register separates the reported Trust position from issuer-level issue/outstanding size. `position_size` is not changed by this control. Issue/outstanding values remain documentary context only and must not be used as a fallback for Trust exposure. A user-reported value is not treated as usable invested notional where the source evidence identifies the same amount as issuer-level issue/outstanding size.
 
@@ -8,12 +8,20 @@ This register separates the reported Trust position from issuer-level issue/outs
 
 | Status | Treatment in portfolio aggregation |
 | --- | --- |
-| `usable invested notional` | May be aggregated, subject to the source and date limitations recorded in the dossier. |
+| `usable invested notional` | May be aggregated under the documented source-basis assumptions below, subject to the source and date limitations recorded in the dossier. |
 | `shared across line items` | Exclude until the line-item scope and aggregation basis are reconciled to Trust records. |
 | `minimum denomination` | Exclude; this is a trading/unit constraint, not a holding amount. |
 | `issue/outstanding size` | Exclude from Trust exposure calculations. |
 | `missing` | Exclude; do not substitute issue/outstanding size. |
 | `unclear` | Exclude until Trust-specific evidence resolves the basis. |
+
+## Calculation assumptions and reversibility
+
+- The model's reporting currency is **USD**. The included position amounts are taken from the workbook's USD position field or a canonical evidence note that explicitly records the amount in USD. The instrument `currency` field is a separate product attribute and does not determine the currency of the Trust position amount.
+- No FX conversion is applied to the current included population. A future non-USD Trust position must remain excluded until a dated FX source, rate convention, and conversion record are added. The EUR-denominated `XS0315745447` has no Trust-specific position and therefore does not enter the dollar aggregation.
+- For the historical workbook rows whose source amount is described as `across different line items`, the model assumes the stated numeric amount is the **total Trust position**, not an amount to be multiplied by the number of line items and not an issuer issue size. This is a reversible modelling assumption pending line-item-level Trust records. It applies to the historical rows classified as usable in this register, including the two evidence-limited rows whose structure remains unrecovered.
+- For `XS0765564827`, the source wording `min 200,000` is treated as a total USD 200,000 Trust position for the sensitivity model. The minimum qualifier remains material and the amount is not an independently reconciled custody balance.
+- The 21-row usable basis therefore totals **USD 71.22m** under these assumptions. It must not be described as a reconciled custody or transaction balance.
 
 ## ISIN classifications
 

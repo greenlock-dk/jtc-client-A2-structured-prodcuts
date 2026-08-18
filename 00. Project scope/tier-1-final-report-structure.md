@@ -25,11 +25,11 @@ State the decision-useful result first:
 
 | Method / component | Cost | Coverage | Treatment |
 |---|---:|---:|---|
-| **Evidence-based total** | **$2.9m–$3.5m** | **19 ISINs / $70.2m** | Adopted external comparators only |
-| **Combined proxy scenario** | **$6.6m** | **18 ISINs / $68.6m** | Sum of proxy components |
-| Embedded product proxy | $3.3m | 19 ISINs | One-off product-cost assumption |
-| Recurring service proxy | $2.6m | 18 ISINs | Assumed annual rate multiplied by holding period |
-| Exit / transaction proxy | $0.7m | 18 ISINs | Assumed contingent exit cost |
+| **Evidence-based total** | **$2.8m-$3.3m** | **17 ISINs / $67.8m** | Adopted comparators for explicit equity- and rate-linked cohorts |
+| **Combined proxy scenario** | **$6.4m** | **17 ISINs / $67.8m** | Sum of proxy components; unrounded total $6,418,765 |
+| Embedded product proxy | $3.2m | 17 ISINs | One-off product-cost assumption |
+| Recurring service proxy | $2.6m | 17 ISINs | Assumed annual rate multiplied by issue-date purchase proxy |
+| Exit / transaction proxy | $0.7m | 17 ISINs | Assumed contingent exit cost |
 
 All amounts are rounded to the nearest `$100,000`. The evidence-based total is supported by adopted external comparators, not proof that costs were charged or paid. The proxy rows are assumption-led; potential retrocession remains a nested, non-additive sub-allocation and is not separately estimable.
 
@@ -64,7 +64,7 @@ Include a concise suitability lens stating that the 29-ISIN population is mixed 
 
 ## 3. Portfolio and Lifecycle Population
 
-Describe all 29 ISINs and show the lifecycle population used in the model. The report must distinguish the 29-record inventory, the 21 ISINs with a usable invested-notional basis, and the 19 ISINs currently cost-assessable under the available scenarios. All 21 usable-basis ISINs remain in the analysis regardless of whether issuer issue-size evidence is available; the other 2 are retained as explicit `unbenchmarked` rows rather than treated as zero cost.
+Describe all 29 ISINs and show the lifecycle population used in the model. The report must distinguish the 29-record inventory, the 21 ISINs with a usable USD invested-notional basis, and the 17 ISINs currently benchmark-covered under the available scenarios. All 21 usable-basis ISINs remain in the analysis regardless of whether issuer issue-size evidence is available; the other 4 remain explicit `unbenchmarked` rows rather than being treated as zero cost.
 
 ### 3.1 Required ISIN-level fields
 
@@ -98,7 +98,7 @@ Present the controls before presenting dollar totals.
 
 No aggregate dollar total should be presented as strategy-wide unless its investment basis is reconciled. Rate-based results may still be shown for rows with unresolved dollar bases.
 
-Every coverage table should state the scenario, included ISIN count, included Trust notional, position-size status, excluded or unresolved ISINs and notional, timing treatment, and evidence confidence. The 21 position-eligible ISINs, 19 currently cost-assessable rows, 2 usable-basis unbenchmarked rows, 2 issue/outstanding-size rows, 6 missing-basis rows, and 3 path-6 evidence-limited ISINs must remain distinguishable.
+Every coverage table should state the scenario, included ISIN count, included Trust notional, position-size status, excluded or unresolved ISINs and notional, timing treatment, and evidence confidence. The 21 position-eligible ISINs, 17 benchmark-covered rows, 4 usable-basis unbenchmarked rows, 2 issue/outstanding-size rows, 6 missing-basis rows, and 3 path-6 evidence-limited ISINs must remain distinguishable.
 
 ## 5. Cost Taxonomy and Double-Counting Rules
 
@@ -158,7 +158,7 @@ Recommended cohorts:
 - Conventional and specialist debt, including fixed-rate, EMTN, secured, perpetual, and unusual instruments.
 - Unclassified exceptions.
 
-These cohort names must match the labels the cost model actually assigns (currently `Historical rate-linked`, `Modern rate-linked`, `Equity-linked`, and `Conventional / specialist debt` in `90. Scripts`/`05. Cost modeling/generate_dashboard.py`). Update either the report's cohort names or the script's cohort function together so the narrative and the generated model never diverge.
+These cohort names must match the labels the cost model actually assigns: `Historical rate-linked`, `Modern rate-linked`, `Equity-linked`, `Conventional / specialist debt`, `Unclassified / evidence-limited`, and `Unclassified / non-rate-linked` in `05. Cost modeling/generate_dashboard.py`. Update either the report's cohort names or the script's cohort function together so the narrative and the generated model never diverge.
 
 The historical rate-linked cohort should receive specific attention because it is the dominant vintage population and the principal unresolved evidence gap.
 

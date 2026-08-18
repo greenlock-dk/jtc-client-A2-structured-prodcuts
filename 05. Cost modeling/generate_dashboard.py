@@ -22,6 +22,9 @@ from product_frontmatter import read_product  # noqa: E402
 
 
 DATE_FORMATS = ("%d-%b-%Y", "%d/%m/%Y", "%d-%b-%y")
+REPORTING_CURRENCY = "USD"
+EVIDENCE_LIMITED_COHORT = "Unclassified / evidence-limited"
+NON_RATE_LINKED_COHORT = "Unclassified / non-rate-linked"
 ESMA_ISSUANCE_LOW = 0.046
 ESMA_ISSUANCE_HIGH = 0.055
 ESMA_MODERN_ANNUAL = 0.0103
@@ -69,6 +72,45 @@ def issue_year(value: str) -> int | None:
     return None
 
 
+def holding_period_basis(record: dict[str, Any]) -> str:
+    purchase_value = record.get("purchase_date")
+    issue_value = record.get("issue_date")
+    purchase_date = "" if purchase_value is None else str(purchase_value).strip()
+    issue_date = "" if issue_value is None else str(issue_value).strip()
+    if purchase_date and issue_date and purchase_date == issue_date:
+        return "Assumption: purchase date = issue date; end event is reported call/maturity"
+    if purchase_date:
+        return "Reported purchase date; end event is reported call/maturity"
+    return "Unbenchmarked: Trust purchase date unavailable"
+
+
+def position_currency(record: dict[str, Any]) -> str | None:
+    evidence = str(record.get("position_size_evidence", ""))
+    return REPORTING_CURRENCY if re.search(r"\bUSD\b", evidence, flags=re.IGNORECASE) else None
+
+
+def currency_fx_basis(record: dict[str, Any]) -> str:
+    instrument_currency = str(record.get("currency", "")).strip().upper()
+    if position_currency(record) == REPORTING_CURRENCY:
+        if instrument_currency and instrument_currency != REPORTING_CURRENCY:
+            return f"USD Trust position basis; instrument currency {instrument_currency}; no FX applied"
+        if instrument_currency:
+            return "USD Trust position basis; no FX conversion applied"
+        return "USD Trust position basis; instrument currency not found; no FX applied"
+    return "Excluded: position currency not evidenced as USD; dated FX to USD required"
+
+
+def position_basis_assumption(record: dict[str, Any], status: str) -> str:
+    isin = str(record.get("isin", ""))
+    if isin == "XS0765564827":
+        return "Assumption: source minimum USD 200,000 treated as total Trust position"
+    if status == "usable invested notional" and record.get("source_section") == "Historical portfolio instrument":
+        return "Assumption: source amount across different line items treated as total Trust position"
+    if status == "usable invested notional":
+        return "Source-reported Trust position; no line-item normalization noted"
+    return "Excluded from Trust exposure aggregation"
+
+
 def extract_lifecycle_end(maturity: str) -> tuple[str, str]:
     call = re.search(r"Call effective:\s*([^;]+)", maturity, flags=re.IGNORECASE)
     if call:
@@ -92,14 +134,18 @@ def read_position_statuses() -> dict[str, str]:
 
 
 def product_cohort(record: dict[str, Any]) -> str:
+    if not str(record.get("issue_date", "")).strip():
+        return EVIDENCE_LIMITED_COHORT
     description = " ".join(
         str(record.get(field, ""))
         for field in ("structure", "product_name", "underlying", "coupon")
     ).lower()
-    if any(keyword in description for keyword in ("phoenix", "express", "barrier", "equity-linked", "dual index", "kick in")):
+    if any(keyword in description for keyword in ("phoenix", "express", "equity-linked")):
         return "Equity-linked"
-    if any(keyword in description for keyword in ("libor", "range accrual", "cms", "callable")):
+    if any(keyword in description for keyword in ("libor", "range accrual", "range-accrual", "cms", "swap", "fixed to variable", "rate-linked")):
         return "Modern rate-linked" if issue_year(str(record.get("issue_date", ""))) == 2026 else "Historical rate-linked"
+    if any(keyword in description for keyword in ("callable", "dual index", "kick in")):
+        return NON_RATE_LINKED_COHORT
     return "Conventional / specialist debt"
 
 
@@ -128,7 +174,7 @@ def holding_period_years(record: dict[str, Any]) -> float | None:
 def usable_position_amount(record: dict[str, Any], status: str) -> float | None:
     position = str(record.get("position_size", "Missing"))
     amount = parse_usd_amount(position)
-    if status != "usable invested notional" or amount is None:
+    if status != "usable invested notional" or amount is None or position_currency(record) != REPORTING_CURRENCY:
         return None
     return amount
 
@@ -410,6 +456,9 @@ def table_cells(record: dict[str, Any], statuses: dict[str, str], yaml_fields: l
         format_date(str(record.get("issue_date", ""))),
         lifecycle_end,
         position,
+        currency_fx_basis(record),
+        position_basis_assumption(record, status),
+        holding_period_basis(record),
         evidence_min,
         evidence_max,
         embedded_proxy,
@@ -461,6 +510,9 @@ def dashboard_table_data(records: list[dict[str, Any]], statuses: dict[str, str]
         "Issue date",
         "Lifecycle end",
         "Reported position (USD)",
+        "Currency / FX basis",
+        "Position basis assumption",
+        "Holding-period basis",
         "Evidence-only min (USD)",
         "Evidence-only max (USD)",
         "Proxy Cost_ Embedded product proxy (USD)",
@@ -904,8 +956,8 @@ def dashboard_html(records: list[dict[str, Any]], statuses: dict[str, str]) -> s
             cell.classList.toggle('numeric-column', numericColumns[index]);
             cell.classList.toggle('usd-column', usdColumns[index]);
         }});
-        const curatedColumnCount = 13;
-        const curatedColumnWidths = [120, 340, 180, 130, 150, 170, 190, 190, 190, 190, 190, 190, 190];
+        const curatedColumnCount = 16;
+        const curatedColumnWidths = [120, 340, 180, 130, 150, 170, 260, 300, 290, 190, 190, 190, 190, 190, 190, 190];
         const defaultColumnWidths = headerNames.map((_, index) => curatedColumnWidths[index] || 180);
         function createViewState(allColumns = false) {{
             const visible = allColumns ? headerNames.map((_, index) => index) : headerNames.map((_, index) => index).filter((index) => index < curatedColumnCount);

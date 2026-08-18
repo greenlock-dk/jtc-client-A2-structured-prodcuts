@@ -22,13 +22,13 @@ A proxy-based estimate is a sensitivity to a stated assumption, reported separat
 | Population | ISINs | Reported position basis | Treatment |
 | --- | ---: | ---: | --- |
 | Canonical portfolio inventory | 29 | n/a | Maintained in the lifecycle and exception register. |
-| Usable invested-notional basis | 21 | USD 71.4 million | All remain in the ISIN-level analysis, regardless of issuer issue-size availability. |
-| Currently cost-assessable rows | 19 | USD 70.2 million | Included in the current evidence-based and proxy-based scenario ranges. |
-| Currently unbenchmarked rows | 2 | USD 1.0 million | Retained in analysis and coverage, but not assigned a zero cost. |
-| Issuer issue-size unavailable | 3 | USD 12.4 million | Remain included because a usable Trust position is available. |
+| Usable invested-notional basis | 21 | USD 71.22 million | Source-reported USD amounts; includes explicit line-item and minimum-amount assumptions. |
+| Currently benchmark-covered rows | 17 | USD 67.82 million | Explicit equity- and rate-linked cohorts with valid issue-date holding proxies. |
+| Usable but unbenchmarked rows | 4 | USD 3.40 million | Retained in analysis and coverage, but not assigned a zero cost. |
+| Usable rows without issuer issue-size evidence | 2 | USD 2.40 million | Remain included because a usable USD Trust position is available. |
 | Position-basis exclusions | 8 | n/a | 2 issuer/outstanding-size values and 6 missing values; excluded from Trust-exposure aggregation. |
 
-The 21-ISIN, USD 71.4 million population includes `CH1484588913`, `XS0168875792`, and `XS0318585791`; the latter two remain without documentary issue-size evidence, while Leonteq now has a USD 10,000,000 documentary nominal amount. `XS0168875792` and `XS0318585791` remain explicitly evidence-limited, while `XS0298465822` remains in the 29-ISIN coverage register without a dollar aggregation because its Trust position is missing. The two currently unbenchmarked usable-basis rows are `XS0765564827` and `XS0318585791`.
+The 21-ISIN, USD 71.22 million population includes `CH1484588913`, `XS0168875792`, and `XS0318585791`; the latter two remain without documentary issue-size evidence, while Leonteq has a USD 10,000,000 documentary nominal amount. The four usable but unbenchmarked rows are `XS0168875792` and `XS0318585791` because primary structure evidence and issue dates are unavailable, `XS0297701319` because its USD/Gold and Nikkei range exposure is not a rate-linked benchmark match, and `XS0765564827` because it is conventional/specialist debt. `XS0298465822` remains in the 29-ISIN coverage register without a dollar aggregation because its Trust position is missing.
 
 The reported positions are a controlled exposure basis, not evidence of acquisition date, acquisition price, balance through time, sale proceeds, or redemption proceeds. Consequently, they cannot yet support a lifetime aggregation from acquisition through disposal or maturity.
 
@@ -36,10 +36,17 @@ The reported positions are a controlled exposure basis, not evidence of acquisit
 
 | Scenario | Cost-assessable ISINs | Included reported position basis | Minimum cost (USD) | Maximum cost (USD) | Basis |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Evidence-based | 19 | USD 70.2 million | 2,900,000 | 3,500,000 | Applicable sourced comparators only, including the historical all-in issuance comparator and modern annualised comparator. |
-| Proxy-based | 19 | USD 70.2 million | 3,100,000 | 3,700,000 | Evidence-based comparators plus the stated proxy comparator for the relevant equity-linked rows. |
+| Evidence-based | 17 | USD 67.82 million | 2,800,000 | 3,300,000 | Applicable sourced comparators only, including the historical all-in issuance comparator and modern annualised comparator. |
+| Proxy comparator | 17 | USD 67.82 million | 3,000,000 | 3,500,000 | Evidence-based comparators plus the stated proxy comparator for the explicit equity-linked rows. |
 
-All calculated monetary outcomes in this summary use `ROUND(X, -5)` and are shown to the nearest USD 100,000. This presentation convention does not alter reported Trust positions, issuer issue/outstanding values, or other source inputs collected from XLS and Bloomberg. The ranges are scenario outputs for non-overlapping cohorts, not a single historical lifetime-cost total. They exclude the two usable-basis `unbenchmarked` rows, account-level service costs, contingent exit costs, and potential retrocession. No issuer issue-size is used as a substitute for a Trust position or as a condition of inclusion.
+All calculated monetary outcomes in this summary use `ROUND(X, -5)` and are shown to the nearest USD 100,000. This presentation convention does not alter reported Trust positions, issuer issue/outstanding values, or other source inputs collected from XLS and Bloomberg. The ranges are scenario outputs for non-overlapping cohorts, not a single historical lifetime-cost total. They exclude the four usable-basis unbenchmarked rows, account-level service costs, contingent exit costs, and potential retrocession. No issuer issue-size is used as a substitute for a Trust position or as a condition of inclusion.
+
+### Calculation controls
+
+- The reporting currency is USD. Included position amounts are sourced in USD, so no FX conversion is applied. A future non-USD Trust position requires a dated FX source and rate convention before aggregation; instrument currency is retained as a separate product attribute.
+- Where a Trust purchase date is unavailable, the model assumes purchase date equals issue date and uses the reported call or maturity as the end event. This is an explicitly labelled holding-period proxy, not a confirmed Trust transaction history.
+- Historical amounts described in the source workbook as `across different line items` are assumed to be the total Trust position. The `XS0765564827` source wording `min 200,000` is assumed to represent a total USD 200,000 Trust position. Both assumptions remain reversible against Trust records.
+- Cohort selection is evidence-first: explicit equity-linked terms use the equity-linked comparator; explicit LIBOR, CMS, swap-rate, fixed-to-variable, or rate-linked terms use the historical rate-linked comparator; unsupported or non-rate-linked structures remain unbenchmarked.
 
 ### Evidence-led cost finding
 
@@ -64,7 +71,7 @@ The principal limitations are not portfolio completeness but transaction and pro
 
 ### Recommended decisions and next actions
 
-1. Authorise recovery of Trust acquisition, custody, balance, disposal, call, maturity, and redemption records for the largest position-basis ISINs, beginning with the 19-ISIN, USD 70.2 million cost-assessable population.
+1. Authorise recovery of Trust acquisition, custody, balance, disposal, call, maturity, and redemption records for the largest position-basis ISINs, beginning with the 17-ISIN, USD 67.82 million benchmark-covered population.
 2. Recover final terms and pricing supplements for the historical rate-linked cohort before adopting any component-level issuance or distribution assumption.
 3. Seek product- and account-level documents that identify the payer, recipient, calculation basis, amount, timing, and disclosure treatment of any third-party compensation. Until then, report retrocession as `not separately estimable`.
 4. Maintain evidence-based and proxy-base views as separate, non-additive results. Any low/base/high or alternative holding-period test remains an explicitly labelled assumption within the proxy-base view, not a third scenario. Require each applied rate to cite its specific source-register ID and comparability rationale.
